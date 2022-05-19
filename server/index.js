@@ -1,20 +1,16 @@
-require('dotenv').config()
+require('dotenv').config();
 
-const express = require('express')
-const sequelize = require('./db')
-const models = require('./models/models')
+const express = require('express');
+const sequelize = require('./db');
+const models = require('./models/models');
+const router = require('./routes/index');
 
-const server = express();
+const server = express(router);
 
-server.use(express.json())
+server.use(express.json());
+server.use('/api', router);
 
-const PORT = process.env.PORT
-
-const { User } = require('./models/models')
-server.post('/addUser', async (req, resp) => {
-   const user = await User.create({ email: req.body.email, password: req.body.password })
-   return resp.json(user)
-})
+const PORT = process.env.PORT;
 
 const start = async () => {
    try {
@@ -26,6 +22,6 @@ const start = async () => {
    } catch (e) {
       console.log(e)
    }
-}
+};
 
-start()
+start();
