@@ -15,11 +15,21 @@ const Basket = sequelize.define('basket', {
 const Product = sequelize.define('product', {
    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
    name: { type: DataTypes.STRING },
-   price: { type: DataTypes.STRING },
+   price: { type: DataTypes.INTEGER },
    img: { type: DataTypes.STRING }
+});
+
+const Type = sequelize.define('type', {
+   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+   name: { type: DataTypes.STRING }
+});
+
+const Brand = sequelize.define('brand', {
+   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+   name: { type: DataTypes.STRING }
 });
 
 User.hasOne(Basket);
 Basket.belongsTo(User);
 
-module.exports = { User, Product };
+module.exports = { User, Product, Type, Brand };
