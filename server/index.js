@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const express = require('express');
 const sequelize = require('./db');
+const errorMiddleware = require('./middleware/errorMiddleware');
 const models = require('./models/models');
 const router = require('./routes/index');
 
@@ -9,6 +10,7 @@ const server = express(router);
 
 server.use(express.json());
 server.use('/api', router);
+server.use(errorMiddleware)
 
 const PORT = process.env.PORT;
 
