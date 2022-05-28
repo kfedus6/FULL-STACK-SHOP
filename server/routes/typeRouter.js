@@ -3,6 +3,6 @@ const router = new Router();
 const typeContoller = require('../controller/typeController');
 
 router.post('/', typeContoller.create);
-router.get('/', typeContoller.getType);
+router.get('/', typeContoller.getTypes);
 
 module.exports = router;
