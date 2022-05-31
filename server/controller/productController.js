@@ -20,10 +20,35 @@ class ProductController {
         return res.json({ product })
     }
     async getProducts(req, res) {
-        return res.json({ "getProduct": "getProduct" })
+        let { brandId, typeId, limit, page } = req.body
+
+        if (limit == undefined) {
+            limit = 10
+        }
+
+        if (page == undefined) {
+            page = 1
+        }
+
+        let offset = page * limit - limit
+        let product
+
+        if (brandId == undefined && typeId == undefined) {
+            product = await Product.findAndCountAll({ limit: Number(limit), offset: Number(offset) })
+        } else if (brandId !== undefined) {
+            product = await Product.findAndCountAll({ where: { brandId } }, { limit: Number(limit), offset: Number(offset) })
+        } else if (typeId !== undefined) {
+            product = await Product.findAndCountAll({ where: { typeId } }, { limit: Number(limit), offset: Number(offset) })
+        } else if (brandId !== undefined && typeId !== undefined) {
+            product = await Product.findAndCountAll({ where: { typeId, brandId } }, { limit: Number(limit), offset: Number(offset) })
+        }
+
+        return res.json(product)
     }
     async getProductId(req, res) {
-        return res.json({ "getProductId": "getProductId" })
+        const { id } = req.params
+        const product = await Product.findOne({ where: { id }, include: [{ model: ProductInfo, as: 'info' }] })
+        return res.json({ product })
     }
 };
 
@@ -31,8 +56,3 @@ const productController = new ProductController();
 
 module.exports = productController;
 
-//Создать новый проект блог
-//Есть посты и есть авторы в бд
-//У постов есть картинки, у автором есть аватарки
-//Использовать SEQUALISE + UUID + JWT token + PATH + MIDDLEWARE + CRYPT
-// cоздать, получить, удалить, получить одного 
