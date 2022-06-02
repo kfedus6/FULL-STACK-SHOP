@@ -1,7 +1,10 @@
 import { UserAction, UserActionTypes, UserState } from "../../types/user";
 
 const initialState: UserState = {
-    users: [],
+    is_login: false,
+    is_admin: false,
+    user: Object,
+
 };
 
 export const userReducer = (state = initialState, action: UserAction) => {

@@ -1,5 +1,7 @@
 export interface UserState {
-    users: any[]
+    is_login: boolean,
+    is_admin: boolean,
+    user: {}
 };
 
 export enum UserActionTypes {

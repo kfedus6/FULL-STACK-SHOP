@@ -4,3 +4,5 @@ import { userReducer } from "./userReducer";
 export const rootReducers = combineReducers({
     user: userReducer
 });
+
+export type RootState = ReturnType<typeof rootReducers>;
