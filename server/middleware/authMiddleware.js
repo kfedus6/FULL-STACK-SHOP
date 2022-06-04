@@ -1,4 +1,4 @@
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
 const ApiError = require('../error/apierror');
 
 module.exports = (req, res, next) => {
@@ -8,4 +8,4 @@ module.exports = (req, res, next) => {
     }
     req.user = jwt.verify(token, process.env.codeSecret)
     next()
-}
+};

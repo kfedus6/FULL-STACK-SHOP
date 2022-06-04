@@ -10,15 +10,9 @@ import Home from './pages/Home';
 import NewProduct from './pages/NewProduct';
 import Products from './pages/Products';
 
-const App: any = () => {
+const App: React.FC = () => {
 
     const user = useTypedSelector(state => state.user)
-
-    //useSelector()
-    //Достать статус юзера
-    //Если юзер авторизован ему доступны следующие роуты: Продукты, Категории, Новинки, Выйти
-    //Если юзер авторизован и он администратор: Продукты, Категории, Новинки, Админ панель, Выйти
-    //Если не авторизован: Продукты, Категории, Новинки, Авторизоваться
 
     if (user.is_login === false && user.is_admin === false) {
         return (
@@ -58,6 +52,8 @@ const App: any = () => {
             </Routes>
         )
     }
+    //REDIRECT NA страничку ошибки
+    return <h1>qwe</h1>
 };
 
 export default App;

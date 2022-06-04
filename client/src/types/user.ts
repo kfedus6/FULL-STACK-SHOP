@@ -10,7 +10,7 @@ export enum UserActionTypes {
 
 interface FetchUserAction {
     type: UserActionTypes.FETCH_USERS,
-    payload: any[]
+    payload: any
 };
 
 export type UserAction = FetchUserAction;

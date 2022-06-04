@@ -26,7 +26,7 @@ class UserController {
         res.json({ token })
     }
 
-    async login(req, res) {
+    async login(req, res, next) {
         const { email, password } = req.body
         const user = await User.findOne({ where: { email } })
         if (user == null) {

@@ -14,7 +14,7 @@ module.exports = (admin, next) => {
         req.user = decoded
         next()
     }
-}
+};
 
 
 
