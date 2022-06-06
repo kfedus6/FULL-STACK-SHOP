@@ -1,16 +1,28 @@
 export interface UserState {
     is_login: boolean,
     is_admin: boolean,
-    user: {}
+    user: Object
 };
 
 export enum UserActionTypes {
-    FETCH_USERS = 'FETCH_USERS'
+    FETCH_USER_REGISTRATION = 'FETCH_USER_REGISTRATION',
+    FETCH_USER_LOGIN = 'FETCH_USER_LOGIN',
+    FETCH_USER_AUTHORIZATION = 'FETCH_USER_AUTHORIZATION'
 };
 
-interface FetchUserAction {
-    type: UserActionTypes.FETCH_USERS,
+interface FetchUserRegistrationAction {
+    type: UserActionTypes.FETCH_USER_REGISTRATION,
     payload: any
 };
 
-export type UserAction = FetchUserAction;
+interface FetchUserLoginAction {
+    type: UserActionTypes.FETCH_USER_LOGIN,
+    payload: any
+};
+
+interface FetchUserAuthorizationAction {
+    type: UserActionTypes.FETCH_USER_AUTHORIZATION,
+    payload: any
+};
+
+export type UserAction = FetchUserRegistrationAction | FetchUserLoginAction | FetchUserAuthorizationAction;

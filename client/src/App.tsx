@@ -12,6 +12,7 @@ import Products from './pages/Products';
 
 const App: React.FC = () => {
 
+    //Реализовать вызов диспатча
     const user = useTypedSelector(state => state.user)
 
     if (user.is_login === false && user.is_admin === false) {

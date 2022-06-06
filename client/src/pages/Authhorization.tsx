@@ -1,40 +1,70 @@
 import React, { useEffect, useState } from 'react';
 import { useAction } from '../hook/useAction';
 
-const Authhorization = () => {
+const Authhorization: React.FC = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [check, setCheck] = useState(false);
 
-    const { authorization } = useAction()
+    const { login, registration } = useAction()
 
-    useEffect(() => {
-        authorization("pashaNotAdmin@gmail.com", "passWR")
-    }, [])
-
-    const newUser = (e: any) => {
+    const loginOrRegister = async (e: any) => {
         e.preventDefault()
+        if (check === false) {
+            await login(email, password)
+        } else {
+            await registration(email, password)
+        }
         setEmail('')
         setPassword('')
     };
 
-    console.log(email)
-    console.log(password)
-
+    if (check === false) {
+        return (
+            <form className='user__form'>
+                <div className='user__auth-reg-input'>
+                    <input
+                        value={email}
+                        placeholder='Email'
+                        type="text"
+                        onChange={(e) => setEmail(e.target.value)} />
+                </div>
+                <div className='user__auth-reg-input'>
+                    <input
+                        value={password}
+                        placeholder='Password'
+                        type="text"
+                        onChange={(e) => setPassword(e.target.value)} />
+                </div>
+                <div className='user__auth-reg-btn'>
+                    <button onClick={loginOrRegister}>Увійти</button>
+                </div>
+                <div onClick={() => setCheck(true)} className='user__auth-reg-div'>Зареєструватись!</div>
+            </form >
+        )
+    }
     return (
-        <form>
-            <input
-                value={email}
-                placeholder='Email'
-                type="text"
-                onChange={(e) => setEmail(e.target.value)} />
-            <input
-                value={password}
-                placeholder='Password'
-                type="text"
-                onChange={(e) => setPassword(e.target.value)} />
-            <button onClick={newUser}>click</button>
+        <form className='user__form'>
+            <div className='user__auth-reg-input'>
+                <input
+                    value={email}
+                    placeholder='Email'
+                    type="text"
+                    onChange={(e) => setEmail(e.target.value)} />
+            </div>
+            <div className='user__auth-reg-input'>
+                <input
+                    value={password}
+                    placeholder='Password'
+                    type="text"
+                    onChange={(e) => setPassword(e.target.value)} />
+            </div>
+            <div className='user__auth-reg-btn'>
+                <button onClick={loginOrRegister}>Зареєструватись</button>
+            </div>
+            <div onClick={() => setCheck(false)} className='user__auth-reg-div'>Увійти!</div>
         </form >
-    );
+    )
 };
 
 export default Authhorization;

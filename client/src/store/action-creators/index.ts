@@ -1,5 +1,7 @@
-import { authorization } from "../action-creators/userAction";
+import { registration, login, authorization } from "../action-creators/userAction";
 
 export default {
-    authorization,
-}
+    registration,
+    login,
+    authorization
+};

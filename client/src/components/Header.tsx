@@ -2,9 +2,10 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useTypedSelector } from '../hook/useTypedSelector';
 
-const Header: any = () => {
+const Header: React.FC = () => {
 
     const user = useTypedSelector(state => state.user)
+    console.log(user)
 
     if (user.is_login === false && user.is_admin === false) {
         return (
@@ -38,6 +39,7 @@ const Header: any = () => {
             </div>
         )
     }
+    return <h1>ewq</h1>
 };
 
 export default Header;
