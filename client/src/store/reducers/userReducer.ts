@@ -3,7 +3,8 @@ import { UserAction, UserActionTypes, UserState } from "../../types/user";
 const initialState: UserState = {
     is_login: false,
     is_admin: false,
-    user: {},
+    error: null,
+    user: {}
 };
 
 export const userReducer = (state = initialState, action: UserAction) => {
@@ -16,6 +17,9 @@ export const userReducer = (state = initialState, action: UserAction) => {
         }
         case UserActionTypes.FETCH_USER_AUTHORIZATION: {
             return { ...state }
+        }
+        case UserActionTypes.FETCH_USER_ERROR: {
+            return { ...state, error: action.payload }
         }
         default: {
             return state

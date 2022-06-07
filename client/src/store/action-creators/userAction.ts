@@ -10,8 +10,8 @@ export const registration = (email: string, password: string) => async (dispathc
         localStorage.setItem('token', data.token)
         const user: any = jwt_decode(data.token)
         dispathc({ type: UserActionTypes.FETCH_USER_REGISTRATION, payload: { is_admin: user.admin, user: user } })
-    } catch (e: any) {
-        console.log(e.response.data.message)
+    } catch (err: any) {
+        dispathc({ type: UserActionTypes.FETCH_USER_ERROR, payload: err.response.data.message })
     }
 };
 
@@ -24,8 +24,8 @@ export const login = (email: string, password: string) => async (dispatch: Dispa
         const user: any = jwt_decode(data.token)
         dispatch({ type: UserActionTypes.FETCH_USER_LOGIN, payload: { is_login: true, is_admin: user.admin, user: user } })
         //navigate("/path/to/push");
-    } catch (e: any) {
-        console.log(e.response.data.message)
+    } catch (err: any) {
+        dispatch({ type: UserActionTypes.FETCH_USER_ERROR, payload: err.response.data.message })
     }
 };
 

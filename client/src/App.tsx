@@ -14,6 +14,7 @@ const App: React.FC = () => {
 
     //Реализовать вызов диспатча
     const user = useTypedSelector(state => state.user)
+    console.log(user.error)
 
     if (user.is_login === false && user.is_admin === false) {
         return (

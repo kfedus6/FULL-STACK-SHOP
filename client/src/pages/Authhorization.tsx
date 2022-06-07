@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { FormEvent, useState } from 'react';
 import { useAction } from '../hook/useAction';
+import { useTypedSelector } from '../hook/useTypedSelector';
 
 const Authhorization: React.FC = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [check, setCheck] = useState(false);
 
-    const { login, registration } = useAction()
+    const { login, registration } = useAction();
 
-    const loginOrRegister = async (e: any) => {
+    const user = useTypedSelector(state => state.user);
+
+    const loginOrRegister = async (e: FormEvent) => {
         e.preventDefault()
         if (check === false) {
             await login(email, password)
