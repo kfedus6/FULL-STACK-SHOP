@@ -9,7 +9,7 @@ export enum UserActionTypes {
     FETCH_USER_REGISTRATION = 'FETCH_USER_REGISTRATION',
     FETCH_USER_LOGIN = 'FETCH_USER_LOGIN',
     FETCH_USER_AUTHORIZATION = 'FETCH_USER_AUTHORIZATION',
-    FETCH_USER_ERROR = 'FETCH_USER_ERROR'
+    FETCH_USER_ERROR = 'FETCH_USER_ERROR',
 };
 
 interface FetchUserRegistrationAction {
@@ -32,4 +32,8 @@ interface FetchUserErrorAction {
     payload: string | null
 };
 
-export type UserAction = FetchUserRegistrationAction | FetchUserLoginAction | FetchUserAuthorizationAction | FetchUserErrorAction;
+export type UserAction =
+    FetchUserRegistrationAction |
+    FetchUserLoginAction |
+    FetchUserAuthorizationAction |
+    FetchUserErrorAction;

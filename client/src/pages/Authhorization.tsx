@@ -1,4 +1,5 @@
 import React, { FormEvent, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAction } from '../hook/useAction';
 import { useTypedSelector } from '../hook/useTypedSelector';
 
@@ -9,11 +10,14 @@ const Authhorization: React.FC = () => {
 
     const { login, registration } = useAction();
 
+    const navigate = useNavigate();
+
     const user = useTypedSelector(state => state.user);
 
     const loginOrRegister = async (e: FormEvent) => {
         e.preventDefault()
         if (check === false) {
+            navigate(-1)
             await login(email, password)
         } else {
             await registration(email, password)
