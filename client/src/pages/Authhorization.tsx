@@ -17,7 +17,7 @@ const Authhorization: React.FC = () => {
     const loginOrRegister = async (e: FormEvent) => {
         e.preventDefault()
         if (check === false) {
-            navigate(-1)
+            navigate('/')
             await login(email, password)
         } else {
             await registration(email, password)
