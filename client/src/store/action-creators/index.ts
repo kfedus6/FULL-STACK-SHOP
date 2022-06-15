@@ -1,7 +1,8 @@
-import { registration, login, authorization } from "../action-creators/userAction";
+import { registration, login, authorization, loginExit } from "../action-creators/userAction";
 
 export default {
     registration,
     login,
-    authorization
+    authorization,
+    loginExit
 };

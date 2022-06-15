@@ -8,6 +8,7 @@ export interface UserState {
 export enum UserActionTypes {
     FETCH_USER_REGISTRATION = 'FETCH_USER_REGISTRATION',
     FETCH_USER_LOGIN = 'FETCH_USER_LOGIN',
+    FETCH_USER_LOGINEXIT = 'FETCH_USER_LOGINEXIT',
     FETCH_USER_AUTHORIZATION = 'FETCH_USER_AUTHORIZATION',
     FETCH_USER_ERROR = 'FETCH_USER_ERROR',
 };
@@ -19,6 +20,11 @@ interface FetchUserRegistrationAction {
 
 interface FetchUserLoginAction {
     type: UserActionTypes.FETCH_USER_LOGIN,
+    payload: any
+};
+
+interface FetchUserLoginExitAction {
+    type: UserActionTypes.FETCH_USER_LOGINEXIT,
     payload: any
 };
 
@@ -36,4 +42,5 @@ export type UserAction =
     FetchUserRegistrationAction |
     FetchUserLoginAction |
     FetchUserAuthorizationAction |
-    FetchUserErrorAction;
+    FetchUserErrorAction |
+    FetchUserLoginExitAction;

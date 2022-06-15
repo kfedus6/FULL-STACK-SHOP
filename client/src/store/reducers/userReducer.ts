@@ -10,16 +10,19 @@ const initialState: UserState = {
 export const userReducer = (state = initialState, action: UserAction) => {
     switch (action.type) {
         case UserActionTypes.FETCH_USER_REGISTRATION: {
-            return { ...state, is_admin: action.payload.is_admin, user: action.payload.user }
+            return { ...state, ...action.payload }
         }
         case UserActionTypes.FETCH_USER_LOGIN: {
             return { ...state, is_login: action.payload.is_login, is_admin: action.payload.is_admin, user: action.payload.user }
         }
         case UserActionTypes.FETCH_USER_AUTHORIZATION: {
-            return { ...state }
+            return { ...state, ...action.payload }
         }
         case UserActionTypes.FETCH_USER_ERROR: {
             return { ...state, error: action.payload }
+        }
+        case UserActionTypes.FETCH_USER_LOGINEXIT: {
+            return { ...state, ...action.payload }
         }
         default: {
             return state

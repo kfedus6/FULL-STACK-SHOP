@@ -1,61 +1,27 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import Layout from './components/Layout';
-import { useTypedSelector } from './hook/useTypedSelector';
-import AdminPanel from './pages/AdminPanel';
-import Authhorization from './pages/Authhorization';
-import Category from './pages/Category';
-import Exit from './pages/Exit';
-import Home from './pages/Home';
-import NewProduct from './pages/NewProduct';
-import Products from './pages/Products';
+import React, { useEffect } from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import AppRouter from './components/AppRouter';
+import { useAction } from './hook/useAction';
 
-const App: React.FC = () => {
+const App: React.FC | any = () => {
 
-    //Реализовать вызов диспатча
-    const user = useTypedSelector(state => state.user)
-    console.log(user.error)
+    const { authorization } = useAction();
 
-    if (user.is_login === false && user.is_admin === false) {
-        return (
-            <Routes>
-                <Route path='/' element={<Layout />}>
-                    <Route index element={<Home />} />
-                    <Route path='products' element={<Products />} />
-                    <Route path='category' element={<Category />} />
-                    <Route path='newProduct' element={<NewProduct />} />
-                    <Route path='authorization' element={<Authhorization />} />
-                </Route>
-            </Routes>
-        )
-    } else if (user.is_login === true && user.is_admin === false) {
-        return (
-            <Routes>
-                <Route path='/' element={<Layout />}>
-                    <Route index element={<Home />} />
-                    <Route path='products' element={<Products />} />
-                    <Route path='category' element={<Category />} />
-                    <Route path='newProduct' element={<NewProduct />} />
-                    <Route path='exit' element={<Exit />} />
-                </Route>
-            </Routes>
-        )
-    } else if (user.is_admin === true && user.is_login === true) {
-        return (
-            <Routes>
-                <Route path='/' element={<Layout />}>
-                    <Route index element={<Home />} />
-                    <Route path='products' element={<Products />} />
-                    <Route path='category' element={<Category />} />
-                    <Route path='newProduct' element={<NewProduct />} />
-                    <Route path='adminPanel' element={<AdminPanel />} />
-                    <Route path='exit' element={<Exit />} />
-                </Route>
-            </Routes>
-        )
+    useEffect(() => {
+        console.log()
+        checkUser()
+    }, [])
+
+    const checkUser = async () => {
+        await authorization()
     }
-    //REDIRECT NA страничку ошибки
-    return <h1>qwe</h1>
+
+    return (
+        <BrowserRouter>
+            <AppRouter />
+        </BrowserRouter>
+    )
+
 };
 
 export default App;

@@ -1,23 +1,28 @@
-import React, { FormEvent, useState } from 'react';
+import React, { FormEvent, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAction } from '../hook/useAction';
 import { useTypedSelector } from '../hook/useTypedSelector';
 
 const Authhorization: React.FC = () => {
+
+    const { user } = useTypedSelector(state => state);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (user.is_login) {
+            navigate('/')
+        }
+    }, [user])
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [check, setCheck] = useState(false);
 
     const { login, registration } = useAction();
 
-    const navigate = useNavigate();
-
-    const user = useTypedSelector(state => state.user);
-
     const loginOrRegister = async (e: FormEvent) => {
         e.preventDefault()
         if (check === false) {
-            navigate('/')
             await login(email, password)
         } else {
             await registration(email, password)
@@ -47,7 +52,7 @@ const Authhorization: React.FC = () => {
                     <button onClick={loginOrRegister}>Увійти</button>
                 </div>
                 <div onClick={() => setCheck(true)} className='user__auth-reg-div'>Зареєструватись!</div>
-            </form >
+            </form>
         )
     }
     return (
@@ -72,6 +77,9 @@ const Authhorization: React.FC = () => {
             <div onClick={() => setCheck(false)} className='user__auth-reg-div'>Увійти!</div>
         </form >
     )
+
 };
 
 export default Authhorization;
+
+

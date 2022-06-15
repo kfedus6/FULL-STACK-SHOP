@@ -1,8 +1,16 @@
 import React from 'react';
+import { useAction } from '../hook/useAction';
 
 const Exit = () => {
+
+    const { loginExit } = useAction();
+
+    const exit = async () => {
+        await loginExit()
+    }
+
     return (
-        <div>Exit</div>
+        <button onClick={exit}>Вийти</button>
     );
 };
 
