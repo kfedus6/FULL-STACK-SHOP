@@ -8,7 +8,6 @@ const App: React.FC | any = () => {
     const { authorization } = useAction();
 
     useEffect(() => {
-        console.log()
         checkUser()
     }, [])
 

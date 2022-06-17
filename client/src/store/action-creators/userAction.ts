@@ -37,6 +37,7 @@ export const authorization = () => async (dispatch: Dispatch<UserAction>) => {
 };
 
 export const loginExit = () => async (dispathc: Dispatch<UserAction>) => {
+    localStorage.removeItem('token')
     dispathc({ type: UserActionTypes.FETCH_USER_LOGINEXIT, payload: { is_login: false, is_admin: false, user: {} } })
 }
 
