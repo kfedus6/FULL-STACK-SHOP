@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAction } from '../hook/useAction';
 
-const Exit = () => {
+const Exit: React.FC = () => {
 
     const { loginExit } = useAction();
 
@@ -10,7 +10,7 @@ const Exit = () => {
     }
 
     return (
-        <button onClick={exit}>Вийти</button>
+        <div className='btn__exit' onClick={exit}>Вийти</div>
     );
 };
 

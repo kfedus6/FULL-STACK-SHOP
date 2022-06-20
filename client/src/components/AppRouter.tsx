@@ -28,18 +28,15 @@ const AppRouter = () => {
         )
     } else if (user.is_login === true && user.is_admin === false) {
         return (
-            <>
-                <Routes>
-                    <Route path='/' element={<Layout />}>
-                        <Route index element={<Home />} />
-                        <Route path='products' element={<Products />} />
-                        <Route path='category' element={<Category />} />
-                        <Route path='newProduct' element={<NewProduct />} />
-                        <Route path='authorization' element={<Authhorization />} />
-                    </Route>
-                </Routes>
-                <Exit />
-            </>
+            <Routes>
+                <Route path='/' element={<Layout />}>
+                    <Route index element={<Home />} />
+                    <Route path='products' element={<Products />} />
+                    <Route path='category' element={<Category />} />
+                    <Route path='newProduct' element={<NewProduct />} />
+                    <Route path='authorization' element={<Authhorization />} />
+                </Route>
+            </Routes>
         )
     } else if (user.is_admin === true && user.is_login === true) {
         return (

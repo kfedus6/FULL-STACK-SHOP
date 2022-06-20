@@ -3,7 +3,7 @@ import { ProductAction, ProductActionTypes, ProductState } from "../../types/pro
 const initialState: ProductState = {
     types: [],
     brands: [],
-    products: { count: 0, rows: [] } || [],
+    products: { count: 0, rows: [] }
 };
 
 export const productReducer = (state = initialState, action: ProductAction) => {
@@ -11,9 +11,15 @@ export const productReducer = (state = initialState, action: ProductAction) => {
         case ProductActionTypes.FETCH_PRODUCTS: {
             return { ...state, products: action.payload }
         }
+        case ProductActionTypes.FETCH_BRANDS: {
+            return { ...state, brands: action.payload }
+        }
+        case ProductActionTypes.FETCH_TYPES: {
+            return { ...state, types: action.payload }
+        }
         default: {
             return state
         }
     }
-}
+};
 

@@ -10,19 +10,19 @@ export enum ProductActionTypes {
     FETCH_PRODUCTS = 'FETCH_PRODUCTS',
 };
 
-interface FethcTypesAction {
+interface FetchTypesAction {
     type: ProductActionTypes.FETCH_TYPES,
     payload: []
 };
 
-interface FethcBrandsAction {
+interface FetchBrandsAction {
     type: ProductActionTypes.FETCH_BRANDS,
     payload: []
 };
 
-interface FethcProductsAction {
+interface FetchProductsAction {
     type: ProductActionTypes.FETCH_PRODUCTS,
     payload: {}
 };
 
-export type ProductAction = FethcTypesAction | FethcBrandsAction | FethcProductsAction;
+export type ProductAction = FetchTypesAction | FetchBrandsAction | FetchProductsAction;

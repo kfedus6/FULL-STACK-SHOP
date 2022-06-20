@@ -17,7 +17,7 @@ class ProductController {
             }
         }
 
-        return res.json({ product })
+        return res.json(product)
     }
     async getProducts(req, res) {
         let { brandId, typeId, limit, page } = req.body

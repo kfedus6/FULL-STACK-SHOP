@@ -1,10 +1,12 @@
 import { registration, login, authorization, loginExit } from "../action-creators/userAction";
-import { fetchProducts } from "./productAction";
+import { fetchProducts, fetchBrands, fetchTypes } from "./productAction";
 
 export default {
     registration,
     login,
     authorization,
     loginExit,
-    fetchProducts
+    fetchProducts,
+    fetchBrands,
+    fetchTypes
 };

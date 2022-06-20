@@ -4,31 +4,41 @@ import { useTypedSelector } from '../hook/useTypedSelector';
 
 const Products: React.FC = () => {
 
-    const { fetchProducts } = useAction()
-    const { products }: any = useTypedSelector(state => state.products)
+    const { fetchProducts, fetchBrands, fetchTypes } = useAction()
+    const { products, brands, types }: any = useTypedSelector(state => state.products)
 
     useEffect(() => {
-        fetchProducts()
+        fetchProducts();
+        fetchBrands();
+        fetchTypes();
     }, []);
 
+    console.log(brands)
+    console.log(types)
+
     return (
-        <>
-            {
-                products ?
-                    products.rows.map((item: { id: number, name: string, price: string, img: string }) => {
-                        return (
-                            <div key={item.id}>
-                                <div>{item.name}</div>
-                                <div>{item.price}</div>
-                                <img src={item.img} alt='product'></img>
-                            </div>
-                        )
-                    })
-                    :
-                    <h1>Загрузка</h1>
-            }
-        </>
-    );
+        <section className='shop'>
+            <div>
+                <span>Всі товари</span>
+            </div>
+            <div className='product__content'>
+                {
+                    products ?
+                        products.rows.map((item: { id: number, name: string, price: string, img: string }) => {
+                            return (
+                                <div key={item.id} className='product__box'>
+                                    <img className='product__img' src={process.env.REACT_APP_API_URL + item.img} />
+                                    <h3 className='product__name'>{item.name}</h3>
+                                    <span className='product__price'>{item.price} &#8372;</span>
+                                </div>
+                            )
+                        })
+                        :
+                        <h1>Загрузка</h1>
+                }
+            </div>
+        </section>
+    )
 };
 
 export default Products;
