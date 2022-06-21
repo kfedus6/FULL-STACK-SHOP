@@ -1,13 +1,15 @@
 export interface ProductState {
     types: [],
     brands: [],
-    products: { count: number, rows: {} }
+    products: { count: number, rows: {} },
+    is_loader: boolean
 };
 
 export enum ProductActionTypes {
     FETCH_TYPES = 'FETCH_TYPES',
     FETCH_BRANDS = 'FETCH_BRANDS',
     FETCH_PRODUCTS = 'FETCH_PRODUCTS',
+    FETCH_LOADER = 'FETCH_LOADER'
 };
 
 interface FetchTypesAction {
@@ -25,4 +27,9 @@ interface FetchProductsAction {
     payload: {}
 };
 
-export type ProductAction = FetchTypesAction | FetchBrandsAction | FetchProductsAction;
+interface FetchLoaderAction {
+    type: ProductActionTypes.FETCH_LOADER,
+    payload: boolean
+};
+
+export type ProductAction = FetchTypesAction | FetchBrandsAction | FetchProductsAction | FetchLoaderAction;

@@ -1,4 +1,6 @@
-*{
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,600;0,700;1,200;1,600&display=swap');
+
+* {
     padding: 0;
     margin: 0;
     text-decoration: none;
@@ -6,11 +8,15 @@
     box-sizing: border-box;
 }
 
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
 .navbar {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background: rgb(230,230,250);
+    background: rgb(230, 230, 250);
     min-height: 80px;
     font-family: Gill Sans, sans-serif;
 }
@@ -29,7 +35,6 @@
     width: 50%;
 }
 
-
 .navbar__links li a {
     color: black;
     font-size: 17px;
@@ -38,7 +43,6 @@
 
 .navbar__links li a:hover {
     border-bottom: 2px solid black;
-
 }
 
 .active {
@@ -65,7 +69,7 @@ section {
 
 .product__content {
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(350px,auto));
+    grid-template-columns: repeat(auto-fit, minmax(220px, auto));
     gap: 1.5rem;
 }
 
@@ -86,4 +90,202 @@ section {
 
 .product__name {
     margin-bottom: 0.5rem;
+}
+
+/* Loader */ 
+
+.lds-roller {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+.lds-roller div {
+    animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    transform-origin: 40px 40px;
+}
+.lds-roller div:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: black;
+    margin: -4px 0 0 -4px;
+}
+  .lds-roller div:nth-child(1) {
+    animation-delay: -0.036s;
+}
+  .lds-roller div:nth-child(1):after {
+    top: 63px;
+    left: 63px;
+}
+  .lds-roller div:nth-child(2) {
+    animation-delay: -0.072s;
+}
+  .lds-roller div:nth-child(2):after {
+    top: 68px;
+    left: 56px;
+}
+  .lds-roller div:nth-child(3) {
+    animation-delay: -0.108s;
+}
+.lds-roller div:nth-child(3):after {
+    top: 71px;
+    left: 48px;
+}
+.lds-roller div:nth-child(4) {
+    animation-delay: -0.144s;
+}
+.lds-roller div:nth-child(4):after {
+    top: 72px;
+    left: 40px;
+}
+.lds-roller div:nth-child(5) {
+    animation-delay: -0.18s;
+}
+.lds-roller div:nth-child(5):after {
+    top: 71px;
+    left: 32px;
+}
+  .lds-roller div:nth-child(6) {
+    animation-delay: -0.216s;
+}
+.lds-roller div:nth-child(6):after {
+    top: 68px;
+    left: 24px;
+}
+.lds-roller div:nth-child(7) {
+    animation-delay: -0.252s;
+}
+.lds-roller div:nth-child(7):after {
+    top: 63px;
+    left: 17px;
+}
+.lds-roller div:nth-child(8) {
+    animation-delay: -0.288s;
+}
+.lds-roller div:nth-child(8):after {
+    top: 56px;
+    left: 12px;
+}
+@keyframes lds-roller {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+}
+
+/* Authorization */
+ 
+.container{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+.container .form {
+    padding: 30px;
+}
+
+.container .form .title {
+    position: relative;
+    font-size: 27px;
+    font-weight: 600;
+}
+
+.form .title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 30px;
+    background-color: blue;
+    border-radius: 25px;
+}
+
+.form .input-field {
+    position: relative;
+    height: 50px;
+    width: 300px;
+    margin-top:30px;
+}
+
+.input-field input {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 0 35px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    border-bottom: 2px solid #ccc;
+    border-top:2px solid transparent;
+}
+
+.input-field input:focus {
+    border-bottom-color: blue;
+}
+
+.input-field i {
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+    color:#999;
+    font-size: 23px;
+}
+
+.input-field input:focus ~ i {
+    color: blue;
+}
+
+.input-field i .icon {
+    left: 0;
+}
+
+.input-field i.eye {
+    right: 0;
+}
+
+.form .text {
+    color:#333;
+    font-size: 14px;
+}
+
+.form a.text {
+    color: blue;
+    text-decoration: none;
+}
+
+.form a:hover{
+    text-decoration: underline;
+}
+
+.form .button {
+    margin-top: 35px;
+}
+
+.form .button input {
+    border: none;
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-radius: 6px;
+    background-color: blue;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button input:hover {
+    background-color: #265df2;
+} 
+
+.form .login-signup {
+    margin-top: 30px;
+    text-align: center;
 }

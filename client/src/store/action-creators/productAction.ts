@@ -2,9 +2,14 @@ import { Dispatch } from "react";
 import { $host } from "../../http";
 import { ProductAction, ProductActionTypes } from "../../types/product";
 
-export const fetchProducts = () => async (dispatch: Dispatch<ProductAction>) => {
+export const fetchProducts = (data = {}) => async (dispatch: Dispatch<ProductAction>) => {
+    dispatch({ type: ProductActionTypes.FETCH_LOADER, payload: true })
     try {
-        const response = await $host.get('api/product/')
+        const response = await $host.get('api/product/', {
+            params: {
+                ...data
+            }
+        })
         dispatch({ type: ProductActionTypes.FETCH_PRODUCTS, payload: response.data })
     } catch (e) {
         console.log(e)

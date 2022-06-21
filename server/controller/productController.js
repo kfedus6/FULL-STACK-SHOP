@@ -20,10 +20,12 @@ class ProductController {
         return res.json(product)
     }
     async getProducts(req, res) {
-        let { brandId, typeId, limit, page } = req.body
+        let { brandId, typeId, limit, page } = req.query
+
+        console.log(req.query)
 
         if (limit == undefined) {
-            limit = 10
+            limit = 12
         }
 
         if (page == undefined) {
