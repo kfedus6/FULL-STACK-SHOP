@@ -66,15 +66,10 @@ const Authhorization: React.FC = () => {
                                     <a href='#' className='text signup-text' onClick={() => setCheck(true)}>Зареєструватись!</a>
                                 </span>
                             </div>
-                            {/*  <div>
-                                <button onClick={loginOrRegister}>Увійти</button>
-                            </div>
-                            <div onClick={() => setCheck(true)} className='user__auth-reg-div'>Зареєструватись!</div> */}
                         </form>
                     </div>
                 </div>
             </div>
-
         )
     }
     return (
@@ -112,29 +107,7 @@ const Authhorization: React.FC = () => {
                 </div>
             </div>
         </div>
-
-        /*   <form className='user__form'>
-              <div className='user__auth-reg-input'>
-                  <input
-                      value={email}
-                      placeholder='Email'
-                      type="text"
-                      onChange={(e) => setEmail(e.target.value)} />
-              </div>
-              <div className='user__auth-reg-input'>
-                  <input
-                      value={password}
-                      placeholder='Password'
-                      type="text"
-                      onChange={(e) => setPassword(e.target.value)} />
-              </div>
-              <div className='user__auth-reg-btn'>
-                  <button onClick={loginOrRegister}>Зареєструватись</button>
-              </div>
-              <div onClick={() => setCheck(false)} className='user__auth-reg-div'>Увійти!</div>
-          </form > */
     )
-
 };
 
 export default Authhorization;
