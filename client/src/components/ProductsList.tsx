@@ -20,11 +20,7 @@ const ProductsList: React.FC = () => {
             <div className='product__content'>
                 {product = products.rows.map((item: { id: number, name: string, price: string, img: string }) => {
                     return (
-                        <div key={item.id} className='product__box'>
-                            <img className='product__img' src={process.env.REACT_APP_API_URL + item.img} />
-                            <h4 className='product__name'>{item.name}</h4>
-                            <span className='product__price'>{item.price} &#8372;</span>
-                        </div>
+                        <ProductItem key={item.id} item={item} />
                     )
                 })}
             </div>

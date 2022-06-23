@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,600;0,700;1,200;1,600&display=swap');
-
+/* Header */
 * {
     padding: 0;
     margin: 0;
@@ -57,20 +57,17 @@ body{
 
 /* Product */
 
-section {
-    padding: 4rem 0 3rem;
-}
-
 .shop {
     max-width: 1150px;
     margin: auto;
     width: 100%;
+    padding: 35px 0 30px;
 }
 
 .product__content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, auto));
-    gap: 1.5rem;
+    gap: 25px;
 }
 
 .product__box {
@@ -85,11 +82,11 @@ section {
 .product__img {
     width: 100%;
     height: auto;
-    margin-bottom: 0.5rem;
+    margin-bottom: 5px;
 }
 
 .product__name {
-    margin-bottom: 0.5rem;
+    margin-bottom: 5px;
 }
 
 /* Loader */ 
@@ -289,3 +286,20 @@ section {
     margin-top: 30px;
     text-align: center;
 }
+
+/* Footer */
+
+.page {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+footer {
+    padding: 20px;
+    background-color: #999;
+    margin-top: auto;
+}
+
+/* Category */

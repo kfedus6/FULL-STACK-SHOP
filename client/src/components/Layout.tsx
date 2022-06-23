@@ -5,7 +5,7 @@ import Header from './Header';
 
 const Layout = () => {
     return (
-        <>
+        <div className='page'>
             <header>
                 <Header />
             </header>
@@ -15,7 +15,7 @@ const Layout = () => {
             <footer>
                 <Footer />
             </footer>
-        </>
+        </div>
     );
 };
 
