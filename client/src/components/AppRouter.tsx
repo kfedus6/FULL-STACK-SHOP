@@ -7,12 +7,15 @@ import Category from '../pages/Category';
 import Exit from '../pages/Exit';
 import Home from '../pages/Home';
 import NewProduct from '../pages/NewProduct';
+import Product from '../pages/Product';
 import Products from '../pages/Products';
 import Layout from './Layout';
 
 const AppRouter = () => {
 
     const { user } = useTypedSelector(state => state)
+
+    console.log(user)
 
     if (user.is_login === false && user.is_admin === false) {
         return (
@@ -23,6 +26,7 @@ const AppRouter = () => {
                     <Route path='category' element={<Category />} />
                     <Route path='newProduct' element={<NewProduct />} />
                     <Route path='authorization' element={<Authhorization />} />
+                    <Route path='products/product/:id' element={<Product />} />
                 </Route>
             </Routes>
         )

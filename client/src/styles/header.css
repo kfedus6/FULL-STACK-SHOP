@@ -1,0 +1,42 @@
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: rgb(230, 230, 250);
+    min-height: 80px;
+    font-family: Gill Sans, sans-serif;
+}
+
+.logo {
+    color: black;
+    font-size: 35px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.navbar__links {
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+}
+
+.navbar__links li a {
+    color: black;
+    font-size: 17px;
+    text-transform: uppercase;
+}
+
+.navbar__links li a:hover {
+    border-bottom: 2px solid black;
+}
+
+.active {
+    border-bottom: 2px solid black;
+}
+
+.btn__exit {
+    font-size: 17px;
+    cursor: pointer;
+    text-transform: uppercase;
+}

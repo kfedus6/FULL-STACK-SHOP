@@ -43,39 +43,6 @@ class ProductController {
             product = await Product.findAndCountAll({ where: { typeId, brandId } }, { limit: Number(limit), offset: Number(offset) })
         }
 
-        /* 
-                if (Object.keys(req.query).length == 0) {
-                    product = await Product.findAndCountAll({ limit: Number(limit), offset: Number(offset) })
-                    console.log(req.query, 1)
-                } else {
-                    console.log(2)
-                    console.log(isNaN(brandId), isNaN(typeId))
-                    if (isNaN(brandId) == false && isNaN(typeId) == false) {
-                        console.log('if')
-                        product = await Product.findAndCountAll({ limit: Number(limit), offset: Number(offset) })
-                    } else if (isNaN(brandId) !== false && isNaN(typeId) == false) {
-                        product = await Product.findAndCountAll({ where: { brandId } }, { limit: Number(limit), offset: Number(offset) })
-                    } else if (isNaN(typeId) !== false && isNaN(brandId) == false) {
-                        product = await Product.findAndCountAll({ where: { typeId } }, { limit: Number(limit), offset: Number(offset) })
-                    } else if (isNaN(brandId) !== false && isNaN(typeId) !== false) {
-                        product = await Product.findAndCountAll({ where: { typeId, brandId } }, { limit: Number(limit), offset: Number(offset) })
-                    }
-                }
-         */
-
-
-        /*
-        if (brandId == undefined && typeId == undefined) {
-            product = await Product.findAndCountAll({ limit: Number(limit), offset: Number(offset) })
-        } else if (brandId !== undefined) {
-            product = await Product.findAndCountAll({ where: { brandId } }, { limit: Number(limit), offset: Number(offset) })
-        } else if (typeId !== undefined) {
-            product = await Product.findAndCountAll({ where: { typeId } }, { limit: Number(limit), offset: Number(offset) })
-        } else if (brandId !== undefined && typeId !== undefined) {
-            product = await Product.findAndCountAll({ where: { typeId, brandId } }, { limit: Number(limit), offset: Number(offset) })
-        }
-        */
-
         return res.json(product)
     }
     async getProductId(req, res) {

@@ -9,6 +9,7 @@ export enum ProductActionTypes {
     FETCH_TYPES = 'FETCH_TYPES',
     FETCH_BRANDS = 'FETCH_BRANDS',
     FETCH_PRODUCTS = 'FETCH_PRODUCTS',
+    FETCH_PRODUCT = 'FETCH_PRODUCT',
     FETCH_LOADER = 'FETCH_LOADER'
 };
 
@@ -27,9 +28,14 @@ interface FetchProductsAction {
     payload: {}
 };
 
+interface FetchProductAction {
+    type: ProductActionTypes.FETCH_PRODUCT,
+    payload: {}
+};
+
 interface FetchLoaderAction {
     type: ProductActionTypes.FETCH_LOADER,
     payload: boolean
 };
 
-export type ProductAction = FetchTypesAction | FetchBrandsAction | FetchProductsAction | FetchLoaderAction;
+export type ProductAction = FetchTypesAction | FetchBrandsAction | FetchProductsAction | FetchLoaderAction | FetchProductAction;

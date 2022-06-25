@@ -5,6 +5,7 @@ import { useTypedSelector } from '../hook/useTypedSelector';
 import { HiOutlineMail } from 'react-icons/hi';
 import { BiLockAlt } from 'react-icons/bi';
 import { BsEyeSlash } from 'react-icons/bs';
+import '../styles/authorization.css';
 
 const Authhorization: React.FC = () => {
 

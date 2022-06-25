@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useTypedSelector } from '../hook/useTypedSelector';
 import Exit from '../pages/Exit';
+import '../styles/header.css';
 
 const Header: React.FC = () => {
 

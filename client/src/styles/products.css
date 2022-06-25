@@ -1,0 +1,35 @@
+.shop {
+    max-width: 1150px;
+    margin: auto;
+    width: 100%;
+    padding: 35px 0 30px;
+}
+
+.products__content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, auto));
+    gap: 25px;
+}
+
+.products__content a {
+    color:black
+}
+
+.product__box {
+    position: relative;
+}
+
+.product__box:hover {
+    padding: 5px;
+    transition: 0.4s;
+}
+
+.product__img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 5px;
+}
+
+.product__name {
+    margin-bottom: 5px;
+}

@@ -33,3 +33,14 @@ export const fetchTypes = () => async (dispatch: Dispatch<ProductAction>) => {
         console.log(e)
     }
 };
+
+export const fetchProduct = (id: string) => async (dispatch: Dispatch<ProductAction>) => {
+    try {
+        const response = await $host.get(`api/product/${id}`)
+        dispatch({ type: ProductActionTypes.FETCH_PRODUCT, payload: response.data })
+    } catch (e) {
+        console.log(e)
+    }
+}
+
+
