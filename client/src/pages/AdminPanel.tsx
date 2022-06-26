@@ -25,19 +25,16 @@ const AdminPanel = () => {
         const formData = new FormData()
         formData.append('name', name)
         console.log(formData)
-        console.log(img[0].name)
         //fetchCreateProduct()
     }
 
     const addBrand = () => {
-        const objBrand = Object({ 'name': brandName })
-        fetchCreateBrand(objBrand)
+        fetchCreateBrand(brandName)
         setBrandName('')
     }
 
     const addType = () => {
-        const objType = Object({ 'name': typeName })
-        fetchCreateType(objType)
+        fetchCreateType(typeName)
         setTypeName('')
     }
 

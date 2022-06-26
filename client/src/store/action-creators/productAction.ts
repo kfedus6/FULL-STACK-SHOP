@@ -43,12 +43,12 @@ export const fetchProduct = (id: string) => async (dispatch: Dispatch<ProductAct
     }
 };
 
-export const fetchCreateBrand = (objBrand: {}) => async (dispatch: Dispatch<ProductAction>) => {
-    await $authHost.post('api/brand/', objBrand)
+export const fetchCreateBrand = (name: string) => async (dispatch: Dispatch<ProductAction>) => {
+    await $authHost.post('api/brand/', { 'name': name })
 };
 
-export const fetchCreateType = (objType: {}) => async (dispatch: Dispatch<ProductAction>) => {
-    await $authHost.post('api/type/', objType)
+export const fetchCreateType = (name: string) => async (dispatch: Dispatch<ProductAction>) => {
+    await $authHost.post('api/type/', { 'name': name })
 };
 
 export const fetchCreateProduct = (objProduct: {}) => async (dispatch: Dispatch<ProductAction>) => {
