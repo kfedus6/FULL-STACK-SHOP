@@ -2,6 +2,7 @@ export interface ProductState {
     types: [],
     brands: [],
     products: { count: number, rows: {} },
+    product: {},
     is_loader: boolean
 };
 

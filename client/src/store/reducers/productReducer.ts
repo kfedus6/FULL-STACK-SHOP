@@ -4,6 +4,7 @@ const initialState: ProductState = {
     types: [],
     brands: [],
     products: { count: 0, rows: [] },
+    product: {},
     is_loader: false
 };
 
@@ -22,7 +23,7 @@ export const productReducer = (state = initialState, action: ProductAction) => {
             return { ...state, types: action.payload }
         }
         case ProductActionTypes.FETCH_PRODUCT: {
-            return { ...state, products: action.payload }
+            return { ...state, product: action.payload }
         }
         default: {
             return state

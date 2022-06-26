@@ -1,5 +1,5 @@
 import { Dispatch } from "react";
-import { $host } from "../../http";
+import { $authHost, $host } from "../../http";
 import { ProductAction, ProductActionTypes } from "../../types/product";
 
 export const fetchProducts = (data = {}) => async (dispatch: Dispatch<ProductAction>) => {
@@ -41,6 +41,17 @@ export const fetchProduct = (id: string) => async (dispatch: Dispatch<ProductAct
     } catch (e) {
         console.log(e)
     }
-}
+};
 
+export const fetchCreateBrand = (objBrand: {}) => async (dispatch: Dispatch<ProductAction>) => {
+    await $authHost.post('api/brand/', objBrand)
+};
+
+export const fetchCreateType = (objType: {}) => async (dispatch: Dispatch<ProductAction>) => {
+    await $authHost.post('api/type/', objType)
+};
+
+export const fetchCreateProduct = (objProduct: {}) => async (dispatch: Dispatch<ProductAction>) => {
+    await $authHost.post('/api/product/', objProduct)
+};
 

@@ -19,7 +19,6 @@ export const login = (email: string, password: string) => async (dispatch: Dispa
         const { data } = await $host.post('api/user/login', { email, password })
         localStorage.setItem('token', data.token)
         const user: any = jwt_decode(data.token)
-        console.log(user, 'login')
         dispatch({ type: UserActionTypes.FETCH_USER_LOGIN, payload: { is_login: true, is_admin: user.admin, user: user } })
     } catch (err: any) {
         dispatch({ type: UserActionTypes.FETCH_USER_ERROR, payload: err.response.data.message })

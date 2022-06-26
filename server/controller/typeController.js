@@ -10,7 +10,7 @@ class TypeController {
             return next(ApiError.badRequest('name undefined'))
         }
         const type = await Type.create({ name })
-        return res.json({ type })
+        return res.json(type)
     }
 
     async getTypes(req, res) {

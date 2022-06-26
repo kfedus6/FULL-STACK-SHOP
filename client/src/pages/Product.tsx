@@ -6,16 +6,20 @@ import { useTypedSelector } from '../hook/useTypedSelector'
 const Product = () => {
     const { id }: any = useParams()
 
-
     const { fetchProduct } = useAction();
-    const { products } = useTypedSelector(state => state.products)
+    const { product }: any = useTypedSelector(state => state.products)
 
     useEffect(() => {
         fetchProduct(id)
     }, [])
-    console.log(products)
+    console.log(product)
+
     return (
-        <div>Product</div>
+        <div>
+            <img src={process.env.REACT_APP_API_URL + product.img} />
+            <div>{product.name}</div>
+            <div>{product.price}</div>
+        </div>
     )
 }
 

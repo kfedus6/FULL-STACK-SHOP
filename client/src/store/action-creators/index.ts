@@ -1,5 +1,5 @@
 import { registration, login, authorization, loginExit } from "../action-creators/userAction";
-import { fetchProducts, fetchBrands, fetchTypes, fetchProduct } from "./productAction";
+import { fetchProducts, fetchBrands, fetchTypes, fetchProduct, fetchCreateBrand, fetchCreateType, fetchCreateProduct } from "./productAction";
 
 export default {
     registration,
@@ -9,5 +9,7 @@ export default {
     fetchProducts,
     fetchBrands,
     fetchTypes,
-    fetchProduct
+    fetchProduct,
+    fetchCreateBrand,
+    fetchCreateType, fetchCreateProduct
 };

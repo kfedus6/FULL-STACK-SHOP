@@ -1,0 +1,16 @@
+.section-admin {
+    display: flex;
+    justify-content: space-around;
+}
+
+.info-product {
+    display: table-caption;
+}
+
+.info__brand {
+    display: table-caption;
+}
+
+.info__type {
+    display: table-caption;
+}

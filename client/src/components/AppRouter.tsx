@@ -15,8 +15,6 @@ const AppRouter = () => {
 
     const { user } = useTypedSelector(state => state)
 
-    console.log(user)
-
     if (user.is_login === false && user.is_admin === false) {
         return (
             <Routes>
