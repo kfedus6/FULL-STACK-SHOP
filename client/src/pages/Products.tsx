@@ -1,20 +1,31 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import ProductsList from '../components/ProductsList';
 import { useAction } from '../hook/useAction';
 import { useTypedSelector } from '../hook/useTypedSelector';
+import { getPageCount, getPagesArray } from '../utils/page';
 import '../styles/products.css';
 
 const Products = () => {
-
     const { fetchProducts } = useAction()
-    const { products, is_lodader }: any = useTypedSelector(state => state.products)
+    const { products }: any = useTypedSelector(state => state.products)
+
+    const [totalCount, setTotalCount]: any = useState()
+    const [page, setPage]: any = useState()
 
     useEffect(() => {
-        fetchProducts();
-    }, []);
+        fetchProducts({ page: page });
+    }, [page]);
 
-    let product;
+    useMemo(() => {
+        setTotalCount(getPageCount(products.count))
+    }, [products])
+
+    let pagesArray = getPagesArray(totalCount)
+
+    const changePage = (page: any) => {
+        setPage(page)
+    }
 
     return (
         <>
@@ -23,11 +34,22 @@ const Products = () => {
                     <span>Всі товари</span>
                 </div>
                 <div className='products__content'>
-                    {product = products.rows.map((item: { id: number, name: string, price: string, img: string }) => {
+                    {products.rows.map((item: { id: number, name: string, price: string, img: string }) => {
                         return (
                             <NavLink to={`product/${item.id}`} key={item.id}>
                                 <ProductsList item={item} />
                             </NavLink>
+                        )
+                    })}
+                </div>
+                <div className='page__wrapper'>
+                    {pagesArray.map((p: any) => {
+                        return (
+                            <span
+                                onClick={() => changePage(p)}
+                                key={p}
+                                className={page === p ? 'page page__current' : 'page'}
+                            >{p}</span>
                         )
                     })}
                 </div>

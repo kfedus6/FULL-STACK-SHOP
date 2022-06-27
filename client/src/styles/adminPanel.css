@@ -1,16 +1,157 @@
 .section-admin {
     display: flex;
     justify-content: space-around;
+    margin-top: 30px;
+}
+
+.section-product {
+    width: 400px;
+}
+
+.title__product {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.section-option {
+    margin-bottom: 10px;
+}
+
+.section-option select {
+    width: 120px;
+    height: 30px;
+    padding: 0 2px;
+    border-radius: 5px;
+    margin-right: 30px;
+    cursor: pointer;
+}
+
+.section-option select option {
+    font-size: 14px;
 }
 
 .info-product {
-    display: table-caption;
+    display: table-caption; 
+}
+
+.inp__file {
+    font-size: 15px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.inp__product input {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 10px;
+    border: 1px solid gray;
+    border-radius: 3px;
+    padding: 0 5px;
+    font-size: 16px;
+}
+
+.btn__parameter {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.btn__parameter button {
+    width: 200px;
+    height: 30px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    cursor: pointer;
+}
+
+.btn__product-add {
+    display: flex;
+    justify-content: center;
+}
+
+.btn__product-add button {
+    width: 100px;
+    height: 30px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    cursor: pointer;
+}
+
+.block__info-product div  {
+    font-size: 18px;
+} 
+
+.block__info {
+    display: flex;
+}
+
+.block__info button {
+    margin-left: 20px;
+    background: transparent;
+    border: 0px;
+    cursor: pointer;
+}
+
+.block__info span:nth-child(2) {
+    margin-left: 5px;
 }
 
 .info__brand {
     display: table-caption;
+    width: 250px;
+}
+
+.title__brand {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.info__brand input {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 10px;
+    border: 1px solid gray;
+    border-radius: 3px;
+    padding: 0 5px;
+    font-size: 16px;
+}
+
+.info__brand button {
+    width: 100px;
+    height: 30px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    cursor: pointer;
 }
 
 .info__type {
     display: table-caption;
+    width: 250px;
+}
+
+.title__type{
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.info__type  input{
+    width: 100%;
+    height: 30px;
+    margin-bottom: 10px;
+    border: 1px solid gray;
+    border-radius: 3px;
+    padding: 0 5px;
+    font-size: 16px;
+}
+
+.info__type button {
+    width: 100px;
+    height: 30px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    cursor: pointer;  
 }

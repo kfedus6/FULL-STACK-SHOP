@@ -12,7 +12,7 @@ const Header: React.FC = () => {
         return (
             <nav className='navbar'>
                 <div className='logo'>
-                    <label>Shop</label>
+                    <label>Shop</label >
                 </div>
                 <ul className='navbar__links'>
                     <li><NavLink to="/">Головна</NavLink></li>

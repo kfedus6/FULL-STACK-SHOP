@@ -1,31 +1,47 @@
 import React, { useEffect, useState } from 'react';
 import { useAction } from '../hook/useAction';
 import { useTypedSelector } from '../hook/useTypedSelector';
+import { ImCross } from 'react-icons/im';
 import '../styles/adminPanel.css';
 
 const AdminPanel = () => {
 
     const { fetchBrands, fetchTypes, fetchCreateBrand, fetchCreateType, fetchCreateProduct } = useAction()
-    const { types, brands }: any = useTypedSelector(state => state.products)
+    const { types, brands, error }: any = useTypedSelector(state => state.products)
 
     const [name, setName] = useState('')
-    const [price, setPrice] = useState(0)
+    const [price, setPrice]: any = useState(0)
     const [brandName, setBrandName] = useState('')
     const [typeName, setTypeName] = useState('')
-    const [brand, setBrand] = useState(0)
-    const [type, setType] = useState(0)
-    const [img, setImg]: any = useState()
+    const [brand, setBrand]: any = useState(0)
+    const [type, setType]: any = useState(0)
+    const [img, setImg]: any = useState('')
+    const [info, setInfo]: any = useState([])
+    const [paramater, setParamater] = useState('')
+    const [value, setValue] = useState('')
+
 
     useEffect(() => {
         fetchBrands()
         fetchTypes()
     }, []);
 
+    const addInfo = () => {
+        setInfo([...info, { name: paramater, description: value }])
+        setParamater('')
+        setValue('')
+    }
+
     const addProduct = () => {
         const formData = new FormData()
+        console.log(name)
         formData.append('name', name)
-        console.log(formData)
-        //fetchCreateProduct()
+        formData.append('price', price)
+        formData.append('img', img[0])
+        formData.append('brandId', brand)
+        formData.append('typeId', type)
+        formData.append('info', JSON.stringify(info))
+        fetchCreateProduct(formData)
     }
 
     const addBrand = () => {
@@ -41,12 +57,12 @@ const AdminPanel = () => {
     return (
         <section className='section-admin'>
             <div className='section-product'>
-                <div>
+                <div className='title__product'>
                     <span>Продукт</span>
                 </div>
                 <div className='section-option'>
                     <select onChange={(e) => setBrand(Number(e.target.value))}>
-                        <option selected disabled>Бренд</option>
+                        <option defaultValue="brand">Бренд</option>
                         {brands.map((item: { id: number, name: string }) => {
                             return (
                                 <option key={item.id} value={item.id}>{item.name}</option>
@@ -54,7 +70,7 @@ const AdminPanel = () => {
                         })}
                     </select>
                     <select onChange={(e) => setType(Number(e.target.value))}>
-                        <option selected disabled>Тип продукта</option>
+                        <option defaultValue='type'>Тип продукта</option>
                         {types.map((item: { id: number, name: string }) => {
                             return (
                                 <option key={item.id} value={item.id}>{item.name}</option>
@@ -63,37 +79,64 @@ const AdminPanel = () => {
                     </select>
                 </div>
                 <div className='info-product'>
-                    <input type="file" onChange={(e) => setImg(e.target.files)} />
-                    <input type="text" placeholder='name' value={name} onChange={(e) => setName(e.target.value)} />
-                    <input type="text" placeholder='price' onChange={(e) => setPrice(Number(e.target.value))} />
-                    <div className='product__add'>
+                    <input type="file" className='inp__file' onChange={(e) => setImg(e.target.files)} />
+                    <div className='inp__product'>
+                        <input type="text" placeholder='name' value={name} onChange={(e) => setName(e.target.value)} />
+                        <input type="text" placeholder='price' onChange={(e) => setPrice(Number(e.target.value))} />
+                    </div>
+                    <div className='inp__product'>
+                        <span>Параметри</span>
+                        <input type="parameter" placeholder='parameter' value={paramater} onChange={(e) => setParamater(e.target.value)} />
+                        <input type="value" placeholder='value' value={value} onChange={(e) => setValue(e.target.value)} />
+                        <div className='btn__parameter'>
+                            <button onClick={addInfo}>Добавити параметри</button>
+                        </div>
+                        <div className='block__info-product'>
+                            {info.map((item: any) => {
+                                return (
+                                    <div key={item.name} className='block__info'>
+                                        <span>{item.name} :</span>
+                                        <span>{item.description}</span>
+                                        <div>
+                                            <button><ImCross /></button>
+                                        </div>
+                                    </div>
+                                )
+                            })}
+                        </div>
+                    </div>
+                    <div className='btn__product-add'>
                         <button onClick={addProduct}>Добавити</button>
                     </div>
                 </div>
             </div >
             <section className='section-brand'>
-                <div>
+                <div className='title__brand'>
                     <span>
                         Бренд
                     </span>
                 </div>
                 <div className='info__brand'>
                     <input type="text" placeholder='name' value={brandName} onChange={(e) => setBrandName(e.target.value)} />
-                    <button onClick={addBrand}>Добавити</button>
+                    <div className='btn__brand-type'>
+                        <button onClick={addBrand}>Добавити</button>
+                    </div>
                 </div>
             </section>
             <section className='section-type'>
-                <div>
+                <div className='title__type'>
                     <span>
                         Тип продукта
                     </span>
                 </div>
                 <div className='info__type'>
                     <input type="text" placeholder='name' value={typeName} onChange={(e) => setTypeName(e.target.value)} />
-                    <button onClick={addType}>Добавити</button>
+                    <div className='btn__brand-type'>
+                        <button onClick={addType}>Добавити</button>
+                    </div>
                 </div>
             </section>
-        </section>
+        </section >
     );
 };
 

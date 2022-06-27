@@ -5,7 +5,7 @@ import Header from './Header';
 
 const Layout = () => {
     return (
-        <div className='page'>
+        <div className='layout'>
             <header>
                 <Header />
             </header>

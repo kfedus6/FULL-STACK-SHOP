@@ -3,7 +3,8 @@ export interface ProductState {
     brands: [],
     products: { count: number, rows: {} },
     product: {},
-    is_loader: boolean
+    is_loader: boolean,
+    error: string | null
 };
 
 export enum ProductActionTypes {
@@ -11,7 +12,8 @@ export enum ProductActionTypes {
     FETCH_BRANDS = 'FETCH_BRANDS',
     FETCH_PRODUCTS = 'FETCH_PRODUCTS',
     FETCH_PRODUCT = 'FETCH_PRODUCT',
-    FETCH_LOADER = 'FETCH_LOADER'
+    FETCH_LOADER_PRODUCT = 'FETCH_LOADER_PRODUCT',
+    FETCH_ERROR_PRODUCT = 'FETCH_ERROR_PRODUCT'
 };
 
 interface FetchTypesAction {
@@ -35,8 +37,13 @@ interface FetchProductAction {
 };
 
 interface FetchLoaderAction {
-    type: ProductActionTypes.FETCH_LOADER,
+    type: ProductActionTypes.FETCH_LOADER_PRODUCT,
     payload: boolean
 };
 
-export type ProductAction = FetchTypesAction | FetchBrandsAction | FetchProductsAction | FetchLoaderAction | FetchProductAction;
+interface FetchErrorAction {
+    type: ProductActionTypes.FETCH_ERROR_PRODUCT,
+    payload: string | null
+};
+
+export type ProductAction = FetchTypesAction | FetchBrandsAction | FetchProductsAction | FetchLoaderAction | FetchProductAction | FetchErrorAction;

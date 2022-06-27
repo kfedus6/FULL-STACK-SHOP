@@ -23,8 +23,10 @@ const AppRouter = () => {
                     <Route path='products' element={<Products />} />
                     <Route path='category' element={<Category />} />
                     <Route path='newProduct' element={<NewProduct />} />
+                    <Route path='adminPanel' element={<AdminPanel />} />
                     <Route path='authorization' element={<Authhorization />} />
                     <Route path='products/product/:id' element={<Product />} />
+                    <Route path='category/product/:id' element={<Product />} />
                 </Route>
             </Routes>
         )
@@ -36,7 +38,10 @@ const AppRouter = () => {
                     <Route path='products' element={<Products />} />
                     <Route path='category' element={<Category />} />
                     <Route path='newProduct' element={<NewProduct />} />
+                    <Route path='adminPanel' element={<AdminPanel />} />
                     <Route path='authorization' element={<Authhorization />} />
+                    <Route path='products/product/:id' element={<Product />} />
+                    <Route path='category/product/:id' element={<Product />} />
                 </Route>
             </Routes>
         )
@@ -50,6 +55,8 @@ const AppRouter = () => {
                     <Route path='newProduct' element={<NewProduct />} />
                     <Route path='adminPanel' element={<AdminPanel />} />
                     <Route path='authorization' element={<Authhorization />} />
+                    <Route path='products/product/:id' element={<Product />} />
+                    <Route path='category/product/:id' element={<Product />} />
                 </Route>
             </Routes>
         )

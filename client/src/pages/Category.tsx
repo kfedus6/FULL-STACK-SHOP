@@ -1,6 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import ProductsList from '../components/ProductsList';
 import { useAction } from '../hook/useAction';
 import { useTypedSelector } from '../hook/useTypedSelector';
+import { getPageCount, getPagesArray } from '../utils/page';
 
 interface typeAndBrand {
     id: number,
@@ -15,18 +18,20 @@ interface itemPrd {
 };
 
 const Category = () => {
+    const [type, setType] = useState<typeAndBrand>()
+    const [brand, setBrand] = useState<typeAndBrand>()
+    const [totalCount, setTotalCount]: any = useState()
+    const [page, setPage]: any = useState()
+
     const { fetchProducts, fetchBrands, fetchTypes } = useAction()
     const { products, brands, types }: any = useTypedSelector(state => state.products)
 
-    const [type, setType] = useState<typeAndBrand>()
-    const [brand, setBrand] = useState<typeAndBrand>()
+    const brandChange = (brand: any) => {
+        setBrand(brand)
+    }
 
     const typeChange = (type: any) => {
         setType(type)
-    }
-
-    const brandChange = (brand: any) => {
-        setBrand(brand)
     }
 
     useEffect(() => {
@@ -36,15 +41,25 @@ const Category = () => {
 
     useEffect(() => {
         if (brand === undefined && type === undefined) {
-            fetchProducts()
+            fetchProducts({ page: page })
         } else if (brand !== undefined && type === undefined) {
-            fetchProducts({ brandId: brand.id })
+            fetchProducts({ brandId: brand.id, page: page })
         } else if (brand === undefined && type !== undefined) {
-            fetchProducts({ typeId: type.id })
+            fetchProducts({ typeId: type.id, page: page })
         } else if (brand !== undefined && type !== undefined) {
-            fetchProducts({ brandId: brand.id, typeId: type.id })
+            fetchProducts({ brandId: brand.id, typeId: type.id, page: page })
         }
-    }, [brand, type]);
+    }, [brand, type, page]);
+
+    useMemo(() => {
+        setTotalCount(getPageCount(products.count))
+    }, [products])
+
+    let pagesArray = getPagesArray(totalCount)
+
+    const changePage = (page: any) => {
+        setPage(page)
+    }
 
     return (
         <>
@@ -81,14 +96,23 @@ const Category = () => {
                     {
                         products.rows.map((item: itemPrd) => {
                             return (
-                                <div key={item.id} className='product__box'>
-                                    <img className='product__img' src={process.env.REACT_APP_API_URL + item.img} alt='product' />
-                                    <h4 className='product__name'>{item.name}</h4>
-                                    <span className='product__price'>{item.price} &#8372;</span>
-                                </div>
+                                <NavLink to={`product/${item.id}`} key={item.id} >
+                                    <ProductsList item={item} />
+                                </NavLink>
                             )
                         })
                     }
+                </div>
+                <div className='page__wrapper'>
+                    {pagesArray.map((p: any) => {
+                        return (
+                            <span
+                                onClick={() => changePage(p)}
+                                key={p}
+                                className={page === p ? 'page page__current' : 'page'}
+                            >{p}</span>
+                        )
+                    })}
                 </div>
             </section>
         </>

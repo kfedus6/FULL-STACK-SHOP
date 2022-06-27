@@ -5,12 +5,13 @@ const initialState: ProductState = {
     brands: [],
     products: { count: 0, rows: [] },
     product: {},
-    is_loader: false
+    is_loader: false,
+    error: null
 };
 
 export const productReducer = (state = initialState, action: ProductAction) => {
     switch (action.type) {
-        case ProductActionTypes.FETCH_LOADER: {
+        case ProductActionTypes.FETCH_LOADER_PRODUCT: {
             return { ...state, is_loader: action.payload }
         }
         case ProductActionTypes.FETCH_PRODUCTS: {
@@ -24,6 +25,9 @@ export const productReducer = (state = initialState, action: ProductAction) => {
         }
         case ProductActionTypes.FETCH_PRODUCT: {
             return { ...state, product: action.payload }
+        }
+        case ProductActionTypes.FETCH_ERROR_PRODUCT: {
+            return { ...state, error: action.payload }
         }
         default: {
             return state
