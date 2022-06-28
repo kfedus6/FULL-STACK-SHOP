@@ -96,9 +96,7 @@ const Category = () => {
                     {
                         products.rows.map((item: itemPrd) => {
                             return (
-                                <NavLink to={`product/${item.id}`} key={item.id} >
-                                    <ProductsList item={item} />
-                                </NavLink>
+                                <ProductsList key={item.id} item={item} />
                             )
                         })
                     }

@@ -12,7 +12,6 @@ const Product = () => {
     useEffect(() => {
         fetchProduct(id)
     }, [])
-    console.log(product)
 
     return (
         <div>
@@ -21,6 +20,6 @@ const Product = () => {
             <div>{product.price}</div>
         </div>
     )
-}
+};
 
 export default Product

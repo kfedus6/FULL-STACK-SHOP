@@ -3,14 +3,19 @@ import { useAction } from '../hook/useAction';
 import { useTypedSelector } from '../hook/useTypedSelector';
 import { ImCross } from 'react-icons/im';
 import '../styles/adminPanel.css';
+import Modal from '../components/UI/modal/Modal';
+import { useNavigate } from 'react-router-dom';
 
 const AdminPanel = () => {
 
-    const { fetchBrands, fetchTypes, fetchCreateBrand, fetchCreateType, fetchCreateProduct } = useAction()
+    const { fetchBrands, fetchTypes, fetchCreateBrand, fetchCreateType, fetchCreateProduct, fetchError } = useAction()
     const { types, brands, error }: any = useTypedSelector(state => state.products)
+    const { user }: any = useTypedSelector(state => state)
+
+    const navigate = useNavigate()
 
     const [name, setName] = useState('')
-    const [price, setPrice]: any = useState(0)
+    const [price, setPrice]: any = useState('')
     const [brandName, setBrandName] = useState('')
     const [typeName, setTypeName] = useState('')
     const [brand, setBrand]: any = useState(0)
@@ -20,6 +25,11 @@ const AdminPanel = () => {
     const [paramater, setParamater] = useState('')
     const [value, setValue] = useState('')
 
+    useEffect(() => {
+        if (user.is_admin === false) {
+            navigate('/')
+        }
+    }, [user])
 
     useEffect(() => {
         fetchBrands()
@@ -34,7 +44,6 @@ const AdminPanel = () => {
 
     const addProduct = () => {
         const formData = new FormData()
-        console.log(name)
         formData.append('name', name)
         formData.append('price', price)
         formData.append('img', img[0])
@@ -42,6 +51,8 @@ const AdminPanel = () => {
         formData.append('typeId', type)
         formData.append('info', JSON.stringify(info))
         fetchCreateProduct(formData)
+        setName('')
+        setPrice('')
     }
 
     const addBrand = () => {
@@ -56,6 +67,14 @@ const AdminPanel = () => {
 
     return (
         <section className='section-admin'>
+            <Modal error={error} fetchError={fetchError}>
+                <div className='error__admin-panel'>
+                    <span>Помилка</span>
+                </div>
+                <div className='error__text'>
+                    <span>{error}</span>
+                </div>
+            </Modal>
             <div className='section-product'>
                 <div className='title__product'>
                     <span>Продукт</span>
@@ -82,14 +101,14 @@ const AdminPanel = () => {
                     <input type="file" className='inp__file' onChange={(e) => setImg(e.target.files)} />
                     <div className='inp__product'>
                         <input type="text" placeholder='name' value={name} onChange={(e) => setName(e.target.value)} />
-                        <input type="text" placeholder='price' onChange={(e) => setPrice(Number(e.target.value))} />
+                        <input type="text" placeholder='price' value={price} onChange={(e) => setPrice(e.target.value)} />
                     </div>
                     <div className='inp__product'>
                         <span>Параметри</span>
                         <input type="parameter" placeholder='parameter' value={paramater} onChange={(e) => setParamater(e.target.value)} />
                         <input type="value" placeholder='value' value={value} onChange={(e) => setValue(e.target.value)} />
                         <div className='btn__parameter'>
-                            <button onClick={addInfo}>Добавити параметри</button>
+                            <button onClick={addInfo}>Добавити параметр</button>
                         </div>
                         <div className='block__info-product'>
                             {info.map((item: any) => {

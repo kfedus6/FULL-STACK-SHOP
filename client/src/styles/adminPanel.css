@@ -155,3 +155,16 @@
     border: 1px solid gray;
     cursor: pointer;  
 }
+
+.error__admin-panel {
+    display: flex;
+    justify-content: center;
+    font-size: 22px;
+    margin-bottom: 30px;
+}
+
+.error__text {
+    display: flex;
+    justify-content: center;
+    font-size: 17px;
+}

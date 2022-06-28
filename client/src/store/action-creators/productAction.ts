@@ -66,3 +66,7 @@ export const fetchCreateProduct = (objProduct: any) => async (dispatch: Dispatch
     }
 };
 
+export const fetchError = () => async (dispatch: Dispatch<ProductAction>) => {
+    dispatch({ type: ProductActionTypes.FETCH_ERROR_PRODUCT, payload: null })
+};
+

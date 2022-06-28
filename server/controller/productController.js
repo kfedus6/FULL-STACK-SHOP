@@ -1,14 +1,22 @@
 const { Product, ProductInfo } = require('../models/models');
 const uuid = require('uuid');
 const path = require('path')
+const ApiError = require('../error/apierror');
 
 class ProductController {
-    async create(req, res) {
+    async create(req, res, next) {
         let { name, price, brandId, typeId, info } = req.body
-        const { img } = req.files
-        const fileName = uuid.v4() + '.jpg'
-        img.mv(path.resolve(__dirname, '..', 'static', fileName))
-        const product = await Product.create({ name: name, price: price, brandId: brandId, typeId: typeId, img: fileName })
+        const img = req.files
+        let fileName
+        let product
+
+        if (img === null) {
+            return next(ApiError.badRequest('img undefined'))
+        } else {
+            fileName = uuid.v4() + '.jpg'
+            img.mv(path.resolve(__dirname, '..', 'static', fileName))
+            product = await Product.create({ name: name, price: price, brandId: brandId, typeId: typeId, img: fileName })
+        }
 
         if (info != undefined) {
             info = JSON.parse(info)

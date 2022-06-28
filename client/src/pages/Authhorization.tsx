@@ -9,7 +9,7 @@ import '../styles/authorization.css';
 
 const Authhorization: React.FC = () => {
 
-    const { user } = useTypedSelector(state => state);
+    const { user }: any = useTypedSelector(state => state);
     const navigate = useNavigate();
 
     useEffect(() => {

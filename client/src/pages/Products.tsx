@@ -1,5 +1,4 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { NavLink } from 'react-router-dom';
 import ProductsList from '../components/ProductsList';
 import { useAction } from '../hook/useAction';
 import { useTypedSelector } from '../hook/useTypedSelector';
@@ -36,9 +35,7 @@ const Products = () => {
                 <div className='products__content'>
                     {products.rows.map((item: { id: number, name: string, price: string, img: string }) => {
                         return (
-                            <NavLink to={`product/${item.id}`} key={item.id}>
-                                <ProductsList item={item} />
-                            </NavLink>
+                            <ProductsList key={item.id} item={item} />
                         )
                     })}
                 </div>
