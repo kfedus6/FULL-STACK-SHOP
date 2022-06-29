@@ -1,10 +1,19 @@
+header {
+    width: 100%;
+    box-shadow: 0 1px 4px hsl(0 4% 15% / 10%);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: auto;
+    width: 100%;
+}
+
 .navbar {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background: rgb(230, 230, 250);
     min-height: 80px;
-    font-family: Gill Sans, sans-serif;
 }
 
 .logo {
@@ -39,4 +48,39 @@
     font-size: 17px;
     cursor: pointer;
     text-transform: uppercase;
+}
+
+.nav-icons .bx{
+    font-size: 22px;
+    color:black;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+.nav-icons .bx:hover {
+    color: gray;
+}
+
+#menu-icon {
+    display: none;
+}
+
+.cart {
+    position: relative;
+}
+
+.cart span {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top:-12px;
+    right: -9px;
+    font-size: 15px;
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    background: black;
+    color: white;
+    padding: 4px;
 }

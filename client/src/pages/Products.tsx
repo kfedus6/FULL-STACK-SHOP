@@ -27,31 +27,29 @@ const Products = () => {
     }
 
     return (
-        <>
-            <section className='shop'>
-                <div>
-                    <span>Всі товари</span>
-                </div>
-                <div className='products__content'>
-                    {products.rows.map((item: { id: number, name: string, price: string, img: string }) => {
-                        return (
-                            <ProductsList key={item.id} item={item} />
-                        )
-                    })}
-                </div>
-                <div className='page__wrapper'>
-                    {pagesArray.map((p: any) => {
-                        return (
-                            <span
-                                onClick={() => changePage(p)}
-                                key={p}
-                                className={page === p ? 'page page__current' : 'page'}
-                            >{p}</span>
-                        )
-                    })}
-                </div>
-            </section >
-        </>
+        <section className='shop'>
+            <div className='section-title'>
+                <span>Всі товари</span>
+            </div>
+            <div className='products__content'>
+                {products.rows.map((item: { id: number, name: string, price: string, img: string }) => {
+                    return (
+                        <ProductsList key={item.id} item={item} />
+                    )
+                })}
+            </div>
+            <div className='page__wrapper'>
+                {pagesArray.map((p: any) => {
+                    return (
+                        <span
+                            onClick={() => changePage(p)}
+                            key={p}
+                            className={page === p ? 'page page__current' : 'page'}
+                        >{p}</span>
+                    )
+                })}
+            </div>
+        </section >
     )
 };
 

@@ -44,7 +44,8 @@ export const fetchProduct = (id: string) => async (dispatch: Dispatch<ProductAct
 
 export const fetchCreateBrand = (name: string) => async (dispatch: Dispatch<ProductAction>) => {
     try {
-        await $authHost.post('api/brand/', { 'name': name })
+        const response = await $authHost.post('api/brand/', { 'name': name })
+        //dispatch({ type: ProductActionTypes.FETCH_BRANDS, payload: response.data })
     } catch (err: any) {
         dispatch({ type: ProductActionTypes.FETCH_ERROR_PRODUCT, payload: err.response.data.message })
     }
@@ -52,7 +53,8 @@ export const fetchCreateBrand = (name: string) => async (dispatch: Dispatch<Prod
 
 export const fetchCreateType = (name: string) => async (dispatch: Dispatch<ProductAction>) => {
     try {
-        await $authHost.post('api/type/', { 'name': name })
+        const response = await $authHost.post('api/type/', { 'name': name })
+        //dispatch({ type: ProductActionTypes.FETCH_TYPES, payload: response.data })
     } catch (err: any) {
         dispatch({ type: ProductActionTypes.FETCH_ERROR_PRODUCT, payload: err.response.data.message })
     }
@@ -60,7 +62,8 @@ export const fetchCreateType = (name: string) => async (dispatch: Dispatch<Produ
 
 export const fetchCreateProduct = (objProduct: any) => async (dispatch: Dispatch<ProductAction>) => {
     try {
-        await $authHost.post('/api/product/', objProduct)
+        const response = await $authHost.post('/api/product/', objProduct)
+        //dispatch({ type: ProductActionTypes.FETCH_PRODUCTS, payload: response.data })
     } catch (err: any) {
         dispatch({ type: ProductActionTypes.FETCH_ERROR_PRODUCT, payload: err.response.data.message })
     }
@@ -68,5 +71,23 @@ export const fetchCreateProduct = (objProduct: any) => async (dispatch: Dispatch
 
 export const fetchError = () => async (dispatch: Dispatch<ProductAction>) => {
     dispatch({ type: ProductActionTypes.FETCH_ERROR_PRODUCT, payload: null })
+};
+
+export const fetchAddBasket = (userId: any, productId: any) => async (dispatch: Dispatch<ProductAction>) => {
+    try {
+        const response = await $authHost.post('/api/basket/', { userId, productId })
+        //dispatch({ type: ProductActionTypes.FETCH_BASKET, payload: response.data })
+    } catch (err: any) {
+        dispatch({ type: ProductActionTypes.FETCH_ERROR_PRODUCT, payload: err.response.data.message })
+    }
+};
+
+export const fetchGetBasketProduct = () => async (dispatch: Dispatch<ProductAction>) => {
+    try {
+        const response = await $authHost.get('/api/basket',)
+        dispatch({ type: ProductActionTypes.FETCH_BASKET, payload: response.data })
+    } catch (err: any) {
+        dispatch({ type: ProductActionTypes.FETCH_ERROR_PRODUCT, payload: err.response.data.message })
+    }
 };
 

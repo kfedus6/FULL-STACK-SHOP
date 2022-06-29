@@ -2,7 +2,9 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useTypedSelector } from '../hook/useTypedSelector';
 import Exit from '../pages/Exit';
-import '../styles/header.css';
+import { FaUser } from 'react-icons/fa';
+import { AiOutlineShopping } from 'react-icons/ai';
+import { AiOutlineMenu } from 'react-icons/ai';
 
 const Header: React.FC = () => {
 
@@ -10,7 +12,7 @@ const Header: React.FC = () => {
 
     if (user.is_login === false && user.is_admin === false) {
         return (
-            <nav className='navbar'>
+            <div className='navbar nav-container'>
                 <div className='logo'>
                     <label>Shop</label >
                 </div>
@@ -19,13 +21,16 @@ const Header: React.FC = () => {
                     <li><NavLink to="/products">Всі товари</NavLink></li>
                     <li><NavLink to="/category">Категорії</NavLink></li>
                     <li><NavLink to="/newProduct">Новинки</NavLink></li>
-                    <li><NavLink to="/authorization">Авторизація</NavLink></li>
                 </ul>
-            </nav>
+                <div className='nav-icons'>
+                    <NavLink className='bx user' to="/authorization"><FaUser /></NavLink>
+                    <i className='bx menu' id='menu-icon'><AiOutlineMenu /></i>
+                </div>
+            </div>
         )
     } else if (user.is_login === true && user.is_admin === false) {
         return (
-            <nav className='navbar'>
+            <div className='navbar nav-conteiner'>
                 <div className='logo'>
                     <label>Shop</label>
                 </div>
@@ -36,11 +41,16 @@ const Header: React.FC = () => {
                     <li><NavLink to="/newProduct">Новинки</NavLink></li>
                     <li><Exit /></li>
                 </ul>
-            </nav>
+                <div className='nav-icons'>
+                    <NavLink className='bx user' to="/authorization"><FaUser /></NavLink>
+                    <a className='bx cart'><AiOutlineShopping /><i><span>0</span></i></a>
+                    <i className='bx menu' id='menu-icon'><AiOutlineMenu /></i>
+                </div>
+            </div>
         )
     } else if (user.is_admin === true && user.is_login === true) {
         return (
-            <nav className='navbar'>
+            <div className='navbar nav-container'>
                 <div className='logo'>
                     <label>Shop</label>
                 </div>
@@ -52,7 +62,12 @@ const Header: React.FC = () => {
                     <li><NavLink to="/adminPanel">Адмін панель</NavLink></li>
                     <li><Exit /></li>
                 </ul>
-            </nav>
+                <div className='nav-icons'>
+                    <NavLink className='bx user' to="/authorization"><FaUser /></NavLink>
+                    <a className='bx cart'><AiOutlineShopping /><i><span>0</span></i></a>
+                    <i className='bx menu' id='menu-icon'><AiOutlineMenu /></i>
+                </div>
+            </div>
         )
     }
     return <h1>ewq</h1>

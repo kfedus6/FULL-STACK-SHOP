@@ -18,7 +18,6 @@ const ProductsList = ({ item }: itemProduct) => {
 
     const product = (e: FormEvent) => {
         e.preventDefault()
-        console.log(item)
     }
     if (is_login === false) {
         return (

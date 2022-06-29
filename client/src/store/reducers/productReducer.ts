@@ -3,6 +3,7 @@ import { ProductAction, ProductActionTypes, ProductState } from "../../types/pro
 const initialState: ProductState = {
     types: [],
     brands: [],
+    basket: [],
     products: { count: 0, rows: [] },
     product: {},
     is_loader: false,
