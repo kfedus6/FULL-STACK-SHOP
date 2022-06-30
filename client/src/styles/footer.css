@@ -1,0 +1,17 @@
+.layout {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+footer {
+    margin-top: auto;
+    z-index: 100;
+}
+
+footer div {
+    height: 60px;
+    background-color: black;
+    color: #fff;
+}

@@ -4,6 +4,7 @@ const ApiError = require('../error/apiError');
 class BasketController {
     async addProduct(req, res, next) {
         const { userId, productId } = req.body
+
         const basket = await Basket.findOne({ where: { userId } })
         const product = await Product.findOne({ where: { id: productId } })
         if (basket && product) {
@@ -16,21 +17,21 @@ class BasketController {
     }
 
     async getProduct(req, res, next) {
-        const { userId } = req.body
-        const basket = await Basket.findOne({ where: { userId } })
-        const basketProduct = await BasketProduct.findAll({ where: { basketId: basket.id } })
+        const { id } = req.params
+
+        const basket = await Basket.findOne({ where: { userId: id } })
+        const basketProducts = await BasketProduct.findAll({ where: { basketId: basket.id } })
         const products = []
 
-        if (userId == undefined) {
+        if (id == undefined) {
             return next(ApiError.badRequest('userId undefined'))
         } else if (basket == null) {
             return next(ApiError.badRequest('basket undefined'))
-        } else if (basketProduct == null) {
+        } else if (basketProducts == null) {
             return next(ApiError.badRequest('basketProduct undefined'))
         }
 
-        for (const bp of basketProduct) {
-            console.log(bp.productId)
+        for (const bp of basketProducts) {
             const product = await Product.findOne({ where: { id: bp.productId } })
             products.push(product)
         }

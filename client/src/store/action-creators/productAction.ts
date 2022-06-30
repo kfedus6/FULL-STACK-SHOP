@@ -82,10 +82,19 @@ export const fetchAddBasket = (userId: any, productId: any) => async (dispatch: 
     }
 };
 
-export const fetchGetBasketProduct = () => async (dispatch: Dispatch<ProductAction>) => {
+export const fetchGetBasketProduct = (userId: any) => async (dispatch: Dispatch<ProductAction>) => {
     try {
-        const response = await $authHost.get('/api/basket',)
+        const response = await $authHost.get(`/api/basket/${userId}`)
         dispatch({ type: ProductActionTypes.FETCH_BASKET, payload: response.data })
+    } catch (err: any) {
+        dispatch({ type: ProductActionTypes.FETCH_ERROR_PRODUCT, payload: err.response.data.message })
+    }
+};
+
+export const fetchGetImagesProduct = (productId: any) => async (dispatch: Dispatch<ProductAction>) => {
+    try {
+        const response = await $host.get(`/api/imagesProduct/${productId}`)
+        dispatch({ type: ProductActionTypes.FETCH_IMAGES_PRODUCT, payload: response.data })
     } catch (err: any) {
         dispatch({ type: ProductActionTypes.FETCH_ERROR_PRODUCT, payload: err.response.data.message })
     }

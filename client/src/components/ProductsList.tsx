@@ -2,6 +2,8 @@ import React, { FormEvent } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useTypedSelector } from '../hook/useTypedSelector';
 import { RiShoppingBasketFill } from 'react-icons/ri';
+import { useAction } from '../hook/useAction';
+import jwt_decode from "jwt-decode";
 
 interface itemProduct {
     item: {
@@ -14,11 +16,20 @@ interface itemProduct {
 
 const ProductsList = ({ item }: itemProduct) => {
 
+    const { fetchAddBasket } = useAction();
+
     const { is_login } = useTypedSelector(state => state.user)
 
     const product = (e: FormEvent) => {
         e.preventDefault()
     }
+
+    const addBasketProduct = (productId: any) => {
+        let token: any = localStorage.getItem('token')
+        let user: any = jwt_decode(token)
+        fetchAddBasket(user.userId, productId)
+    }
+
     if (is_login === false) {
         return (
             <div key={item.id} className='product__box'>
@@ -45,7 +56,7 @@ const ProductsList = ({ item }: itemProduct) => {
                     <span className='product__price'>{item.price} &#8372;</span>
                     <div className='block__btn-basket'>
                         <button className='btn__buy' onClick={product}>Купити</button>
-                        <button className='btn__basket'><RiShoppingBasketFill /></button>
+                        <button className='btn__basket' onClick={() => addBasketProduct(item.id)}><RiShoppingBasketFill /></button>
                     </div>
                 </div>
             </div>

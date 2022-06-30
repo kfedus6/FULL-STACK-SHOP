@@ -1,6 +1,11 @@
 header {
     width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #fff;
     box-shadow: 0 1px 4px hsl(0 4% 15% / 10%);
+    z-index: 100;
 }
 
 .nav-container {
@@ -50,6 +55,10 @@ header {
     text-transform: uppercase;
 }
 
+.btn__exit span:hover {
+    border-bottom: 2px solid black;
+}
+
 .nav-icons .bx{
     font-size: 22px;
     color:black;
@@ -67,6 +76,9 @@ header {
 
 .cart {
     position: relative;
+    cursor: pointer;
+    font-size: 22px;
+    color: black;
 }
 
 .cart span {
@@ -84,3 +96,4 @@ header {
     color: white;
     padding: 4px;
 }
+

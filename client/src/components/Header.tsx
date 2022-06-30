@@ -9,6 +9,7 @@ import { AiOutlineMenu } from 'react-icons/ai';
 const Header: React.FC = () => {
 
     const user = useTypedSelector(state => state.user)
+    const { basket }: any = useTypedSelector(state => state.products)
 
     if (user.is_login === false && user.is_admin === false) {
         return (
@@ -42,8 +43,7 @@ const Header: React.FC = () => {
                     <li><Exit /></li>
                 </ul>
                 <div className='nav-icons'>
-                    <NavLink className='bx user' to="/authorization"><FaUser /></NavLink>
-                    <a className='bx cart'><AiOutlineShopping /><i><span>0</span></i></a>
+                    <NavLink to="/basket" className='cart'><AiOutlineShopping /><i><span>{basket.length}</span></i></NavLink>
                     <i className='bx menu' id='menu-icon'><AiOutlineMenu /></i>
                 </div>
             </div>
@@ -63,8 +63,7 @@ const Header: React.FC = () => {
                     <li><Exit /></li>
                 </ul>
                 <div className='nav-icons'>
-                    <NavLink className='bx user' to="/authorization"><FaUser /></NavLink>
-                    <a className='bx cart'><AiOutlineShopping /><i><span>0</span></i></a>
+                    <a className='cart'><AiOutlineShopping /><i><span>0</span></i></a>
                     <i className='bx menu' id='menu-icon'><AiOutlineMenu /></i>
                 </div>
             </div>

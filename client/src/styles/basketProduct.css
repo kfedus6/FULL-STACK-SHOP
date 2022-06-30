@@ -1,0 +1,23 @@
+.section-cart {
+    padding: 4rem 0 3rem;
+    margin-top: 2rem;
+}
+
+.cart-title {
+    text-align: center;
+}
+
+.block-description {
+    margin-top: 3rem;
+    padding: 10px 0 10px;
+}
+
+.block-products {
+    display: block;
+    margin-top: 10px;
+}
+
+.img__cart-product {
+    width: 200px;
+    height: 200px;
+}

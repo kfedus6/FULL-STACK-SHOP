@@ -6,6 +6,7 @@ const initialState: ProductState = {
     basket: [],
     products: { count: 0, rows: [] },
     product: {},
+    imagesProduct: [],
     is_loader: false,
     error: null
 };
@@ -29,6 +30,12 @@ export const productReducer = (state = initialState, action: ProductAction) => {
         }
         case ProductActionTypes.FETCH_ERROR_PRODUCT: {
             return { ...state, error: action.payload }
+        }
+        case ProductActionTypes.FETCH_BASKET: {
+            return { ...state, basket: action.payload }
+        }
+        case ProductActionTypes.FETCH_IMAGES_PRODUCT: {
+            return { ...state, imagesProduct: action.payload }
         }
         default: {
             return state

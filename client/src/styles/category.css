@@ -1,0 +1,16 @@
+.page__category {
+    margin-top: 7rem;
+}
+
+.shop__conteier-catgory {
+    max-width: 1150px;
+    margin: auto;
+    width: 100%;
+    padding: 3rem 0 3rem;
+}
+
+.products__content-categor{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, auto));
+    gap: 25px;
+}

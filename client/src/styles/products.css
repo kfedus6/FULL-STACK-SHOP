@@ -1,11 +1,9 @@
-section {
-    padding: 3rem 0 3rem;
-}
-
 .shop {
     max-width: 1150px;
     margin: auto;
     width: 100%;
+    padding: 3rem 0 3rem;
+    margin-top: 5rem;
 }
 
 .section-title {
@@ -28,12 +26,8 @@ section {
 .product__box {
     position: relative;
 }
-/*
-.product__box:hover {
-    padding: 3px;
-    transition: 0.4s;
-}
-*/
+
+
 .product__img {
 
     width: 100%;
@@ -108,6 +102,11 @@ section {
 }
 
 .page__current {
+    border: 2px solid black;
+    font-weight: bold;
+}
+
+.page:hover {
     border: 2px solid black;
     font-weight: bold;
 }

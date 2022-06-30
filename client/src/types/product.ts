@@ -4,6 +4,7 @@ export interface ProductState {
     basket: [],
     products: { count: number, rows: {} },
     product: {},
+    imagesProduct: [],
     is_loader: boolean,
     error: string | null
 };
@@ -15,7 +16,8 @@ export enum ProductActionTypes {
     FETCH_PRODUCT = 'FETCH_PRODUCT',
     FETCH_LOADER_PRODUCT = 'FETCH_LOADER_PRODUCT',
     FETCH_ERROR_PRODUCT = 'FETCH_ERROR_PRODUCT',
-    FETCH_BASKET = 'FETCH_BASKET'
+    FETCH_BASKET = 'FETCH_BASKET',
+    FETCH_IMAGES_PRODUCT = 'FETCH_IMAGES_PRODUCT'
 };
 
 interface FetchTypesAction {
@@ -53,4 +55,17 @@ interface FetchBasketAction {
     payload: []
 };
 
-export type ProductAction = FetchTypesAction | FetchBrandsAction | FetchProductsAction | FetchLoaderAction | FetchProductAction | FetchErrorAction | FetchBasketAction;
+interface FetchImagesProductAction {
+    type: ProductActionTypes.FETCH_IMAGES_PRODUCT,
+    payload: []
+}
+
+export type ProductAction =
+    FetchTypesAction |
+    FetchBrandsAction |
+    FetchProductsAction |
+    FetchLoaderAction |
+    FetchProductAction |
+    FetchErrorAction |
+    FetchBasketAction |
+    FetchImagesProductAction;

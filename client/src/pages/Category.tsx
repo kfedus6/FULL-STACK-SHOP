@@ -1,9 +1,9 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { NavLink } from 'react-router-dom';
 import ProductsList from '../components/ProductsList';
 import { useAction } from '../hook/useAction';
 import { useTypedSelector } from '../hook/useTypedSelector';
 import { getPageCount, getPagesArray } from '../utils/page';
+import '../styles/category.css';
 
 interface typeAndBrand {
     id: number,
@@ -62,7 +62,7 @@ const Category = () => {
     }
 
     return (
-        <>
+        <div className='page__category'>
             <div className='section-category'>
                 <div className='category-title'>
                     <span>Бренди</span>
@@ -93,8 +93,8 @@ const Category = () => {
                     })}
                 </div>
             </div>
-            <section className='shop'>
-                <div className='products__content'>
+            <section className='shop__conteier-catgory'>
+                <div className='products__content-categor'>
                     {
                         products.rows.map((item: itemPrd) => {
                             return (
@@ -115,7 +115,7 @@ const Category = () => {
                     })}
                 </div>
             </section>
-        </>
+        </div>
     );
 };
 

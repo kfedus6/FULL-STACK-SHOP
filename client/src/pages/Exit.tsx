@@ -10,7 +10,9 @@ const Exit: React.FC = () => {
     }
 
     return (
-        <div className='btn__exit' onClick={exit}>Вийти</div>
+        <div className='btn__exit' onClick={exit}>
+            <span>Вийти</span>
+        </div>
     );
 };
 
