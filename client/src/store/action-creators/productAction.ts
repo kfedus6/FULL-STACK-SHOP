@@ -91,6 +91,17 @@ export const fetchGetBasketProduct = (userId: any) => async (dispatch: Dispatch<
     }
 };
 
+
+export const fetchDeleteBasketProduct = (id: any) => async (dispatch: Dispatch<ProductAction>) => {
+    try {
+        console.log(id)
+        const response = await $authHost.delete(`/api/basket/${id}`)
+        dispatch({ type: ProductActionTypes.FETCH_BASKET, payload: response.data })
+    } catch (err: any) {
+        dispatch({ type: ProductActionTypes.FETCH_ERROR_PRODUCT, payload: err.response.data.message })
+    }
+};
+
 export const fetchGetImagesProduct = (productId: any) => async (dispatch: Dispatch<ProductAction>) => {
     try {
         const response = await $host.get(`/api/imagesProduct/${productId}`)
@@ -99,4 +110,3 @@ export const fetchGetImagesProduct = (productId: any) => async (dispatch: Dispat
         dispatch({ type: ProductActionTypes.FETCH_ERROR_PRODUCT, payload: err.response.data.message })
     }
 };
-

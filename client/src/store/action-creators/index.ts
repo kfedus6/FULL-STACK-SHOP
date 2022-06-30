@@ -1,5 +1,5 @@
 import { registration, login, authorization, loginExit } from "../action-creators/userAction";
-import { fetchProducts, fetchBrands, fetchTypes, fetchProduct, fetchCreateBrand, fetchCreateType, fetchCreateProduct, fetchError, fetchAddBasket, fetchGetBasketProduct, fetchGetImagesProduct } from "./productAction";
+import { fetchProducts, fetchBrands, fetchTypes, fetchProduct, fetchCreateBrand, fetchCreateType, fetchCreateProduct, fetchError, fetchAddBasket, fetchGetBasketProduct, fetchGetImagesProduct, fetchDeleteBasketProduct } from "./productAction";
 
 export default {
     registration,
@@ -16,5 +16,6 @@ export default {
     fetchError,
     fetchAddBasket,
     fetchGetBasketProduct,
-    fetchGetImagesProduct
+    fetchGetImagesProduct,
+    fetchDeleteBasketProduct
 };

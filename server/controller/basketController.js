@@ -40,7 +40,7 @@ class BasketController {
 
     async deleteBasketProduct(req, res, next) {
         const { id } = req.params
-
+        console.log(id)
         if (id === undefined) {
             return next(ApiError.badRequest('id undefined'))
         }

@@ -43,7 +43,7 @@ const Header: React.FC = () => {
                     <li><Exit /></li>
                 </ul>
                 <div className='nav-icons'>
-                    <NavLink to="/basket" className='cart'><AiOutlineShopping /><i><span>{basket.length}</span></i></NavLink>
+                    <NavLink to="/basketProduct" className='cart'><AiOutlineShopping /><i><span>{basket.length}</span></i></NavLink>
                     <i className='bx menu' id='menu-icon'><AiOutlineMenu /></i>
                 </div>
             </div>
@@ -63,7 +63,7 @@ const Header: React.FC = () => {
                     <li><Exit /></li>
                 </ul>
                 <div className='nav-icons'>
-                    <a className='cart'><AiOutlineShopping /><i><span>0</span></i></a>
+                    <NavLink to="/basketProduct" className='cart'><AiOutlineShopping /><i><span>{basket.length}</span></i></NavLink>
                     <i className='bx menu' id='menu-icon'><AiOutlineMenu /></i>
                 </div>
             </div>

@@ -3,6 +3,8 @@ import { useAction } from '../hook/useAction';
 import { useTypedSelector } from '../hook/useTypedSelector';
 import jwt_decode from 'jwt-decode';
 import '../styles/basketProduct.css'
+import { AiTwotoneDelete } from 'react-icons/ai';
+import { useNavigate } from 'react-router-dom';
 
 interface itemProduct {
     id: number,
@@ -13,15 +15,29 @@ interface itemProduct {
 
 const BasketProduct = () => {
 
-    const { fetchGetBasketProduct } = useAction()
+    const { fetchGetBasketProduct, fetchDeleteBasketProduct } = useAction()
 
     const { basket }: any = useTypedSelector(state => state.products)
+
+
+    const { user }: any = useTypedSelector(state => state);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (user.is_login === false) {
+            navigate('/')
+        }
+    }, [user])
 
     useEffect(() => {
         let token: any = localStorage.getItem('token')
         let user: any = jwt_decode(token)
         fetchGetBasketProduct(user.userId)
     }, [])
+
+    const deleteProduct = (id: any) => {
+        fetchDeleteBasketProduct(id)
+    }
 
     return (
         <div className='section-cart'>
@@ -41,6 +57,7 @@ const BasketProduct = () => {
                                 <img className='img__cart-product' src={process.env.REACT_APP_API_URL + item.img} />
                                 <span className='name__cart-product'>{item.name}</span>
                                 <span className='price__cart-product'>{item.price}</span>
+                                <button onClick={() => deleteProduct(item.id)}><AiTwotoneDelete /></button>
                             </div>
                         )
                     })}
