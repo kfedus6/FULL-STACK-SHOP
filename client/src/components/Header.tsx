@@ -1,5 +1,5 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useTypedSelector } from '../hook/useTypedSelector';
 import Exit from '../pages/Exit';
 import { FaUser } from 'react-icons/fa';
@@ -10,12 +10,17 @@ const Header: React.FC = () => {
 
     const user = useTypedSelector(state => state.user)
     const { basket }: any = useTypedSelector(state => state.products)
+    const navigate = useNavigate()
+
+    const goHome = () => {
+        navigate('/')
+    }
 
     if (user.is_login === false && user.is_admin === false) {
         return (
             <div className='navbar nav-container'>
                 <div className='logo'>
-                    <label>Shop</label >
+                    <button onClick={goHome}>Shop</button>
                 </div>
                 <ul className='navbar__links'>
                     <li><NavLink to="/">Головна</NavLink></li>
@@ -33,7 +38,7 @@ const Header: React.FC = () => {
         return (
             <div className='navbar nav-conteiner'>
                 <div className='logo'>
-                    <label>Shop</label>
+                    <button onClick={goHome}>Shop</button>
                 </div>
                 <ul className='navbar__links'>
                     <li><NavLink to="/">Головна</NavLink></li>
@@ -52,7 +57,7 @@ const Header: React.FC = () => {
         return (
             <div className='navbar nav-container'>
                 <div className='logo'>
-                    <label>Shop</label>
+                    <button onClick={goHome}>Shop</button>
                 </div>
                 <ul className='navbar__links'>
                     <li><NavLink to="/">Головна</NavLink></li>

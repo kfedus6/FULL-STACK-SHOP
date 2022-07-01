@@ -21,8 +21,10 @@ header {
     min-height: 80px;
 }
 
-.logo {
-    color: black;
+.logo button {
+    cursor: pointer;
+    background: transparent;
+    border: none;
     font-size: 35px;
     font-weight: bold;
     text-transform: uppercase;

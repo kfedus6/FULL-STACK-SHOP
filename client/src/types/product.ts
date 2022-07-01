@@ -5,29 +5,22 @@ export interface ProductState {
     products: { count: number, rows: {} },
     product: {},
     imagesProduct: [],
-    is_loader: boolean,
     error: string | null
 };
 
 export enum ProductActionTypes {
-    FETCH_TYPES = 'FETCH_TYPES',
-    FETCH_BRANDS = 'FETCH_BRANDS',
     FETCH_PRODUCTS = 'FETCH_PRODUCTS',
     FETCH_PRODUCT = 'FETCH_PRODUCT',
-    FETCH_LOADER_PRODUCT = 'FETCH_LOADER_PRODUCT',
-    FETCH_ERROR_PRODUCT = 'FETCH_ERROR_PRODUCT',
+    FETCH_ADD_PRODUCT = 'FETCH_ADD_PRODUCT',
+    FETCH_BRANDS = 'FETCH_BRANDS',
+    FETCH_ADD_BRANDS = 'FETCH_ADD_BRANDS',
+    FETCH_TYPES = 'FETCH_TYPES',
+    FETCH_ADD_TYPES = 'FETCH_ADD_TYPES',
     FETCH_BASKET = 'FETCH_BASKET',
-    FETCH_IMAGES_PRODUCT = 'FETCH_IMAGES_PRODUCT'
-};
-
-interface FetchTypesAction {
-    type: ProductActionTypes.FETCH_TYPES,
-    payload: []
-};
-
-interface FetchBrandsAction {
-    type: ProductActionTypes.FETCH_BRANDS,
-    payload: []
+    FETCH_ADD_BASKET = 'FETCH_ADD_BASKET',
+    FETCH_DELETE_BASKET = 'FETCH_DELETE_BASKET',
+    FETCH_IMAGES_PRODUCT = 'FETCH_IMAGES_PRODUCT',
+    FETCH_ERROR_PRODUCT = 'FETCH_ERROR_PRODUCT'
 };
 
 interface FetchProductsAction {
@@ -40,18 +33,43 @@ interface FetchProductAction {
     payload: {}
 };
 
-interface FetchLoaderAction {
-    type: ProductActionTypes.FETCH_LOADER_PRODUCT,
-    payload: boolean
+interface FetchProductAddAction {
+    type: ProductActionTypes.FETCH_ADD_PRODUCT,
+    payload: {}
 };
 
-interface FetchErrorAction {
-    type: ProductActionTypes.FETCH_ERROR_PRODUCT,
-    payload: string | null
+interface FetchBrandsAction {
+    type: ProductActionTypes.FETCH_BRANDS,
+    payload: []
+};
+
+interface FetchBrandsAddAction {
+    type: ProductActionTypes.FETCH_ADD_BRANDS,
+    payload: []
+};
+
+interface FetchTypesAction {
+    type: ProductActionTypes.FETCH_TYPES,
+    payload: []
+};
+
+interface FetchTypesAddAction {
+    type: ProductActionTypes.FETCH_ADD_TYPES,
+    payload: []
 };
 
 interface FetchBasketAction {
     type: ProductActionTypes.FETCH_BASKET,
+    payload: []
+};
+
+interface FetchBasketAddction {
+    type: ProductActionTypes.FETCH_ADD_BASKET,
+    payload: []
+};
+
+interface FetchBasketDeleteAction {
+    type: ProductActionTypes.FETCH_DELETE_BASKET,
     payload: []
 };
 
@@ -60,12 +78,21 @@ interface FetchImagesProductAction {
     payload: []
 }
 
+interface FetchErrorAction {
+    type: ProductActionTypes.FETCH_ERROR_PRODUCT,
+    payload: string | null
+};
+
 export type ProductAction =
-    FetchTypesAction |
-    FetchBrandsAction |
     FetchProductsAction |
-    FetchLoaderAction |
     FetchProductAction |
-    FetchErrorAction |
+    FetchProductAddAction |
+    FetchBrandsAction |
+    FetchBrandsAddAction |
+    FetchTypesAction |
+    FetchTypesAddAction |
     FetchBasketAction |
-    FetchImagesProductAction;
+    FetchBasketAddction |
+    FetchBasketDeleteAction |
+    FetchImagesProductAction |
+    FetchErrorAction;

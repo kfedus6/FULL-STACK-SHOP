@@ -18,7 +18,7 @@ const Product = () => {
         <div>
             {imagesProduct.map((item: any) => {
                 return (
-                    <div>
+                    <div key={item.id}>
                         <img src={process.env.REACT_APP_API_URL + item.img} alt="product" />
                     </div>
                 )

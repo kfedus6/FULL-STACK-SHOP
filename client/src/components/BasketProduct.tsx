@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { Key, useEffect } from 'react';
 import { useAction } from '../hook/useAction';
 import { useTypedSelector } from '../hook/useTypedSelector';
-import jwt_decode from 'jwt-decode';
-import '../styles/basketProduct.css'
-import { AiTwotoneDelete } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
+import { AiTwotoneDelete } from 'react-icons/ai';
+import { BsArrowLeft } from 'react-icons/bs';
+import jwt_decode from 'jwt-decode';
+import '../styles/basketProduct.css';
 
 interface itemProduct {
     id: number,
@@ -14,14 +15,11 @@ interface itemProduct {
 }
 
 const BasketProduct = () => {
-
-    const { fetchGetBasketProduct, fetchDeleteBasketProduct } = useAction()
-
     const { basket }: any = useTypedSelector(state => state.products)
-
-
     const { user }: any = useTypedSelector(state => state);
     const navigate = useNavigate();
+
+    const { fetchGetBasketProduct, fetchDeleteBasketProduct } = useAction()
 
     useEffect(() => {
         if (user.is_login === false) {
@@ -39,32 +37,69 @@ const BasketProduct = () => {
         fetchDeleteBasketProduct(id)
     }
 
-    return (
-        <div className='section-cart'>
-            <div className='cart-conteiner'>
-                <div className='cart-title'>
-                    <h2>КОРЗИНА ДЛЯ ПОКУПОК</h2>
-                </div>
-                <div className='block-description'>
-                    <span className='description-product'>ОПИС ПРОДУКТУ</span>
-                    <span className='count-product'>ЧИСЛО</span>
-                    <span className='price-product'>ЦІНА</span>
-                </div>
-                <div className='block-products'>
-                    {basket.map((item: itemProduct) => {
-                        return (
-                            <div className='cart-product' key={item.id}>
-                                <img className='img__cart-product' src={process.env.REACT_APP_API_URL + item.img} />
-                                <span className='name__cart-product'>{item.name}</span>
-                                <span className='price__cart-product'>{item.price}</span>
-                                <button onClick={() => deleteProduct(item.id)}><AiTwotoneDelete /></button>
+    const goShop = () => {
+        navigate('/products')
+    }
+
+    if (basket.length === 0) {
+        return (
+            <div className='cart-empty'>
+                <h2>КОРЗИНА ДЛЯ ПОКУПОК</h2>
+                <h3 className='empty'>КОРЗИНА ПУСТА</h3>
+                <button onClick={goShop} className='btn-shop'>ПРОДОВЖИТИ ПОКУПКУ</button>
+            </div>
+        )
+    } else {
+        return (
+            <div className='cart-container'>
+                <h2>КОРЗИНА ДЛЯ ПОКУПОК</h2>
+                <div>
+                    <div className='titles'>
+                        <h3 className="product-title">Продукт</h3>
+                        <h3 className="price">Ціна</h3>
+                        <h3 className="quantity">Кількість</h3>
+                        <h3 className="total">Всього</h3>
+                    </div>
+                    <div className='cart-items'>
+                        {basket.map((item: itemProduct, idx: Key) => {
+                            return (
+                                <div className='cart-item' key={idx}>
+                                    <div className='cart-product'>
+                                        <img src={process.env.REACT_APP_API_URL + item.img} alt={item.name} />
+                                        <div>
+                                            <h3>{item.name}</h3>
+                                            <button onClick={() => deleteProduct(item.id)}><AiTwotoneDelete /></button>
+                                        </div>
+                                    </div>
+                                    <div className='cart-product-price'>{item.price} &#8372;</div>
+                                    <div className="cart-product-quantity">
+                                        <input type="number" defaultValue='1' />
+                                    </div>
+                                    <div className='cart-product-total-price'>
+                                        total price &#8372;
+                                    </div>
+                                </div>
+                            )
+                        })}
+                    </div>
+                    <div className='cart-summary'>
+                        <div className="cart-checkout">
+                            <div className='subtotal'>
+                                <span>Ціна</span>
+                                <span className='amount'>price &#8372;</span>
                             </div>
-                        )
-                    })}
+                            <div>
+                                <button className='btn-cart-buy'>Купити</button>
+                            </div>
+                            <div className='btn-go-shop'>
+                                <button onClick={goShop}><span><BsArrowLeft /></span>Продовжити покупку</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    )
+        )
+    }
 };
 
 export default BasketProduct;

@@ -7,35 +7,46 @@ const initialState: ProductState = {
     products: { count: 0, rows: [] },
     product: {},
     imagesProduct: [],
-    is_loader: false,
     error: null
 };
 
 export const productReducer = (state = initialState, action: ProductAction) => {
     switch (action.type) {
-        case ProductActionTypes.FETCH_LOADER_PRODUCT: {
-            return { ...state, is_loader: action.payload }
-        }
         case ProductActionTypes.FETCH_PRODUCTS: {
             return { ...state, is_loader: false, products: action.payload }
-        }
-        case ProductActionTypes.FETCH_BRANDS: {
-            return { ...state, brands: action.payload }
-        }
-        case ProductActionTypes.FETCH_TYPES: {
-            return { ...state, types: action.payload }
         }
         case ProductActionTypes.FETCH_PRODUCT: {
             return { ...state, product: action.payload }
         }
-        case ProductActionTypes.FETCH_ERROR_PRODUCT: {
-            return { ...state, error: action.payload }
+        case ProductActionTypes.FETCH_ADD_PRODUCT: {
+            return { ...state, produts: { ...state.products, produtcs: action.payload } }
+        }
+        case ProductActionTypes.FETCH_BRANDS: {
+            return { ...state, brands: action.payload }
+        }
+        case ProductActionTypes.FETCH_ADD_BRANDS: {
+            return { ...state, brands: [...state.brands, action.payload] }
+        }
+        case ProductActionTypes.FETCH_TYPES: {
+            return { ...state, types: action.payload }
+        }
+        case ProductActionTypes.FETCH_ADD_TYPES: {
+            return { ...state, types: [...state.types, action.payload] }
         }
         case ProductActionTypes.FETCH_BASKET: {
             return { ...state, basket: action.payload }
         }
+        case ProductActionTypes.FETCH_ADD_BASKET: {
+            return { ...state, basket: [...state.basket, action.payload] }
+        }
+        case ProductActionTypes.FETCH_DELETE_BASKET: {
+            return { ...state, basket: state.basket.filter((p: any) => p.id !== action.payload) }
+        }
         case ProductActionTypes.FETCH_IMAGES_PRODUCT: {
             return { ...state, imagesProduct: action.payload }
+        }
+        case ProductActionTypes.FETCH_ERROR_PRODUCT: {
+            return { ...state, error: action.payload }
         }
         default: {
             return state

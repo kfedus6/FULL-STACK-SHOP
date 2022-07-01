@@ -26,6 +26,7 @@ const Products = () => {
         setPage(page)
     }
 
+
     return (
         <section className='shop'>
             <div className='section-title'>

@@ -10,7 +10,7 @@ class BasketController {
         if (basket && product) {
             const basketProduct = await BasketProduct.create({ basketId: basket.id, productId: product.id })
             basketProduct.save()
-            return res.json(basketProduct)
+            return res.json(product)
         } else {
             return next(ApiError.badRequest('undefined'))
         }
@@ -45,13 +45,14 @@ class BasketController {
             return next(ApiError.badRequest('id undefined'))
         }
 
+        const delProduct = await Product.findOne({ where: { id } })
         const findBasketProduct = await BasketProduct.destroy({ where: { productId: id } })
 
         if (findBasketProduct === null) {
             return next(ApiError.badRequest('basket product id undefined'))
         }
 
-        return res.json(findBasketProduct)
+        return res.json(delProduct)
     }
 };
 
