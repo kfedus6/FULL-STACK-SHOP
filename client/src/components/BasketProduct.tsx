@@ -1,4 +1,4 @@
-import React, { Key, useEffect } from 'react';
+import React, { Key, useEffect, useState } from 'react';
 import { useAction } from '../hook/useAction';
 import { useTypedSelector } from '../hook/useTypedSelector';
 import { useNavigate } from 'react-router-dom';
@@ -15,6 +15,7 @@ interface itemProduct {
 }
 
 const BasketProduct = () => {
+    const [totalPrice, setTotalPrice] = useState(0)
     const { basket }: any = useTypedSelector(state => state.products)
     const { user }: any = useTypedSelector(state => state);
     const navigate = useNavigate();
@@ -39,6 +40,10 @@ const BasketProduct = () => {
 
     const goShop = () => {
         navigate('/products')
+    }
+
+    const countPrice = (value: any) => {
+        setTotalPrice(value)
     }
 
     if (basket.length === 0) {
@@ -71,12 +76,12 @@ const BasketProduct = () => {
                                             <button onClick={() => deleteProduct(item.id)}><AiTwotoneDelete /></button>
                                         </div>
                                     </div>
-                                    <div className='cart-product-price'>{item.price} &#8372;</div>
+                                    <div className='cart-product-price' >{item.price} &#8372;</div>
                                     <div className="cart-product-quantity">
-                                        <input type="number" defaultValue='1' />
+                                        <input type="number" defaultValue='1' onChange={(e) => countPrice(e.target.value)} />
                                     </div>
                                     <div className='cart-product-total-price'>
-                                        total price &#8372;
+                                        {totalPrice * Number(item.price)} &#8372;
                                     </div>
                                 </div>
                             )
@@ -97,7 +102,7 @@ const BasketProduct = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div >
         )
     }
 };

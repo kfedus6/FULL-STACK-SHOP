@@ -20,6 +20,7 @@ export enum ProductActionTypes {
     FETCH_ADD_BASKET = 'FETCH_ADD_BASKET',
     FETCH_DELETE_BASKET = 'FETCH_DELETE_BASKET',
     FETCH_IMAGES_PRODUCT = 'FETCH_IMAGES_PRODUCT',
+    FETCH_ADD_IMAGES_PRODUCT = 'FETCH_IMAGES_PRODUCT',
     FETCH_ERROR_PRODUCT = 'FETCH_ERROR_PRODUCT'
 };
 
@@ -78,6 +79,11 @@ interface FetchImagesProductAction {
     payload: []
 }
 
+interface FetchAddImagesProductAction {
+    type: ProductActionTypes.FETCH_ADD_IMAGES_PRODUCT,
+    payload: []
+}
+
 interface FetchErrorAction {
     type: ProductActionTypes.FETCH_ERROR_PRODUCT,
     payload: string | null
@@ -95,4 +101,5 @@ export type ProductAction =
     FetchBasketAddction |
     FetchBasketDeleteAction |
     FetchImagesProductAction |
+    FetchAddImagesProductAction |
     FetchErrorAction;

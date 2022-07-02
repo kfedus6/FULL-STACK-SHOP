@@ -101,6 +101,15 @@ export const fetchDeleteBasketProduct = (id: any) => async (dispatch: Dispatch<P
     }
 };
 
+export const fetchAddImagesProduct = (formData: any) => async (dispatch: Dispatch<ProductAction>) => {
+    try {
+        const response = await $host.post('/api/imagesProduct/', formData)
+        dispatch({ type: ProductActionTypes.FETCH_ADD_IMAGES_PRODUCT, payload: response.data })
+    } catch (err: any) {
+        dispatch({ type: ProductActionTypes.FETCH_ERROR_PRODUCT, payload: err.response.data.message })
+    }
+};
+
 export const fetchGetImagesProduct = (productId: any) => async (dispatch: Dispatch<ProductAction>) => {
     try {
         const response = await $host.get(`/api/imagesProduct/${productId}`)

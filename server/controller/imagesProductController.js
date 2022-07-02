@@ -5,13 +5,13 @@ const ApiError = require('../error/apierror');
 
 class ImagesProductController {
     async craeteImages(req, res) {
-        const { productId } = req.body
+        const { productId, color } = req.body
         const { img } = req.files
 
         const fileName = uuid.v4() + '.jpg'
         img.mv(path.resolve(__dirname, '..', 'static', fileName))
 
-        const imageProduct = await ImagesProduct.create({ img: fileName, productId: productId })
+        const imageProduct = await ImagesProduct.create({ img: fileName, color: color, productId: productId })
 
         return res.json(imageProduct)
     }

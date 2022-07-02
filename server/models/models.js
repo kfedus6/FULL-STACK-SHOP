@@ -45,7 +45,8 @@ const BrandType = sequelize.define('brandtype', {
 
 const ImagesProduct = sequelize.define('imagesProduct', {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-    img: { type: DataTypes.STRING }
+    img: { type: DataTypes.STRING },
+    color: { type: DataTypes.STRING }
 });
 
 User.hasOne(Basket);

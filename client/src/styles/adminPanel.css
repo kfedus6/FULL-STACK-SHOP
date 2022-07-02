@@ -34,12 +34,6 @@
     display: table-caption; 
 }
 
-.inp__file {
-    font-size: 15px;
-    margin-bottom: 10px;
-    cursor: pointer;
-}
-
 .inp__product input {
     width: 100%;
     height: 30px;
@@ -62,7 +56,13 @@
     font-size: 14px;
     border-radius: 5px;
     border: 1px solid gray;
+    background-color: #fff;
     cursor: pointer;
+}
+
+.btn__parameter button:hover {
+    background-color: black;
+    color: #fff;
 }
 
 .btn__product-add {
@@ -71,12 +71,18 @@
 }
 
 .btn__product-add button {
-    width: 100px;
+    width: 120px;
     height: 30px;
     font-size: 14px;
     border-radius: 5px;
     border: 1px solid gray;
+    background-color: #fff;
     cursor: pointer;
+}
+
+.btn__product-add button:hover {
+    background-color: black;
+    color: #fff;
 }
 
 .block__info-product div  {
@@ -98,17 +104,17 @@
     margin-left: 5px;
 }
 
-.info__brand {
+.info-brand-type {
     display: table-caption;
     width: 250px;
 }
 
-.title__brand {
+.title-brand-type {
     font-size: 22px;
     margin-bottom: 10px;
 }
 
-.info__brand input {
+.info-brand-type input {
     width: 100%;
     height: 30px;
     margin-bottom: 10px;
@@ -118,42 +124,19 @@
     font-size: 16px;
 }
 
-.info__brand button {
-    width: 100px;
+.info-brand-type button {
+    width: 120px;
     height: 30px;
     font-size: 14px;
     border-radius: 5px;
     border: 1px solid gray;
+    background-color: #fff;
     cursor: pointer;
 }
 
-.info__type {
-    display: table-caption;
-    width: 250px;
-}
-
-.title__type{
-    font-size: 22px;
-    margin-bottom: 10px;
-}
-
-.info__type  input{
-    width: 100%;
-    height: 30px;
-    margin-bottom: 10px;
-    border: 1px solid gray;
-    border-radius: 3px;
-    padding: 0 5px;
-    font-size: 16px;
-}
-
-.info__type button {
-    width: 100px;
-    height: 30px;
-    font-size: 14px;
-    border-radius: 5px;
-    border: 1px solid gray;
-    cursor: pointer;  
+.info-brand-type button:hover {
+    background-color: black;
+    color: #fff;
 }
 
 .error__admin-panel {
@@ -167,4 +150,39 @@
     display: flex;
     justify-content: center;
     font-size: 17px;
+}
+
+.info-img-product {
+    display: table-caption;
+    width: 250px;
+}
+
+.info-img-product button{
+    width: 120px;
+    height: 30px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    background-color: #fff;
+    cursor: pointer; 
+}
+
+.info-img-product button:hover {
+    background-color: black;
+    color: #fff;
+}
+
+.info-input-product input {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 10px;
+    border: 1px solid gray;
+    border-radius: 3px;
+    padding: 0 5px;
+    font-size: 16px;
+}
+
+.img-product {
+    font-size: 15px;
+    margin-bottom: 10px;
 }

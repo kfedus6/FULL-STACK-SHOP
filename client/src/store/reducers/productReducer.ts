@@ -45,6 +45,9 @@ export const productReducer = (state = initialState, action: ProductAction) => {
         case ProductActionTypes.FETCH_IMAGES_PRODUCT: {
             return { ...state, imagesProduct: action.payload }
         }
+        case ProductActionTypes.FETCH_ADD_IMAGES_PRODUCT: {
+            return { ...state, imagesProduct: [...state.imagesProduct, action.payload] }
+        }
         case ProductActionTypes.FETCH_ERROR_PRODUCT: {
             return { ...state, error: action.payload }
         }

@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 const AdminPanel = () => {
 
-    const { fetchBrands, fetchTypes, fetchCreateBrand, fetchCreateType, fetchCreateProduct, fetchError } = useAction()
+    const { fetchBrands, fetchTypes, fetchCreateBrand, fetchCreateType, fetchCreateProduct, fetchError, fetchAddImagesProduct } = useAction()
     const { types, brands, error }: any = useTypedSelector(state => state.products)
     const { user }: any = useTypedSelector(state => state)
 
@@ -24,6 +24,8 @@ const AdminPanel = () => {
     const [info, setInfo]: any = useState([])
     const [paramater, setParamater] = useState('')
     const [value, setValue] = useState('')
+    const [color, setColor]: any = useState('')
+    const [productId, setProductId]: any = useState(0)
 
     useEffect(() => {
         if (user.is_admin === false) {
@@ -53,6 +55,16 @@ const AdminPanel = () => {
         fetchCreateProduct(formData)
         setName('')
         setPrice('')
+    }
+
+    const addImgProduct = () => {
+        const formData = new FormData()
+        formData.append('productId', productId)
+        formData.append('color', color)
+        formData.append('img', img[0])
+        fetchAddImagesProduct(formData)
+        setColor('')
+        setProductId('')
     }
 
     const addBrand = () => {
@@ -98,7 +110,7 @@ const AdminPanel = () => {
                     </select>
                 </div>
                 <div className='info-product'>
-                    <input type="file" className='inp__file' onChange={(e) => setImg(e.target.files)} />
+                    <input type="file" className='img-product' onChange={(e) => setImg(e.target.files)} />
                     <div className='inp__product'>
                         <input type="text" placeholder='name' value={name} onChange={(e) => setName(e.target.value)} />
                         <input type="text" placeholder='price' value={price} onChange={(e) => setPrice(e.target.value)} />
@@ -129,28 +141,41 @@ const AdminPanel = () => {
                     </div>
                 </div>
             </div >
-            <section className='section-brand'>
-                <div className='title__brand'>
+            <section className='img-product'>
+                <div className='title__product'>
+                    <span>Картинка продукта</span>
+                </div>
+                <div className='info-img-product'>
+                    <input className='img-product' type="file" onChange={(e) => setImg(e.target.files)} />
+                    <div className='info-input-product'>
+                        <input type="text" value={productId} onChange={(e) => setProductId(e.target.value)} />
+                        <input type="text" value={color} placeholder='Color' onChange={(e) => setColor(e.target.value)} />
+                    </div>
+                    <button onClick={addImgProduct}>Добавити</button>
+                </div>
+            </section>
+            <section className='section-brand-type'>
+                <div className='title-brand-type'>
                     <span>
                         Бренд
                     </span>
                 </div>
-                <div className='info__brand'>
+                <div className='info-brand-type'>
                     <input type="text" placeholder='name' value={brandName} onChange={(e) => setBrandName(e.target.value)} />
-                    <div className='btn__brand-type'>
+                    <div className='btn-brand-type'>
                         <button onClick={addBrand}>Добавити</button>
                     </div>
                 </div>
             </section>
-            <section className='section-type'>
-                <div className='title__type'>
+            <section className='section-brand-type'>
+                <div className='title-brand-type'>
                     <span>
                         Тип продукта
                     </span>
                 </div>
-                <div className='info__type'>
+                <div className='info-brand-type'>
                     <input type="text" placeholder='name' value={typeName} onChange={(e) => setTypeName(e.target.value)} />
-                    <div className='btn__brand-type'>
+                    <div className='btn-brand-type'>
                         <button onClick={addType}>Добавити</button>
                     </div>
                 </div>
