@@ -22,7 +22,7 @@
     bottom: 0;
     height: 3px;
     width: 30px;
-    background-color: blue;
+    background-color: black;
     border-radius: 25px;
 }
 
@@ -46,7 +46,7 @@
 }
 
 .input-field input:focus {
-    border-bottom-color: blue;
+    border-bottom-color: black;
 }
 
 .input-field i {
@@ -58,7 +58,7 @@
 }
 
 .input-field input:focus ~ i {
-    color: blue;
+    color: black;
 }
 
 .input-field i .icon {
@@ -93,13 +93,15 @@
     font-weight: 500;
     letter-spacing: 1px;
     border-radius: 6px;
-    background-color: blue;
+    background-color: #fff;
     cursor: pointer;
     transition: all 0.3s ease;
+    border: 1px solid gray;
 }
 
 .button input:hover {
-    background-color: #265df2;
+    background-color: black;
+    color:#fff
 } 
 
 .form .login-signup {

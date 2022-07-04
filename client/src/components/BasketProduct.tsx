@@ -1,4 +1,4 @@
-import React, { Key, useEffect, useState } from 'react';
+import React, { Key, useEffect, useMemo, useState } from 'react';
 import { useAction } from '../hook/useAction';
 import { useTypedSelector } from '../hook/useTypedSelector';
 import { useNavigate } from 'react-router-dom';
@@ -14,11 +14,18 @@ interface itemProduct {
     img: string
 }
 
+interface itemBasketInfo {
+    count: number,
+    product: { id: number, name: string, price: string }
+    sum: number
+}
+
 const BasketProduct = () => {
-    const [totalPrice, setTotalPrice] = useState(0)
+    const [basketProductsInfo, setBasketProductsInfo]: any = useState([])
     const { basket }: any = useTypedSelector(state => state.products)
     const { user }: any = useTypedSelector(state => state);
     const navigate = useNavigate();
+    const [sum, setSum] = useState([{ 'sum': 1000 }, { 'sum': 2000 }, { 'sum': 2000 }, { 'sum': 500 }])
 
     const { fetchGetBasketProduct, fetchDeleteBasketProduct } = useAction()
 
@@ -32,19 +39,34 @@ const BasketProduct = () => {
         let token: any = localStorage.getItem('token')
         let user: any = jwt_decode(token)
         fetchGetBasketProduct(user.userId)
+        let tmp = basketProductsInfo
+        for (const product of basket) {
+            tmp = [...tmp, { product: product, count: 1, sum: product.price }]
+        }
+        setBasketProductsInfo(tmp)
     }, [])
+
 
     const deleteProduct = (id: any) => {
         fetchDeleteBasketProduct(id)
+        /*  let newBasketProductInfo = basketProductsInfo.filter((item: any) => item.product.id !== id)
+         setBasketProductsInfo(newBasketProductInfo) */
     }
 
     const goShop = () => {
         navigate('/products')
     }
 
-    const countPrice = (value: any) => {
-        setTotalPrice(value)
+    const changeBasketIndo = (count: any, basketInfo: any) => {
+        let tmp = basketProductsInfo.filter((info: any) => info.product.name != basketInfo.product.name)
+        basketInfo.count = count
+        basketInfo.sum = count * basketInfo.product.price
+        setBasketProductsInfo([...tmp, basketInfo])
     }
+
+    console.log(basketProductsInfo.length, basket.length)
+    console.log('basketProductInfo', basketProductsInfo)
+    console.log('basket', basket)
 
     if (basket.length === 0) {
         return (
@@ -54,7 +76,7 @@ const BasketProduct = () => {
                 <button onClick={goShop} className='btn-shop'>ПРОДОВЖИТИ ПОКУПКУ</button>
             </div>
         )
-    } else {
+    } else if (basketProductsInfo.length !== 0) {
         return (
             <div className='cart-container'>
                 <h2>КОРЗИНА ДЛЯ ПОКУПОК</h2>
@@ -67,6 +89,8 @@ const BasketProduct = () => {
                     </div>
                     <div className='cart-items'>
                         {basket.map((item: itemProduct, idx: Key) => {
+                            const basketInfo = basketProductsInfo.find((info: itemBasketInfo) => info.product.name == item.name)
+                            console.log('basketInfo', basketInfo)
                             return (
                                 <div className='cart-item' key={idx}>
                                     <div className='cart-product'>
@@ -78,10 +102,10 @@ const BasketProduct = () => {
                                     </div>
                                     <div className='cart-product-price' >{item.price} &#8372;</div>
                                     <div className="cart-product-quantity">
-                                        <input type="number" defaultValue='1' onChange={(e) => countPrice(e.target.value)} />
+                                        <input type="number" defaultValue={basketInfo.count} onChange={(e) => changeBasketIndo(e.target.value, basketInfo)} />
                                     </div>
                                     <div className='cart-product-total-price'>
-                                        {totalPrice * Number(item.price)} &#8372;
+                                        {basketInfo.sum} &#8372;
                                     </div>
                                 </div>
                             )
@@ -104,6 +128,8 @@ const BasketProduct = () => {
                 </div>
             </div >
         )
+    } else {
+        return <h1>loaded</h1>
     }
 };
 

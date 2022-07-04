@@ -79,6 +79,10 @@
     color: rgb(78, 78, 78);
 }
 
+.basket {
+    color: orange;
+}
+
 .btn__basket:hover {
     color:black;
     transition: all 0.3s ease;

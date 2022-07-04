@@ -10,6 +10,7 @@ const Header: React.FC = () => {
 
     const user = useTypedSelector(state => state.user)
     const { basket }: any = useTypedSelector(state => state.products)
+
     const navigate = useNavigate()
 
     const goHome = () => {

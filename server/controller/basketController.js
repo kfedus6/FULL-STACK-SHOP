@@ -7,6 +7,7 @@ class BasketController {
 
         const basket = await Basket.findOne({ where: { userId } })
         const product = await Product.findOne({ where: { id: productId } })
+
         if (basket && product) {
             const basketProduct = await BasketProduct.create({ basketId: basket.id, productId: product.id })
             basketProduct.save()

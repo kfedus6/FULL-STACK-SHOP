@@ -19,6 +19,7 @@ const ProductsList = ({ item }: itemProduct) => {
     const { fetchAddBasket } = useAction();
 
     const { is_login } = useTypedSelector(state => state.user)
+    const { basket }: any = useTypedSelector(state => state.products)
 
     const product = (e: FormEvent) => {
         e.preventDefault()
@@ -56,10 +57,10 @@ const ProductsList = ({ item }: itemProduct) => {
                     <span className='product__price'>{item.price} &#8372;</span>
                     <div className='block__btn-basket'>
                         <button className='btn__buy' onClick={product}>Купити</button>
-                        <button className='btn__basket' onClick={() => addBasketProduct(item.id)}><RiShoppingBasketFill /></button>
+                        <button className={basket.map((basket: any) => basket.id === item.id ? 'btn__basket basket' : 'btn__basket')} onClick={() => addBasketProduct(item.id)}><RiShoppingBasketFill /></button>
                     </div>
                 </div>
-            </div>
+            </div >
         )
     }
 };
