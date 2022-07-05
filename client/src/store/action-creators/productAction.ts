@@ -118,3 +118,21 @@ export const fetchGetImagesProduct = (productId: any) => async (dispatch: Dispat
         dispatch({ type: ProductActionTypes.FETCH_ERROR_PRODUCT, payload: err.response.data.message })
     }
 };
+
+export const fetchAddOrderProduct = () => async (dispatch: Dispatch<ProductAction>) => {
+    try {
+        const response = await $host.post('/api/order/')
+        dispatch({ type: ProductActionTypes.FETCH_ADD_ORDER_PRODUCT, payload: response.data })
+    } catch (err: any) {
+        dispatch({ type: ProductActionTypes.FETCH_ERROR_PRODUCT, payload: err.response.data.message })
+    }
+};
+
+export const fetchGetOrderProduct = () => async (dispatch: Dispatch<ProductAction>) => {
+    try {
+        const response = await $host.post('/api/order/')
+        dispatch({ type: ProductActionTypes.FETCH_ORDER_PRODUCT, payload: response.data })
+    } catch (err: any) {
+        dispatch({ type: ProductActionTypes.FETCH_ERROR_PRODUCT, payload: err.response.data.message })
+    }
+};

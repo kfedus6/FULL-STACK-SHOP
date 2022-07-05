@@ -7,7 +7,7 @@ import '../styles/products.css';
 
 const Products = () => {
     const { fetchProducts } = useAction()
-    const { products }: any = useTypedSelector(state => state.products)
+    const { products, basket }: any = useTypedSelector(state => state.products)
 
     const [totalCount, setTotalCount]: any = useState()
     const [page, setPage]: any = useState()
@@ -25,7 +25,6 @@ const Products = () => {
     const changePage = (page: any) => {
         setPage(page)
     }
-
 
     return (
         <section className='shop'>

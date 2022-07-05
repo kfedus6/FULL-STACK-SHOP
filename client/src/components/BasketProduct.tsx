@@ -6,6 +6,7 @@ import { AiTwotoneDelete } from 'react-icons/ai';
 import { BsArrowLeft } from 'react-icons/bs';
 import jwt_decode from 'jwt-decode';
 import '../styles/basketProduct.css';
+import ModalBuy from './UI/modal/ModalBuy';
 
 interface itemProduct {
     id: number,
@@ -22,10 +23,10 @@ interface itemBasketInfo {
 
 const BasketProduct = () => {
     const [basketProductsInfo, setBasketProductsInfo]: any = useState([])
+    const [visibleBuy, setVisibleBuy] = useState(false)
     const { basket }: any = useTypedSelector(state => state.products)
-    const { user }: any = useTypedSelector(state => state);
+    const { user }: any = useTypedSelector(state => state)
     const navigate = useNavigate();
-    const [sum, setSum] = useState([{ 'sum': 1000 }, { 'sum': 2000 }, { 'sum': 2000 }, { 'sum': 500 }])
 
     const { fetchGetBasketProduct, fetchDeleteBasketProduct } = useAction()
 
@@ -64,6 +65,15 @@ const BasketProduct = () => {
         setBasketProductsInfo([...tmp, basketInfo])
     }
 
+    const buyProduct = () => {
+        setVisibleBuy(true)
+    }
+
+
+    const sendProduct = () => {
+        setVisibleBuy(false)
+    }
+
     console.log(basketProductsInfo.length, basket.length)
     console.log('basketProductInfo', basketProductsInfo)
     console.log('basket', basket)
@@ -76,7 +86,7 @@ const BasketProduct = () => {
                 <button onClick={goShop} className='btn-shop'>ПРОДОВЖИТИ ПОКУПКУ</button>
             </div>
         )
-    } else if (basketProductsInfo.length !== 0) {
+    } else if (basketProductsInfo.length === basket.length) {
         return (
             <div className='cart-container'>
                 <h2>КОРЗИНА ДЛЯ ПОКУПОК</h2>
@@ -118,7 +128,7 @@ const BasketProduct = () => {
                                 <span className='amount'>price &#8372;</span>
                             </div>
                             <div>
-                                <button className='btn-cart-buy'>Купити</button>
+                                <button onClick={buyProduct} className='btn-cart-buy'>Купити</button>
                             </div>
                             <div className='btn-go-shop'>
                                 <button onClick={goShop}><span><BsArrowLeft /></span>Продовжити покупку</button>
@@ -126,6 +136,18 @@ const BasketProduct = () => {
                         </div>
                     </div>
                 </div>
+                <ModalBuy visibleBuy={visibleBuy} setVisibleBuy={setVisibleBuy}>
+                    <div className='model-block'>
+                        <h2>Замовлення</h2>
+                        <div className='block-buy'>
+                            <input type="text" placeholder='Name' />
+                            <input type="tel" placeholder='Phone' />
+                        </div>
+                        <div className='block-buy-btn'>
+                            <button onClick={sendProduct}>Купити</button>
+                        </div>
+                    </div>
+                </ModalBuy>
             </div >
         )
     } else {

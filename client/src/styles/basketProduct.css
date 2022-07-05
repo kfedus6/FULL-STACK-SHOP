@@ -5,7 +5,7 @@
 
 .empty {
     margin-top: 3rem;
-    border-bottom: 1px solid rgb(187, 187, 187) ;
+    border-bottom: 1px solid silver;
 }
 
 .btn-shop{
@@ -14,7 +14,7 @@
     width: 200px;
     height: 50px;
     border-radius: 5px;
-    border: 1px solid rgb(187, 187, 187);
+    border: 1px solid silver;
     background-color: #fff;
     color:black;
 }
@@ -52,7 +52,7 @@
 }
 
 .cart-item {
-    border-top:1px solid rgb(187, 187, 187);
+    border-top:1px solid silver;
     padding: 1rem 0 ;
 }
 
@@ -107,7 +107,7 @@
 .cart-summary {
     display: flex;
     justify-content: end;
-    border-top: 1px solid rgb(187, 187, 187);
+    border-top: 1px solid silver;
     padding-top: 2rem;
     padding-right: 10rem;
 }
@@ -133,7 +133,7 @@
     width: 100%;
     height: 40px;
     border-radius: 5px;
-    border: 1px solid rgb(187, 187, 187);
+    border: 1px solid silver;
     background: #fff;
     font-size: 18px;
     cursor: pointer;
@@ -148,7 +148,7 @@
     cursor: pointer;
     background-color: transparent;
     border: none;
-    color: gray;
+    color: #333;
     font-size: 16px;
 }
 

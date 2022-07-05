@@ -1,4 +1,4 @@
-import React, { Children } from 'react';
+import React from 'react';
 import '../modal/modal.css';
 
 const Modal = ({ children, error, fetchError }: any) => {

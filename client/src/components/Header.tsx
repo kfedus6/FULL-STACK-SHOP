@@ -5,11 +5,24 @@ import Exit from '../pages/Exit';
 import { FaUser } from 'react-icons/fa';
 import { AiOutlineShopping } from 'react-icons/ai';
 import { AiOutlineMenu } from 'react-icons/ai';
+import { useAction } from '../hook/useAction';
+import jwt_decode from 'jwt-decode';
 
 const Header: React.FC = () => {
 
+    const { fetchGetBasketProduct } = useAction()
     const user = useTypedSelector(state => state.user)
     const { basket }: any = useTypedSelector(state => state.products)
+
+    useEffect(() => {
+        if (user.is_login == true) {
+            let token: any = localStorage.getItem('token')
+            let user: any = jwt_decode(token)
+            fetchGetBasketProduct(user.userId)
+        } else {
+            console.log(false)
+        }
+    }, [user])
 
     const navigate = useNavigate()
 

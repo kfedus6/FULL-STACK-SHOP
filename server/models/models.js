@@ -49,6 +49,14 @@ const ImagesProduct = sequelize.define('imagesProduct', {
     color: { type: DataTypes.STRING }
 });
 
+const OrderProduct = sequelize.define('orderProduct', {
+    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+    color: { type: DataTypes.STRING },
+    size: { type: DataTypes.STRING },
+    count: { type: DataTypes.STRING },
+    price: { type: DataTypes.STRING },
+})
+
 User.hasOne(Basket);
 Basket.belongsTo(User);
 
@@ -73,4 +81,10 @@ Brand.belongsToMany(Type, { through: BrandType });
 Product.hasMany(ImagesProduct);
 ImagesProduct.belongsTo(Product);
 
-module.exports = { User, Basket, Product, Type, Brand, BasketProduct, ProductInfo, BrandType, ImagesProduct };
+User.hasMany(OrderProduct);
+OrderProduct.belongsTo(User)
+
+Product.hasMany(OrderProduct);
+OrderProduct.belongsTo(Product);
+
+module.exports = { User, Basket, Product, Type, Brand, BasketProduct, ProductInfo, BrandType, ImagesProduct, OrderProduct };

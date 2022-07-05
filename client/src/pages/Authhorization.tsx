@@ -46,7 +46,7 @@ const Authhorization: React.FC = () => {
                                 <input
                                     value={email}
                                     placeholder='Email'
-                                    type="text"
+                                    type="email"
                                     onChange={(e) => setEmail(e.target.value)} required />
                                 <i className='icon email'><HiOutlineMail /></i>
                             </div>

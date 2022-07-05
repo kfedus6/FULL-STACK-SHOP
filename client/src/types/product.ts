@@ -2,6 +2,7 @@ export interface ProductState {
     types: [],
     brands: [],
     basket: [],
+    order: [],
     products: { count: number, rows: {} },
     product: {},
     imagesProduct: [],
@@ -21,7 +22,9 @@ export enum ProductActionTypes {
     FETCH_DELETE_BASKET = 'FETCH_DELETE_BASKET',
     FETCH_IMAGES_PRODUCT = 'FETCH_IMAGES_PRODUCT',
     FETCH_ADD_IMAGES_PRODUCT = 'FETCH_IMAGES_PRODUCT',
-    FETCH_ERROR_PRODUCT = 'FETCH_ERROR_PRODUCT'
+    FETCH_ERROR_PRODUCT = 'FETCH_ERROR_PRODUCT',
+    FETCH_ADD_ORDER_PRODUCT = 'FETCH_ADD_ORDER',
+    FETCH_ORDER_PRODUCT = 'FETCH_ADD_ORDER',
 };
 
 interface FetchProductsAction {
@@ -89,6 +92,16 @@ interface FetchErrorAction {
     payload: string | null
 };
 
+interface FetchOrderProductAction {
+    type: ProductActionTypes.FETCH_ORDER_PRODUCT,
+    payload: []
+};
+
+interface FetchAddOrderProductAction {
+    type: ProductActionTypes.FETCH_ADD_ORDER_PRODUCT,
+    payload: []
+};
+
 export type ProductAction =
     FetchProductsAction |
     FetchProductAction |
@@ -102,4 +115,6 @@ export type ProductAction =
     FetchBasketDeleteAction |
     FetchImagesProductAction |
     FetchAddImagesProductAction |
-    FetchErrorAction;
+    FetchErrorAction |
+    FetchOrderProductAction |
+    FetchAddOrderProductAction;
