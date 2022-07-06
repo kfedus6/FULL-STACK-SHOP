@@ -1,12 +1,12 @@
-import React, { Key, useEffect, useMemo, useState } from 'react';
+import React, { Key, useEffect, useState } from 'react';
 import { useAction } from '../hook/useAction';
 import { useTypedSelector } from '../hook/useTypedSelector';
 import { useNavigate } from 'react-router-dom';
 import { AiTwotoneDelete } from 'react-icons/ai';
 import { BsArrowLeft } from 'react-icons/bs';
 import jwt_decode from 'jwt-decode';
-import '../styles/basketProduct.css';
 import ModalBuy from './UI/modal/ModalBuy';
+import '../styles/basketProduct.css';
 
 interface itemProduct {
     id: number,
@@ -26,9 +26,11 @@ const BasketProduct = () => {
     const [visibleBuy, setVisibleBuy] = useState(false)
     const { basket }: any = useTypedSelector(state => state.products)
     const { user }: any = useTypedSelector(state => state)
+    const [name, setName] = useState('')
+    const [phone, setPhone] = useState('')
     const navigate = useNavigate();
 
-    const { fetchGetBasketProduct, fetchDeleteBasketProduct } = useAction()
+    const { fetchGetBasketProduct, fetchDeleteBasketProduct, fetchAddOrderProduct } = useAction()
 
     useEffect(() => {
         if (user.is_login === false) {
@@ -47,11 +49,35 @@ const BasketProduct = () => {
         setBasketProductsInfo(tmp)
     }, [])
 
+    /*
+        {
+            userId: 3,
+            sum:21321,
+            phone,
+            name,
+            products: [
+                {
+                    productId:3,
+                    count:5,
+                },
+                {
+                    productId:3,
+                    count:5,
+                }
+            ]
+        }
+    
+        products = basketInfo.map()
+        const order = {userid: userid, sum: basketInfo.reduce..., phone:phone,name:name, products: products}
+        send(products)
+    
+    */
+
 
     const deleteProduct = (id: any) => {
         fetchDeleteBasketProduct(id)
-        /*  let newBasketProductInfo = basketProductsInfo.filter((item: any) => item.product.id !== id)
-         setBasketProductsInfo(newBasketProductInfo) */
+        let newBasketProductInfo = basketProductsInfo.filter((item: any) => item.product.id !== id)
+        setBasketProductsInfo(newBasketProductInfo)
     }
 
     const goShop = () => {
@@ -69,14 +95,17 @@ const BasketProduct = () => {
         setVisibleBuy(true)
     }
 
-
     const sendProduct = () => {
         setVisibleBuy(false)
+        let token: any = localStorage.getItem('token')
+        let user: any = jwt_decode(token)
+        let sum = basketProductsInfo.reduce((prev: any, info: any) => prev += info.sum, 0)
+        let products = basketProductsInfo.map((item: any) => item)
+        const order = { userId: user.userId, name: name, phone: phone, sum: sum, products: products }
+        setName('')
+        setPhone('')
+        fetchAddOrderProduct(order)
     }
-
-    console.log(basketProductsInfo.length, basket.length)
-    console.log('basketProductInfo', basketProductsInfo)
-    console.log('basket', basket)
 
     if (basket.length === 0) {
         return (
@@ -100,7 +129,6 @@ const BasketProduct = () => {
                     <div className='cart-items'>
                         {basket.map((item: itemProduct, idx: Key) => {
                             const basketInfo = basketProductsInfo.find((info: itemBasketInfo) => info.product.name == item.name)
-                            console.log('basketInfo', basketInfo)
                             return (
                                 <div className='cart-item' key={idx}>
                                     <div className='cart-product'>
@@ -125,7 +153,9 @@ const BasketProduct = () => {
                         <div className="cart-checkout">
                             <div className='subtotal'>
                                 <span>Ціна</span>
-                                <span className='amount'>price &#8372;</span>
+                                <span className='amount'>
+                                    {basketProductsInfo.reduce((prev: any, info: any) => prev += info.sum, 0)}
+                                    &#8372;</span>
                             </div>
                             <div>
                                 <button onClick={buyProduct} className='btn-cart-buy'>Купити</button>
@@ -140,8 +170,8 @@ const BasketProduct = () => {
                     <div className='model-block'>
                         <h2>Замовлення</h2>
                         <div className='block-buy'>
-                            <input type="text" placeholder='Name' />
-                            <input type="tel" placeholder='Phone' />
+                            <input type="text" placeholder='Name' value={name} onChange={(e) => setName(e.target.value)} />
+                            <input type="tel" placeholder='Phone' value={phone} onChange={(e) => setPhone(e.target.value)} />
                         </div>
                         <div className='block-buy-btn'>
                             <button onClick={sendProduct}>Купити</button>

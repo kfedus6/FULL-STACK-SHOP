@@ -5,16 +5,8 @@ import { RiShoppingBasketFill } from 'react-icons/ri';
 import { useAction } from '../hook/useAction';
 import jwt_decode from "jwt-decode";
 
-interface itemProduct {
-    item: {
-        id: number,
-        name: string,
-        price: string,
-        img: string
-    }
-};
 
-const ProductsList = ({ item }: itemProduct) => {
+const ProductsList = ({ item, inBasket }: any) => {
 
     const { fetchAddBasket } = useAction();
 
@@ -56,7 +48,7 @@ const ProductsList = ({ item }: itemProduct) => {
                     <span className='product__price'>{item.price} &#8372;</span>
                     <div className='block__btn-basket'>
                         <button className='btn__buy' onClick={product}>Купити</button>
-                        <button className='btn__basket' onClick={() => addBasketProduct(item.id)}><RiShoppingBasketFill /></button>
+                        <button className={inBasket ? 'btn__basket selected' : 'btn__basket'} onClick={() => addBasketProduct(item.id)}><RiShoppingBasketFill /></button>
                     </div>
                 </div>
             </div >

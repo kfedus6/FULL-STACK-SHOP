@@ -13,7 +13,7 @@ const ModalBuy = ({ children, visibleBuy, setVisibleBuy }: any) => {
         )
     } else {
         return (
-            <div className='modal act' onClick={() => setVisibleBuy(false)}>
+            <div className='modal act'>
                 <div className='modal-buy-content'>
                     {children}
                 </div>

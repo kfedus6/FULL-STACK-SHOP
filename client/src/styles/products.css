@@ -76,15 +76,15 @@
     background: transparent;
     border: 0px;
     cursor: pointer;
-    color: #333;
+    color: black;
 }
 
-.basket {
+.selected {
     color: orange;
 }
 
 .btn__basket:hover {
-    color:black;
+    color:orange;
     transition: all 0.3s ease;
 }
 

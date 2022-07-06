@@ -119,9 +119,9 @@ export const fetchGetImagesProduct = (productId: any) => async (dispatch: Dispat
     }
 };
 
-export const fetchAddOrderProduct = () => async (dispatch: Dispatch<ProductAction>) => {
+export const fetchAddOrderProduct = (order: any) => async (dispatch: Dispatch<ProductAction>) => {
     try {
-        const response = await $host.post('/api/order/')
+        const response = await $host.post('/api/order/', order)
         dispatch({ type: ProductActionTypes.FETCH_ADD_ORDER_PRODUCT, payload: response.data })
     } catch (err: any) {
         dispatch({ type: ProductActionTypes.FETCH_ERROR_PRODUCT, payload: err.response.data.message })
