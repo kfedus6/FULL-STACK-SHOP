@@ -7,6 +7,7 @@ import Category from '../pages/Category';
 import Exit from '../pages/Exit';
 import Home from '../pages/Home';
 import NewProduct from '../pages/NewProduct';
+import Order from '../pages/Order';
 import Product from '../pages/Product';
 import Products from '../pages/Products';
 import BasketProduct from './BasketProduct';
@@ -25,6 +26,7 @@ const AppRouter = () => {
                     <Route path='category' element={<Category />} />
                     <Route path='newProduct' element={<NewProduct />} />
                     <Route path='adminPanel' element={<AdminPanel />} />
+                    <Route path='order' element={<Order />} />
                     <Route path='authorization' element={<Authhorization />} />
                     <Route path='basketProduct' element={<BasketProduct />} />
                     <Route path='products/product/:id' element={<Product />} />
@@ -41,6 +43,7 @@ const AppRouter = () => {
                     <Route path='category' element={<Category />} />
                     <Route path='newProduct' element={<NewProduct />} />
                     <Route path='adminPanel' element={<AdminPanel />} />
+                    <Route path='order' element={<Order />} />
                     <Route path='authorization' element={<Authhorization />} />
                     <Route path='basketProduct' element={<BasketProduct />} />
                     <Route path='products/product/:id' element={<Product />} />
@@ -57,6 +60,7 @@ const AppRouter = () => {
                     <Route path='category' element={<Category />} />
                     <Route path='newProduct' element={<NewProduct />} />
                     <Route path='adminPanel' element={<AdminPanel />} />
+                    <Route path='order' element={<Order />} />
                     <Route path='authorization' element={<Authhorization />} />
                     <Route path='basketProduct' element={<BasketProduct />} />
                     <Route path='products/product/:id' element={<Product />} />

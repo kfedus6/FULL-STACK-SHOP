@@ -19,8 +19,6 @@ const Header: React.FC = () => {
             let token: any = localStorage.getItem('token')
             let user: any = jwt_decode(token)
             fetchGetBasketProduct(user.userId)
-        } else {
-            console.log(false)
         }
     }, [user])
 
@@ -78,7 +76,9 @@ const Header: React.FC = () => {
                     <li><NavLink to="/products">Всі товари</NavLink></li>
                     <li><NavLink to="/category">Категорії</NavLink></li>
                     <li><NavLink to="/newProduct">Новинки</NavLink></li>
-                    <li><NavLink to="/adminPanel">Адмін панель</NavLink></li>
+                    <li><NavLink to="/adminPanel">Адмін панель</NavLink>
+                        <ul><li><NavLink to="/order">Замовлення</NavLink></li></ul>
+                    </li>
                     <li><Exit /></li>
                 </ul>
                 <div className='nav-icons'>

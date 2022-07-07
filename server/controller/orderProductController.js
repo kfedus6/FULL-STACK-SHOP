@@ -13,8 +13,12 @@ class OrderProductController {
     }
 
     async getOrderProduct(req, res) {
-        const { userId } = req.body
-        const order = await Order.findAll({ where: { userId } })
+        const orderProduct = await OrderProduct.findAll()
+        return res.json(orderProduct)
+    }
+
+    async getOrder(req, res) {
+        const order = await Order.findAll()
         return res.json(order)
     }
 
@@ -23,7 +27,7 @@ class OrderProductController {
         const order = await OrderProduct.destroy({ where: { userId } })
         return res.json(order)
     }
-}
+};
 
 const orderProductController = new OrderProductController()
 

@@ -63,58 +63,60 @@ const Category = () => {
 
     return (
         <div className='page__category'>
-            <div className='section-category'>
-                <div className='category-title'>
-                    <span>Бренди</span>
-                </div>
-                <div className="brands">
-                    {brands.map((item: typeAndBrand) => {
-                        return (
-                            <div key={item.id}>
-                                <input type="radio" id={item.name + item.id}
-                                    name="brand" value={item.name} onChange={() => brandChange(item)} />
-                                <label htmlFor={item.name + item.id}> {item.name}</label>
-                            </div>
-                        )
-                    })}
-                </div>
-                <div className="types">
+            <div className='grid'>
+                <div className='section-category'>
                     <div className='category-title'>
-                        <span>Одяг</span>
+                        <span>Бренди</span>
                     </div>
-                    {types.map((item: typeAndBrand) => {
-                        return (
-                            <div key={item.id}>
-                                <input type="radio" id={item.name + item.id}
-                                    name="type" value={item.name} onChange={() => typeChange(item)} />
-                                <label htmlFor={item.name + item.id}> {item.name}</label>
-                            </div>
-                        )
-                    })}
-                </div>
-            </div>
-            <section className='shop__conteier-catgory'>
-                <div className='products__content-categor'>
-                    {
-                        products.rows.map((item: itemPrd) => {
+                    <div className="brands">
+                        {brands.map((item: typeAndBrand) => {
                             return (
-                                <ProductsList key={item.id} item={item} />
+                                <div key={item.id}>
+                                    <input type="radio" id={item.name + item.id}
+                                        name="brand" value={item.name} onChange={() => brandChange(item)} />
+                                    <label htmlFor={item.name + item.id}> {item.name}</label>
+                                </div>
                             )
-                        })
-                    }
+                        })}
+                    </div>
+                    <div className="types">
+                        <div className='category-title'>
+                            <span>Одяг</span>
+                        </div>
+                        {types.map((item: typeAndBrand) => {
+                            return (
+                                <div key={item.id}>
+                                    <input type="radio" id={item.name + item.id}
+                                        name="type" value={item.name} onChange={() => typeChange(item)} />
+                                    <label htmlFor={item.name + item.id}> {item.name}</label>
+                                </div>
+                            )
+                        })}
+                    </div>
                 </div>
-                <div className='page__wrapper'>
-                    {pagesArray.map((p: any) => {
-                        return (
-                            <span
-                                onClick={() => changePage(p)}
-                                key={p}
-                                className={page === p ? 'page page__current' : 'page'}
-                            >{p}</span>
-                        )
-                    })}
-                </div>
-            </section>
+                <section className='shop__conteier-catgory'>
+                    <div className='products__content-categor'>
+                        {
+                            products.rows.map((item: itemPrd) => {
+                                return (
+                                    <ProductsList key={item.id} item={item} />
+                                )
+                            })
+                        }
+                    </div>
+                    <div className='page__wrapper'>
+                        {pagesArray.map((p: any) => {
+                            return (
+                                <span
+                                    onClick={() => changePage(p)}
+                                    key={p}
+                                    className={page === p ? 'page page__current' : 'page'}
+                                >{p}</span>
+                            )
+                        })}
+                    </div>
+                </section>
+            </div>
         </div>
     );
 };
