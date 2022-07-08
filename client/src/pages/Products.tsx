@@ -3,6 +3,7 @@ import ProductsList from '../components/ProductsList';
 import { useAction } from '../hook/useAction';
 import { useTypedSelector } from '../hook/useTypedSelector';
 import { getPageCount, getPagesArray } from '../utils/page';
+import Pagination from '../components/UI/pagination/Pagination';
 import '../styles/products.css';
 
 const Products = () => {
@@ -39,17 +40,7 @@ const Products = () => {
                     )
                 })}
             </div>
-            <div className='page__wrapper'>
-                {pagesArray.map((p: any) => {
-                    return (
-                        <span
-                            onClick={() => changePage(p)}
-                            key={p}
-                            className={page === p ? 'page page__current' : 'page'}
-                        >{p}</span>
-                    )
-                })}
-            </div>
+            <Pagination pagesArray={pagesArray} changePage={changePage} page={page} />
         </section >
     )
 };

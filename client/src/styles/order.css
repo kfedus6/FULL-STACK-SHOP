@@ -1,8 +1,54 @@
-.order-container {
+.order {
     padding: 2rem 2rem;
     margin-top: 6rem;
 }
 
-.order-container h2 {
+.order-title {
     text-align: center;
+}
+
+.order-client-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.item-content {
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid silver;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    width: 700px;
+    height: 50px;
+    padding: 10px;
+}
+
+.item-content:hover {
+    border: 2px solid black;
+}
+
+.item-content span {
+    font-size: 17px;
+}
+
+.order-item{
+    display: flex;
+}
+
+.order-item button {
+    width: 150px;
+    height: 50px;
+    border-radius: 5px;
+    border: 2px solid silver;
+    background: transparent;
+    font-size: 17px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.order-item button:hover {
+    background: black;
+    color: #fff;
+    border: 2px solid black;
 }

@@ -7,10 +7,11 @@ import Category from '../pages/Category';
 import Exit from '../pages/Exit';
 import Home from '../pages/Home';
 import NewProduct from '../pages/NewProduct';
-import Order from '../pages/Order';
+import Orders from '../pages/Orders';
 import Product from '../pages/Product';
 import Products from '../pages/Products';
 import BasketProduct from './BasketProduct';
+import OrderProduct from '../pages/OrderProduct';
 import Layout from './Layout';
 
 const AppRouter = () => {
@@ -26,10 +27,11 @@ const AppRouter = () => {
                     <Route path='category' element={<Category />} />
                     <Route path='newProduct' element={<NewProduct />} />
                     <Route path='adminPanel' element={<AdminPanel />} />
-                    <Route path='order' element={<Order />} />
+                    <Route path='order' element={<Orders />} />
                     <Route path='authorization' element={<Authhorization />} />
                     <Route path='basketProduct' element={<BasketProduct />} />
                     <Route path='products/product/:id' element={<Product />} />
+                    <Route path='order/orderProduct/:id' element={<OrderProduct />} />
                     <Route path='category/product/:id' element={<Product />} />
                 </Route>
             </Routes>
@@ -43,10 +45,11 @@ const AppRouter = () => {
                     <Route path='category' element={<Category />} />
                     <Route path='newProduct' element={<NewProduct />} />
                     <Route path='adminPanel' element={<AdminPanel />} />
-                    <Route path='order' element={<Order />} />
+                    <Route path='order' element={<Orders />} />
                     <Route path='authorization' element={<Authhorization />} />
                     <Route path='basketProduct' element={<BasketProduct />} />
                     <Route path='products/product/:id' element={<Product />} />
+                    <Route path='order/orderProduct/:id' element={<OrderProduct />} />
                     <Route path='category/product/:id' element={<Product />} />
                 </Route>
             </Routes>
@@ -60,10 +63,11 @@ const AppRouter = () => {
                     <Route path='category' element={<Category />} />
                     <Route path='newProduct' element={<NewProduct />} />
                     <Route path='adminPanel' element={<AdminPanel />} />
-                    <Route path='order' element={<Order />} />
+                    <Route path='order' element={<Orders />} />
                     <Route path='authorization' element={<Authhorization />} />
                     <Route path='basketProduct' element={<BasketProduct />} />
                     <Route path='products/product/:id' element={<Product />} />
+                    <Route path='order/orderProduct/:id' element={<OrderProduct />} />
                     <Route path='category/product/:id' element={<Product />} />
                 </Route>
             </Routes>

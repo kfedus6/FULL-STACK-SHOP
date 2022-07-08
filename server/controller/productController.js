@@ -53,6 +53,8 @@ class ProductController {
         const product = await Product.findOne({ where: { id }, include: [{ model: ProductInfo, as: 'info' }] })
         return res.json(product)
     }
+    //Удаление              destroy
+    //изменение продукта    update
 };
 
 const productController = new ProductController();

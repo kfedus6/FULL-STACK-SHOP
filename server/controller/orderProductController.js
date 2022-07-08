@@ -1,24 +1,38 @@
 const { OrderProduct, Order } = require('../models/models');
+const ApiError = require('../error/apierror');
 
 class OrderProductController {
     async create(req, res) {
         const { userId, sum, phone, name, products, } = req.body
-
         const order = await Order.create({ userId: userId, sum: sum, phone: phone, name: name })
-        let orderProduct
         for (let product of products) {
-            orderProduct = await OrderProduct.create({ count: product.count, orderId: order.id, productId: product.product.id })
+            await OrderProduct.create({ count: product.count, orderId: order.id, productId: product.product.id })
         }
-        return res.json({ orderProduct })
+        return res.json({ order })
     }
 
-    async getOrderProduct(req, res) {
-        const orderProduct = await OrderProduct.findAll()
-        return res.json(orderProduct)
+    async getOrderProduct(req, res, next) {
+        const { id } = req.params
+
+        if (id === undefined) {
+            console.log('1')
+            return next(ApiError.badRequest('undefined orderId'))
+        } else {
+            console.log('2')
+            const orderProduct = await OrderProduct.findAll({ where: { orderId: id } })
+            return res.json({ orderProduct })
+        }
     }
 
     async getOrder(req, res) {
         const order = await Order.findAll()
+        return res.json(order)
+    }
+
+    async putStatus(req, res) {
+        const { status, id } = req.body
+        await Order.update({ status: status }, { where: { id } })
+        const order = await Order.findOne({ where: { id } })
         return res.json(order)
     }
 

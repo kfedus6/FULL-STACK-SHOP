@@ -53,7 +53,8 @@ const Order = sequelize.define('order', {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
     sum: { type: DataTypes.STRING },
     name: { type: DataTypes.STRING },
-    phone: { type: DataTypes.STRING }
+    phone: { type: DataTypes.STRING },
+    status: { type: DataTypes.BOOLEAN, defaultValue: null }
 })
 
 const OrderProduct = sequelize.define('orderProduct', {

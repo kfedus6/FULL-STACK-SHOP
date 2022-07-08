@@ -49,31 +49,6 @@ const BasketProduct = () => {
         setBasketProductsInfo(tmp)
     }, [])
 
-    /*
-        {
-            userId: 3,
-            sum:21321,
-            phone,
-            name,
-            products: [
-                {
-                    productId:3,
-                    count:5,
-                },
-                {
-                    productId:3,
-                    count:5,
-                }
-            ]
-        }
-    
-        products = basketInfo.map()
-        const order = {userid: userid, sum: basketInfo.reduce..., phone:phone,name:name, products: products}
-        send(products)
-    
-    */
-
-
     const deleteProduct = (id: any) => {
         fetchDeleteBasketProduct(id)
         let newBasketProductInfo = basketProductsInfo.filter((item: any) => item.product.id !== id)
