@@ -47,6 +47,7 @@
 
 .input-field input:focus {
     border-bottom-color: black;
+    transition: all 0.3s ease;
 }
 
 .input-field i {
@@ -59,6 +60,7 @@
 
 .input-field input:focus ~ i {
     color: black;
+    transition: all 0.3s ease;
 }
 
 .input-field i .icon {
@@ -81,6 +83,7 @@
 
 .form a:hover{
     text-decoration: underline;
+    transition: all 0.3s ease;
 }
 
 .form .button {
@@ -101,7 +104,8 @@
 
 .button input:hover {
     background-color: black;
-    color:#fff
+    color:#fff;
+    transition: all 0.3s ease;
 } 
 
 .form .login-signup {

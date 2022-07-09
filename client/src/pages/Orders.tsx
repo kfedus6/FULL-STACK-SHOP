@@ -5,21 +5,21 @@ import { useTypedSelector } from '../hook/useTypedSelector';
 import '../styles/order.css';
 
 const Order = () => {
-    const { fetchGetOrder } = useAction()
-    const { order }: any = useTypedSelector(state => state.products)
+    const { fetchGetOrders } = useAction()
+    const { orders }: any = useTypedSelector(state => state.products)
 
     useEffect(() => {
-        fetchGetOrder()
+        fetchGetOrders()
     }, [])
 
     return (
-        <div className='order'>
+        <div className='orders'>
             <div>
-                <h2 className='order-title'>Замовлення клієнтів</h2>
+                <h2 className='orders-title'>Замовлення клієнтів</h2>
             </div>
-            <div className='order-client-container'>
-                <div className='order-items'>
-                    {order.map((item: any) => {
+            <div className='orders-client-container'>
+                <div className='orders-items'>
+                    {orders.map((item: any) => {
                         let date = item.updatedAt.split('-')
                         let dateDay = date[2]
                         dateDay = dateDay.slice(0, 2)

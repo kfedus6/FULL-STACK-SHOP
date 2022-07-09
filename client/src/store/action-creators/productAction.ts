@@ -137,9 +137,19 @@ export const fetchGetOrderProduct = (orderId: any) => async (dispatch: Dispatch<
     }
 };
 
-export const fetchGetOrder = () => async (dispatch: Dispatch<ProductAction>) => {
+export const fetchGetOrders = () => async (dispatch: Dispatch<ProductAction>) => {
     try {
         const response = await $authHost.get('/api/order/order')
+        dispatch({ type: ProductActionTypes.FETCH_ORDERS, payload: response.data })
+    } catch (err: any) {
+        dispatch({ type: ProductActionTypes.FETCH_ERROR_PRODUCT, payload: err.response.data.message })
+    }
+};
+
+
+export const fetchGetOrder = (id: any) => async (dispatch: Dispatch<ProductAction>) => {
+    try {
+        const response = await $authHost.get(`/api/order/order/${id}`)
         dispatch({ type: ProductActionTypes.FETCH_ORDER, payload: response.data })
     } catch (err: any) {
         dispatch({ type: ProductActionTypes.FETCH_ERROR_PRODUCT, payload: err.response.data.message })

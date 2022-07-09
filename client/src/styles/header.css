@@ -70,6 +70,7 @@ header {
 
 .nav-icons .bx:hover {
     color: silver;
+    transition: all 0.3s ease;
 }
 
 #menu-icon {
@@ -107,4 +108,5 @@ header {
 
 .navbar li:hover ul {
     display: block;
+    transition: all 0.3s ease;
 }

@@ -24,8 +24,14 @@ class OrderProductController {
         }
     }
 
+    async getOrders(req, res) {
+        const orders = await Order.findAll()
+        return res.json(orders)
+    }
+
     async getOrder(req, res) {
-        const order = await Order.findAll()
+        const { id } = req.params
+        const order = await Order.findOne({ where: { id } })
         return res.json(order)
     }
 

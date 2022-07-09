@@ -112,4 +112,5 @@
 .page:hover {
     border: 2px solid black;
     font-weight: bold;
+    transition: all 0.3s ease;
 }

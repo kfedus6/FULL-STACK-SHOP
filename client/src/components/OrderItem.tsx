@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 const OrderItem = ({ item, date, dateDay, status }: any) => {
 
     return (
-        <div className='order-item'>
+        <div className='orders-item'>
             <div className='item-content'>
                 <span>{item.id}.</span>
                 <span>{item.name}</span>

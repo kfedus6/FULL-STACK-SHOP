@@ -1,13 +1,13 @@
-.order {
+.orders {
     padding: 2rem 2rem;
     margin-top: 6rem;
 }
 
-.order-title {
+.orders-title {
     text-align: center;
 }
 
-.order-client-container {
+.orders-client-container {
     display: flex;
     justify-content: center;
     margin-top: 10px;
@@ -26,17 +26,18 @@
 
 .item-content:hover {
     border: 2px solid black;
+    transition: all 0.3s ease;
 }
 
 .item-content span {
     font-size: 17px;
 }
 
-.order-item{
+.orders-item{
     display: flex;
 }
 
-.order-item button {
+.orders-item button {
     width: 150px;
     height: 50px;
     border-radius: 5px;
@@ -47,8 +48,85 @@
     cursor: pointer;
 }
 
-.order-item button:hover {
+.orders-item button:hover {
     background: black;
     color: #fff;
     border: 2px solid black;
+    transition: all 0.3s ease;
+}
+
+.order {
+    padding: 2rem 2rem;
+    margin-top: 6rem;
+}
+
+.order div h2 {
+    text-align: center;
+}
+
+.order-container {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 2fr 5fr;
+    column-gap: 1rem;
+}
+
+.order-client {
+    display: grid;
+}
+
+.order-client span {
+    margin-top: 20px;
+}
+
+.order-client span {
+    font-size: 17px;
+}
+
+.order-total-sum {
+    display: flex;
+    justify-content: space-between;
+}
+
+.order-total-sum .order-client-sum {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.order-btn-status {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.order-accept {
+    width: 140px;
+    height: 40px;
+    border-radius: 5px;
+    background: transparent;
+    border:1px solid silver;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.order-accept:hover {
+    background: black;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.order-cancel {
+    width: 140px;
+    height: 40px;
+    border-radius: 5px;
+    background: transparent;
+    border:1px solid silver;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.order-cancel:hover {
+    background: black;
+    color: #fff;
+    transition: all 0.3s ease;
 }

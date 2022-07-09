@@ -63,6 +63,7 @@
 .btn__parameter button:hover {
     background-color: black;
     color: #fff;
+    transition: all 0.3s ease;
 }
 
 .btn__product-add {
@@ -83,6 +84,7 @@
 .btn__product-add button:hover {
     background-color: black;
     color: #fff;
+    transition: all 0.3s ease;
 }
 
 .block__info-product div  {
@@ -137,6 +139,7 @@
 .info-brand-type button:hover {
     background-color: black;
     color: #fff;
+    transition: all 0.3s ease;
 }
 
 .error__admin-panel {
@@ -170,6 +173,7 @@
 .info-img-product button:hover {
     background-color: black;
     color: #fff;
+    transition: all 0.3s ease;
 }
 
 .info-input-product input {
