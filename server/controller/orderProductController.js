@@ -20,7 +20,7 @@ class OrderProductController {
         } else {
             console.log('2')
             const orderProduct = await OrderProduct.findAll({ where: { orderId: id } })
-            return res.json({ orderProduct })
+            return res.json(orderProduct)
         }
     }
 

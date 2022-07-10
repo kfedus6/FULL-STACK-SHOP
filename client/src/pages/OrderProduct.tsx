@@ -22,11 +22,15 @@ const OrderProduct = () => {
             </div>
             <div className='order-container'>
                 <div className='order-client'>
-                    <span>{order.updatedAt}</span>
-                    <span className='clietn-name'>{order.name}</span>
+                    <span className='client-date'>{order.updatedAt}</span>
+                    <span className='client-name'>{order.name}</span>
                     <span className='client-phone'>{order.phone}</span>
+                    <div className='client-count-product'>
+                        <span><h4>Замовлені Товари:</h4></span>
+                        <span className='clinet-count'>{orderProduct.reduce((prev: any, count: any) => prev += +count.count, 0)}</span>
+                    </div>
                     <div className='order-total-sum'>
-                        <span><h4>Загальна сума:</h4></span>
+                        <span><h3>Загальна сума:</h3></span>
                         <span className='order-client-sum'>{order.sum} &#8372;</span>
                     </div>
                     <div className='order-btn-status'>
@@ -35,7 +39,13 @@ const OrderProduct = () => {
                     </div>
                 </div>
                 <div>
-                    <h1>product</h1>
+                    {orderProduct.map((item: any) => {
+                        return (
+                            <div key={item.id}>
+                                <h1>product</h1>
+                            </div>
+                        )
+                    })}
                 </div>
             </div >
         </div >

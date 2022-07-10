@@ -57,7 +57,7 @@
 
 .order {
     padding: 2rem 2rem;
-    margin-top: 6rem;
+    margin-top: 5rem;
 }
 
 .order div h2 {
@@ -76,21 +76,51 @@
 }
 
 .order-client span {
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .order-client span {
     font-size: 17px;
 }
 
+.client-date {
+    border-bottom: 1px solid silver;
+    padding: 0 0 20px;
+}
+
+.client-name {
+    border-bottom: 1px solid silver;
+    padding: 0 0 20px;
+}
+
+.client-phone {
+    border-bottom: 1px solid silver;
+    padding: 0 0 20px;
+}
+
+.client-count-product {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid silver;
+    padding: 0 0 20px;
+}
+ 
+.client-count-product .clinet-count {
+    margin-left: 100px;
+    font-weight: 600;
+}
+
 .order-total-sum {
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .order-total-sum .order-client-sum {
     font-size: 17px;
     font-weight: 600;
+    margin-left: 109px;
 }
 
 .order-btn-status {
@@ -100,7 +130,7 @@
 }
 
 .order-accept {
-    width: 140px;
+    width: 150px;
     height: 40px;
     border-radius: 5px;
     background: transparent;
@@ -116,7 +146,7 @@
 }
 
 .order-cancel {
-    width: 140px;
+    width: 150px;
     height: 40px;
     border-radius: 5px;
     background: transparent;
