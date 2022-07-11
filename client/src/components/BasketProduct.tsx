@@ -24,13 +24,14 @@ interface itemBasketInfo {
 const BasketProduct = () => {
     const [basketProductsInfo, setBasketProductsInfo]: any = useState([])
     const [visibleBuy, setVisibleBuy] = useState(false)
-    const { basket }: any = useTypedSelector(state => state.products)
-    const { user }: any = useTypedSelector(state => state)
     const [name, setName] = useState('')
     const [phone, setPhone] = useState('')
+
     const navigate = useNavigate();
 
     const { fetchGetBasketProduct, fetchDeleteBasketProduct, fetchAddOrderProduct } = useAction()
+    const { basket }: any = useTypedSelector(state => state.products)
+    const { user }: any = useTypedSelector(state => state)
 
     useEffect(() => {
         if (user.is_login === false) {
@@ -60,7 +61,7 @@ const BasketProduct = () => {
     }
 
     const changeBasketIndo = (count: any, basketInfo: any) => {
-        let tmp = basketProductsInfo.filter((info: any) => info.product.name != basketInfo.product.name)
+        let tmp = basketProductsInfo.filter((info: any) => info.product.name !== basketInfo.product.name)
         basketInfo.count = count
         basketInfo.sum = count * basketInfo.product.price
         setBasketProductsInfo([...tmp, basketInfo])

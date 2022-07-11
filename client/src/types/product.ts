@@ -30,6 +30,7 @@ export enum ProductActionTypes {
     FETCH_ORDER_PRODUCT = 'FETCH_ORDER_PRODUCT',
     FETCH_ORDERS = 'FETCH_ORDERS',
     FETCH_ORDER = 'FETCH_ORDER',
+    FETCH_PUT_ORDER = 'FETCH_PUT_ORDER',
     FETCH_ORDER_PRODUCT_CLIENT = 'FETCH_ORDER_PRODUCT_CLIENT',
 };
 
@@ -120,6 +121,11 @@ interface FetchOrderAction {
     payload: []
 };
 
+interface FetchOrderPutAction {
+    type: ProductActionTypes.FETCH_PUT_ORDER,
+    payload: []
+};
+
 interface FetchOrderProductClientAction {
     type: ProductActionTypes.FETCH_ORDER_PRODUCT_CLIENT,
     payload: []
@@ -143,4 +149,5 @@ export type ProductAction =
     FetchOrderProductAction |
     FetchOrdersAction |
     FetchOrderAction |
+    FetchOrderPutAction |
     FetchOrderProductClientAction;

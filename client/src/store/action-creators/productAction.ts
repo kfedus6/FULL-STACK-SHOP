@@ -139,7 +139,7 @@ export const fetchGetOrderProduct = (orderId: any) => async (dispatch: Dispatch<
 
 export const fetchGetOrders = () => async (dispatch: Dispatch<ProductAction>) => {
     try {
-        const response = await $authHost.get('/api/order/order')
+        const response = await $authHost.get('/api/order/')
         dispatch({ type: ProductActionTypes.FETCH_ORDERS, payload: response.data })
     } catch (err: any) {
         dispatch({ type: ProductActionTypes.FETCH_ERROR_PRODUCT, payload: err.response.data.message })
@@ -149,8 +149,28 @@ export const fetchGetOrders = () => async (dispatch: Dispatch<ProductAction>) =>
 
 export const fetchGetOrder = (id: any) => async (dispatch: Dispatch<ProductAction>) => {
     try {
-        const response = await $authHost.get(`/api/order/order/${id}`)
+        const response = await $authHost.get(`/api/order/${id}`)
         dispatch({ type: ProductActionTypes.FETCH_ORDER, payload: response.data })
+    } catch (err: any) {
+        dispatch({ type: ProductActionTypes.FETCH_ERROR_PRODUCT, payload: err.response.data.message })
+    }
+};
+
+
+export const fetchPutOrder = (status: boolean, id: any) => async (dispatch: Dispatch<ProductAction>) => {
+    try {
+        const response = await $authHost.put('/api/order/', { status, id })
+        dispatch({ type: ProductActionTypes.FETCH_PUT_ORDER, payload: response.data })
+    } catch (err: any) {
+        dispatch({ type: ProductActionTypes.FETCH_ERROR_PRODUCT, payload: err.response.data.message })
+    }
+};
+
+export const fetchGetOrderProductClient = (order: any) => async (dispatch: Dispatch<ProductAction>) => {
+    try {
+        console.log(order)
+        const response = await $authHost.get('/api/order/products/', order)
+        dispatch({ type: ProductActionTypes.FETCH_ORDER_PRODUCT_CLIENT, payload: response.data })
     } catch (err: any) {
         dispatch({ type: ProductActionTypes.FETCH_ERROR_PRODUCT, payload: err.response.data.message })
     }

@@ -34,7 +34,7 @@ const Products = () => {
             </div>
             <div className='products__content'>
                 {products.rows.map((item: { id: number, name: string, price: string, img: string }) => {
-                    let itemBasket = basket.find((product: any) => product.id == item.id)
+                    let itemBasket = basket.find((product: any) => product.id === item.id)
                     return (
                         <ProductsList key={item.id} item={item} inBasket={itemBasket ? true : false} />
                     )

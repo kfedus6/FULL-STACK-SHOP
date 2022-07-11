@@ -67,6 +67,9 @@ export const productReducer = (state = initialState, action: ProductAction) => {
         case ProductActionTypes.FETCH_ORDER: {
             return { ...state, order: action.payload }
         }
+        case ProductActionTypes.FETCH_PUT_ORDER: {
+            return { ...state, order: action.payload }
+        }
         case ProductActionTypes.FETCH_ORDER_PRODUCT_CLIENT: {
             return { ...state, orderProductClient: action.payload }
         }

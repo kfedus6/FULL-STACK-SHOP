@@ -24,6 +24,11 @@ class OrderProductController {
         }
     }
 
+    async getOrderProducts(req, res) {
+        const { order } = req.body
+        console.log(order)
+    }
+
     async getOrders(req, res) {
         const orders = await Order.findAll()
         return res.json(orders)
@@ -39,12 +44,6 @@ class OrderProductController {
         const { status, id } = req.body
         await Order.update({ status: status }, { where: { id } })
         const order = await Order.findOne({ where: { id } })
-        return res.json(order)
-    }
-
-    async deleteOrderProduct(req, res) {
-        const { userId } = req.params
-        const order = await OrderProduct.destroy({ where: { userId } })
         return res.json(order)
     }
 };

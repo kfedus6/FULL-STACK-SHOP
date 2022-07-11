@@ -1,16 +1,25 @@
 import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import OrderItem from '../components/OrderItem';
 import { useAction } from '../hook/useAction';
 import { useTypedSelector } from '../hook/useTypedSelector';
 import '../styles/order.css';
 
 const Order = () => {
+    const navigate = useNavigate()
     const { fetchGetOrders } = useAction()
-    const { orders }: any = useTypedSelector(state => state.products)
+    const { user, products }: any = useTypedSelector(state => state)
+
+    useEffect(() => {
+        if (user.is_admin === false) {
+            navigate('/')
+        }
+    }, [user])
+
 
     useEffect(() => {
         fetchGetOrders()
-    }, [])
+    }, [products.order])
 
     return (
         <div className='orders'>
@@ -19,8 +28,8 @@ const Order = () => {
             </div>
             <div className='orders-client-container'>
                 <div className='orders-items'>
-                    {orders.map((item: any) => {
-                        let date = item.updatedAt.split('-')
+                    {products.orders.map((item: any) => {
+                        let date = item.createdAt.split('-')
                         let dateDay = date[2]
                         dateDay = dateDay.slice(0, 2)
                         let status;
