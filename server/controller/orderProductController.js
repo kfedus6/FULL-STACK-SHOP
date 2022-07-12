@@ -1,4 +1,4 @@
-const { OrderProduct, Order } = require('../models/models');
+const { OrderProduct, Order, Product } = require('../models/models');
 const ApiError = require('../error/apierror');
 
 class OrderProductController {
@@ -25,8 +25,12 @@ class OrderProductController {
     }
 
     async getOrderProducts(req, res) {
-        const { order } = req.body
-        console.log(order)
+        const { id } = req.params
+        const orderProduct = await OrderProduct.findAll({ where: { orderId: id } })
+        for (let item of orderProduct) {
+            let products = await Product.findAll({ where: { id: item.productId } })
+            return res.json(products)
+        }
     }
 
     async getOrders(req, res) {

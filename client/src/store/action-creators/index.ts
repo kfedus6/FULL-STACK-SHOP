@@ -2,9 +2,9 @@ import { registration, login, authorization, loginExit } from "../action-creator
 import {
     fetchProducts, fetchBrands, fetchTypes, fetchProduct,
     fetchCreateBrand, fetchCreateType, fetchCreateProduct, fetchError,
-    fetchAddBasket, fetchGetBasketProduct, fetchGetImagesProduct, fetchDeleteBasketProduct,
+    fetchAddBasketProduct, fetchGetBasketProduct, fetchGetImagesProduct, fetchDeleteBasketProduct,
     fetchAddImagesProduct, fetchAddOrderProduct, fetchGetOrderProduct, fetchGetOrders,
-    fetchGetOrder, fetchPutOrder, fetchGetOrderProductClient
+    fetchGetOrder, fetchPutOrder, fetchGetOrderProductClient, fetchDeleteBasketProducts
 } from "./productAction";
 
 export default {
@@ -20,7 +20,7 @@ export default {
     fetchCreateType,
     fetchCreateProduct,
     fetchError,
-    fetchAddBasket,
+    fetchAddBasketProduct,
     fetchGetBasketProduct,
     fetchGetImagesProduct,
     fetchDeleteBasketProduct,
@@ -30,5 +30,6 @@ export default {
     fetchGetOrders,
     fetchGetOrder,
     fetchPutOrder,
-    fetchGetOrderProductClient
+    fetchGetOrderProductClient,
+    fetchDeleteBasketProducts
 };

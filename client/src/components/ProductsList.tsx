@@ -7,7 +7,7 @@ import jwt_decode from "jwt-decode";
 
 const ProductsList = ({ item, inBasket }: any) => {
 
-    const { fetchAddBasket } = useAction();
+    const { fetchAddBasketProduct } = useAction();
 
     const { is_login } = useTypedSelector(state => state.user)
 
@@ -18,7 +18,7 @@ const ProductsList = ({ item, inBasket }: any) => {
     const addBasketProduct = (productId: any) => {
         let token: any = localStorage.getItem('token')
         let user: any = jwt_decode(token)
-        fetchAddBasket(user.userId, productId)
+        fetchAddBasketProduct(user.userId, productId)
     }
 
     if (is_login === false) {

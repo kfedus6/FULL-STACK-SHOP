@@ -73,10 +73,10 @@ export const fetchError = () => async (dispatch: Dispatch<ProductAction>) => {
     dispatch({ type: ProductActionTypes.FETCH_ERROR_PRODUCT, payload: null })
 };
 
-export const fetchAddBasket = (userId: any, productId: any) => async (dispatch: Dispatch<ProductAction>) => {
+export const fetchAddBasketProduct = (userId: any, productId: any) => async (dispatch: Dispatch<ProductAction>) => {
     try {
         const response = await $authHost.post('/api/basket/', { userId, productId })
-        dispatch({ type: ProductActionTypes.FETCH_ADD_BASKET, payload: response.data })
+        dispatch({ type: ProductActionTypes.FETCH_ADD_BASKET_PRODUCT, payload: response.data })
     } catch (err: any) {
         dispatch({ type: ProductActionTypes.FETCH_ERROR_PRODUCT, payload: err.response.data.message })
     }
@@ -91,11 +91,19 @@ export const fetchGetBasketProduct = (userId: any) => async (dispatch: Dispatch<
     }
 };
 
-
 export const fetchDeleteBasketProduct = (id: any) => async (dispatch: Dispatch<ProductAction>) => {
     try {
         const response = await $authHost.delete(`/api/basket/${id}`)
-        dispatch({ type: ProductActionTypes.FETCH_DELETE_BASKET, payload: id })
+        dispatch({ type: ProductActionTypes.FETCH_DELETE_BASKET_PRODUCT, payload: id })
+    } catch (err: any) {
+        dispatch({ type: ProductActionTypes.FETCH_ERROR_PRODUCT, payload: err.response.data.message })
+    }
+};
+
+export const fetchDeleteBasketProducts = (id: any) => async (dispatch: Dispatch<ProductAction>) => {
+    try {
+        const response = await $authHost.delete(`/api/basket/products/${id}`)
+        dispatch({ type: ProductActionTypes.FETCH_DELETE_BASKET_PRODUCTS, payload: id })
     } catch (err: any) {
         dispatch({ type: ProductActionTypes.FETCH_ERROR_PRODUCT, payload: err.response.data.message })
     }
@@ -166,10 +174,9 @@ export const fetchPutOrder = (status: boolean, id: any) => async (dispatch: Disp
     }
 };
 
-export const fetchGetOrderProductClient = (order: any) => async (dispatch: Dispatch<ProductAction>) => {
+export const fetchGetOrderProductClient = (id: any) => async (dispatch: Dispatch<ProductAction>) => {
     try {
-        console.log(order)
-        const response = await $authHost.get('/api/order/products/', order)
+        const response = await $authHost.get(`/api/order/products/${id}`)
         dispatch({ type: ProductActionTypes.FETCH_ORDER_PRODUCT_CLIENT, payload: response.data })
     } catch (err: any) {
         dispatch({ type: ProductActionTypes.FETCH_ERROR_PRODUCT, payload: err.response.data.message })

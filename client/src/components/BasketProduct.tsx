@@ -29,9 +29,11 @@ const BasketProduct = () => {
 
     const navigate = useNavigate();
 
-    const { fetchGetBasketProduct, fetchDeleteBasketProduct, fetchAddOrderProduct } = useAction()
+    const { fetchGetBasketProduct, fetchDeleteBasketProduct, fetchAddOrderProduct, fetchDeleteBasketProducts } = useAction()
     const { basket }: any = useTypedSelector(state => state.products)
     const { user }: any = useTypedSelector(state => state)
+
+    console.log(basket)
 
     useEffect(() => {
         if (user.is_login === false) {
@@ -81,6 +83,7 @@ const BasketProduct = () => {
         setName('')
         setPhone('')
         fetchAddOrderProduct(order)
+        fetchDeleteBasketProducts(user.userId)
     }
 
     if (basket.length === 0) {

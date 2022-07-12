@@ -40,7 +40,6 @@ class BasketController {
     }
 
     async deleteBasketProduct(req, res, next) {
-        const { userId } = req.query
         const { id } = req.params
 
         if (id === undefined) {
@@ -56,6 +55,13 @@ class BasketController {
 
         return res.json(delProduct)
     }
+
+    async deleteAllBasketProduct(req, res) {
+        const { id } = req.params
+        const deleteProduct = await BasketProduct.destroy({ where: { basketId: id } })
+        return res.json(deleteProduct)
+    }
+
 };
 
 const basketController = new BasketController();

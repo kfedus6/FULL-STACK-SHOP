@@ -11,6 +11,8 @@ const OrderProduct = () => {
     const { fetchGetOrderProduct, fetchGetOrder, fetchPutOrder, fetchGetOrderProductClient } = useAction()
     const { user, products }: any = useTypedSelector(state => state)
 
+    console.log(products.orderProductClient)
+
     useEffect(() => {
         if (user.is_admin === false) {
             navigate('/')
@@ -23,9 +25,12 @@ const OrderProduct = () => {
     }, [])
 
     useEffect(() => {
+        /*
         let orderProduct = products.orderProduct.map((item: any) => item)
         const order = { order: orderProduct }
-        //fetchGetOrderProductClient(order)
+        console.log(order)
+        */
+        fetchGetOrderProductClient(id)
     }, [])
 
     const acceptStatus = () => {

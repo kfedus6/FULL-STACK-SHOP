@@ -21,8 +21,9 @@ export enum ProductActionTypes {
     FETCH_TYPES = 'FETCH_TYPES',
     FETCH_ADD_TYPES = 'FETCH_ADD_TYPES',
     FETCH_BASKET = 'FETCH_BASKET',
-    FETCH_ADD_BASKET = 'FETCH_ADD_BASKET',
-    FETCH_DELETE_BASKET = 'FETCH_DELETE_BASKET',
+    FETCH_ADD_BASKET_PRODUCT = 'FETCH_ADD_BASKET',
+    FETCH_DELETE_BASKET_PRODUCT = 'FETCH_DELETE_BASKET',
+    FETCH_DELETE_BASKET_PRODUCTS = 'FETCH_DELETE_BASKET',
     FETCH_IMAGES_PRODUCT = 'FETCH_IMAGES_PRODUCT',
     FETCH_ADD_IMAGES_PRODUCT = 'FETCH_IMAGES_PRODUCT',
     FETCH_ERROR_PRODUCT = 'FETCH_ERROR_PRODUCT',
@@ -74,13 +75,18 @@ interface FetchBasketAction {
     payload: []
 };
 
-interface FetchBasketAddction {
-    type: ProductActionTypes.FETCH_ADD_BASKET,
+interface FetchBasketAddProductAction {
+    type: ProductActionTypes.FETCH_ADD_BASKET_PRODUCT,
     payload: []
 };
 
-interface FetchBasketDeleteAction {
-    type: ProductActionTypes.FETCH_DELETE_BASKET,
+interface FetchBasketDeleteProductAction {
+    type: ProductActionTypes.FETCH_DELETE_BASKET_PRODUCT,
+    payload: []
+};
+
+interface FetchBasketDeleteProductsAction {
+    type: ProductActionTypes.FETCH_DELETE_BASKET_PRODUCTS,
     payload: []
 };
 
@@ -104,7 +110,6 @@ interface FetchAddOrderProductAction {
     payload: []
 };
 
-
 interface FetchOrderProductAction {
     type: ProductActionTypes.FETCH_ORDER_PRODUCT,
     payload: []
@@ -114,7 +119,6 @@ interface FetchOrdersAction {
     type: ProductActionTypes.FETCH_ORDERS,
     payload: []
 };
-
 
 interface FetchOrderAction {
     type: ProductActionTypes.FETCH_ORDER,
@@ -140,8 +144,9 @@ export type ProductAction =
     FetchTypesAction |
     FetchTypesAddAction |
     FetchBasketAction |
-    FetchBasketAddction |
-    FetchBasketDeleteAction |
+    FetchBasketAddProductAction |
+    FetchBasketDeleteProductAction |
+    FetchBasketDeleteProductsAction |
     FetchImagesProductAction |
     FetchAddImagesProductAction |
     FetchErrorAction |

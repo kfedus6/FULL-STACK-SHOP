@@ -17,13 +17,13 @@ const initialState: ProductState = {
 export const productReducer = (state = initialState, action: ProductAction) => {
     switch (action.type) {
         case ProductActionTypes.FETCH_PRODUCTS: {
-            return { ...state, is_loader: false, products: action.payload }
+            return { ...state, products: action.payload }
         }
         case ProductActionTypes.FETCH_PRODUCT: {
             return { ...state, product: action.payload }
         }
         case ProductActionTypes.FETCH_ADD_PRODUCT: {
-            return { ...state, produts: { ...state.products, produtcs: action.payload } }
+            return { ...state, products: { ...state.products, produtcs: action.payload } }
         }
         case ProductActionTypes.FETCH_BRANDS: {
             return { ...state, brands: action.payload }
@@ -40,10 +40,13 @@ export const productReducer = (state = initialState, action: ProductAction) => {
         case ProductActionTypes.FETCH_BASKET: {
             return { ...state, basket: action.payload }
         }
-        case ProductActionTypes.FETCH_ADD_BASKET: {
+        case ProductActionTypes.FETCH_ADD_BASKET_PRODUCT: {
             return { ...state, basket: [...state.basket, action.payload] }
         }
-        case ProductActionTypes.FETCH_DELETE_BASKET: {
+        case ProductActionTypes.FETCH_DELETE_BASKET_PRODUCT: {
+            return { ...state, basket: state.basket.filter((p: any) => p.id !== action.payload) }
+        }
+        case ProductActionTypes.FETCH_DELETE_BASKET_PRODUCTS: {
             return { ...state, basket: state.basket.filter((p: any) => p.id !== action.payload) }
         }
         case ProductActionTypes.FETCH_IMAGES_PRODUCT: {
