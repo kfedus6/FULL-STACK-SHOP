@@ -47,7 +47,7 @@ export const productReducer = (state = initialState, action: ProductAction) => {
             return { ...state, basket: state.basket.filter((p: any) => p.id !== action.payload) }
         }
         case ProductActionTypes.FETCH_DELETE_BASKET_PRODUCTS: {
-            return { ...state, basket: state.basket.filter((p: any) => p.id !== action.payload) }
+            return { ...state, basket: [] }
         }
         case ProductActionTypes.FETCH_IMAGES_PRODUCT: {
             return { ...state, imagesProduct: action.payload }

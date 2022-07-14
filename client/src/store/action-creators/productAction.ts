@@ -103,7 +103,7 @@ export const fetchDeleteBasketProduct = (id: any) => async (dispatch: Dispatch<P
 export const fetchDeleteBasketProducts = (id: any) => async (dispatch: Dispatch<ProductAction>) => {
     try {
         const response = await $authHost.delete(`/api/basket/products/${id}`)
-        dispatch({ type: ProductActionTypes.FETCH_DELETE_BASKET_PRODUCTS, payload: id })
+        dispatch({ type: ProductActionTypes.FETCH_DELETE_BASKET_PRODUCTS, payload: response.data })
     } catch (err: any) {
         dispatch({ type: ProductActionTypes.FETCH_ERROR_PRODUCT, payload: err.response.data.message })
     }

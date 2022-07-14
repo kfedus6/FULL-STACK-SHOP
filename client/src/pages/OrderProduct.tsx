@@ -11,8 +11,6 @@ const OrderProduct = () => {
     const { fetchGetOrderProduct, fetchGetOrder, fetchPutOrder, fetchGetOrderProductClient } = useAction()
     const { user, products }: any = useTypedSelector(state => state)
 
-    console.log(products.orderProductClient)
-
     useEffect(() => {
         if (user.is_admin === false) {
             navigate('/')
@@ -25,11 +23,6 @@ const OrderProduct = () => {
     }, [])
 
     useEffect(() => {
-        /*
-        let orderProduct = products.orderProduct.map((item: any) => item)
-        const order = { order: orderProduct }
-        console.log(order)
-        */
         fetchGetOrderProductClient(id)
     }, [])
 
@@ -44,6 +37,8 @@ const OrderProduct = () => {
         fetchPutOrder(status, id)
         navigate('/order')
     }
+    console.log(products.order)
+    console.log(products.orderProduct)
 
     return (
         <div className='order'>
@@ -68,11 +63,18 @@ const OrderProduct = () => {
                         <button onClick={cancelStatus} className='order-cancel'>Скасувати</button>
                     </div>
                 </div>
-                <div>
-                    {products.orderProduct.map((item: any) => {
+                <div className='order-products-box'>
+                    {products.orderProductClient.map((item: any) => {
                         return (
-                            <div key={item.id}>
-                                <h1>product</h1>
+                            <div className='order-product-item' key={item.id}>
+                                <img className='order-produtc-img' src={process.env.REACT_APP_API_URL + item.img} alt="products" />
+                                <div className='order-produtc-body'>
+                                    <span>{item.name}</span>
+                                    <div>
+                                        <span>{item.price} &#8372; /</span>
+                                        <span> 1</span>
+                                    </div>
+                                </div>
                             </div>
                         )
                     })}

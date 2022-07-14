@@ -27,10 +27,11 @@ class OrderProductController {
     async getOrderProducts(req, res) {
         const { id } = req.params
         const orderProduct = await OrderProduct.findAll({ where: { orderId: id } })
+        let products = []
         for (let item of orderProduct) {
-            let products = await Product.findAll({ where: { id: item.productId } })
-            return res.json(products)
+            products.push(await Product.findOne({ where: { id: item.productId } }))
         }
+        return res.json(products)
     }
 
     async getOrders(req, res) {

@@ -27,7 +27,6 @@
     position: relative;
 }
 
-
 .product__img {
     width: 100%;
     height: auto;
@@ -67,7 +66,22 @@
 
 .block__btn-basket {
     display: flex;
+    align-items: center;
     justify-content: space-between;
+}
+
+.btn-delete-product{
+    cursor: pointer;
+    font-size: 30px;
+    background: transparent;
+    border: none;
+    margin-top: 0.7rem;
+}
+
+
+.btn-delete-product:hover {
+    color: red;
+    transition: all 0.3s ease;
 }
 
 .btn__basket {

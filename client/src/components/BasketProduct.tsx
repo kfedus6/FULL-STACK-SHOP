@@ -33,8 +33,6 @@ const BasketProduct = () => {
     const { basket }: any = useTypedSelector(state => state.products)
     const { user }: any = useTypedSelector(state => state)
 
-    console.log(basket)
-
     useEffect(() => {
         if (user.is_login === false) {
             navigate('/')

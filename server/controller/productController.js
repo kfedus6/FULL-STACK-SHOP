@@ -1,4 +1,4 @@
-const { Product, ProductInfo } = require('../models/models');
+const { Product, ProductInfo, Type } = require('../models/models');
 const uuid = require('uuid');
 const path = require('path')
 const ApiError = require('../error/apierror');
@@ -22,6 +22,22 @@ class ProductController {
 
         return res.json(product)
     }
+
+    async newProducts(req, res) {
+        const type = await Type.findAll()
+        const products = await Product.findAll({ limit: 5, order: [["createdAt", "DESC"]] })
+        const result = []
+
+        return res.json(products)
+        //res = []
+        //Получить типы
+        //[]
+        // for type in []
+        //      products = await Product.findAndCountAll() sort,reverse,for +-
+        //      products = await Product.findAndCountAll({where:{type}})   (LIMIT,ORDER BY, DESK) 
+        //      res = [typeId:type.id, nameType:type.name, products:[]]
+    }
+
     async getProducts(req, res) {
         let { brandId, typeId, limit, page } = req.query
 
@@ -53,7 +69,12 @@ class ProductController {
         const product = await Product.findOne({ where: { id }, include: [{ model: ProductInfo, as: 'info' }] })
         return res.json(product)
     }
-    //Удаление              destroy
+
+    async deleteProduct(req, res) {
+        const { id } = req.params
+        const product = await Product.destroy({ where: { id } })
+        return res.json(product)
+    }
     //изменение продукта    update
 };
 
