@@ -25,10 +25,15 @@ class ProductController {
 
     async newProducts(req, res) {
         const type = await Type.findAll()
-        const products = await Product.findAll({ limit: 5, order: [["createdAt", "DESC"]] })
-        const result = []
+        let result = [{ typeId: [], typeName: [], newProducts: [] }]
+        for (let item of type) {
+            let products = await Product.findAll({ where: { typeId: item.id }, limit: 5, order: [["createdAt", "DESC"]] })
+            result[0].typeId.push(item.id)
+            result[0].typeName.push(item.name)
+            result[0].newProducts.push(products)
+        }
 
-        return res.json(products)
+        return res.json(result)
         //res = []
         //Получить типы
         //[]
