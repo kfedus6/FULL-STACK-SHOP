@@ -1,17 +1,19 @@
 import React, { useEffect } from 'react';
+import NewProductsList from '../components/NewProductsList';
 import { useAction } from '../hook/useAction';
 import { useTypedSelector } from '../hook/useTypedSelector';
+import '../styles/newProducts.css';
 
 const NewProduct = () => {
-    const { fetchProducts } = useAction()
-    const { products } = useTypedSelector(state => state.products)
+    const { fetchGetNewProducts } = useAction()
+    const { newProducts }: any = useTypedSelector(state => state.products)
 
     useEffect(() => {
-        fetchProducts()
+        fetchGetNewProducts()
     }, [])
 
     return (
-        <div>NewProduct</div>
+        <NewProductsList newProducts={newProducts} />
     );
 };
 

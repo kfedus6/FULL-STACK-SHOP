@@ -5,6 +5,7 @@ import { useTypedSelector } from '../hook/useTypedSelector';
 import { getPageCount, getPagesArray } from '../utils/page';
 import '../styles/category.css';
 import Pagination from '../components/UI/pagination/Pagination';
+import { useParams } from 'react-router-dom';
 
 interface typeAndBrand {
     id: number,
@@ -19,6 +20,7 @@ interface itemPrd {
 };
 
 const Category = () => {
+    const { id }: any = useParams()
     const [type, setType] = useState<typeAndBrand>()
     const [brand, setBrand] = useState<typeAndBrand>()
     const [totalCount, setTotalCount]: any = useState()
@@ -32,6 +34,7 @@ const Category = () => {
     }
 
     const typeChange = (type: any) => {
+        console.log('1')
         setType(type)
     }
 
@@ -87,9 +90,20 @@ const Category = () => {
                         {types.map((item: typeAndBrand) => {
                             return (
                                 <div key={item.id}>
-                                    <input type="radio" id={item.name + item.id}
-                                        name="type" value={item.name} onChange={() => typeChange(item)} />
-                                    <label htmlFor={item.name + item.id}> {item.name}</label>
+                                    {id == item.id ?
+                                        <>
+                                            <input type="radio" id={item.name + item.id}
+                                                name="type" checked={true} value={item.name} onChange={() => typeChange(id)} />
+                                            <label htmlFor={item.name + id}> {item.name}</label>
+                                        </>
+                                        :
+                                        <>
+                                            <input type="radio" id={item.name + item.id}
+                                                name="type" value={item.name} onChange={() => typeChange(item)} />
+                                            <label htmlFor={item.name + item.id}> {item.name}</label>
+                                        </>
+                                    }
+
                                 </div>
                             )
                         })}

@@ -25,22 +25,13 @@ class ProductController {
 
     async newProducts(req, res) {
         const type = await Type.findAll()
-        let result = [{ typeId: [], typeName: [], newProducts: [] }]
+        let result = []
         for (let item of type) {
-            let products = await Product.findAll({ where: { typeId: item.id }, limit: 5, order: [["createdAt", "DESC"]] })
-            result[0].typeId.push(item.id)
-            result[0].typeName.push(item.name)
-            result[0].newProducts.push(products)
+            let products = await Product.findAll({ where: { typeId: item.id }, limit: 4, order: [["createdAt", "DESC"]] })
+            result.push({ typeId: item.id, typeName: item.name, newProducts: products })
         }
 
         return res.json(result)
-        //res = []
-        //Получить типы
-        //[]
-        // for type in []
-        //      products = await Product.findAndCountAll() sort,reverse,for +-
-        //      products = await Product.findAndCountAll({where:{type}})   (LIMIT,ORDER BY, DESK) 
-        //      res = [typeId:type.id, nameType:type.name, products:[]]
     }
 
     async getProducts(req, res) {

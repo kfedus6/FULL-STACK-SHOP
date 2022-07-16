@@ -7,6 +7,7 @@ export interface ProductState {
     orders: [],
     order: [],
     products: { count: number, rows: {} },
+    newProducts: [],
     product: {},
     imagesProduct: [],
     error: string | null
@@ -17,6 +18,7 @@ export enum ProductActionTypes {
     FETCH_PRODUCT = 'FETCH_PRODUCT',
     FETCH_ADD_PRODUCT = 'FETCH_ADD_PRODUCT',
     FETCH_DELETE_PRODUCT = 'FETCH_DELETE_PRODUCT',
+    FETCH_NEW_PRODUCT = 'FETCH_NEW_PRODUCT',
     FETCH_BRANDS = 'FETCH_BRANDS',
     FETCH_ADD_BRANDS = 'FETCH_ADD_BRANDS',
     FETCH_TYPES = 'FETCH_TYPES',
@@ -43,6 +45,11 @@ interface FetchProductsAction {
 
 interface FetchDeleteProductAction {
     type: ProductActionTypes.FETCH_DELETE_PRODUCT,
+    payload: []
+};
+
+interface FetchNewProductAction {
+    type: ProductActionTypes.FETCH_NEW_PRODUCT,
     payload: []
 };
 
@@ -162,4 +169,5 @@ export type ProductAction =
     FetchOrdersAction |
     FetchOrderAction |
     FetchOrderPutAction |
-    FetchOrderProductClientAction;
+    FetchOrderProductClientAction |
+    FetchNewProductAction;

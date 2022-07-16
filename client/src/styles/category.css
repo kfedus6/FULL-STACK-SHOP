@@ -11,7 +11,7 @@
 
 .products__content-categor{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, auto));
+    grid-template-columns: repeat(auto-fit, minmax(220px, auto));
     gap: 25px;
 }
 

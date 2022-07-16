@@ -9,6 +9,7 @@ const initialState: ProductState = {
     orders: [],
     order: [],
     products: { count: 0, rows: [] },
+    newProducts: [],
     product: {},
     imagesProduct: [],
     error: null
@@ -75,6 +76,9 @@ export const productReducer = (state = initialState, action: ProductAction) => {
         }
         case ProductActionTypes.FETCH_ORDER_PRODUCT_CLIENT: {
             return { ...state, orderProductClient: action.payload }
+        }
+        case ProductActionTypes.FETCH_NEW_PRODUCT: {
+            return { ...state, newProducts: action.payload }
         }
         default: {
             return state

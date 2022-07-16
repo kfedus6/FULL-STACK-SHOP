@@ -182,3 +182,12 @@ export const fetchGetOrderProductClient = (id: any) => async (dispatch: Dispatch
         dispatch({ type: ProductActionTypes.FETCH_ERROR_PRODUCT, payload: err.response.data.message })
     }
 };
+
+export const fetchGetNewProducts = () => async (dispatch: Dispatch<ProductAction>) => {
+    try {
+        const response = await $host.get('/api/product/newProducts')
+        dispatch({ type: ProductActionTypes.FETCH_NEW_PRODUCT, payload: response.data })
+    } catch (err: any) {
+        dispatch({ type: ProductActionTypes.FETCH_ERROR_PRODUCT, payload: err.response.data.message })
+    }
+};

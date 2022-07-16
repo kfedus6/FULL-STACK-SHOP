@@ -33,6 +33,7 @@ const AppRouter = () => {
                     <Route path='products/product/:id' element={<Product />} />
                     <Route path='order/orderProduct/:id' element={<OrderProduct />} />
                     <Route path='category/product/:id' element={<Product />} />
+                    <Route path='category/:id' element={<Category />} />
                 </Route>
             </Routes>
         )
@@ -51,6 +52,7 @@ const AppRouter = () => {
                     <Route path='products/product/:id' element={<Product />} />
                     <Route path='order/orderProduct/:id' element={<OrderProduct />} />
                     <Route path='category/product/:id' element={<Product />} />
+                    <Route path='category/:id' element={<Category />} />
                 </Route>
             </Routes>
         )
@@ -69,6 +71,7 @@ const AppRouter = () => {
                     <Route path='products/product/:id' element={<Product />} />
                     <Route path='order/orderProduct/:id' element={<OrderProduct />} />
                     <Route path='category/product/:id' element={<Product />} />
+                    <Route path='category/:id' element={<Category />} />
                 </Route>
             </Routes>
         )
