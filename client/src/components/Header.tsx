@@ -8,8 +8,17 @@ import { AiOutlineMenu } from 'react-icons/ai';
 import { useAction } from '../hook/useAction';
 import jwt_decode from 'jwt-decode';
 
-const Header: React.FC = () => {
+import { LOCALES } from '../i18n/locales';
+import { FormattedMessage } from 'react-intl';
 
+const Header = (props: any) => {
+
+    const languages = [
+        { name: "English", code: LOCALES.ENGLISH },
+        { name: "Ukraine", code: LOCALES.UKRAINE }
+    ];
+
+    const navigate = useNavigate()
     const { fetchGetBasketProduct } = useAction()
     const user = useTypedSelector(state => state.user)
     const { basket }: any = useTypedSelector(state => state.products)
@@ -22,7 +31,6 @@ const Header: React.FC = () => {
         }
     }, [user])
 
-    const navigate = useNavigate()
 
     const goHome = () => {
         navigate('/')
@@ -35,14 +43,23 @@ const Header: React.FC = () => {
                     <button onClick={goHome}>Shop</button>
                 </div>
                 <ul className='navbar__links'>
-                    <li><NavLink to="/">Головна</NavLink></li>
-                    <li><NavLink to="/products">Всі товари</NavLink></li>
-                    <li><NavLink to="/category">Категорії</NavLink></li>
-                    <li><NavLink to="/newProduct">Новинки</NavLink></li>
+                    <li><NavLink to="/"><FormattedMessage id="header_title_one" /></NavLink></li>
+                    <li><NavLink to="/products"><FormattedMessage id="header_title_two" /></NavLink></li>
+                    <li><NavLink to="/category"><FormattedMessage id="header_title_three" /></NavLink></li>
+                    <li><NavLink to="/newProduct"><FormattedMessage id="header_title_four" /></NavLink></li>
                 </ul>
                 <div className='nav-icons'>
                     <NavLink className='bx user' to="/authorization"><FaUser /></NavLink>
                     <i className='bx menu' id='menu-icon'><AiOutlineMenu /></i>
+                </div>
+                <div>
+                    <select onChange={props.handleChange} value={props.currentLocale}>
+                        {languages.map((item: any) => {
+                            return (
+                                <option key={item.code} value={item.code}>{item.name}</option>
+                            )
+                        })}
+                    </select>
                 </div>
             </div>
         )

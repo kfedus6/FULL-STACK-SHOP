@@ -14,14 +14,14 @@ import BasketProduct from './BasketProduct';
 import OrderProduct from '../pages/OrderProduct';
 import Layout from './Layout';
 
-const AppRouter = () => {
+const AppRouter = (props: any) => {
 
     const { user } = useTypedSelector(state => state)
 
     if (user.is_login === false && user.is_admin === false) {
         return (
             <Routes>
-                <Route path='/' element={<Layout />}>
+                <Route path='/' element={<Layout currentLocale={props.currentLocale} handleChange={props.handleChange} />}>
                     <Route index element={<Home />} />
                     <Route path='products' element={<Products />} />
                     <Route path='category' element={<Category />} />
