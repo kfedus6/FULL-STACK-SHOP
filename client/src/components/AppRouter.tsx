@@ -11,17 +11,18 @@ import Orders from '../pages/Orders';
 import Product from '../pages/Product';
 import Products from '../pages/Products';
 import BasketProduct from './BasketProduct';
-import OrderProduct from '../pages/OrderProduct';
+import OrderProduct from '../pages/OrdersProducts';
 import Layout from './Layout';
+import NewPassword from '../pages/NewPassword';
 
-const AppRouter = (props: any) => {
+const AppRouter = () => {
 
     const { user } = useTypedSelector(state => state)
 
     if (user.is_login === false && user.is_admin === false) {
         return (
             <Routes>
-                <Route path='/' element={<Layout currentLocale={props.currentLocale} handleChange={props.handleChange} />}>
+                <Route path='/' element={<Layout />}>
                     <Route index element={<Home />} />
                     <Route path='products' element={<Products />} />
                     <Route path='category' element={<Category />} />
@@ -30,6 +31,7 @@ const AppRouter = (props: any) => {
                     <Route path='order' element={<Orders />} />
                     <Route path='authorization' element={<Authhorization />} />
                     <Route path='basketProduct' element={<BasketProduct />} />
+                    <Route path='newpassword' element={<NewPassword />} />
                     <Route path='products/product/:id' element={<Product />} />
                     <Route path='order/orderProduct/:id' element={<OrderProduct />} />
                     <Route path='category/product/:id' element={<Product />} />
@@ -49,6 +51,7 @@ const AppRouter = (props: any) => {
                     <Route path='order' element={<Orders />} />
                     <Route path='authorization' element={<Authhorization />} />
                     <Route path='basketProduct' element={<BasketProduct />} />
+                    <Route path='newpassword' element={<NewPassword />} />
                     <Route path='products/product/:id' element={<Product />} />
                     <Route path='order/orderProduct/:id' element={<OrderProduct />} />
                     <Route path='category/product/:id' element={<Product />} />
@@ -68,6 +71,7 @@ const AppRouter = (props: any) => {
                     <Route path='order' element={<Orders />} />
                     <Route path='authorization' element={<Authhorization />} />
                     <Route path='basketProduct' element={<BasketProduct />} />
+                    <Route path='newpassword' element={<NewPassword />} />
                     <Route path='products/product/:id' element={<Product />} />
                     <Route path='order/orderProduct/:id' element={<OrderProduct />} />
                     <Route path='category/product/:id' element={<Product />} />

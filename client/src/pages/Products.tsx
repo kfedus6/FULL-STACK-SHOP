@@ -1,12 +1,15 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState, useTransition } from 'react';
 import ProductsList from '../components/ProductsList';
 import { useAction } from '../hook/useAction';
 import { useTypedSelector } from '../hook/useTypedSelector';
 import { getPageCount, getPagesArray } from '../utils/page';
 import Pagination from '../components/UI/pagination/Pagination';
+import { useTranslation } from 'react-i18next';
+
 import '../styles/products.css';
 
 const Products = () => {
+    const { t } = useTranslation()
     const { fetchProducts } = useAction()
     const { products, basket }: any = useTypedSelector(state => state.products)
 
@@ -30,7 +33,7 @@ const Products = () => {
     return (
         <section className='shop'>
             <div className='section-title'>
-                <span>Всі товари</span>
+                <span>{t('products.title')}</span>
             </div>
             <div className='products__content'>
                 {products.rows.map((item: { id: number, name: string, price: string, img: string }) => {

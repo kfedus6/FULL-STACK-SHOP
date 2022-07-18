@@ -1,0 +1,52 @@
+{
+    "header": {
+        "home": "Home",
+        "allproducts": "Products",
+        "categories": "Categories",
+        "news": "News",
+        "adminpanel": "Admin Panel",
+        "orders": "Orders",
+        "exit": "Exit"
+    },
+    "products": {
+        "title": "Products",
+        "buy": "Buy"
+    },
+    "basketproducts": {
+        "title": "Shopping cart",
+        "title_empty": "Shopping cart is empty",
+        "goshop": "Continue shopping",
+        "title_product": "Product",
+        "title_price": "Price",
+        "title_quantity": "Quantity",
+        "title_total": "Total",
+        "buy": "Buy",
+        "orders": "Order"
+    },
+    "authorization": {
+        "title": "Log In",
+        "placeholder": "Email",
+        "placeholder_pw": "Password",
+        "span": "Don't have an account",
+        "span_is": "Have an account",
+        "registration": "Sign up",
+        "password": "Forgot Password"
+    },
+    "orders": {
+        "title": "Customer Orders",
+        "status_false": "Cancelled",
+        "status_true": "Shipped",
+        "status": "In Processing",
+        "orders": "Orders"
+    },
+    "ordersproduct": {
+        "title": "Customer Order",
+        "title_count": "Items Ordered",
+        "title_sum": "Total Price",
+        "button_accept": "To Accept",
+        "button_cancel": "Cancel"
+    },
+    "newproduct": {
+        "button": "View All"
+    }
+}

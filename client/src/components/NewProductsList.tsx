@@ -1,8 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import NewProductItem from './NewProductItem';
+import { useTranslation } from 'react-i18next';
 
 const NewProductsList = ({ newProducts }: any) => {
+    const { t } = useTranslation()
+
     return (
         <div className='product-new-container'>
             {newProducts.map((item: any) => {
@@ -11,7 +14,7 @@ const NewProductsList = ({ newProducts }: any) => {
                         <div className='products-new-title-btn'>
                             <h1>{item.typeName}</h1>
                             <NavLink to={`../category/${item.typeId}`}>
-                                <button>Подивитися більше</button>
+                                <button>{t('newproduct.button')}</button>
                             </NavLink>
                         </div>
                         <div className='products-new-items'>

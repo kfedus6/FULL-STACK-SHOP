@@ -10,6 +10,7 @@ export enum UserActionTypes {
     FETCH_USER_LOGIN = 'FETCH_USER_LOGIN',
     FETCH_USER_LOGINEXIT = 'FETCH_USER_LOGINEXIT',
     FETCH_USER_AUTHORIZATION = 'FETCH_USER_AUTHORIZATION',
+    FETCH_USER_NEW_PASSWORD = 'FETCH_USER_NEW_PASSWORD',
     FETCH_USER_ERROR = 'FETCH_USER_ERROR',
 };
 
@@ -33,6 +34,11 @@ interface FetchUserAuthorizationAction {
     payload: any
 };
 
+interface FetchUserNewPasswordAction {
+    type: UserActionTypes.FETCH_USER_NEW_PASSWORD,
+    payload: any
+};
+
 interface FetchUserErrorAction {
     type: UserActionTypes.FETCH_USER_ERROR,
     payload: string | null
@@ -43,4 +49,5 @@ export type UserAction =
     FetchUserLoginAction |
     FetchUserAuthorizationAction |
     FetchUserErrorAction |
+    FetchUserNewPasswordAction |
     FetchUserLoginExitAction;

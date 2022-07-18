@@ -1,4 +1,4 @@
-import { registration, login, authorization, loginExit } from "../action-creators/userAction";
+import { registration, login, authorization, loginExit, newPassword } from "../action-creators/userAction";
 import {
     fetchProducts, fetchBrands, fetchTypes, fetchProduct,
     fetchCreateBrand, fetchCreateType, fetchCreateProduct, fetchError,
@@ -13,6 +13,7 @@ export default {
     login,
     authorization,
     loginExit,
+    newPassword,
     fetchProducts,
     fetchBrands,
     fetchTypes,

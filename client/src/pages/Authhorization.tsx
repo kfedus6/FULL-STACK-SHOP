@@ -5,10 +5,11 @@ import { useTypedSelector } from '../hook/useTypedSelector';
 import { HiOutlineMail } from 'react-icons/hi';
 import { BiLockAlt } from 'react-icons/bi';
 import { BsEyeSlash } from 'react-icons/bs';
+import { useTranslation } from 'react-i18next';
 import '../styles/authorization.css';
 
 const Authhorization: React.FC = () => {
-
+    const { t } = useTranslation()
     const { user }: any = useTypedSelector(state => state);
     const navigate = useNavigate();
 
@@ -40,12 +41,12 @@ const Authhorization: React.FC = () => {
             <div className='container'>
                 <div className='forms'>
                     <div className='form login'>
-                        <span className='title'>Увійти</span>
+                        <span className='title'>{t('authorization.title')}</span>
                         <form>
                             <div className='input-field' >
                                 <input
                                     value={email}
-                                    placeholder='Email'
+                                    placeholder={t('authorization.placeholder')}
                                     type="email"
                                     onChange={(e) => setEmail(e.target.value)} required />
                                 <i className='icon email'><HiOutlineMail /></i>
@@ -53,18 +54,21 @@ const Authhorization: React.FC = () => {
                             <div className='input-field'>
                                 <input
                                     value={password}
-                                    placeholder='Password'
+                                    placeholder={t('authorization.placeholder_pw')}
                                     type="password"
                                     onChange={(e) => setPassword(e.target.value)} />
                                 <i className='icon lock'><BiLockAlt /></i>
                                 <i className='icon eye'><BsEyeSlash /></i>
                             </div>
+                            <div>
+                                <a href='#' onClick={() => navigate('/NewPassword')}>{t('authorization.password')}?</a>
+                            </div>
                             <div className='input-field button'>
-                                <input type="button" value='Увійти' onClick={loginOrRegister} />
+                                <input type="button" value={t('authorization.title')} onClick={loginOrRegister} />
                             </div>
                             <div className='login-signup'>
-                                <span className='text'>Ще не учасник?
-                                    <a href='#' className='text signup-text' onClick={() => setCheck(true)}>Зареєструватись!</a>
+                                <span className='text'>{t('authorization.span')}?
+                                    <a href='#' className='text signup-text' onClick={() => setCheck(true)}>{t('authorization.registration')}!</a>
                                 </span>
                             </div>
                         </form>
@@ -77,12 +81,12 @@ const Authhorization: React.FC = () => {
         <div className='container'>
             <div className='forms'>
                 <div className='form login'>
-                    <span className='title'>Зареєструватись</span>
+                    <span className='title'>{t('authorization.registration')}</span>
                     <form>
                         <div className='input-field' >
                             <input
                                 value={email}
-                                placeholder='Email'
+                                placeholder={t('authorization.placeholder')}
                                 type="text"
                                 onChange={(e) => setEmail(e.target.value)} required />
                             <i className='icon email'><HiOutlineMail /></i>
@@ -90,18 +94,18 @@ const Authhorization: React.FC = () => {
                         <div className='input-field'>
                             <input
                                 value={password}
-                                placeholder='Password'
+                                placeholder={t('authorization.placeholder_pw')}
                                 type="password"
                                 onChange={(e) => setPassword(e.target.value)} />
                             <i className='icon lock'><BiLockAlt /></i>
                             <i className='icon eye'><BsEyeSlash /></i>
                         </div>
                         <div className='input-field button'>
-                            <input type="button" value='Зареєструватись' onClick={loginOrRegister} />
+                            <input type="button" value={t('authorization.registration')} onClick={loginOrRegister} />
                         </div>
                         <div className='login-signup'>
-                            <span className='text'>Ви вже є учасником?
-                                <a href='#' className='text signup-text' onClick={() => setCheck(false)}>Увійти!</a>
+                            <span className='text'>{t('authorization.span_is')}?
+                                <a href='#' className='text signup-text' onClick={() => setCheck(false)}>{t('authorization.title')}!</a>
                             </span>
                         </div>
                     </form>

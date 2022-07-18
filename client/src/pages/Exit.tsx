@@ -1,8 +1,9 @@
 import React from 'react';
 import { useAction } from '../hook/useAction';
+import { useTranslation } from 'react-i18next';
 
 const Exit: React.FC = () => {
-
+    const { t } = useTranslation()
     const { loginExit } = useAction();
 
     const exit = async () => {
@@ -11,7 +12,7 @@ const Exit: React.FC = () => {
 
     return (
         <div className='btn__exit' onClick={exit}>
-            <span>Вийти</span>
+            <span>{t('header.exit')}</span>
         </div>
     );
 };

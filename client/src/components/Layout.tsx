@@ -5,11 +5,11 @@ import Header from './Header';
 import '../styles/header.css';
 import '../styles/footer.css';
 
-const Layout = (props: any) => {
+const Layout = () => {
     return (
         <div className='layout'>
             <header>
-                <Header currentLocale={props.currentLocale} handleChange={props.handleChange} />
+                <Header />
             </header>
             <main>
                 <Outlet />

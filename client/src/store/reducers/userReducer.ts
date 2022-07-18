@@ -24,6 +24,9 @@ export const userReducer = (state = initialState, action: UserAction) => {
         case UserActionTypes.FETCH_USER_LOGINEXIT: {
             return { ...state, ...action.payload }
         }
+        case UserActionTypes.FETCH_USER_NEW_PASSWORD: {
+            return { ...state, ...action.payload }
+        }
         default: {
             return state
         }

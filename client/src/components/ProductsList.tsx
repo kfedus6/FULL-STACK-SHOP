@@ -5,9 +5,10 @@ import { RiShoppingBasketFill } from 'react-icons/ri';
 import { useAction } from '../hook/useAction';
 import jwt_decode from "jwt-decode";
 import { AiTwotoneDelete } from 'react-icons/ai';
+import { useTranslation } from 'react-i18next';
 
 const ProductsList = ({ item, inBasket }: any) => {
-
+    const { t } = useTranslation()
     const { fetchAddBasketProduct } = useAction();
 
     const { user } = useTypedSelector(state => state)
@@ -32,7 +33,7 @@ const ProductsList = ({ item, inBasket }: any) => {
                     <div className='product__name'>{item.name}</div>
                     <div className='block__price-btn'>
                         <span className='product__price'>{item.price} &#8372;</span>
-                        <button className='btn__buy' onClick={product}>Купити</button>
+                        <button className='btn__buy' onClick={product}>{t('products.buy')}</button>
                     </div>
                 </div>
             </div>
@@ -47,7 +48,7 @@ const ProductsList = ({ item, inBasket }: any) => {
                     <div className='product__name'>{item.name}</div>
                     <span className='product__price'>{item.price} &#8372;</span>
                     <div className='block__btn-basket'>
-                        <button className='btn__buy' onClick={product}>Купити</button>
+                        <button className='btn__buy' onClick={product}>{t('products.buy')}</button>
                         <button className={inBasket ? 'btn__basket selected' : 'btn__basket'} onClick={() => addBasketProduct(item.id)}><RiShoppingBasketFill /></button>
                     </div>
                 </div>
@@ -64,7 +65,7 @@ const ProductsList = ({ item, inBasket }: any) => {
                     <span className='product__price'>{item.price} &#8372;</span>
                     <div className='block__btn-basket'>
                         <div>
-                            <button className='btn__buy' onClick={product}>Купити</button>
+                            <button className='btn__buy' onClick={product}>{t('products.buy')}</button>
                         </div>
                         <div>
                             <button className='btn-delete-product'><AiTwotoneDelete /></button>

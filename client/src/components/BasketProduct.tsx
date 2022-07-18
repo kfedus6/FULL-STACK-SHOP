@@ -6,6 +6,8 @@ import { AiTwotoneDelete } from 'react-icons/ai';
 import { BsArrowLeft } from 'react-icons/bs';
 import jwt_decode from 'jwt-decode';
 import ModalBuy from './UI/modal/ModalBuy';
+import { useTranslation } from 'react-i18next';
+
 import '../styles/basketProduct.css';
 
 interface itemProduct {
@@ -22,6 +24,7 @@ interface itemBasketInfo {
 }
 
 const BasketProduct = () => {
+    const { t } = useTranslation()
     const [basketProductsInfo, setBasketProductsInfo]: any = useState([])
     const [visibleBuy, setVisibleBuy] = useState(false)
     const [name, setName] = useState('')
@@ -87,21 +90,21 @@ const BasketProduct = () => {
     if (basket.length === 0) {
         return (
             <div className='cart-empty'>
-                <h2>КОРЗИНА ДЛЯ ПОКУПОК</h2>
-                <h3 className='empty'>КОРЗИНА ПУСТА</h3>
-                <button onClick={goShop} className='btn-shop'>ПРОДОВЖИТИ ПОКУПКУ</button>
+                <h2>{t('basketproducts.title')}</h2>
+                <h3 className='empty'>{t('basketproducts.title_empty')}</h3>
+                <button onClick={goShop} className='btn-shop'>{t('basketproducts.goshop')}</button>
             </div>
         )
     } else if (basketProductsInfo.length === basket.length) {
         return (
             <div className='cart-container'>
-                <h2>КОРЗИНА ДЛЯ ПОКУПОК</h2>
+                <h2>{t('basketproducts.title')}</h2>
                 <div>
                     <div className='titles'>
-                        <h3 className="product-title">Продукт</h3>
-                        <h3 className="price">Ціна</h3>
-                        <h3 className="quantity">Кількість</h3>
-                        <h3 className="total">Всього</h3>
+                        <h3 className="product-title">{t('basketproducts.title_product')}</h3>
+                        <h3 className="price">{t('basketproducts.title_price')}</h3>
+                        <h3 className="quantity">{t('basketproducts.title_quantity')}</h3>
+                        <h3 className="total">{t('basketproducts.title_total')}</h3>
                     </div>
                     <div className='cart-items'>
                         {basket.map((item: itemProduct, idx: Key) => {
@@ -129,29 +132,29 @@ const BasketProduct = () => {
                     <div className='cart-summary'>
                         <div className="cart-checkout">
                             <div className='subtotal'>
-                                <span>Ціна</span>
+                                <span>{t('basketproducts.title_price')}</span>
                                 <span className='amount'>
                                     {basketProductsInfo.reduce((prev: any, info: any) => prev += info.sum, 0)}
                                     &#8372;</span>
                             </div>
                             <div>
-                                <button onClick={buyProduct} className='btn-cart-buy'>Купити</button>
+                                <button onClick={buyProduct} className='btn-cart-buy'>{t('basketproducts.buy')}</button>
                             </div>
                             <div className='btn-go-shop'>
-                                <button onClick={goShop}><span><BsArrowLeft /></span>Продовжити покупку</button>
+                                <button onClick={goShop}><span><BsArrowLeft /></span>{t('basketproducts.goshop')}</button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <ModalBuy visibleBuy={visibleBuy} setVisibleBuy={setVisibleBuy}>
                     <div className='model-block'>
-                        <h2>Замовлення</h2>
+                        <h2>{t('basketproducts.orders')}</h2>
                         <div className='block-buy'>
                             <input type="text" placeholder='Name' value={name} onChange={(e) => setName(e.target.value)} />
                             <input type="tel" placeholder='Phone' value={phone} onChange={(e) => setPhone(e.target.value)} />
                         </div>
                         <div className='block-buy-btn'>
-                            <button onClick={sendProduct}>Купити</button>
+                            <button onClick={sendProduct}>{t('basketproducts.buy')}</button>
                         </div>
                     </div>
                 </ModalBuy>

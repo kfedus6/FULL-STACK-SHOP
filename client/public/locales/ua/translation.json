@@ -1,0 +1,53 @@
+{
+    "header": {
+        "home": "Головна",
+        "allproducts": "Продукти",
+        "categories": "Категорії",
+        "news": "Новинки",
+        "adminpanel": "Адмін панель",
+        "orders": "Замовлення",
+        "exit": "Вийти"
+    },
+    "products": {
+        "title": "Продукти",
+        "buy": "Купити"
+    },
+    "basketproducts": {
+        "title": "Корзина для покупок",
+        "title_empty": "Корзина пуста",
+        "goshop": "Продовжити покупку",
+        "title_product": "Продукт",
+        "title_price": "Ціна",
+        "title_quantity": "Кількість",
+        "title_total": "Всього",
+        "buy": "Купити",
+        "orders": "Замовлення"
+    },
+    "authorization": {
+        "title": "Увійти",
+        "placeholder": "Емейл",
+        "placeholder_pw": "Пароль",
+        "span": "Не мають облікового запису",
+        "span_is": "Мати обліковий запис",
+        "registration": "Зареєструватись",
+        "signup": "Увійти",
+        "password": "Забули пароль"
+    },
+    "orders": {
+        "title": "Замовлення клієнтів",
+        "status_false": "Скасовано",
+        "status_true": "Відправлено",
+        "status": "В Обробці",
+        "orders": "Замовлення"
+    },
+    "ordersproduct": {
+        "title": "Замовлення клієнта",
+        "title_count": "Загальні товари",
+        "title_sum": "Загальна сума",
+        "button_accept": "Прийняти",
+        "button_cancel": "Скасувати"
+    },
+    "newproduct": {
+        "button": "Подивитись все"
+    }
+}
