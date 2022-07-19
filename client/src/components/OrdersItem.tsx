@@ -6,10 +6,18 @@ const OrderItem = ({ item, date, dateDay, status, t }: any) => {
     return (
         <div className='orders-item'>
             <div className='item-content'>
-                <span>{item.id}.</span>
-                <span>{item.name}</span>
-                <span>{dateDay}.{date[1]}.{date[0]}</span>
-                <span>{status}</span>
+                <div className='item-id'>
+                    <span>{item.id}.</span>
+                </div>
+                <div className='item-name'>
+                    <span>{item.name}</span>
+                </div>
+                <div className='item-date'>
+                    <span>{dateDay}.{date[1]}.{date[0]}</span>
+                </div>
+                <div className='item-status'>
+                    <span>{status}</span>
+                </div>
             </div>
             <div>
                 <NavLink to={`orderProduct/${item.id}`}>

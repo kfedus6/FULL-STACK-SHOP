@@ -16,7 +16,7 @@ header {
 
 .navbar {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     min-height: 80px;
 }
@@ -28,60 +28,73 @@ header {
     font-size: 35px;
     font-weight: bold;
     text-transform: uppercase;
-    letter-spacing: 3px;
+    letter-spacing: 10px;
 }
 
 .navbar__links {
     display: flex;
     justify-content: space-around;
-    width: 50%;
+    width: 60%;
 }
 
 .navbar__links li a {
-    color: black;
-    font-size: 17px;
-    text-transform: uppercase;
+    color: rgb(50, 50, 50);
+    font-size: 17px; 
 }
 
 .navbar__links li a:hover {
-    border-bottom: 2px solid black;
+    font-weight: 600;
+    color: black;
 }
 
 .active {
-    border-bottom: 2px solid black;
+    color: black;
+    font-weight: 600;
 }
 
 .btn__exit {
-    font-size: 17px;
     cursor: pointer;
-    text-transform: uppercase;
+    color: rgb(50, 50, 50);
+    font-size: 17px;
 }
 
 .btn__exit span:hover {
-    border-bottom: 2px solid black;
+    font-weight: 600;
+    color: black;
 }
 
-.nav-icons .bx{
+.nav-icons-leng {
+    display: flex;
+    align-content: center;
+}
+
+.nav-icons-leng .bx{
     font-size: 22px;
-    color:black;
+    color: rgb(50, 50, 50);
     cursor: pointer;
     margin-left: 15px;
 }
 
-.nav-icons .bx:hover {
-    color: silver;
+.nav-icons-leng .bx:hover {
+    color: black;
     transition: all 0.3s ease;
 }
 
-#menu-icon {
-    display: none;
+.block-lang {
+    margin-left: 25px;
+}
+
+.option-lang {
+    cursor: pointer;
+    border: none;
+    font-size: 14px;
 }
 
 .cart {
     position: relative;
     cursor: pointer;
     font-size: 22px;
-    color: black;
+    color: rgb(50, 50, 50);
 }
 
 .cart span {
@@ -95,18 +108,44 @@ header {
     height: 18px;
     width: 18px;
     border-radius: 50%;
-    background: black;
+    background: rgb(50, 50, 50);
     color: white;
     padding: 4px;
 }
 
-.navbar li ul {
-    position: absolute;
-    min-width: 150px;
-    display: none;
+.dropbtn {
+    font-size: 17px;
 }
 
-.navbar li:hover ul {
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    z-index: 1;
+    background: #fff;
+}
+
+.dropdown-content li a {
+    font-size: 16px;
+}
+
+.dropbtn:hover {
+    font-weight: 600;
+}
+
+.dropdown-content a {
+    color: rgb(50, 50, 50);
+    padding: 10px 0 5px 0;
+    text-decoration: none;
     display: block;
-    transition: all 0.3s ease;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    color: black;
 }

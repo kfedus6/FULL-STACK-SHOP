@@ -14,6 +14,7 @@ import BasketProduct from './BasketProduct';
 import OrderProduct from '../pages/OrdersProducts';
 import Layout from './Layout';
 import NewPassword from '../pages/NewPassword';
+import Statistics from '../pages/Statistics';
 
 const AppRouter = () => {
 
@@ -29,6 +30,7 @@ const AppRouter = () => {
                     <Route path='newProduct' element={<NewProduct />} />
                     <Route path='adminPanel' element={<AdminPanel />} />
                     <Route path='order' element={<Orders />} />
+                    <Route path='statistics' element={<Statistics />} />
                     <Route path='authorization' element={<Authhorization />} />
                     <Route path='basketProduct' element={<BasketProduct />} />
                     <Route path='newpassword' element={<NewPassword />} />
@@ -49,6 +51,7 @@ const AppRouter = () => {
                     <Route path='newProduct' element={<NewProduct />} />
                     <Route path='adminPanel' element={<AdminPanel />} />
                     <Route path='order' element={<Orders />} />
+                    <Route path='statistics' element={<Statistics />} />
                     <Route path='authorization' element={<Authhorization />} />
                     <Route path='basketProduct' element={<BasketProduct />} />
                     <Route path='newpassword' element={<NewPassword />} />
@@ -69,6 +72,7 @@ const AppRouter = () => {
                     <Route path='newProduct' element={<NewProduct />} />
                     <Route path='adminPanel' element={<AdminPanel />} />
                     <Route path='order' element={<Orders />} />
+                    <Route path='statistics' element={<Statistics />} />
                     <Route path='authorization' element={<Authhorization />} />
                     <Route path='basketProduct' element={<BasketProduct />} />
                     <Route path='newpassword' element={<NewPassword />} />

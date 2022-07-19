@@ -9,21 +9,10 @@
     padding: 30px;
 }
 
-.container .form .title {
-    position: relative;
-    font-size: 27px;
-    font-weight: 600;
-}
-
-.form .title::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 3px;
-    width: 30px;
-    background-color: black;
-    border-radius: 25px;
+.form .title {
+    font-size: 35px;
+    letter-spacing: 15px;
+    text-align: center;
 }
 
 .form .input-field {
@@ -71,6 +60,26 @@
     right: 0;
 }
 
+.input-field i.eye button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 23px;
+    color: silver;
+}
+
+.input-field i.open button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 26px;
+    color: silver;
+}
+
+.input-field i.eye button:hover {
+    color:black;
+}
+
 .form .text {
     color:#333;
     font-size: 14px;
@@ -87,7 +96,11 @@
 }
 
 .form .button {
-    margin-top: 35px;
+    margin-top: 20px;
+}
+
+.form .sign {
+    margin-top: 50px;
 }
 
 .form .button input {
@@ -108,7 +121,18 @@
     transition: all 0.3s ease;
 } 
 
-.form .login-signup {
-    margin-top: 30px;
+.login-signup {
+    margin-top: 20px;
     text-align: center;
+}
+
+.forgot__password {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.forgot__password a{
+    color: blue;
 }

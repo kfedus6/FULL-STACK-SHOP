@@ -5,7 +5,9 @@
         "categories": "Categories",
         "news": "News",
         "adminpanel": "Admin Panel",
+        "create": "Create",
         "orders": "Orders",
+        "statistics": "Statistics",
         "exit": "Exit"
     },
     "products": {

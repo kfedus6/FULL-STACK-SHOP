@@ -15,7 +15,6 @@
 
 .item-content {
     display: flex;
-    justify-content: space-between;
     border: 2px solid silver;
     border-radius: 5px;
     margin-bottom: 15px;
@@ -27,6 +26,24 @@
 .item-content:hover {
     border: 2px solid black;
     transition: all 0.3s ease;
+}
+
+.item-id {
+    width: 50px;
+}
+
+.item-name {
+    width: 300px;
+}
+
+.item-date {
+    text-align: center;
+    width: 200px;
+}
+
+.item-status {
+    text-align: end;
+    width: 120px;
 }
 
 .item-content span {

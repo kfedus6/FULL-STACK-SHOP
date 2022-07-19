@@ -5,25 +5,28 @@ import { useTypedSelector } from '../hook/useTypedSelector';
 import { HiOutlineMail } from 'react-icons/hi';
 import { BiLockAlt } from 'react-icons/bi';
 import { BsEyeSlash } from 'react-icons/bs';
+import { AiOutlineEye } from 'react-icons/ai'
 import { useTranslation } from 'react-i18next';
 import '../styles/authorization.css';
 
 const Authhorization: React.FC = () => {
-    const { t } = useTranslation()
-    const { user }: any = useTypedSelector(state => state);
     const navigate = useNavigate();
+
+    const { login, registration } = useAction();
+    const { user }: any = useTypedSelector(state => state);
+
+    const [type, setType] = useState('password')
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [check, setCheck] = useState(false);
+
+    const { t } = useTranslation()
 
     useEffect(() => {
         if (user.is_login) {
             navigate('/')
         }
     }, [user])
-
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [check, setCheck] = useState(false);
-
-    const { login, registration } = useAction();
 
     const loginOrRegister = async (e: FormEvent) => {
         e.preventDefault()
@@ -36,12 +39,20 @@ const Authhorization: React.FC = () => {
         setPassword('')
     };
 
+    const changeType = () => {
+        if (type === 'password') {
+            setType('text')
+        } else {
+            setType('password')
+        }
+    }
+
     if (check === false) {
         return (
             <div className='container'>
                 <div className='forms'>
                     <div className='form login'>
-                        <span className='title'>{t('authorization.title')}</span>
+                        <h1 className='title'>SHOP</h1>
                         <form>
                             <div className='input-field' >
                                 <input
@@ -55,12 +66,24 @@ const Authhorization: React.FC = () => {
                                 <input
                                     value={password}
                                     placeholder={t('authorization.placeholder_pw')}
-                                    type="password"
+                                    type={type}
                                     onChange={(e) => setPassword(e.target.value)} />
                                 <i className='icon lock'><BiLockAlt /></i>
-                                <i className='icon eye'><BsEyeSlash /></i>
+                                {type === 'password' ?
+                                    <i className='icon eye' >
+                                        <button onClick={changeType}>
+                                            <BsEyeSlash />
+                                        </button>
+                                    </i>
+                                    :
+                                    <i className='icon eye open' >
+                                        <button onClick={changeType}>
+                                            <AiOutlineEye />
+                                        </button>
+                                    </i>
+                                }
                             </div>
-                            <div>
+                            <div className='forgot__password'>
                                 <a href='#' onClick={() => navigate('/NewPassword')}>{t('authorization.password')}?</a>
                             </div>
                             <div className='input-field button'>
@@ -81,7 +104,7 @@ const Authhorization: React.FC = () => {
         <div className='container'>
             <div className='forms'>
                 <div className='form login'>
-                    <span className='title'>{t('authorization.registration')}</span>
+                    <h1 className='title'>SHOP</h1>
                     <form>
                         <div className='input-field' >
                             <input
@@ -100,7 +123,7 @@ const Authhorization: React.FC = () => {
                             <i className='icon lock'><BiLockAlt /></i>
                             <i className='icon eye'><BsEyeSlash /></i>
                         </div>
-                        <div className='input-field button'>
+                        <div className='input-field button sign'>
                             <input type="button" value={t('authorization.registration')} onClick={loginOrRegister} />
                         </div>
                         <div className='login-signup'>

@@ -34,14 +34,24 @@ const Category = () => {
     }
 
     const typeChange = (type: any) => {
-        console.log('1')
         setType(type)
     }
 
     useEffect(() => {
-        fetchBrands();
-        fetchTypes();
+        getBrandsAndTypes()
     }, [])
+
+    useEffect(() => {
+        if (types && id) {
+            setType(types.find((type: any) => type.id == id))
+        }
+    }, [types])
+
+    const getBrandsAndTypes = async () => {
+        await fetchBrands();
+        await fetchTypes();
+    }
+
 
     useEffect(() => {
         if (brand === undefined && type === undefined) {
@@ -55,9 +65,11 @@ const Category = () => {
         }
     }, [brand, type, page]);
 
-    useMemo(() => {
+    useEffect(() => {
         setTotalCount(getPageCount(products.count))
     }, [products])
+
+
 
     let pagesArray = getPagesArray(totalCount)
 
@@ -93,7 +105,7 @@ const Category = () => {
                                     {id == item.id ?
                                         <>
                                             <input type="radio" id={item.name + item.id}
-                                                name="type" checked={true} value={item.name} onChange={() => typeChange(id)} />
+                                                name="type" value={item.name} onChange={() => typeChange(item)} />
                                             <label htmlFor={item.name + id}> {item.name}</label>
                                         </>
                                         :

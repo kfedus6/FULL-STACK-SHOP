@@ -4,12 +4,18 @@ import { useTypedSelector } from '../hook/useTypedSelector';
 import Exit from '../pages/Exit';
 import { FaUser } from 'react-icons/fa';
 import { AiOutlineShopping } from 'react-icons/ai';
-import { AiOutlineMenu } from 'react-icons/ai';
 import { useAction } from '../hook/useAction';
 import jwt_decode from 'jwt-decode';
 import { useTranslation } from 'react-i18next';
 
 const Header = () => {
+    const navigate = useNavigate()
+
+    const { fetchGetBasketProduct } = useAction()
+
+    const { basket }: any = useTypedSelector(state => state.products)
+    const user = useTypedSelector(state => state.user)
+
     const { t, i18n } = useTranslation()
 
     const changeLanguage = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -23,11 +29,6 @@ const Header = () => {
         }
         return 'EN'
     }
-
-    const navigate = useNavigate()
-    const { fetchGetBasketProduct } = useAction()
-    const user = useTypedSelector(state => state.user)
-    const { basket }: any = useTypedSelector(state => state.products)
 
     useEffect(() => {
         if (user.is_login == true) {
@@ -53,16 +54,15 @@ const Header = () => {
                     <li><NavLink to="/category">{t('header.categories')}</NavLink></li>
                     <li><NavLink to="/newProduct">{t('header.news')}</NavLink></li>
                 </ul>
-                <div className='nav-icons'>
+                <div className='nav-icons-leng'>
                     <NavLink className='bx user' to="/authorization"><FaUser /></NavLink>
-                    <i className='bx menu' id='menu-icon'><AiOutlineMenu /></i>
-                </div>
-                <div>
-                    <select onChange={(event) => changeLanguage(event)}>
-                        <option hidden>{language()}</option>
-                        <option value='EN'>EN</option>
-                        <option value='UA'>UA</option>
-                    </select>
+                    <div className='block-lang'>
+                        <select className='option-lang' onChange={(event) => changeLanguage(event)}>
+                            <option className='option' hidden>{language()}</option>
+                            <option className='option' value='EN'>EN</option>
+                            <option className='option' value='UA'>UA</option>
+                        </select>
+                    </div>
                 </div>
             </div >
         )
@@ -79,16 +79,15 @@ const Header = () => {
                     <li><NavLink to="/newProduct">{t('header.news')}</NavLink></li>
                     <li><Exit /></li>
                 </ul>
-                <div className='nav-icons'>
+                <div className='nav-icons-leng'>
                     <NavLink to="/basketProduct" className='cart'><AiOutlineShopping /><i><span>{basket.length}</span></i></NavLink>
-                    <i className='bx menu' id='menu-icon'><AiOutlineMenu /></i>
-                </div>
-                <div>
-                    <select onChange={(event) => changeLanguage(event)}>
-                        <option hidden>{language()}</option>
-                        <option value='EN'>EN</option>
-                        <option value='UA'>UA</option>
-                    </select>
+                    <div className='block-lang'>
+                        <select className='option-lang' onChange={(event) => changeLanguage(event)}>
+                            <option className='option' hidden>{language()}</option>
+                            <option className='option' value='EN'>EN</option>
+                            <option className='option' value='UA'>UA</option>
+                        </select>
+                    </div>
                 </div>
             </div>
         )
@@ -103,21 +102,25 @@ const Header = () => {
                     <li><NavLink to="/products">{t('header.allproducts')}</NavLink></li>
                     <li><NavLink to="/category">{t('header.categories')}</NavLink></li>
                     <li><NavLink to="/newProduct">{t('header.news')}</NavLink></li>
-                    <li><NavLink to="/adminPanel">{t('header.adminpanel')}</NavLink>
-                        <ul><li><NavLink to="/order">{t('header.orders')}</NavLink></li></ul>
-                    </li>
+                    <div className="dropdown">
+                        <div className="dropbtn">{t('header.adminpanel')}</div>
+                        <ul className="dropdown-content">
+                            <li><NavLink to="/adminPanel">{t('header.create')}</NavLink></li>
+                            <li><NavLink to="/order">{t('header.orders')}</NavLink></li>
+                            <li><NavLink to="/statistics">{t('header.statistics')}</NavLink></li>
+                        </ul>
+                    </div>
                     <li><Exit /></li>
                 </ul>
-                <div className='nav-icons'>
+                <div className='nav-icons-leng'>
                     <NavLink to="/basketProduct" className='cart'><AiOutlineShopping /><i><span>{basket.length}</span></i></NavLink>
-                    <i className='bx menu' id='menu-icon'><AiOutlineMenu /></i>
-                </div>
-                <div>
-                    <select onChange={(event) => changeLanguage(event)}>
-                        <option hidden>{language()}</option>
-                        <option value='EN'>EN</option>
-                        <option value='UA'>UA</option>
-                    </select>
+                    <div className='block-lang'>
+                        <select className='option-lang' onChange={(event) => changeLanguage(event)}>
+                            <option className='option' hidden>{language()}</option>
+                            <option className='option' value='EN'>EN</option>
+                            <option className='option' value='UA'>UA</option>
+                        </select>
+                    </div>
                 </div>
             </div>
         )

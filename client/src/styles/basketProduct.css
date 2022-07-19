@@ -3,6 +3,10 @@
     text-align: center;
 }
 
+.cart-empty h2 {
+    font-size: 28px;
+}
+
 .empty {
     margin-top: 3rem;
     border-bottom: 1px solid silver;
@@ -17,6 +21,7 @@
     border: 1px solid silver;
     background-color: #fff;
     color:black;
+    font-size: 15px;
 }
 
 .btn-shop:hover {

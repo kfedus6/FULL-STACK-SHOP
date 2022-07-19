@@ -5,7 +5,9 @@
         "categories": "Категорії",
         "news": "Новинки",
         "adminpanel": "Адмін панель",
+        "create": "Створити",
         "orders": "Замовлення",
+        "statistics": "Статистика",
         "exit": "Вийти"
     },
     "products": {

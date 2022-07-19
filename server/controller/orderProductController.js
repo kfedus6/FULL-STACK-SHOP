@@ -35,7 +35,17 @@ class OrderProductController {
     }
 
     async getOrders(req, res) {
-        const orders = await Order.findAll()
+        const { id, name } = req.query
+
+        let orders
+        if (id === undefined && name === undefined) {
+            orders = await Order.findAll()
+        } else if (id !== undefined && name === undefined) {
+            orders = await Order.findAll({ where: { id } })
+        } else if (name !== undefined && id === undefined) {
+            orders = await Order.findAll({ where: { name } })
+        }
+
         return res.json(orders)
     }
 
