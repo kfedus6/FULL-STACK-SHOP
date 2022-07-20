@@ -51,8 +51,7 @@ class UserController {
         const { email, password } = req.body
         const bcryptPassword = await bcrypt.hash(password, 5)
         const user = await User.update({ password: bcryptPassword }, { where: { email } })
-        const token = jwt.sign({ userId: user.id, email: user.email, admin: user.admin }, process.env.codeSecret, { expiresIn: '1h' })
-        return res.json({ token })
+        return res.json(user)
     }
 };
 

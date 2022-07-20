@@ -11,6 +11,7 @@
 .title__product {
     font-size: 22px;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 .section-option {
@@ -51,9 +52,9 @@
 }
 
 .btn__parameter button {
-    width: 200px;
-    height: 30px;
-    font-size: 14px;
+    width: 220px;
+    height: 35px;
+    font-size: 15px;
     border-radius: 5px;
     border: 1px solid silver;
     background-color: #fff;
@@ -72,9 +73,9 @@
 }
 
 .btn__product-add button {
-    width: 120px;
-    height: 30px;
-    font-size: 14px;
+    width: 140px;
+    height: 35px;
+    font-size: 15px;
     border-radius: 5px;
     border: 1px solid silver;
     background-color: #fff;
@@ -114,6 +115,12 @@
 .title-brand-type {
     font-size: 22px;
     margin-bottom: 10px;
+    text-align: center;
+}
+
+.btn-brand-type {
+    display: flex;
+    justify-content: center;
 }
 
 .info-brand-type input {
@@ -127,9 +134,9 @@
 }
 
 .info-brand-type button {
-    width: 120px;
-    height: 30px;
-    font-size: 14px;
+    width: 140px;
+    height: 35px;
+    font-size: 15px;
     border-radius: 5px;
     border: 1px solid silver;
     background-color: #fff;
@@ -160,14 +167,19 @@
     width: 250px;
 }
 
+.img-product-bth {
+    display: flex;
+    justify-content: center;
+}
+
 .info-img-product button{
-    width: 120px;
-    height: 30px;
-    font-size: 14px;
+    width: 140px;
+    height: 35px;
+    font-size: 15px;
     border-radius: 5px;
     border: 1px solid silver;
     background-color: #fff;
-    cursor: pointer; 
+    cursor: pointer;
 }
 
 .info-img-product button:hover {

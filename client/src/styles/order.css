@@ -13,6 +13,23 @@
     margin-top: 10px;
 }
 
+.orders-search {
+    margin-left: 222px;
+}
+
+.orders-search input {
+    width: 250px;
+    height: 35px;
+    padding: 5px 10px;
+    font-size: 16px;
+    border: 2px solid silver;
+    border-radius: 5px;
+}
+
+.orders-search input:hover {
+    border: 2px solid black;
+}
+
 .item-content {
     display: flex;
     border: 2px solid silver;
@@ -181,7 +198,7 @@
 
 .order-products-box {
     display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+    grid-template-columns: repeat(auto-fit, minmax(220px, auto));
     grid-row: 2rem;
 }
 
@@ -192,7 +209,7 @@
 
 .order-produtc-img {
     width: 280px;
-    height: 280px;
+    height: 320px;
 }
 
 .order-product-item {

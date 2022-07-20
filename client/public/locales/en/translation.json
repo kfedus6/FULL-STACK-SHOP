@@ -39,7 +39,8 @@
         "status_false": "Cancelled",
         "status_true": "Shipped",
         "status": "In Processing",
-        "orders": "Orders"
+        "orders": "Orders",
+        "search": "Search"
     },
     "ordersproduct": {
         "title": "Customer Order",
@@ -50,5 +51,29 @@
     },
     "newproduct": {
         "button": "View All"
+    },
+    "newpassword": {
+        "info": "Enter your email address and password to update your password",
+        "span_return": "Or return to",
+        "login": "Log in",
+        "placeholder_email": "Email",
+        "placeholder_pw": "Password",
+        "button": "Update"
+    },
+    "adminpanel": {
+        "error": "Error",
+        "title_product": "Product",
+        "option_brands": "Brand",
+        "option_type": "Product type ",
+        "placeholder_name": "Name",
+        "placeholder_price": "Price",
+        "title_parameters": "Parameters",
+        "placeholder_parameter": "Parameter",
+        "placeholder_value": "Value",
+        "placeholder_color": "Color",
+        "placeholder_product_id": "Product id",
+        "btn_parameter": "Add parameter",
+        "btn_create": "Create",
+        "title_img_product": "Product image"
     }
 }

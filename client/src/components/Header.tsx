@@ -38,21 +38,17 @@ const Header = () => {
         }
     }, [user])
 
-    const goHome = () => {
-        navigate('/')
-    }
-
     if (user.is_login === false && user.is_admin === false) {
         return (
             <div className='navbar nav-container'>
                 <div className='logo'>
-                    <button onClick={goHome}>Shop</button>
+                    <button onClick={() => navigate('/')}>Shop</button>
                 </div>
                 <ul className='navbar__links'>
-                    <li><NavLink to="/">{t('header.home')}</NavLink></li>
-                    <li><NavLink to="/products">{t('header.allproducts')}</NavLink></li>
-                    <li><NavLink to="/category">{t('header.categories')}</NavLink></li>
-                    <li><NavLink to="/newProduct">{t('header.news')}</NavLink></li>
+                    <li className='link-home'><NavLink to="/">{t('header.home')}</NavLink></li>
+                    <li className='link-products'><NavLink to="/products">{t('header.allproducts')}</NavLink></li>
+                    <li className='link-category'><NavLink to="/category">{t('header.categories')}</NavLink></li>
+                    <li className='link-news'><NavLink to="/newProduct">{t('header.news')}</NavLink></li>
                 </ul>
                 <div className='nav-icons-leng'>
                     <NavLink className='bx user' to="/authorization"><FaUser /></NavLink>
@@ -68,16 +64,16 @@ const Header = () => {
         )
     } else if (user.is_login === true && user.is_admin === false) {
         return (
-            <div className='navbar nav-conteiner'>
+            <div className='navbar nav-container'>
                 <div className='logo'>
-                    <button onClick={goHome}>Shop</button>
+                    <button onClick={() => navigate('/')}>Shop</button>
                 </div>
                 <ul className='navbar__links'>
-                    <li><NavLink to="/">{t('header.home')}</NavLink></li>
-                    <li><NavLink to="/products">{t('header.allproducts')}</NavLink></li>
-                    <li><NavLink to="/category">{t('header.categories')}</NavLink></li>
-                    <li><NavLink to="/newProduct">{t('header.news')}</NavLink></li>
-                    <li><Exit /></li>
+                    <li className='link-home'><NavLink to="/">{t('header.home')}</NavLink></li>
+                    <li className='link-products'><NavLink to="/products">{t('header.allproducts')}</NavLink></li>
+                    <li className='link-category'><NavLink to="/category">{t('header.categories')}</NavLink></li>
+                    <li className='link-news'><NavLink to="/newProduct">{t('header.news')}</NavLink></li>
+                    <li className='link-exit'><Exit /></li>
                 </ul>
                 <div className='nav-icons-leng'>
                     <NavLink to="/basketProduct" className='cart'><AiOutlineShopping /><i><span>{basket.length}</span></i></NavLink>
@@ -89,19 +85,19 @@ const Header = () => {
                         </select>
                     </div>
                 </div>
-            </div>
+            </div >
         )
     } else if (user.is_admin === true && user.is_login === true) {
         return (
             <div className='navbar nav-container'>
                 <div className='logo'>
-                    <button onClick={goHome}>Shop</button>
+                    <button onClick={() => navigate('/')}>Shop</button>
                 </div>
                 <ul className='navbar__links'>
-                    <li><NavLink to="/">{t('header.home')}</NavLink></li>
-                    <li><NavLink to="/products">{t('header.allproducts')}</NavLink></li>
-                    <li><NavLink to="/category">{t('header.categories')}</NavLink></li>
-                    <li><NavLink to="/newProduct">{t('header.news')}</NavLink></li>
+                    <li className='link-home'><NavLink to="/">{t('header.home')}</NavLink></li>
+                    <li className='link-products'><NavLink to="/products">{t('header.allproducts')}</NavLink></li>
+                    <li className='link-category'><NavLink to="/category">{t('header.categories')}</NavLink></li>
+                    <li className='link-news'><NavLink to="/newProduct">{t('header.news')}</NavLink></li>
                     <div className="dropdown">
                         <div className="dropbtn">{t('header.adminpanel')}</div>
                         <ul className="dropdown-content">
@@ -110,7 +106,7 @@ const Header = () => {
                             <li><NavLink to="/statistics">{t('header.statistics')}</NavLink></li>
                         </ul>
                     </div>
-                    <li><Exit /></li>
+                    <li className='link-exit'><Exit /></li>
                 </ul>
                 <div className='nav-icons-leng'>
                     <NavLink to="/basketProduct" className='cart'><AiOutlineShopping /><i><span>{basket.length}</span></i></NavLink>

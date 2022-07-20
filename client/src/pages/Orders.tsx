@@ -20,6 +20,32 @@ const Order = () => {
     }, [user])
 
     useEffect(() => {
+        const date = new Date()
+
+        products.orders.forEach((item: any) => {
+            let d = item.updatedAt.split('-')
+            let h = d[2].slice(3, 5)
+            let m = d[2].slice(6, 8)
+            let dateDay = d[2]
+            dateDay = dateDay.slice(0, 2)
+
+            if (item.status === null) {
+                console.log('1')
+                if (date.getDate() > +dateDay) {
+                    console.log('2')
+                    if (date.getHours() > +h) {
+                        console.log('3')
+                        if (date.getMinutes() > +m) {
+                            console.log('4')
+                        }
+                    }
+                }
+            }
+
+        })
+    }, [])
+
+    useEffect(() => {
         if (searchOrders === '') {
             fetchGetOrders()
         } else if (isNaN(searchOrders) === true) {
@@ -33,14 +59,14 @@ const Order = () => {
         <div className='orders'>
             <div>
                 <h2 className='orders-title'>{t('orders.title')}</h2>
-                <div>
-                    <input type="search" placeholder='Search...' onChange={(e) => setSearchOrders(e.target.value)} />
+                <div className='orders-search'>
+                    <input type="search" placeholder={t('orders.search') + '...'} onChange={(e) => setSearchOrders(e.target.value)} />
                 </div>
             </div>
             <div className='orders-client-container'>
                 <div className='orders-items'>
                     {products.orders.map((item: any) => {
-                        let date = item.createdAt.split('-')
+                        let date = item.updatedAt.split('-')
                         let dateDay = date[2]
                         dateDay = dateDay.slice(0, 2)
                         let status;

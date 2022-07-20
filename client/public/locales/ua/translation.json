@@ -40,7 +40,8 @@
         "status_false": "Скасовано",
         "status_true": "Відправлено",
         "status": "В Обробці",
-        "orders": "Замовлення"
+        "orders": "Замовлення",
+        "search": "Пошук"
     },
     "ordersproduct": {
         "title": "Замовлення клієнта",
@@ -51,5 +52,29 @@
     },
     "newproduct": {
         "button": "Подивитись все"
+    },
+    "newpassword": {
+        "info": "Введіть адресу електронної пошти та пароль, щоб оновити парол",
+        "span_return": "Або поверніться до",
+        "login": "Входу",
+        "placeholder_email": "Емейл",
+        "placeholder_pw": "Пароль",
+        "button": "Оновити"
+    },
+    "adminpanel": {
+        "error": "Помилка",
+        "title_product": "Продукт",
+        "option_brands": "Бренд",
+        "option_type": "Тип продукта",
+        "placeholder_name": "Назва",
+        "placeholder_price": "Ціна",
+        "title_parameters": "Параметри",
+        "placeholder_parameter": "Параметер",
+        "placeholder_value": "Значення",
+        "placeholder_color": "Колір",
+        "placeholder_product_id": "Продукт id",
+        "btn_parameter": "Добавити параметер",
+        "btn_create": "Створити",
+        "title_img_product": "Картинка продукта"
     }
 }

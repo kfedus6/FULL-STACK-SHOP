@@ -58,7 +58,7 @@ const ProductsList = ({ item, inBasket }: any) => {
         return (
             <div key={item.id} className='product__box'>
                 <NavLink to={`product/${item.id}`}>
-                    <img className='product__img' src={process.env.REACT_APP_API_URL + item.img} />
+                    <img className='product__img category' src={process.env.REACT_APP_API_URL + item.img} />
                 </NavLink>
                 <div className='block__body'>
                     <div className='product__name'>{item.name}</div>

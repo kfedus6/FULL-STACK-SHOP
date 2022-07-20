@@ -43,9 +43,8 @@ export const loginExit = () => async (dispatch: Dispatch<UserAction>) => {
 
 export const newPassword = (email: string, password: string) => async (dispatch: Dispatch<UserAction>) => {
     try {
-        const { data } = await $host.put('api/user/newpassword', { email, password })
-        const user: any = jwt_decode(data.token)
-        dispatch({ type: UserActionTypes.FETCH_USER_NEW_PASSWORD, payload: { is_login: true, is_admin: user.admin, user: user } })
+        const response = await $host.put('api/user/newpassword', { email, password })
+        dispatch({ type: UserActionTypes.FETCH_USER_NEW_PASSWORD, payload: response.data })
     }
     catch (err: any) {
         dispatch({ type: UserActionTypes.FETCH_USER_ERROR, payload: err.response.data.message })

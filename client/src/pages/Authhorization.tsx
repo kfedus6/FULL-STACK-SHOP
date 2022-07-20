@@ -70,15 +70,15 @@ const Authhorization: React.FC = () => {
                                     onChange={(e) => setPassword(e.target.value)} />
                                 <i className='icon lock'><BiLockAlt /></i>
                                 {type === 'password' ?
-                                    <i className='icon eye' >
-                                        <button onClick={changeType}>
-                                            <BsEyeSlash />
-                                        </button>
-                                    </i>
-                                    :
                                     <i className='icon eye open' >
                                         <button onClick={changeType}>
                                             <AiOutlineEye />
+                                        </button>
+                                    </i>
+                                    :
+                                    <i className='icon eye' >
+                                        <button onClick={changeType}>
+                                            <BsEyeSlash />
                                         </button>
                                     </i>
                                 }
@@ -118,10 +118,22 @@ const Authhorization: React.FC = () => {
                             <input
                                 value={password}
                                 placeholder={t('authorization.placeholder_pw')}
-                                type="password"
+                                type={type}
                                 onChange={(e) => setPassword(e.target.value)} />
                             <i className='icon lock'><BiLockAlt /></i>
-                            <i className='icon eye'><BsEyeSlash /></i>
+                            {type === 'password' ?
+                                <i className='icon eye' >
+                                    <button onClick={changeType}>
+                                        <BsEyeSlash />
+                                    </button>
+                                </i>
+                                :
+                                <i className='icon eye open' >
+                                    <button onClick={changeType}>
+                                        <AiOutlineEye />
+                                    </button>
+                                </i>
+                            }
                         </div>
                         <div className='input-field button sign'>
                             <input type="button" value={t('authorization.registration')} onClick={loginOrRegister} />

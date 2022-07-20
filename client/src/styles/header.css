@@ -16,7 +16,7 @@ header {
 
 .navbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     min-height: 80px;
 }
@@ -33,7 +33,8 @@ header {
 
 .navbar__links {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-around;  
+    align-items: center;
     width: 60%;
 }
 
@@ -45,6 +46,36 @@ header {
 .navbar__links li a:hover {
     font-weight: 600;
     color: black;
+}
+
+.link-home {
+    text-align: center;
+    width: 100px;
+}
+
+.link-products {
+    text-align: center;
+    width: 120px;
+}
+
+.link-category {
+    text-align: center;
+    width: 130px;
+}
+
+.link-news {
+    text-align: center;
+    width: 110px;
+}
+
+.link-exit {
+    text-align: center;
+    width: 100px;
+}
+
+.dropbtn {
+    text-align: center;
+    width: 120px;
 }
 
 .active {
