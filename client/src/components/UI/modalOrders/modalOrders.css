@@ -1,0 +1,46 @@
+.modal-orders {
+    position: fixed;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0, 0.5);
+    display: none;
+    z-index: 101;
+}
+
+.modal__content-orders {
+    padding: 25px;
+    background-color: #fff;
+    border-radius: 16px;
+    width: 650px;
+    height: 450px;
+    box-shadow: 0px 0px 10px rgba(0,0,0, 0.9);
+}
+
+.modal-orders.act {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-orders-block h1 {
+    text-align: center;
+}
+
+.modal-orders-block p {
+    font-size: 18px;
+    margin-top: 5px;
+    text-align: center;
+}
+.modal-item-body {
+    margin-top: 20px;
+}
+
+.modal-item-name {
+   margin-right: 25px;
+}
+
+.modal-name-phone {
+    display: flex;
+}

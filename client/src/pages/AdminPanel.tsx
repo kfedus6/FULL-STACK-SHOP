@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { useAction } from '../hook/useAction';
 import { useTypedSelector } from '../hook/useTypedSelector';
 import { ImCross } from 'react-icons/im';
-import '../styles/adminPanel.css';
-import Modal from '../components/UI/modal/Modal';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import ModalError from '../components/UI/modalError/ModalError';
+
+import '../styles/adminPanel.css';
 
 const AdminPanel = () => {
     const { t } = useTranslation()
@@ -81,14 +82,6 @@ const AdminPanel = () => {
 
     return (
         <section className='section-admin'>
-            <Modal error={error} fetchError={fetchError}>
-                <div className='error__admin-panel'>
-                    <span>{t('adminpanel.error')}</span>
-                </div>
-                <div className='error__text'>
-                    <span>{error}</span>
-                </div>
-            </Modal>
             <div className='section-product'>
                 <div className='title__product'>
                     <span>{t('adminpanel.title_product')}</span>
@@ -184,6 +177,7 @@ const AdminPanel = () => {
                     </div>
                 </div>
             </section>
+            <ModalError error={error} fetchError={fetchError} t={t} />
         </section >
     );
 };

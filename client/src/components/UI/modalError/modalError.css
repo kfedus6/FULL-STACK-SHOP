@@ -1,0 +1,25 @@
+.modal-error {
+    position: fixed;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0, 0.5);
+    display: none;
+    z-index: 101;
+}
+
+.modal__content-error {
+    padding: 25px;
+    background-color: #fff;
+    border-radius: 16px;
+    width: 400px;
+    height: 300px;
+    box-shadow: 0px 0px 10px rgba(0,0,0, 0.9);
+}
+
+.modal-error.act {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

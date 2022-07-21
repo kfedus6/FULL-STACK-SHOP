@@ -113,7 +113,7 @@
 
 .cart-summary {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     border-top: 1px solid silver;
     padding-top: 2rem;
     padding-right: 10rem;

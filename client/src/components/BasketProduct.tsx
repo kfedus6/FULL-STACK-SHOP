@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { AiTwotoneDelete } from 'react-icons/ai';
 import { BsArrowLeft } from 'react-icons/bs';
 import jwt_decode from 'jwt-decode';
-import ModalBuy from './UI/modal/ModalBuy';
+import ModalFormBuy from './UI/modalFormBuy/ModalFormBuy';
 import { useTranslation } from 'react-i18next';
 
 import '../styles/basketProduct.css';
@@ -108,7 +108,7 @@ const BasketProduct = () => {
                     </div>
                     <div className='cart-items'>
                         {basket.map((item: itemProduct, idx: Key) => {
-                            const basketInfo = basketProductsInfo.find((info: itemBasketInfo) => info.product.name == item.name)
+                            const basketInfo = basketProductsInfo.find((info: itemBasketInfo) => info.product.name === item.name)
                             return (
                                 <div className='cart-item' key={idx}>
                                     <div className='cart-product'>
@@ -146,7 +146,7 @@ const BasketProduct = () => {
                         </div>
                     </div>
                 </div>
-                <ModalBuy visibleBuy={visibleBuy} setVisibleBuy={setVisibleBuy}>
+                <ModalFormBuy visibleBuy={visibleBuy} setVisibleBuy={setVisibleBuy}>
                     <div className='model-block'>
                         <h2>{t('basketproducts.orders')}</h2>
                         <div className='block-buy'>
@@ -157,7 +157,7 @@ const BasketProduct = () => {
                             <button onClick={sendProduct}>{t('basketproducts.buy')}</button>
                         </div>
                     </div>
-                </ModalBuy>
+                </ModalFormBuy>
             </div >
         )
     } else {

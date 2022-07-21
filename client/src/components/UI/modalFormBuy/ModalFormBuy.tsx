@@ -1,7 +1,7 @@
 import React from 'react';
-import '../modal/modal.css';
+import '../modalFormBuy/modalFormBuy.css';
 
-const ModalBuy = ({ children, visibleBuy, setVisibleBuy }: any) => {
+const ModalBuy = ({ children, visibleBuy }: any) => {
 
     if (visibleBuy === false) {
         return (
@@ -13,8 +13,8 @@ const ModalBuy = ({ children, visibleBuy, setVisibleBuy }: any) => {
         )
     } else {
         return (
-            <div className='modal act'>
-                <div className='modal-buy-content'>
+            <div className='modal-form-buy act'>
+                <div className='modal__content-form-buy'>
                     {children}
                 </div>
             </div>

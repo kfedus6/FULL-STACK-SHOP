@@ -1,9 +1,10 @@
-import React, { useEffect, useState, useTransition } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import OrderItem from '../components/OrdersItem';
 import { useAction } from '../hook/useAction';
 import { useTypedSelector } from '../hook/useTypedSelector';
 import { useTranslation } from 'react-i18next';
+import OrdersList from '../components/OrdersList';
+
 import '../styles/order.css';
 
 const Order = () => {
@@ -12,6 +13,9 @@ const Order = () => {
     const { fetchGetOrders } = useAction()
     const { user, products }: any = useTypedSelector(state => state)
     const [searchOrders, setSearchOrders]: any = useState()
+
+    const [checked, setChecked] = useState(false)
+    const [orders, setOrders] = useState()
 
     useEffect(() => {
         if (user.is_admin === false) {
@@ -22,6 +26,7 @@ const Order = () => {
     useEffect(() => {
         const date = new Date()
 
+        let arrOrders: any = []
         products.orders.forEach((item: any) => {
             let d = item.updatedAt.split('-')
             let h = d[2].slice(3, 5)
@@ -31,10 +36,12 @@ const Order = () => {
 
             if (item.status === null) {
                 if (date.getDate() > +dateDay && date.getHours() > +h && date.getMinutes() > +m) {
-                    console.log(item)
+                    arrOrders.push(item)
+                    setChecked(true)
                 }
             }
         })
+        setOrders(arrOrders)
     }, [])
 
     useEffect(() => {
@@ -48,34 +55,7 @@ const Order = () => {
     }, [products.order, searchOrders])
 
     return (
-        <div className='orders'>
-            <div>
-                <h2 className='orders-title'>{t('orders.title')}</h2>
-                <div className='orders-search'>
-                    <input type="search" placeholder={t('orders.search') + '...'} onChange={(e) => setSearchOrders(e.target.value)} />
-                </div>
-            </div>
-            <div className='orders-client-container'>
-                <div className='orders-items'>
-                    {products.orders.map((item: any) => {
-                        let date = item.updatedAt.split('-')
-                        let dateDay = date[2]
-                        dateDay = dateDay.slice(0, 2)
-                        let status;
-                        if (item.status === false) {
-                            status = t('orders.status_false')
-                        } else if (item.status === true) {
-                            status = t('orders.status_true')
-                        } else {
-                            status = t('orders.status')
-                        }
-                        return (
-                            <OrderItem key={item.id} item={item} date={date} dateDay={dateDay} status={status} t={t} />
-                        )
-                    })}
-                </div>
-            </div>
-        </div>
+        <OrdersList t={t} products={products} checked={checked} setChecked={setChecked} orders={orders} setSearchOrders={setSearchOrders} />
     )
 };
 

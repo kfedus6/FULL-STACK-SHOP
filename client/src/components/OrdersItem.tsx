@@ -1,4 +1,4 @@
-import React, { FormEvent } from 'react'
+import React from 'react'
 import { NavLink } from 'react-router-dom';
 
 const OrderItem = ({ item, date, dateDay, status, t }: any) => {

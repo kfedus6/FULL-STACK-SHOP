@@ -40,7 +40,12 @@
         "status_true": "Shipped",
         "status": "In Processing",
         "orders": "Orders",
-        "search": "Search"
+        "search": "Search",
+        "modal_title": "Importantly",
+        "modal_p": "The client's order did not change its status for more than a day",
+        "item_name": "Name",
+        "item_phone": "Phone Number",
+        "span_client": "Client"
     },
     "ordersproduct": {
         "title": "Customer Order",
