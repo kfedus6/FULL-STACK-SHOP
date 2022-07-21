@@ -15,10 +15,8 @@ class OrderProductController {
         const { id } = req.params
 
         if (id === undefined) {
-            console.log('1')
             return next(ApiError.badRequest('undefined orderId'))
         } else {
-            console.log('2')
             const orderProduct = await OrderProduct.findAll({ where: { orderId: id } })
             return res.json(orderProduct)
         }

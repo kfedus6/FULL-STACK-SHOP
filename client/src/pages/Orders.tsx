@@ -30,18 +30,10 @@ const Order = () => {
             dateDay = dateDay.slice(0, 2)
 
             if (item.status === null) {
-                console.log('1')
-                if (date.getDate() > +dateDay) {
-                    console.log('2')
-                    if (date.getHours() > +h) {
-                        console.log('3')
-                        if (date.getMinutes() > +m) {
-                            console.log('4')
-                        }
-                    }
+                if (date.getDate() > +dateDay && date.getHours() > +h && date.getMinutes() > +m) {
+                    console.log(item)
                 }
             }
-
         })
     }, [])
 
