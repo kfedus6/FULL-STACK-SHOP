@@ -18,23 +18,25 @@ const Statistics = () => {
     const [orderProducts, setOrderProducts] = useState([])
 
     useEffect(() => {
-        fetchGetOrders()
+        fetchGetOrderProduct()
     }, [])
 
+    console.log(orderProduct)
+
+    /*
     useEffect(() => {
         const arr = orders.filter(item => item.status === true)
         setFinalyOrders(arr)
     }, [orders])
-
+    
     useEffect(() => {
         for (const fo of finalyOrders) {
             fetchGetOrderProduct(fo.id)
         }
     }, [finalyOrders])
-
+    
     console.log(orderProduct)
 
-    /* 
         const getOrderProducts = async () => {
             const arr = []
             for (const fo of finalyOrders) {

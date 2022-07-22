@@ -17,13 +17,10 @@ class ImagesProductController {
     }
 
     async getImagesProduct(req, res, next) {
+        const { color } = req.query
         const { id } = req.params
 
-        if (id === undefined) {
-            return next(ApiError.badRequest('img undfined'))
-        }
-
-        const images = await ImagesProduct.findAll({ where: { productId: id } })
+        const images = await ImagesProduct.findAll({ where: { productId: id, color: color } })
 
         return res.json(images)
     }

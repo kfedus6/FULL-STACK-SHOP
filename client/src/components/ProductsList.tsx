@@ -25,14 +25,14 @@ const ProductsList = ({ item, inBasket }: any) => {
 
     if (user.is_login === false && user.is_admin === false) {
         return (
-            <div key={item.id} className='product__box'>
+            <div key={item.id} className='products__box'>
                 <NavLink to={`product/${item.id}`}>
-                    <img className='product__img' src={process.env.REACT_APP_API_URL + item.img} />
+                    <img className='products__img' src={process.env.REACT_APP_API_URL + item.img} />
                 </NavLink>
                 <div className='block__body'>
-                    <div className='product__name'>{item.name}</div>
+                    <div className='products__name'>{item.name}</div>
                     <div className='block__price-btn'>
-                        <span className='product__price'>{item.price} &#8372;</span>
+                        <span className='products__price'>{item.price} &#8372;</span>
                         <button className='btn__buy' onClick={product}>{t('products.buy')}</button>
                     </div>
                 </div>
@@ -40,13 +40,13 @@ const ProductsList = ({ item, inBasket }: any) => {
         )
     } else if (user.is_login === true && user.is_admin === false) {
         return (
-            <div key={item.id} className='product__box'>
+            <div key={item.id} className='products__box'>
                 <NavLink to={`product/${item.id}`}>
-                    <img className='product__img' src={process.env.REACT_APP_API_URL + item.img} />
+                    <img className='products__img' src={process.env.REACT_APP_API_URL + item.img} />
                 </NavLink>
                 <div className='block__body'>
-                    <div className='product__name'>{item.name}</div>
-                    <span className='product__price'>{item.price} &#8372;</span>
+                    <div className='products__name'>{item.name}</div>
+                    <span className='products__price'>{item.price} &#8372;</span>
                     <div className='block__btn-basket'>
                         <button className='btn__buy' onClick={product}>{t('products.buy')}</button>
                         <button className={inBasket ? 'btn__basket selected' : 'btn__basket'} onClick={() => addBasketProduct(item.id)}><RiShoppingBasketFill /></button>
@@ -56,13 +56,13 @@ const ProductsList = ({ item, inBasket }: any) => {
         )
     } else {
         return (
-            <div key={item.id} className='product__box'>
+            <div key={item.id} className='products__box'>
                 <NavLink to={`product/${item.id}`}>
-                    <img className='product__img category' src={process.env.REACT_APP_API_URL + item.img} />
+                    <img className='products__img category' src={process.env.REACT_APP_API_URL + item.img} />
                 </NavLink>
                 <div className='block__body'>
-                    <div className='product__name'>{item.name}</div>
-                    <span className='product__price'>{item.price} &#8372;</span>
+                    <div className='products__name'>{item.name}</div>
+                    <span className='products__price'>{item.price} &#8372;</span>
                     <div className='block__btn-basket'>
                         <div>
                             <button className='btn__buy' onClick={product}>{t('products.buy')}</button>

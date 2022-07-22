@@ -1,0 +1,25 @@
+.product-content {
+    margin: auto;
+    width: 100%;
+    padding: 0rem 1rem 3rem;
+    margin-top: 8rem;
+}
+
+.grid-product {
+    display: grid;
+    align-items: flex-start;
+    grid-template-columns: 2.2fr 1fr;
+    column-gap: 3rem;
+    margin-top: 2rem;
+}
+
+.product-items {
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+    grid-row: 4rem;
+}
+
+.product-img img {
+    width: 420px;
+    height: auto;
+}

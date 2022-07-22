@@ -13,10 +13,22 @@ class OrderProductController {
 
     async getOrderProduct(req, res, next) {
         const { id } = req.params
+        console.log("ID", id)
+        let arrOrderProducts = []
 
         if (id === undefined) {
-            return next(ApiError.badRequest('undefined orderId'))
+            console.log("1")
+
+            const orders = await Order.findAll({ where: { status: true } })
+
+            for (let item of orders) {
+                const orderProduct = await OrderProduct.findAll({ where: { orderId: item.id } })
+                arrOrderProducts.push(...orderProduct)
+                return res.json(arrOrderProducts)
+            }
+
         } else {
+            console.log("2")
             const orderProduct = await OrderProduct.findAll({ where: { orderId: id } })
             return res.json(orderProduct)
         }
