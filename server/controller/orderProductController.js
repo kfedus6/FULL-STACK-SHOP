@@ -13,19 +13,28 @@ class OrderProductController {
 
     async getOrderProduct(req, res, next) {
         const { id } = req.params
-        console.log("ID", id)
+        console.log("ID=", typeof (id))
         let arrOrderProducts = []
-
-        if (id === undefined) {
+        if (id == 'undefined') {
             console.log("1")
 
             const orders = await Order.findAll({ where: { status: true } })
 
             for (let item of orders) {
-                const orderProduct = await OrderProduct.findAll({ where: { orderId: item.id } })
+                const orderProduct = await OrderProduct.findAll({
+                    where: { orderId: item.id }, include: [
+                        { model: Product, attributes: ['name'] }
+                    ]
+                })
                 arrOrderProducts.push(...orderProduct)
-                return res.json(arrOrderProducts)
             }
+
+            const finalyResult = []
+            //DZ
+
+            //[{name:'t-shirt',count:4},]
+
+            return res.json(arrOrderProducts)
 
         } else {
             console.log("2")

@@ -5,8 +5,8 @@ const ModalBuy = ({ children, visibleBuy }: any) => {
 
     if (visibleBuy === false) {
         return (
-            <div className='modal'>
-                <div className='modal-buy-content'>
+            <div className='modal-form-buy'>
+                <div className='modal__content-form-buy'>
                     {children}
                 </div>
             </div>

@@ -11,6 +11,7 @@ const initialState: ProductState = {
     products: { count: 0, rows: [] },
     newProducts: [],
     product: {},
+    comments: [],
     imagesProduct: [],
     error: null
 };
@@ -79,6 +80,15 @@ export const productReducer = (state = initialState, action: ProductAction) => {
         }
         case ProductActionTypes.FETCH_NEW_PRODUCT: {
             return { ...state, newProducts: action.payload }
+        }
+        case ProductActionTypes.FETCH_ADD_COMMENT: {
+            return { ...state, comments: [...state.comments, action.payload] }
+        }
+        case ProductActionTypes.FETCH_GET_COMMENTS: {
+            return { ...state, comments: action.payload }
+        }
+        case ProductActionTypes.FETCH_DELETE_COMMENT: {
+            return { ...state, comments: action.payload }
         }
         default: {
             return state

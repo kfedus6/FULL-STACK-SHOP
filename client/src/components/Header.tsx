@@ -32,9 +32,7 @@ const Header = () => {
 
     useEffect(() => {
         if (user.is_login == true) {
-            let token: any = localStorage.getItem('token')
-            let user: any = jwt_decode(token)
-            fetchGetBasketProduct(user.userId)
+            fetchGetBasketProduct()
         }
     }, [user])
 

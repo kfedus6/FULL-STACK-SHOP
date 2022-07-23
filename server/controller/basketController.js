@@ -3,7 +3,8 @@ const ApiError = require('../error/apiError');
 
 class BasketController {
     async addProduct(req, res, next) {
-        const { userId, productId } = req.body
+        const { userId } = req.user
+        const { productId } = req.body
 
         const basket = await Basket.findOne({ where: { userId } })
         const product = await Product.findOne({ where: { id: productId } })
@@ -18,15 +19,13 @@ class BasketController {
     }
 
     async getProduct(req, res, next) {
-        const { id } = req.params
+        const { userId } = req.user
 
-        const basket = await Basket.findOne({ where: { userId: id } })
+        const basket = await Basket.findOne({ where: { userId: userId } })
         const basketProducts = await BasketProduct.findAll({ where: { basketId: basket.id } })
         const products = []
 
-        if (id == undefined) {
-            return next(ApiError.badRequest('userId undefined'))
-        } else if (basket == null) {
+        if (basket == null) {
             return next(ApiError.badRequest('basket undefined'))
         } else if (basketProducts == null) {
             return next(ApiError.badRequest('basketProduct undefined'))
@@ -58,8 +57,10 @@ class BasketController {
 
     async deleteAllBasketProduct(req, res) {
         const { id } = req.params
+
         const products = await BasketProduct.findAll({ where: { basketId: id } })
         const deleteProduct = await BasketProduct.destroy({ where: { basketId: id } })
+
         return res.json(products)
     }
 

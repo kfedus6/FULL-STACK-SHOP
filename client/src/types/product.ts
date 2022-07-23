@@ -9,6 +9,7 @@ export interface ProductState {
     products: { count: number, rows: {} },
     newProducts: [],
     product: {},
+    comments: [],
     imagesProduct: [],
     error: string | null
 };
@@ -36,6 +37,9 @@ export enum ProductActionTypes {
     FETCH_ORDER = 'FETCH_ORDER',
     FETCH_PUT_ORDER = 'FETCH_PUT_ORDER',
     FETCH_ORDER_PRODUCT_CLIENT = 'FETCH_ORDER_PRODUCT_CLIENT',
+    FETCH_ADD_COMMENT = 'FETCH_ADD_COMMENT',
+    FETCH_GET_COMMENTS = 'FETCH_GET_COMMENTS',
+    FETCH_DELETE_COMMENT = 'FETCH_DELETE_COMMENT'
 };
 
 interface FetchProductsAction {
@@ -148,6 +152,21 @@ interface FetchOrderProductClientAction {
     payload: []
 };
 
+interface FetchAddCommentAction {
+    type: ProductActionTypes.FETCH_ADD_COMMENT,
+    payload: []
+};
+
+interface FetchGetCommentAction {
+    type: ProductActionTypes.FETCH_GET_COMMENTS,
+    payload: []
+};
+
+interface FetchDeleteCommentAction {
+    type: ProductActionTypes.FETCH_DELETE_COMMENT,
+    payload: []
+};
+
 export type ProductAction =
     FetchProductsAction |
     FetchProductAction |
@@ -170,4 +189,7 @@ export type ProductAction =
     FetchOrderAction |
     FetchOrderPutAction |
     FetchOrderProductClientAction |
-    FetchNewProductAction;
+    FetchNewProductAction |
+    FetchAddCommentAction |
+    FetchGetCommentAction |
+    FetchDeleteCommentAction;

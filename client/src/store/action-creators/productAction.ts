@@ -73,18 +73,18 @@ export const fetchError = () => async (dispatch: Dispatch<ProductAction>) => {
     dispatch({ type: ProductActionTypes.FETCH_ERROR_PRODUCT, payload: null })
 };
 
-export const fetchAddBasketProduct = (userId: any, productId: any) => async (dispatch: Dispatch<ProductAction>) => {
+export const fetchAddBasketProduct = (productId: any) => async (dispatch: Dispatch<ProductAction>) => {
     try {
-        const response = await $authHost.post('/api/basket/', { userId, productId })
+        const response = await $authHost.post('/api/basket/', { productId })
         dispatch({ type: ProductActionTypes.FETCH_ADD_BASKET_PRODUCT, payload: response.data })
     } catch (err: any) {
         dispatch({ type: ProductActionTypes.FETCH_ERROR_PRODUCT, payload: err.response.data.message })
     }
 };
 
-export const fetchGetBasketProduct = (userId: any) => async (dispatch: Dispatch<ProductAction>) => {
+export const fetchGetBasketProduct = () => async (dispatch: Dispatch<ProductAction>) => {
     try {
-        const response = await $authHost.get(`/api/basket/${userId}`)
+        const response = await $authHost.get('/api/basket/')
         dispatch({ type: ProductActionTypes.FETCH_BASKET, payload: response.data })
     } catch (err: any) {
         dispatch({ type: ProductActionTypes.FETCH_ERROR_PRODUCT, payload: err.response.data.message })
@@ -195,6 +195,33 @@ export const fetchGetNewProducts = () => async (dispatch: Dispatch<ProductAction
     try {
         const response = await $host.get('/api/product/newProducts')
         dispatch({ type: ProductActionTypes.FETCH_NEW_PRODUCT, payload: response.data })
+    } catch (err: any) {
+        dispatch({ type: ProductActionTypes.FETCH_ERROR_PRODUCT, payload: err.response.data.message })
+    }
+};
+
+export const fetchAddComment = (productId: any, text: any) => async (dispatch: Dispatch<ProductAction>) => {
+    try {
+        const response = await $authHost.post('/api/comment', { productId, text })
+        dispatch({ type: ProductActionTypes.FETCH_ADD_COMMENT, payload: response.data })
+    } catch (err: any) {
+        dispatch({ type: ProductActionTypes.FETCH_ERROR_PRODUCT, payload: err.response.data.message })
+    }
+};
+
+export const fetchGetComments = (id: any) => async (dispatch: Dispatch<ProductAction>) => {
+    try {
+        const response = await $host.get(`/api/comment/${id}`)
+        dispatch({ type: ProductActionTypes.FETCH_GET_COMMENTS, payload: response.data })
+    } catch (err: any) {
+        dispatch({ type: ProductActionTypes.FETCH_ERROR_PRODUCT, payload: err.response.data.message })
+    }
+};
+
+export const fetchDeleteComments = (id: any) => async (dispatch: Dispatch<ProductAction>) => {
+    try {
+        const response = await $authHost.delete(`/api/comment/${id}`)
+        dispatch({ type: ProductActionTypes.FETCH_DELETE_COMMENT, payload: response.data })
     } catch (err: any) {
         dispatch({ type: ProductActionTypes.FETCH_ERROR_PRODUCT, payload: err.response.data.message })
     }

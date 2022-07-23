@@ -4,49 +4,15 @@ import { useTypedSelector } from '../hook/useTypedSelector';
 import { useAction } from '../hook/useAction';
 
 const Statistics = () => {
-    /*
-        1 - получить айди заказов которые завершенные              +
-        2 - отобрать все продукты из завершенных заказов           +
-        3 - составить коллекцию, продукта и количество его продаж
 
-        [[name,43],[name,66]]
-    */
-
-    const { fetchGetOrders, fetchGetOrderProduct } = useAction()
-    const { orders, orderProduct } = useTypedSelector(state => state.products)
-    const [finalyOrders, setFinalyOrders] = useState([])
-    const [orderProducts, setOrderProducts] = useState([])
+    const { fetchGetOrderProduct } = useAction()
+    const { orderProduct } = useTypedSelector(state => state.products)
 
     useEffect(() => {
         fetchGetOrderProduct()
     }, [])
 
     console.log(orderProduct)
-
-    /*
-    useEffect(() => {
-        const arr = orders.filter(item => item.status === true)
-        setFinalyOrders(arr)
-    }, [orders])
-    
-    useEffect(() => {
-        for (const fo of finalyOrders) {
-            fetchGetOrderProduct(fo.id)
-        }
-    }, [finalyOrders])
-    
-    console.log(orderProduct)
-
-        const getOrderProducts = async () => {
-            const arr = []
-            for (const fo of finalyOrders) {
-                const op = await fetchGetOrderProduct(fo.id)
-                arr.push(op)
-            }
-            setOrderProducts(arr)
-        }
-        console.log(orderProducts)
-     */
 
     return (
         <div>

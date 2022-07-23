@@ -18,9 +18,7 @@ const ProductsList = ({ item, inBasket }: any) => {
     }
 
     const addBasketProduct = (productId: any) => {
-        let token: any = localStorage.getItem('token')
-        let user: any = jwt_decode(token)
-        fetchAddBasketProduct(user.userId, productId)
+        fetchAddBasketProduct(productId)
     }
 
     if (user.is_login === false && user.is_admin === false) {
