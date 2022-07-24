@@ -13,6 +13,7 @@ const initialState: ProductState = {
     product: {},
     comments: [],
     imagesProduct: [],
+    productColor: [],
     error: null
 };
 
@@ -51,11 +52,17 @@ export const productReducer = (state = initialState, action: ProductAction) => {
         case ProductActionTypes.FETCH_DELETE_BASKET_PRODUCTS: {
             return { ...state, basket: [] }
         }
-        case ProductActionTypes.FETCH_IMAGES_PRODUCT: {
+        case ProductActionTypes.FETCH_GET_IMAGES_PRODUCT: {
             return { ...state, imagesProduct: action.payload }
         }
         case ProductActionTypes.FETCH_ADD_IMAGES_PRODUCT: {
             return { ...state, imagesProduct: [...state.imagesProduct, action.payload] }
+        }
+        case ProductActionTypes.FETCH_ADD_PRODUCT_COLOR: {
+            return { ...state, productColor: [...state.productColor, action.payload] }
+        }
+        case ProductActionTypes.FETCH_GET_PRODUCT_COLOR: {
+            return { ...state, productColor: action.payload }
         }
         case ProductActionTypes.FETCH_ERROR_PRODUCT: {
             return { ...state, error: action.payload }

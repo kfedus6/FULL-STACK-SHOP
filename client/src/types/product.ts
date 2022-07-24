@@ -11,6 +11,7 @@ export interface ProductState {
     product: {},
     comments: [],
     imagesProduct: [],
+    productColor: [],
     error: string | null
 };
 
@@ -28,8 +29,10 @@ export enum ProductActionTypes {
     FETCH_ADD_BASKET_PRODUCT = 'FETCH_ADD_BASKET',
     FETCH_DELETE_BASKET_PRODUCT = 'FETCH_DELETE_BASKET',
     FETCH_DELETE_BASKET_PRODUCTS = 'FETCH_DELETE_BASKET_PRODUCTS',
-    FETCH_IMAGES_PRODUCT = 'FETCH_IMAGES_PRODUCT',
-    FETCH_ADD_IMAGES_PRODUCT = 'FETCH_IMAGES_PRODUCT',
+    FETCH_ADD_IMAGES_PRODUCT = 'FETCH_ADD_IMAGES_PRODUCT',
+    FETCH_GET_IMAGES_PRODUCT = 'FETCH_GET_IMAGES_PRODUCT',
+    FETCH_ADD_PRODUCT_COLOR = 'FETCH_ADD_PRODUCT_COLOR',
+    FETCH_GET_PRODUCT_COLOR = 'FETCH_GET_PRODUCT_COLOR',
     FETCH_ERROR_PRODUCT = 'FETCH_ERROR_PRODUCT',
     FETCH_ADD_ORDER_PRODUCT = 'FETCH_ADD_ORDER',
     FETCH_ORDER_PRODUCT = 'FETCH_ORDER_PRODUCT',
@@ -108,12 +111,22 @@ interface FetchBasketDeleteProductsAction {
 };
 
 interface FetchImagesProductAction {
-    type: ProductActionTypes.FETCH_IMAGES_PRODUCT,
+    type: ProductActionTypes.FETCH_GET_IMAGES_PRODUCT,
     payload: []
 }
 
 interface FetchAddImagesProductAction {
     type: ProductActionTypes.FETCH_ADD_IMAGES_PRODUCT,
+    payload: []
+}
+
+interface FetchAddProductColorAction {
+    type: ProductActionTypes.FETCH_ADD_PRODUCT_COLOR,
+    payload: []
+}
+
+interface FetchGetProductColorAction {
+    type: ProductActionTypes.FETCH_GET_PRODUCT_COLOR,
     payload: []
 }
 
@@ -192,4 +205,6 @@ export type ProductAction =
     FetchNewProductAction |
     FetchAddCommentAction |
     FetchGetCommentAction |
-    FetchDeleteCommentAction;
+    FetchDeleteCommentAction |
+    FetchGetProductColorAction |
+    FetchAddProductColorAction;

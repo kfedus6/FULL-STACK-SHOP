@@ -111,25 +111,41 @@ export const fetchDeleteBasketProducts = (id: any) => async (dispatch: Dispatch<
 
 export const fetchAddImagesProduct = (formData: any) => async (dispatch: Dispatch<ProductAction>) => {
     try {
-        const response = await $host.post('/api/imagesProduct/', formData)
+        const response = await $authHost.post('/api/imagesProduct/', formData)
         dispatch({ type: ProductActionTypes.FETCH_ADD_IMAGES_PRODUCT, payload: response.data })
     } catch (err: any) {
         dispatch({ type: ProductActionTypes.FETCH_ERROR_PRODUCT, payload: err.response.data.message })
     }
 };
 
-export const fetchGetImagesProduct = (productId: any, color: any) => async (dispatch: Dispatch<ProductAction>) => {
+export const fetchGetImagesProduct = (id: any) => async (dispatch: Dispatch<ProductAction>) => {
     try {
-        const response = await $host.get(`/api/imagesProduct/${productId}`, {
-            params: {
-                color
-            }
-        })
-        dispatch({ type: ProductActionTypes.FETCH_IMAGES_PRODUCT, payload: response.data })
+        const response = await $host.get(`/api/imagesProduct/${id}`)
+        dispatch({ type: ProductActionTypes.FETCH_GET_IMAGES_PRODUCT, payload: response.data })
     } catch (err: any) {
         dispatch({ type: ProductActionTypes.FETCH_ERROR_PRODUCT, payload: err.response.data.message })
     }
 };
+
+export const fetchAddProductColor = (productId: any, color: any) => async (dispatch: Dispatch<ProductAction>) => {
+    console.log(productId, color)
+    try {
+        const response = await $authHost.post(`/api/imagesProduct/color/${productId}`, { color })
+        dispatch({ type: ProductActionTypes.FETCH_ADD_PRODUCT_COLOR, payload: response.data })
+    } catch (err: any) {
+        dispatch({ type: ProductActionTypes.FETCH_ERROR_PRODUCT, payload: err.response.data.message })
+    }
+};
+
+export const fetchGetProductColor = (productId: any) => async (dispatch: Dispatch<ProductAction>) => {
+    try {
+        const response = await $host.get(`/api/imagesProduct/color/${productId}`)
+        dispatch({ type: ProductActionTypes.FETCH_GET_PRODUCT_COLOR, payload: response.data })
+    } catch (err: any) {
+        dispatch({ type: ProductActionTypes.FETCH_ERROR_PRODUCT, payload: err.response.data.message })
+    }
+};
+
 
 export const fetchAddOrderProduct = (order: any) => async (dispatch: Dispatch<ProductAction>) => {
     try {

@@ -64,6 +64,30 @@
     transition: all 0.3s ease;
 }
 
+.btn-add-color {
+    background:transparent;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.btn-add-color:hover {
+    color: blue;
+    transition: all 0.3s ease;
+}
+
+.btn-add-image {
+    background: transparent;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.btn-add-image:hover {
+    color: green;
+    transition: all 0.3s ease;
+}
+
 .block__btn-basket {
     display: flex;
     align-items: center;
@@ -72,7 +96,7 @@
 
 .btn-delete-product{
     cursor: pointer;
-    font-size: 30px;
+    font-size: 28px;
     background: transparent;
     border: none;
     margin-top: 0.7rem;
@@ -84,7 +108,7 @@
 }
 
 .btn__basket {
-    font-size: 25px;
+    font-size: 28px;
     background: transparent;
     border: 0px;
     cursor: pointer;

@@ -27,8 +27,6 @@ const AdminPanel = () => {
     const [info, setInfo]: any = useState([])
     const [paramater, setParamater] = useState('')
     const [value, setValue] = useState('')
-    const [color, setColor]: any = useState('')
-    const [productId, setProductId]: any = useState('')
 
     useEffect(() => {
         if (user.is_admin === false) {
@@ -58,16 +56,6 @@ const AdminPanel = () => {
         fetchCreateProduct(formData)
         setName('')
         setPrice('')
-    }
-
-    const addImgProduct = () => {
-        const formData = new FormData()
-        formData.append('productId', productId)
-        formData.append('color', color)
-        formData.append('img', img[0])
-        fetchAddImagesProduct(formData)
-        setColor('')
-        setProductId('')
     }
 
     const addBrand = () => {
@@ -136,21 +124,6 @@ const AdminPanel = () => {
                     </div>
                 </div>
             </div >
-            <section className='img-product'>
-                <div className='title__product'>
-                    <span>{t('adminpanel.title_img_product')}</span>
-                </div>
-                <div className='info-img-product'>
-                    <input className='img-product' type="file" onChange={(e) => setImg(e.target.files)} />
-                    <div className='info-input-product'>
-                        <input type="text" value={productId} placeholder={t('adminpanel.placeholder_product_id')} onChange={(e) => setProductId(e.target.value)} />
-                        <input type="text" value={color} placeholder={t('adminpanel.placeholder_color')} onChange={(e) => setColor(e.target.value)} />
-                    </div>
-                    <div className='img-product-bth'>
-                        <button onClick={addImgProduct}>{t('adminpanel.btn_create')}</button>
-                    </div>
-                </div>
-            </section>
             <section className='section-brand-type'>
                 <div className='title-brand-type'>
                     <span>

@@ -43,10 +43,14 @@ const BrandType = sequelize.define('brandtype', {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true }
 });
 
+const ImagesProductColor = sequelize.define('imagesProductColor', {
+    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+    color: { type: DataTypes.STRING }
+})
+
 const ImagesProduct = sequelize.define('imagesProduct', {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-    img: { type: DataTypes.STRING },
-    color: { type: DataTypes.STRING }
+    img: { type: DataTypes.STRING }
 });
 
 const Order = sequelize.define('order', {
@@ -88,8 +92,11 @@ Product.belongsTo(Brand);
 Type.belongsToMany(Brand, { through: BrandType });
 Brand.belongsToMany(Type, { through: BrandType });
 
-Product.hasMany(ImagesProduct);
-ImagesProduct.belongsTo(Product);
+Product.hasMany(ImagesProductColor);
+ImagesProductColor.belongsTo(Product)
+
+ImagesProductColor.hasMany(ImagesProduct);
+ImagesProduct.belongsTo(ImagesProductColor)
 
 User.hasMany(Order);
 Order.belongsTo(User)
@@ -106,4 +113,4 @@ Comment.belongsTo(Product)
 User.hasMany(Comment)
 Comment.belongsTo(User)
 
-module.exports = { User, Basket, Product, Type, Brand, BasketProduct, ProductInfo, BrandType, ImagesProduct, OrderProduct, Order, Comment };
+module.exports = { User, Basket, Product, Type, Brand, BasketProduct, ProductInfo, BrandType, ImagesProductColor, ImagesProduct, OrderProduct, Order, Comment };
