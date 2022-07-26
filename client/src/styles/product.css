@@ -73,3 +73,7 @@
 .comment-delete:hover {
     color: red
 }
+
+.comments h1 {
+    margin-bottom:10px;
+}

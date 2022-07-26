@@ -51,7 +51,6 @@ const ProductsList = ({ item, inBasket }: any) => {
         formData.append('img', img[0])
         fetchAddImagesProduct(formData)
         setVisibleImg(false)
-        setColor('')
     }
 
     if (user.is_login === false && user.is_admin === false) {
