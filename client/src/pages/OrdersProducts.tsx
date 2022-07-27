@@ -71,8 +71,16 @@ const OrderProduct = () => {
                                 <div className='order-produtc-body'>
                                     <span>{item.name}</span>
                                     <div>
-                                        <span>{item.price} &#8372; /</span>
-                                        <span> 1</span>
+                                        <span>{products.orderProduct.map((c: any) => {
+                                            if (c.productId === item.id) {
+                                                return item.price * c.count
+                                            }
+                                        })} &#8372; /</span>
+                                        <span>{products.orderProduct.map((c: any) => {
+                                            if (c.productId === item.id) {
+                                                return c.count
+                                            }
+                                        })}</span>
                                     </div>
                                 </div>
                             </div>

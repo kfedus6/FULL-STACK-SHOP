@@ -144,18 +144,15 @@ const BasketProduct = () => {
                         </div>
                     </div>
                 </div>
-                <ModalFormBuy visibleBuy={visibleBuy} setVisibleBuy={setVisibleBuy}>
-                    <div className='model-block'>
-                        <h2>{t('basketproducts.orders')}</h2>
-                        <div className='block-buy'>
-                            <input type="text" placeholder='Name' value={name} onChange={(e) => setName(e.target.value)} />
-                            <input type="tel" placeholder='Phone' value={phone} onChange={(e) => setPhone(e.target.value)} />
-                        </div>
-                        <div className='block-buy-btn'>
-                            <button onClick={sendProduct}>{t('basketproducts.buy')}</button>
-                        </div>
-                    </div>
-                </ModalFormBuy>
+                <ModalFormBuy
+                    visibleBuy={visibleBuy}
+                    setVisibleBuy={setVisibleBuy}
+                    sendProduct={sendProduct}
+                    name={name}
+                    setName={setName}
+                    phone={phone}
+                    setPhone={setPhone}
+                />
             </div >
         )
     } else {

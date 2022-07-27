@@ -17,7 +17,7 @@ const Statistics = () => {
     return (
         <div>
             <div style={{ marginTop: '100px', width: '50%' }}>
-                <AnyChart type='column' data={[['hoodie', 32], ['t-shirt', 323]]} title="test" />
+                <AnyChart type='column' data={orderProduct} title="test" />
             </div>
         </div>
     )

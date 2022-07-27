@@ -1,5 +1,6 @@
 const { OrderProduct, Order, Product } = require('../models/models');
 const ApiError = require('../error/apierror');
+const e = require('express');
 
 class OrderProductController {
     async create(req, res) {
@@ -13,11 +14,9 @@ class OrderProductController {
 
     async getOrderProduct(req, res, next) {
         const { id } = req.params
-        console.log("ID=", typeof (id))
-        let arrOrderProducts = []
-        if (id == 'undefined') {
-            console.log("1")
 
+        let newOrderProducts = []
+        if (id == 'undefined') {
             const orders = await Order.findAll({ where: { status: true } })
 
             for (let item of orders) {
@@ -26,18 +25,18 @@ class OrderProductController {
                         { model: Product, attributes: ['name'] }
                     ]
                 })
-                arrOrderProducts.push(...orderProduct)
+                newOrderProducts.push(...orderProduct)
             }
 
-            const finalyResult = []
-            //DZ
+            let finallyResult = []
 
-            //[{name:'t-shirt',count:4},]
+            for (let item of newOrderProducts) {
+                finallyResult.push([item.product.name, item.count])
+            }
 
-            return res.json(arrOrderProducts)
+            return res.json(finallyResult)
 
         } else {
-            console.log("2")
             const orderProduct = await OrderProduct.findAll({ where: { orderId: id } })
             return res.json(orderProduct)
         }

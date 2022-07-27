@@ -105,8 +105,20 @@ const ProductsList = ({ item, inBasket }: any) => {
                         </div>
                     </div>
                 </div>
-                <ModalAddColor visibleColor={visibleColor} setVisibleColor={setVisibleColor} color={color} setColor={setColor} createColor={createColor} />
-                <ModalAddImage visibleImg={visibleImg} setImg={setImg} createImg={createImg} color={color} setColor={setColor} />
+                <ModalAddColor
+                    visibleColor={visibleColor}
+                    setVisibleColor={setVisibleColor}
+                    color={color}
+                    setColor={setColor}
+                    createColor={createColor}
+                />
+                <ModalAddImage
+                    visibleImg={visibleImg}
+                    setImg={setImg}
+                    createImg={createImg}
+                    color={color}
+                    setColor={setColor}
+                />
             </div >
         )
     }
