@@ -4,13 +4,14 @@ const ApiError = require('../error/apiError');
 class BasketController {
     async addProduct(req, res, next) {
         const { userId } = req.user
-        const { productId } = req.body
+        const { id } = req.params
+        const { color, size } = req.body
 
         const basket = await Basket.findOne({ where: { userId } })
-        const product = await Product.findOne({ where: { id: productId } })
+        const product = await Product.findOne({ where: { id } })
 
         if (basket && product) {
-            const basketProduct = await BasketProduct.create({ basketId: basket.id, productId: product.id })
+            const basketProduct = await BasketProduct.create({ basketId: basket.id, productId: product.id, color: color, size: size })
             basketProduct.save()
             return res.json(product)
         } else {

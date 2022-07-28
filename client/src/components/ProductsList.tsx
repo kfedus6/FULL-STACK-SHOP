@@ -21,12 +21,8 @@ const ProductsList = ({ item, inBasket }: any) => {
 
     const { user } = useTypedSelector(state => state)
 
-    const product = (e: FormEvent) => {
-        e.preventDefault()
-    }
-
     const addBasketProduct = (productId: any) => {
-        fetchAddBasketProduct(productId)
+        fetchAddBasketProduct(productId, undefined, undefined)
     }
 
     const addColor = (id: any) => {
@@ -63,7 +59,6 @@ const ProductsList = ({ item, inBasket }: any) => {
                     <div className='products__name'>{item.name}</div>
                     <div className='block__price-btn'>
                         <span className='products__price'>{item.price} &#8372;</span>
-                        <button className='btn__buy' onClick={product}>{t('products.buy')}</button>
                     </div>
                 </div>
             </div>
@@ -78,7 +73,6 @@ const ProductsList = ({ item, inBasket }: any) => {
                     <div className='products__name'>{item.name}</div>
                     <span className='products__price'>{item.price} &#8372;</span>
                     <div className='block__btn-basket'>
-                        <button className='btn__buy' onClick={product}>{t('products.buy')}</button>
                         <button className={inBasket ? 'btn__basket selected' : 'btn__basket'} onClick={() => addBasketProduct(item.id)}><RiShoppingBasketFill /></button>
                     </div>
                 </div>
@@ -94,15 +88,10 @@ const ProductsList = ({ item, inBasket }: any) => {
                     <div className='products__name'>{item.name}</div>
                     <span className='products__price'>{item.price} &#8372;</span>
                     <div className='block__btn-basket'>
-                        <div>
-                            <button className='btn__buy' onClick={product}>{t('products.buy')}</button>
-                        </div>
-                        <div>
-                            <button onClick={() => addColor(item.id)} className='btn-add-color'><CgFormatColor /></button>
-                            <button onClick={() => addImg(item.id)} className='btn-add-image'><RiImageAddFill /></button>
-                            <button className='btn-delete-product'><AiTwotoneDelete /></button>
-                            <button className={inBasket ? 'btn__basket selected' : 'btn__basket'} onClick={() => addBasketProduct(item.id)}><RiShoppingBasketFill /></button>
-                        </div>
+                        <button onClick={() => addColor(item.id)} className='btn-add-color'><CgFormatColor /></button>
+                        <button onClick={() => addImg(item.id)} className='btn-add-image'><RiImageAddFill /></button>
+                        <button className='btn-delete-product'><AiTwotoneDelete /></button>
+                        <button className={inBasket ? 'btn__basket selected' : 'btn__basket'} onClick={() => addBasketProduct(item.id)}><RiShoppingBasketFill /></button>
                     </div>
                 </div>
                 <ModalAddColor

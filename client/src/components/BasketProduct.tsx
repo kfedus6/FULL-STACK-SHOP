@@ -46,7 +46,8 @@ const BasketProduct = () => {
         fetchGetBasketProduct()
         let tmp = basketProductsInfo
         for (const product of basket) {
-            tmp = [...tmp, { product: product, count: 1, sum: product.price }]
+            console.log(basket)
+            tmp = [...tmp, { product: product, count: 1, sum: product.price, }]
         }
         setBasketProductsInfo(tmp)
     }, [])
@@ -78,11 +79,11 @@ const BasketProduct = () => {
         let user: any = jwt_decode(token)
         let sum = basketProductsInfo.reduce((prev: any, info: any) => prev += info.sum, 0)
         let products = basketProductsInfo.map((item: any) => item)
-        const order = { name: name, phone: phone, sum: sum, products: products }
-        setName('')
-        setPhone('')
+        const order = { name: name, phone: phone, sum: sum, products: products, userId: user.userId }
         fetchAddOrderProduct(order)
         fetchDeleteBasketProducts(user.userId)
+        setName('')
+        setPhone('')
     }
 
     if (basket.length === 0) {

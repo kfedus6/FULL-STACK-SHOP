@@ -11,11 +11,13 @@ const Product = () => {
 
     const navigate = useNavigate()
 
-    const { fetchProduct, fetchAddComment, fetchGetComments, fetchDeleteComments, fetchGetProductColor, fetchGetImagesProduct } = useAction();
+    const { fetchProduct, fetchAddComment, fetchGetComments, fetchDeleteComments, fetchGetProductColor, fetchGetImagesProduct, fetchAddBasketProduct } = useAction();
     const { product, imagesProduct, comments, productColor }: any = useTypedSelector(state => state.products)
     const { user }: any = useTypedSelector(state => state)
 
     const [text, setText]: any = useState('')
+    const [color, setColor] = useState('')
+    const [size, setSize] = useState('')
 
     useEffect(() => {
         fetchProduct(id)
@@ -32,8 +34,13 @@ const Product = () => {
         fetchDeleteComments(commentId)
     }
 
-    const sendColor = (id: any) => {
+    const sendColor = (id: any, color: any) => {
         fetchGetImagesProduct(id)
+        setColor(color)
+    }
+
+    const sendBasket = () => {
+        fetchAddBasketProduct(id, color, size)
     }
 
     if (user.is_admin === true) {
@@ -60,7 +67,7 @@ const Product = () => {
                                     {productColor.map((c: any) => {
                                         return (
                                             <div key={c.id}>
-                                                <button onClick={() => sendColor(c.id)}>{c.color}</button>
+                                                <button onClick={() => sendColor(c.id, c.color)}>{c.color}</button>
                                             </div>
                                         )
                                     })}
@@ -71,7 +78,7 @@ const Product = () => {
                                             if (size.name == 'size') {
                                                 return (
                                                     <div key={size.id}>
-                                                        <span>{size.description}</span>
+                                                        <button onClick={() => setSize(size.description)}>{size.description}</button>
                                                     </div>
                                                 )
                                             }
@@ -81,7 +88,7 @@ const Product = () => {
                                     }
                                 </div>
                                 <div>
-                                    <button>Add to cart</button>
+                                    <button onClick={sendBasket}>Add to cart</button>
                                 </div>
                             </div>
                         </section>
@@ -134,7 +141,7 @@ const Product = () => {
                                     {productColor.map((c: any) => {
                                         return (
                                             <div key={c.id}>
-                                                <button onClick={() => sendColor(c.id)}>{c.color}</button>
+                                                <button onClick={() => sendColor(c.id, c.color)}>{c.color}</button>
                                             </div>
                                         )
                                     })}
@@ -145,7 +152,7 @@ const Product = () => {
                                             if (size.name == 'size') {
                                                 return (
                                                     <div key={size.id}>
-                                                        <span>{size.description}</span>
+                                                        <span onClick={() => setSize(size.description)}>{size.description}</span>
                                                     </div>
                                                 )
                                             }

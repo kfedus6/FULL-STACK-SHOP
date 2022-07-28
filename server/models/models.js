@@ -30,7 +30,9 @@ const Brand = sequelize.define('brand', {
 });
 
 const BasketProduct = sequelize.define('busketproduct', {
-    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true }
+    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+    color: { type: DataTypes.STRING },
+    size: { type: DataTypes.STRING }
 });
 
 const ProductInfo = sequelize.define('productinfo', {
@@ -113,4 +115,9 @@ Comment.belongsTo(Product)
 User.hasMany(Comment)
 Comment.belongsTo(User)
 
-module.exports = { User, Basket, Product, Type, Brand, BasketProduct, ProductInfo, BrandType, ImagesProductColor, ImagesProduct, OrderProduct, Order, Comment };
+module.exports = {
+    User, Basket, Product, Type, Brand,
+    BasketProduct, ProductInfo, BrandType,
+    ImagesProductColor, ImagesProduct,
+    OrderProduct, Order, Comment
+};

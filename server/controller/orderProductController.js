@@ -30,8 +30,21 @@ class OrderProductController {
 
             let finallyResult = []
 
-            for (let item of newOrderProducts) {
-                finallyResult.push([item.product.name, item.count])
+            for (let order of newOrderProducts) {
+                if (finallyResult.length == 0) {
+                    finallyResult.push([order.product.name, Number(order.count)])
+                } else {
+                    let findProduct = false
+                    for (let finOrder of finallyResult) {
+                        if (order.product.name == finOrder[0]) {
+                            finOrder[1] += Number(order.count)
+                            findProduct = true
+                        }
+                    }
+                    if (!findProduct) {
+                        finallyResult.push([order.product.name, Number(order.count)])
+                    }
+                }
             }
 
             return res.json(finallyResult)
