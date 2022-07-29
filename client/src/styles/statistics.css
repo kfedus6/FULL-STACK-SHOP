@@ -1,0 +1,14 @@
+.statistics-shop {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.statistics-shop div {
+    width: 90%;
+    height: auto;
+}
+
+.statistics-shop div h1 {
+    text-align: center;
+}

@@ -11,7 +11,7 @@ const Product = () => {
 
     const navigate = useNavigate()
 
-    const { fetchProduct, fetchAddComment, fetchGetComments, fetchDeleteComments, fetchGetProductColor, fetchGetImagesProduct, fetchAddBasketProduct } = useAction();
+    const { fetchProduct, fetchAddComment, fetchGetComments, fetchDeleteComments, fetchGetProductColor, fetchGetImagesProduct, fetchAddBasketProduct, fetchGetImageProduct } = useAction();
     const { product, imagesProduct, comments, productColor }: any = useTypedSelector(state => state.products)
     const { user }: any = useTypedSelector(state => state)
 
@@ -23,6 +23,7 @@ const Product = () => {
         fetchProduct(id)
         fetchGetComments(id)
         fetchGetProductColor(id)
+        fetchGetImageProduct(id)
     }, [])
 
     const addComment = () => {
@@ -63,21 +64,21 @@ const Product = () => {
                             <div>
                                 <h2>{product.name}</h2>
                                 <span>{product.price} &#8372;</span>
-                                <div>
+                                <div className='items-color'>
                                     {productColor.map((c: any) => {
                                         return (
-                                            <div key={c.id}>
+                                            <div className='item-color' key={c.id}>
                                                 <button onClick={() => sendColor(c.id, c.color)}>{c.color}</button>
                                             </div>
                                         )
                                     })}
                                 </div>
-                                <div>
+                                <div className='items-size'>
                                     {Object.keys(product).length !== 0 ?
                                         product.info.map((size: any) => {
                                             if (size.name == 'size') {
                                                 return (
-                                                    <div key={size.id}>
+                                                    <div className='item-size' key={size.id}>
                                                         <button onClick={() => setSize(size.description)}>{size.description}</button>
                                                     </div>
                                                 )
@@ -87,7 +88,7 @@ const Product = () => {
                                         <div>loading...</div>
                                     }
                                 </div>
-                                <div>
+                                <div className='btn-add-basket'>
                                     <button onClick={sendBasket}>Add to cart</button>
                                 </div>
                             </div>
@@ -137,22 +138,22 @@ const Product = () => {
                             <div>
                                 <h2>{product.name}</h2>
                                 <span>{product.price} &#8372;</span>
-                                <div>
+                                <div className='items-color'>
                                     {productColor.map((c: any) => {
                                         return (
-                                            <div key={c.id}>
+                                            <div className='item-color' key={c.id}>
                                                 <button onClick={() => sendColor(c.id, c.color)}>{c.color}</button>
                                             </div>
                                         )
                                     })}
                                 </div>
-                                <div>
+                                <div className='items-size'>
                                     {Object.keys(product).length !== 0 ?
                                         product.info.map((size: any) => {
                                             if (size.name == 'size') {
                                                 return (
-                                                    <div key={size.id}>
-                                                        <span onClick={() => setSize(size.description)}>{size.description}</span>
+                                                    <div className='item-size' key={size.id}>
+                                                        <button onClick={() => setSize(size.description)}>{size.description}</button>
                                                     </div>
                                                 )
                                             }
@@ -161,7 +162,7 @@ const Product = () => {
                                         <div>loading...</div>
                                     }
                                 </div>
-                                <div>
+                                <div className='btn-add-basket'>
                                     <button>Add to cart</button>
                                 </div>
                             </div>

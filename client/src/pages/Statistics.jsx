@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import AnyChart from 'anychart-react';
 import { useTypedSelector } from '../hook/useTypedSelector';
 import { useAction } from '../hook/useAction';
+import '../styles/statistics.css';
 
 const Statistics = () => {
 
@@ -12,12 +13,11 @@ const Statistics = () => {
         fetchGetOrderProduct()
     }, [])
 
-    console.log(orderProduct)
-
     return (
-        <div>
-            <div style={{ marginTop: '100px', width: '50%' }}>
-                <AnyChart type='column' data={orderProduct} title="test" />
+        <div className='statistics-shop'>
+            <div>
+                <h1>Shop</h1>
+                <AnyChart type='column' data={orderProduct} title="" />
             </div>
         </div>
     )

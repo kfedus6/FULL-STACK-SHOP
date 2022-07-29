@@ -46,7 +46,6 @@ const BasketProduct = () => {
         fetchGetBasketProduct()
         let tmp = basketProductsInfo
         for (const product of basket) {
-            console.log(basket)
             tmp = [...tmp, { product: product, count: 1, sum: product.price, }]
         }
         setBasketProductsInfo(tmp)

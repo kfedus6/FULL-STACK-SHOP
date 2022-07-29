@@ -1,4 +1,4 @@
-const { ImagesProduct, ImagesProductColor } = require('../models/models')
+const { ImagesProduct, ImagesProductColor, ProductInfo } = require('../models/models')
 const uuid = require('uuid');
 const path = require('path');
 const ApiError = require('../error/apierror');
@@ -44,6 +44,23 @@ class ImagesProductController {
         return res.json(images)
     }
 
+    async getImageProduct(req, res) {
+        const { id } = req.params
+
+        const info = await ProductInfo.findAll({ where: { productId: id } })
+        const color = await ImagesProductColor.findAll({ where: { productId: id } })
+
+        let images
+        for (let c of color) {
+            for (let i of info) {
+                if (c.color == i.description) {
+                    images = await ImagesProduct.findAll({ where: { imagesProductColorId: c.id } })
+                }
+            }
+        }
+
+        return res.json(images)
+    }
 };
 
 const imagesProductController = new ImagesProductController();

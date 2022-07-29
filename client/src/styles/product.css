@@ -77,3 +77,88 @@
 .comments h1 {
     margin-bottom:10px;
 }
+
+.items-color {
+    margin-top:20px;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.item-color {
+    margin-right: 10px;
+    width: 25%;
+}
+
+.item-color button {
+    background: transparent;
+    border: 1px solid silver;
+    border-radius: 5px;
+    width: 100px;
+    height: 30px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.item-color button:focus {
+    border: 1px solid black;
+}
+
+.item-color button:hover {
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+
+.items-size {
+    margin-top:20px;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.item-size {
+    width: 20%;
+}
+
+.item-size button {
+    background: transparent;
+    border: 1px solid silver;
+    border-radius: 5px;
+    width: 50px;
+    height: 40px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.item-size button:focus {
+    border: 1px solid black;
+}
+
+.item-size button:hover {
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.btn-add-basket {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 30px;
+}
+
+.btn-add-basket button {
+    background: transparent;
+    border: 1px solid silver;
+    border-radius: 5px;
+    width: 300px;
+    height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.btn-add-basket button:hover {
+    background:black;
+    color:#fff;
+    border: 2px solid black;
+    border-radius: 5px;
+}

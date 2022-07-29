@@ -127,6 +127,15 @@ export const fetchGetImagesProduct = (id: any) => async (dispatch: Dispatch<Prod
     }
 };
 
+export const fetchGetImageProduct = (id: any) => async (dispatch: Dispatch<ProductAction>) => {
+    try {
+        const response = await $host.get(`/api/imagesProduct/image/${id}`)
+        dispatch({ type: ProductActionTypes.FETCH_GET_IMAGE_PRODUCT, payload: response.data })
+    } catch (err: any) {
+        dispatch({ type: ProductActionTypes.FETCH_ERROR_PRODUCT, payload: err.response.data.message })
+    }
+};
+
 export const fetchAddProductColor = (productId: any, color: any) => async (dispatch: Dispatch<ProductAction>) => {
     console.log(productId, color)
     try {
