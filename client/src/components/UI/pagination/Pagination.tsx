@@ -1,9 +1,15 @@
 import React from 'react'
 
-const Pagination = ({ pagesArray, changePage, page }: any) => {
+interface propsPagination {
+    pagesArray: Array<number>,
+    changePage: (page: number) => void,
+    page: number
+}
+
+const Pagination: React.FC<propsPagination> = ({ pagesArray, changePage, page }) => {
     return (
         <div className='page__wrapper'>
-            {pagesArray.map((p: any) => {
+            {pagesArray.map((p: number) => {
                 return (
                     <span
                         onClick={() => changePage(p)}

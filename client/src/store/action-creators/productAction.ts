@@ -137,7 +137,6 @@ export const fetchGetImageProduct = (id: any) => async (dispatch: Dispatch<Produ
 };
 
 export const fetchAddProductColor = (productId: any, color: any) => async (dispatch: Dispatch<ProductAction>) => {
-    console.log(productId, color)
     try {
         const response = await $authHost.post(`/api/imagesProduct/color/${productId}`, { color })
         dispatch({ type: ProductActionTypes.FETCH_ADD_PRODUCT_COLOR, payload: response.data })

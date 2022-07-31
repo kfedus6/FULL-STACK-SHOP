@@ -15,15 +15,13 @@ class ImagesProductController {
     }
 
     async craeteImages(req, res) {
-        const { color, productId } = req.body
+        const { colorId } = req.body
         const { img } = req.files
 
         const fileName = uuid.v4() + '.jpg'
         img.mv(path.resolve(__dirname, '..', 'static', fileName))
 
-        const imagesProductColor = await ImagesProductColor.findOne({ where: { color: color, productId: productId } })
-
-        const imageProduct = await ImagesProduct.create({ img: fileName, imagesProductColorId: imagesProductColor.id })
+        const imageProduct = await ImagesProduct.create({ img: fileName, imagesProductColorId: colorId })
 
         return res.json(imageProduct)
     }

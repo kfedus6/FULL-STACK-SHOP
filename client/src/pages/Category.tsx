@@ -1,19 +1,20 @@
-import React, { useEffect, useMemo, useState } from 'react';
-import ProductsList from '../components/ProductsList';
+import React, { useEffect, useState } from 'react';
 import { useAction } from '../hook/useAction';
 import { useTypedSelector } from '../hook/useTypedSelector';
 import { getPageCount, getPagesArray } from '../utils/page';
-import '../styles/category.css';
 import Pagination from '../components/UI/pagination/Pagination';
 import { useParams } from 'react-router-dom';
+import ProductsItem from '../components/ProductsItem';
+
+import '../styles/category.css';
 
 interface typeAndBrand {
     id: number,
     name: string
 };
 
-interface itemPrd {
-    id: number,
+interface productsItem {
+    id: string,
     name: string,
     price: string,
     img: string
@@ -43,13 +44,13 @@ const Category = () => {
 
     useEffect(() => {
         if (types && id) {
-            setType(types.find((type: any) => type.id == id))
+            setType(types.find((type: any) => type.id === id))
         }
     }, [types])
 
-    const getBrandsAndTypes = async () => {
-        await fetchBrands();
-        await fetchTypes();
+    const getBrandsAndTypes = () => {
+        fetchBrands();
+        fetchTypes();
     }
 
 
@@ -102,7 +103,7 @@ const Category = () => {
                         {types.map((item: typeAndBrand) => {
                             return (
                                 <div key={item.id}>
-                                    {id == item.id ?
+                                    {id === item.id ?
                                         <>
                                             <input type="radio" id={item.name + item.id}
                                                 name="type" value={item.name} onChange={() => typeChange(item)} />
@@ -124,9 +125,9 @@ const Category = () => {
                 <section className='shop__conteier-catgory'>
                     <div className='products__content-categor'>
                         {
-                            products.rows.map((item: itemPrd) => {
+                            products.rows.map((item: productsItem) => {
                                 return (
-                                    <ProductsList key={item.id} item={item} />
+                                    <ProductsItem key={item.id} item={item} />
                                 )
                             })
                         }

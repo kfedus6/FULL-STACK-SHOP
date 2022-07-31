@@ -1,50 +1,96 @@
-import React, { useEffect, useMemo, useState, useTransition } from 'react';
+import React, { useEffect, useState } from 'react';
 import ProductsList from '../components/ProductsList';
 import { useAction } from '../hook/useAction';
 import { useTypedSelector } from '../hook/useTypedSelector';
 import { getPageCount, getPagesArray } from '../utils/page';
 import Pagination from '../components/UI/pagination/Pagination';
-import { useTranslation } from 'react-i18next';
+import ModalAddImage from '../components/UI/modalAddImage/ModalAddImage';
+import ModalAddColor from '../components/UI/modalAddColor/ModalAddColor';
 
 import '../styles/products.css';
 
 const Products = () => {
-    const { t } = useTranslation()
-    const { fetchProducts } = useAction()
-    const { products, basket }: any = useTypedSelector(state => state.products)
+    const [visibleColor, setVisibleColor] = useState(false)
+    const [visibleImg, setVisibleImg] = useState(false)
+    const [productId, setProductId] = useState('')
+    const [color, setColor] = useState('')
+    const [colorId, setColorId] = useState('')
+    const [img, setImg] = useState('')
+    const [totalCount, setTotalCount]: number | any = useState()
+    const [page, setPage]: number | any = useState()
 
-    const [totalCount, setTotalCount]: any = useState()
-    const [page, setPage]: any = useState()
+    const { products, productColor }: any = useTypedSelector(state => state.products)
+    const { fetchProducts, fetchAddBasketProduct, fetchAddProductColor, fetchAddImagesProduct, fetchGetProductColor } = useAction()
 
     useEffect(() => {
         fetchProducts({ page: page });
     }, [page]);
 
-    useMemo(() => {
+    useEffect(() => {
         setTotalCount(getPageCount(products.count))
     }, [products])
 
+    useEffect(() => {
+        fetchGetProductColor(productId)
+    }, [productId])
+
     let pagesArray = getPagesArray(totalCount)
 
-    const changePage = (page: any) => {
+    const changePage = (page: number) => {
         setPage(page)
     }
 
+    const addBasketProduct = (productId: string) => {
+        fetchAddBasketProduct(productId, undefined, undefined)
+    }
+
+    const addColor = (id: string) => {
+        setProductId(id)
+        setVisibleColor(true)
+    }
+    const createColor = () => {
+        fetchAddProductColor(productId, color)
+        setVisibleColor(false)
+        setColor('')
+    }
+
+    const addImg = (productId: string) => {
+        setProductId(productId)
+        setVisibleImg(true)
+    }
+
+    const createImg = () => {
+        const formData = new FormData()
+        formData.append('colorId', colorId)
+        formData.append('img', img[0])
+        fetchAddImagesProduct(formData)
+        setVisibleImg(false)
+    }
+
     return (
-        <section className='shop'>
-            <div className='section-title'>
-                <span>{t('products.title')}</span>
-            </div>
-            <div className='products__content'>
-                {products.rows.map((item: { id: number, name: string, price: string, img: string }) => {
-                    let itemBasket = basket.find((product: any) => product.id === item.id)
-                    return (
-                        <ProductsList key={item.id} item={item} inBasket={itemBasket ? true : false} />
-                    )
-                })}
-            </div>
+        <div className='shop'>
+            <ProductsList
+                addBasketProduct={addBasketProduct}
+                addColor={addColor}
+                addImg={addImg}
+            />
+            <ModalAddColor
+                visibleColor={visibleColor}
+                setVisibleColor={setVisibleColor}
+                color={color}
+                setColor={setColor}
+                createColor={createColor}
+            />
+            <ModalAddImage
+                visibleImg={visibleImg}
+                setImg={setImg}
+                createImg={createImg}
+                colorId={colorId}
+                setColorId={setColorId}
+                productColor={productColor}
+            />
             <Pagination pagesArray={pagesArray} changePage={changePage} page={page} />
-        </section >
+        </div>
     )
 };
 
