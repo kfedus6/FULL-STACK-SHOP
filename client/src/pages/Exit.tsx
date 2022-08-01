@@ -6,14 +6,14 @@ const Exit: React.FC = () => {
     const { t } = useTranslation()
     const { loginExit } = useAction();
 
-    const exit = async () => {
-        await loginExit()
+    const exit = () => {
+        loginExit()
     }
 
     return (
-        <div className='btn__exit' onClick={exit}>
-            <span>{t('header.exit')}</span>
-        </div>
+        <a className='nav-link' onClick={exit}>
+            {t('header.exit')}
+        </a>
     );
 };
 

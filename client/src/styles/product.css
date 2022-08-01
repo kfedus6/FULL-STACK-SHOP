@@ -22,6 +22,7 @@
 .product-img img {
     width: 420px;
     height: auto;
+    margin-top: 15px;
 }
 
 .comments {
@@ -109,7 +110,6 @@
     border: 1px solid black;
     border-radius: 5px;
 }
-
 
 .items-size {
     margin-top:30px;

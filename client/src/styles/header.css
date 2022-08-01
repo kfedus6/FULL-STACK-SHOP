@@ -21,6 +21,16 @@ header {
     min-height: 80px;
 }
 
+.btn-logo {
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    font-size: 32px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+}
+
 .logo button {
     cursor: pointer;
     background: transparent;
