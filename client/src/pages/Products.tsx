@@ -10,8 +10,6 @@ import ModalAddColor from '../components/UI/modalAddColor/ModalAddColor';
 import '../styles/products.css';
 
 const Products = () => {
-    const [visibleColor, setVisibleColor] = useState(false)
-    const [visibleImg, setVisibleImg] = useState(false)
     const [productId, setProductId] = useState('')
     const [color, setColor] = useState('')
     const [colorId, setColorId] = useState('')
@@ -46,17 +44,14 @@ const Products = () => {
 
     const addColor = (id: string) => {
         setProductId(id)
-        setVisibleColor(true)
     }
     const createColor = () => {
         fetchAddProductColor(productId, color)
-        setVisibleColor(false)
         setColor('')
     }
 
     const addImg = (productId: string) => {
         setProductId(productId)
-        setVisibleImg(true)
     }
 
     const createImg = () => {
@@ -64,10 +59,30 @@ const Products = () => {
         formData.append('colorId', colorId)
         formData.append('img', img[0])
         fetchAddImagesProduct(formData)
-        setVisibleImg(false)
     }
 
     return (
+        <div className='container-lg shop-products'>
+            <ProductsList
+                addBasketProduct={addBasketProduct}
+                addColor={addColor}
+                addImg={addImg}
+            />
+            <ModalAddColor
+                color={color}
+                setColor={setColor}
+                createColor={createColor}
+            />
+            <ModalAddImage
+                setImg={setImg}
+                createImg={createImg}
+                colorId={colorId}
+                setColorId={setColorId}
+                productColor={productColor}
+            />
+            <Pagination pagesArray={pagesArray} changePage={changePage} page={page} />
+        </div>
+        /*
         <div className='shop'>
             <ProductsList
                 addBasketProduct={addBasketProduct}
@@ -91,6 +106,7 @@ const Products = () => {
             />
             <Pagination pagesArray={pagesArray} changePage={changePage} page={page} />
         </div>
+        */
     )
 };
 

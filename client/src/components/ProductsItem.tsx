@@ -11,6 +11,18 @@ const ProductsItem = ({ item, inBasket, addBasketProduct, addColor, addImg }: an
 
     if (is_login === false && is_admin === false) {
         return (
+            <div className="col-xl-3 col-md-4 col-sm-6 col-10 p-1">
+                <div className="card h-100">
+                    <NavLink to={`product/${item.id}`}>
+                        <img className="card-img-top" src={process.env.REACT_APP_API_URL + item.img} alt={item.name} />
+                    </NavLink>
+                    <div className="card-body">
+                        <h6 className="card-title">{item.name}</h6>
+                        <p className="card-text">{item.price} &#8372;</p>
+                    </div>
+                </div>
+            </div>
+            /*
             <div key={item.id} className='products__box'>
                 <NavLink to={`product/${item.id}`}>
                     <img className='products__img' src={process.env.REACT_APP_API_URL + item.img} alt={item.name} />
@@ -22,9 +34,27 @@ const ProductsItem = ({ item, inBasket, addBasketProduct, addColor, addImg }: an
                     </div>
                 </div>
             </div>
+             */
         )
     } else if (is_login === true && is_admin === false) {
         return (
+            <div className="col-xl-3 col-md-4 col-sm-6 col-10 p-1">
+                <div className="card h-100">
+                    <NavLink to={`product/${item.id}`}>
+                        <img className="card-img-top" src={process.env.REACT_APP_API_URL + item.img} alt={item.name} />
+                    </NavLink>
+                    <div className="card-body">
+                        <h6 className="card-title">{item.name}</h6>
+                        <div className='d-flex justify-content-between aling-items-center'>
+                            <p className="card-text">{item.price} &#8372;</p>
+                            <button className={inBasket ? 'btn__basket selected' : 'btn__basket'}
+                                onClick={() => addBasketProduct(item.id)}><RiShoppingBasketFill />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            /*
             <div key={item.id} className='products__box'>
                 <NavLink to={`product/${item.id}`}>
                     <img className='products__img' src={process.env.REACT_APP_API_URL + item.img} alt={item.name} />
@@ -37,9 +67,34 @@ const ProductsItem = ({ item, inBasket, addBasketProduct, addColor, addImg }: an
                     </div>
                 </div>
             </div >
+       */
         )
     } else {
         return (
+            <div className="col-xl-3 col-md-4 col-sm-5 col-9 p-1">
+                <div className="card h-100">
+                    <NavLink to={`product/${item.id}`}>
+                        <img className="card-img-top" src={process.env.REACT_APP_API_URL + item.img} alt={item.name} />
+                    </NavLink>
+                    <div className="card-body">
+                        <h6 className="card-title">{item.name}</h6>
+                        <div className='d-flex justify-content-between aling-items-center'>
+                            <div>
+                                <p className="card-text">{item.price} &#8372;</p>
+                            </div>
+                            <div>
+                                <button onClick={() => addColor(item.id)} className='btn-add-color' type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"><CgFormatColor /></button>
+                                <button onClick={() => addImg(item.id)} className='btn-add-image' type="button" data-bs-toggle="modal" data-bs-target="#exampleModalImg" ><RiImageAddFill /></button>
+                                <button className='btn-delete-product'><AiTwotoneDelete /></button>
+                                <button className={inBasket ? 'btn__basket selected' : 'btn__basket'}
+                                    onClick={() => addBasketProduct(item.id)}><RiShoppingBasketFill />
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            /*
             <div key={item.id} className='products__box'>
                 <NavLink to={`product/${item.id}`}>
                     <img className='products__img category' src={process.env.REACT_APP_API_URL + item.img} alt={item.name} />
@@ -55,6 +110,7 @@ const ProductsItem = ({ item, inBasket, addBasketProduct, addColor, addImg }: an
                     </div>
                 </div>
             </div >
+        */
         )
     }
 }

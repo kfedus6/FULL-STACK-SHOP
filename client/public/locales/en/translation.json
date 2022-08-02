@@ -80,5 +80,14 @@
         "btn_parameter": "Add parameter",
         "btn_create": "Create",
         "title_img_product": "Product image"
+    },
+    "modalAddColor": {
+        "title": "Product Color",
+        "btn": "Create",
+        "input": "Color"
+    },
+    "modalAddImg": {
+        "title": "Product Image",
+        "btn": "Create"
     }
 }

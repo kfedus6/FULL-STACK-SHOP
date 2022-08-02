@@ -11,11 +11,12 @@ const Pagination: React.FC<propsPagination> = ({ pagesArray, changePage, page })
         <div className='page__wrapper'>
             {pagesArray.map((p: number) => {
                 return (
-                    <span
+                    <a
+                        href='#'
                         onClick={() => changePage(p)}
                         key={p}
                         className={page === p ? 'page page__current' : 'page'}
-                    >{p}</span>
+                    >{p}</a>
                 )
             })}
         </div>

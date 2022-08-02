@@ -61,3 +61,11 @@
     background: black;
     color: #fff;
 }
+
+
+/* bootstrap */
+
+.form-select:focus {
+    box-shadow: none;
+    border: 1px solid silver;
+}

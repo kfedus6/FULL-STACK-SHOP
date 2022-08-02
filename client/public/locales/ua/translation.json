@@ -81,5 +81,14 @@
         "btn_parameter": "Добавити параметер",
         "btn_create": "Створити",
         "title_img_product": "Картинка продукта"
+    },
+    "modalAddColor": {
+        "title": "Колір продукту",
+        "btn": "Створити",
+        "input": "Колір"
+    },
+    "modalAddImg": {
+        "title": "Картинка продукту",
+        "btn": "Створити"
     }
 }
