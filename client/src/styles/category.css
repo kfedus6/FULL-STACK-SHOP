@@ -1,24 +1,19 @@
-.page__category {
+.category {
     margin-top: 7rem;
+    padding: 3rem 0 3rem;
 }
 
-.shop__conteier-catgory {
-    max-width: 1150px;
-    margin: auto;
-    width: 100%;
-    padding: 0rem 1rem 3rem;
+.btn-filters {
+    color:black;
+    text-decoration:none;
 }
 
-.products__content-categor{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, auto));
-    gap: 25px;
+.btn-filters:hover {
+    color: black;
+    text-decoration: underline;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: 1fr 4.5fr;
-}
+/* bootstrap */
 
 .section-category {
     margin: 0 1rem;

@@ -11,8 +11,13 @@
         "exit": "Exit"
     },
     "products": {
-        "title": "Products",
-        "buy": "Buy"
+        "title": "Products"
+    },
+    "category": {
+        "title": "Categories",
+        "btn_a": "Filters",
+        "brand": "Brands",
+        "type": "Clothes"
     },
     "basketproducts": {
         "title": "Shopping cart",

@@ -39,28 +39,6 @@ const ProductsList: React.FC<propsProductsList> = ({ addBasketProduct, addColor,
                 })}
             </div>
         </div>
-        /* 
-                <div>
-                    <div className='section-title'>
-                        <span>{t('products.title')}</span>
-                    </div>
-                    <div className='products__content'>
-                        {products.rows.map((item: productsItem) => {
-                            let itemBasket = basket.find((product: { id: string }) => product.id === item.id)
-                            return (
-                                <ProductsItem
-                                    key={item.id}
-                                    item={item}
-                                    inBasket={itemBasket ? true : false}
-                                    addBasketProduct={addBasketProduct}
-                                    addColor={addColor}
-                                    addImg={addImg}
-                                />
-                            )
-                        })}
-                    </div>
-                </div >
-                 */
     )
 };
 
