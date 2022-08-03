@@ -14,6 +14,7 @@ const initialState: ProductState = {
     comments: [],
     imagesProduct: [],
     productColor: [],
+    carouselImages: [],
     error: null
 };
 
@@ -99,6 +100,15 @@ export const productReducer = (state = initialState, action: ProductAction) => {
         }
         case ProductActionTypes.FETCH_DELETE_COMMENT: {
             return { ...state, comments: action.payload }
+        }
+        case ProductActionTypes.FETCH_POST_CAROUSEL: {
+            return { ...state, carouselmages: [...state.carouselImages, action.payload] }
+        }
+        case ProductActionTypes.FETCH_GET_CAROUSEL: {
+            return { ...state, carouselImages: action.payload }
+        }
+        case ProductActionTypes.FETCH_DELETE_CAROUSEL: {
+            return { ...state, carouselImages: action.payload }
         }
         default: {
             return state

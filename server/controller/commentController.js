@@ -20,7 +20,6 @@ class CommentController {
 
     async deleteComment(req, res) {
         const { id } = req.params
-        console.log('ID', id)
 
         const destroyComment = await Comment.destroy({ where: { id } })
         const comment = await Comment.findAll()

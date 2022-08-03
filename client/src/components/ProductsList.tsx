@@ -18,6 +18,7 @@ interface productsItem {
 
 const ProductsList: React.FC<propsProductsList> = ({ addBasketProduct, addColor, addImg }) => {
     const { t } = useTranslation()
+
     const { products, basket }: any = useTypedSelector(state => state.products)
 
     return (

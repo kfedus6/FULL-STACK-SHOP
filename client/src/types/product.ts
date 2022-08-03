@@ -12,6 +12,7 @@ export interface ProductState {
     comments: [],
     imagesProduct: [],
     productColor: [],
+    carouselImages: [],
     error: string | null
 };
 
@@ -43,7 +44,10 @@ export enum ProductActionTypes {
     FETCH_ORDER_PRODUCT_CLIENT = 'FETCH_ORDER_PRODUCT_CLIENT',
     FETCH_ADD_COMMENT = 'FETCH_ADD_COMMENT',
     FETCH_GET_COMMENTS = 'FETCH_GET_COMMENTS',
-    FETCH_DELETE_COMMENT = 'FETCH_DELETE_COMMENT'
+    FETCH_DELETE_COMMENT = 'FETCH_DELETE_COMMENT',
+    FETCH_POST_CAROUSEL = 'FETCH_POST_CAROUSEL',
+    FETCH_GET_CAROUSEL = 'FETCH_GET_CAROUSEL',
+    FETCH_DELETE_CAROUSEL = 'FETCH_DELETE_CAROUSEL'
 };
 
 interface FetchProductsAction {
@@ -186,6 +190,21 @@ interface FetchDeleteCommentAction {
     payload: []
 };
 
+interface FetchPostCarouselAction {
+    type: ProductActionTypes.FETCH_POST_CAROUSEL,
+    payload: []
+};
+
+interface FetchGetCarouselAction {
+    type: ProductActionTypes.FETCH_GET_CAROUSEL,
+    payload: []
+};
+
+interface FetchDeleteCarouselAction {
+    type: ProductActionTypes.FETCH_DELETE_CAROUSEL,
+    payload: []
+};
+
 export type ProductAction =
     FetchProductsAction |
     FetchProductAction |
@@ -214,4 +233,7 @@ export type ProductAction =
     FetchGetCommentAction |
     FetchDeleteCommentAction |
     FetchGetProductColorAction |
-    FetchAddProductColorAction;
+    FetchAddProductColorAction |
+    FetchPostCarouselAction |
+    FetchGetCarouselAction |
+    FetchDeleteCarouselAction;

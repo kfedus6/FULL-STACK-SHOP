@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useTypedSelector } from '../hook/useTypedSelector';
-import Exit from '../pages/Exit';
 import { FaUser } from 'react-icons/fa';
 import { AiOutlineShopping } from 'react-icons/ai';
 import { useAction } from '../hook/useAction';

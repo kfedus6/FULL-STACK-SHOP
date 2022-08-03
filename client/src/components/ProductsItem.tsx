@@ -22,19 +22,6 @@ const ProductsItem = ({ item, inBasket, addBasketProduct, addColor, addImg }: an
                     </div>
                 </div>
             </div>
-            /*
-            <div key={item.id} className='products__box'>
-                <NavLink to={`product/${item.id}`}>
-                    <img className='products__img' src={process.env.REACT_APP_API_URL + item.img} alt={item.name} />
-                </NavLink>
-                <div className='block__body'>
-                    <div className='products__name'>{item.name}</div>
-                    <div className='block__price-btn'>
-                        <span className='products__price'>{item.price} &#8372;</span>
-                    </div>
-                </div>
-            </div>
-             */
         )
     } else if (is_login === true && is_admin === false) {
         return (
@@ -54,20 +41,6 @@ const ProductsItem = ({ item, inBasket, addBasketProduct, addColor, addImg }: an
                     </div>
                 </div>
             </div>
-            /*
-            <div key={item.id} className='products__box'>
-                <NavLink to={`product/${item.id}`}>
-                    <img className='products__img' src={process.env.REACT_APP_API_URL + item.img} alt={item.name} />
-                </NavLink>
-                <div className='block__body'>
-                    <div className='products__name'>{item.name}</div>
-                    <span className='products__price'>{item.price} &#8372;</span>
-                    <div className='block__btn-basket'>
-                        <button className={inBasket ? 'btn__basket selected' : 'btn__basket'} onClick={() => addBasketProduct(item.id)}><RiShoppingBasketFill /></button>
-                    </div>
-                </div>
-            </div >
-       */
         )
     } else {
         return (
@@ -94,23 +67,6 @@ const ProductsItem = ({ item, inBasket, addBasketProduct, addColor, addImg }: an
                     </div>
                 </div>
             </div>
-            /*
-            <div key={item.id} className='products__box'>
-                <NavLink to={`product/${item.id}`}>
-                    <img className='products__img category' src={process.env.REACT_APP_API_URL + item.img} alt={item.name} />
-                </NavLink>
-                <div className='block__body'>
-                    <div className='products__name'>{item.name}</div>
-                    <span className='products__price'>{item.price} &#8372;</span>
-                    <div className='block__btn-basket'>
-                        <button onClick={() => addColor(item.id)} className='btn-add-color'><CgFormatColor /></button>
-                        <button onClick={() => addImg(item.id)} className='btn-add-image'><RiImageAddFill /></button>
-                        <button className='btn-delete-product'><AiTwotoneDelete /></button>
-                        <button className={inBasket ? 'btn__basket selected' : 'btn__basket'} onClick={() => addBasketProduct(item.id)}><RiShoppingBasketFill /></button>
-                    </div>
-                </div>
-            </div >
-        */
         )
     }
 }

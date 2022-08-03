@@ -81,12 +81,12 @@ const Category = () => {
 
     return (
         <div className='container-lg category '>
-            <a className='btn-filters h4' type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+            <a className='btn-filters h4' type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
                 {t('category.btn_a')}
             </a>
-            <div className="offcanvas offcanvas-start" data-bs-backdrop="static" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+            <div className="offcanvas offcanvas-start" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
                 <div className="offcanvas-header">
-                    <h4 className="offcanvas-title" id="staticBackdropLabel">{t('category.title')}</h4>
+                    <h4 className="offcanvas-title" id="offcanvasExampleLabel">{t('category.title')}</h4>
                     <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div className="offcanvas-body">

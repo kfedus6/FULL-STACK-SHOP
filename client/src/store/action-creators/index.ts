@@ -6,7 +6,7 @@ import {
     fetchAddImagesProduct, fetchAddOrderProduct, fetchGetOrderProduct, fetchGetOrders,
     fetchGetOrder, fetchPutOrder, fetchGetOrderProductClient, fetchDeleteBasketProducts,
     fetchGetNewProducts, fetchAddComment, fetchGetComments, fetchDeleteComments, fetchAddProductColor,
-    fetchGetProductColor, fetchGetImageProduct
+    fetchGetProductColor, fetchGetImageProduct, fetchPostCarousel, fetchGetCarousel, fetchDeleteCarousel
 } from "./productAction";
 
 export default {
@@ -41,5 +41,8 @@ export default {
     fetchDeleteComments,
     fetchAddProductColor,
     fetchGetProductColor,
-    fetchGetImageProduct
+    fetchGetImageProduct,
+    fetchPostCarousel,
+    fetchGetCarousel,
+    fetchDeleteCarousel
 };

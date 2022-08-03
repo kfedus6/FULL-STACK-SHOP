@@ -4,7 +4,6 @@ import { useTypedSelector } from '../hook/useTypedSelector';
 import AdminPanel from '../pages/AdminPanel';
 import Authhorization from '../pages/Authhorization';
 import Category from '../pages/Category';
-import Exit from '../pages/Exit';
 import Home from '../pages/Home';
 import NewProduct from '../pages/NewProduct';
 import Orders from '../pages/Orders';

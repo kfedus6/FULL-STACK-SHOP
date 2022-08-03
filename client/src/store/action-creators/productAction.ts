@@ -250,3 +250,30 @@ export const fetchDeleteComments = (id: any) => async (dispatch: Dispatch<Produc
         dispatch({ type: ProductActionTypes.FETCH_ERROR_PRODUCT, payload: err.response.data.message })
     }
 };
+
+export const fetchPostCarousel = (formData: any) => async (dispatch: Dispatch<ProductAction>) => {
+    try {
+        const response = await $host.post('/api/carousel', formData)
+        dispatch({ type: ProductActionTypes.FETCH_POST_CAROUSEL, payload: response.data })
+    } catch (err: any) {
+        dispatch({ type: ProductActionTypes.FETCH_ERROR_PRODUCT, payload: err.response.data.message })
+    }
+};
+
+export const fetchGetCarousel = () => async (dispatch: Dispatch<ProductAction>) => {
+    try {
+        const response = await $host.get('/api/carousel')
+        dispatch({ type: ProductActionTypes.FETCH_GET_CAROUSEL, payload: response.data })
+    } catch (err: any) {
+        dispatch({ type: ProductActionTypes.FETCH_ERROR_PRODUCT, payload: err.response.data.message })
+    }
+};
+
+export const fetchDeleteCarousel = (id: any) => async (dispatch: Dispatch<ProductAction>) => {
+    try {
+        const response = await $host.delete(`/api/carousel/${id}`)
+        dispatch({ type: ProductActionTypes.FETCH_DELETE_CAROUSEL, payload: response.data })
+    } catch (err: any) {
+        dispatch({ type: ProductActionTypes.FETCH_ERROR_PRODUCT, payload: err.response.data.message })
+    }
+};

@@ -82,31 +82,6 @@ const Products = () => {
             />
             <Pagination pagesArray={pagesArray} changePage={changePage} page={page} />
         </div>
-        /*
-        <div className='shop'>
-            <ProductsList
-                addBasketProduct={addBasketProduct}
-                addColor={addColor}
-                addImg={addImg}
-            />
-            <ModalAddColor
-                visibleColor={visibleColor}
-                setVisibleColor={setVisibleColor}
-                color={color}
-                setColor={setColor}
-                createColor={createColor}
-            />
-            <ModalAddImage
-                visibleImg={visibleImg}
-                setImg={setImg}
-                createImg={createImg}
-                colorId={colorId}
-                setColorId={setColorId}
-                productColor={productColor}
-            />
-            <Pagination pagesArray={pagesArray} changePage={changePage} page={page} />
-        </div>
-        */
     )
 };
 

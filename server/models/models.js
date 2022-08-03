@@ -73,6 +73,12 @@ const Comment = sequelize.define('comment', {
     text: { type: DataTypes.STRING }
 })
 
+const CarouselImages = sequelize.define('carouselImages', {
+    id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
+    name: { type: DataTypes.STRING },
+    image: { type: DataTypes.STRING }
+})
+
 User.hasOne(Basket);
 Basket.belongsTo(User);
 
@@ -119,5 +125,6 @@ module.exports = {
     User, Basket, Product, Type, Brand,
     BasketProduct, ProductInfo, BrandType,
     ImagesProductColor, ImagesProduct,
-    OrderProduct, Order, Comment
+    OrderProduct, Order, Comment,
+    CarouselImages
 };

@@ -12,7 +12,7 @@ const NewProductsList = ({ newProducts }: any) => {
                 return (
                     <div key={item.typeId} className='products-new-block'>
                         <div className='products-new-title-btn'>
-                            <h1>{item.typeName}</h1>
+                            <h2>{item.typeName}</h2>
                             <NavLink to={`../category/${item.typeId}`}>
                                 <button>{t('newproduct.button')}</button>
                             </NavLink>

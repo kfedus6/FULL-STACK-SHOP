@@ -10,6 +10,11 @@
         "statistics": "Statistics",
         "exit": "Exit"
     },
+    "home": {
+        "btn_create": "Create",
+        "btn_delete": "Remove",
+        "btn": "Create a picture for the carousel"
+    },
     "products": {
         "title": "Products"
     },
@@ -93,6 +98,11 @@
     },
     "modalAddImg": {
         "title": "Product Image",
+        "btn": "Create"
+    },
+    "modalAddCarouselImg": {
+        "titel": "Carousel From",
+        "input": "Name",
         "btn": "Create"
     }
 }
