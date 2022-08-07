@@ -6,7 +6,8 @@ import ProductsItem from './ProductsItem';
 interface propsProductsList {
     addBasketProduct: (productId: string) => void,
     addColor: (id: string) => void,
-    addImg: (productId: string) => void
+    addImg: (productId: string) => void,
+    setProductId: string | any
 }
 
 interface productsItem {
@@ -16,7 +17,7 @@ interface productsItem {
     img: string
 }
 
-const ProductsList: React.FC<propsProductsList> = ({ addBasketProduct, addColor, addImg }) => {
+const ProductsList: React.FC<propsProductsList> = ({ addBasketProduct, addColor, addImg, setProductId }) => {
     const { t } = useTranslation()
 
     const { products, basket }: any = useTypedSelector(state => state.products)
@@ -35,6 +36,7 @@ const ProductsList: React.FC<propsProductsList> = ({ addBasketProduct, addColor,
                             addBasketProduct={addBasketProduct}
                             addColor={addColor}
                             addImg={addImg}
+                            setProductId={setProductId}
                         />
                     )
                 })}

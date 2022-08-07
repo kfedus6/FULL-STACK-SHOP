@@ -62,7 +62,7 @@ const Product = () => {
                         </section>
                         <section>
                             <div>
-                                <h2>{product.name}</h2>
+                                <h3>{product.name}</h3>
                                 <span>{product.price} &#8372;</span>
                                 <div className='items-color'>
                                     {productColor.map((c: any) => {
@@ -91,31 +91,31 @@ const Product = () => {
                                 <div className='btn-add-basket'>
                                     <button onClick={sendBasket}>Add to cart</button>
                                 </div>
+                                <div className='comments'>
+                                    <h2>Comments</h2>
+                                    <div className='comments-add'>
+                                        <input type="text" placeholder='Comment' value={text} onChange={(e) => setText(e.target.value)} />
+                                        <button onClick={addComment}>create</button>
+                                    </div>
+                                    <div className='comment-items'>
+                                        {comments.map((comment: any) => {
+                                            let date = comment.updatedAt.split('-')
+                                            let dateDay = date[2]
+                                            dateDay = dateDay.slice(0, 2)
+                                            return (
+                                                <div className='comment-body' key={comment.id}>
+                                                    <span>{dateDay}.{date[1]}.{date[0]}</span>
+                                                    <button className='comment-delete' onClick={() => deleteComment(comment.id)} ><ImCross /></button>
+                                                    <p>{comment.text}</p>
+                                                </div>
+                                            )
+                                        })}
+                                    </div>
+                                </div>
                             </div>
                         </section>
                     </div>
                 </div >
-                <div className='comments'>
-                    <h1>Comments</h1>
-                    <div className='comments-add'>
-                        <input type="text" placeholder='Comment' value={text} onChange={(e) => setText(e.target.value)} />
-                        <button onClick={addComment}>create</button>
-                    </div>
-                    <div className='comment-items'>
-                        {comments.map((comment: any) => {
-                            let date = comment.updatedAt.split('-')
-                            let dateDay = date[2]
-                            dateDay = dateDay.slice(0, 2)
-                            return (
-                                <div className='comment-body' key={comment.id}>
-                                    <span>{dateDay}.{date[1]}.{date[0]}</span>
-                                    <button className='comment-delete' onClick={() => deleteComment(comment.id)} ><ImCross /></button>
-                                    <p>{comment.text}</p>
-                                </div>
-                            )
-                        })}
-                    </div>
-                </div>
             </div >
         )
     } else {
@@ -136,7 +136,7 @@ const Product = () => {
                         </section>
                         <section>
                             <div>
-                                <h2>{product.name}</h2>
+                                <h3>{product.name}</h3>
                                 <span>{product.price} &#8372;</span>
                                 <div className='items-color'>
                                     {productColor.map((c: any) => {
@@ -165,54 +165,54 @@ const Product = () => {
                                 <div className='btn-add-basket'>
                                     <button>Add to cart</button>
                                 </div>
+                                {user.is_login === true
+                                    ?
+                                    <div className='comments'>
+                                        <h2>Comments</h2>
+                                        <div className='comments-add'>
+                                            <input type="text" placeholder='Comment' value={text} onChange={(e) => setText(e.target.value)} />
+                                            <button onClick={addComment}>create</button>
+                                        </div>
+                                        <div className='comment-items'>
+                                            {comments.map((comment: any) => {
+                                                let date = comment.updatedAt.split('-')
+                                                let dateDay = date[2]
+                                                dateDay = dateDay.slice(0, 2)
+                                                return (
+                                                    <div className='comment-body' key={comment.id}>
+                                                        <span>{dateDay}.{date[1]}.{date[0]}</span>
+                                                        <p>{comment.text}</p>
+                                                    </div>
+                                                )
+                                            })}
+                                        </div>
+                                    </div>
+                                    :
+                                    <div className='comments'>
+                                        <h2>Comments</h2>
+                                        <div className='comments-add'>
+                                            <input type="text" placeholder='Comment' value={text} onChange={(e) => setText(e.target.value)} />
+                                            <button onClick={() => navigate('/authorization')}>create</button>
+                                        </div>
+                                        <div className='comment-items'>
+                                            {comments.map((comment: any) => {
+                                                let date = comment.updatedAt.split('-')
+                                                let dateDay = date[2]
+                                                dateDay = dateDay.slice(0, 2)
+                                                return (
+                                                    <div className='comment-body' key={comment.id} >
+                                                        <span>{dateDay}.{date[1]}.{date[0]}</span>
+                                                        <p>{comment.text}</p>
+                                                    </div>
+                                                )
+                                            })}
+                                        </div>
+                                    </div>
+                                }
                             </div>
                         </section>
                     </div>
                 </div>
-                {user.is_login === true
-                    ?
-                    <div className='comments'>
-                        <h1>Comments</h1>
-                        <div className='comments-add'>
-                            <input type="text" placeholder='Comment' value={text} onChange={(e) => setText(e.target.value)} />
-                            <button onClick={addComment}>create</button>
-                        </div>
-                        <div className='comment-items'>
-                            {comments.map((comment: any) => {
-                                let date = comment.updatedAt.split('-')
-                                let dateDay = date[2]
-                                dateDay = dateDay.slice(0, 2)
-                                return (
-                                    <div className='comment-body' key={comment.id}>
-                                        <span>{dateDay}.{date[1]}.{date[0]}</span>
-                                        <p>{comment.text}</p>
-                                    </div>
-                                )
-                            })}
-                        </div>
-                    </div>
-                    :
-                    <div className='comments'>
-                        <h1>Comments</h1>
-                        <div className='comments-add'>
-                            <input type="text" placeholder='Comment' value={text} onChange={(e) => setText(e.target.value)} />
-                            <button onClick={() => navigate('/authorization')}>create</button>
-                        </div>
-                        <div className='comment-items'>
-                            {comments.map((comment: any) => {
-                                let date = comment.updatedAt.split('-')
-                                let dateDay = date[2]
-                                dateDay = dateDay.slice(0, 2)
-                                return (
-                                    <div className='comment-body' key={comment.id} >
-                                        <span>{dateDay}.{date[1]}.{date[0]}</span>
-                                        <p>{comment.text}</p>
-                                    </div>
-                                )
-                            })}
-                        </div>
-                    </div>
-                }
             </div >
         )
     }

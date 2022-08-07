@@ -5,7 +5,7 @@ import { CgFormatColor } from 'react-icons/cg'
 import { AiTwotoneDelete } from 'react-icons/ai'
 import { useTypedSelector } from '../hook/useTypedSelector'
 
-const ProductsItem = ({ item, inBasket, addBasketProduct, addColor, addImg }: any) => {
+const ProductsItem = ({ item, inBasket, addBasketProduct, addColor, addImg, setProductId }: any) => {
 
     const { is_admin, is_login }: any = useTypedSelector(state => state.user)
 
@@ -34,8 +34,10 @@ const ProductsItem = ({ item, inBasket, addBasketProduct, addColor, addImg }: an
                         <h6 className="card-title">{item.name}</h6>
                         <div className='d-flex justify-content-between aling-items-center'>
                             <p className="card-text">{item.price} &#8372;</p>
-                            <button className={inBasket ? 'btn__basket selected' : 'btn__basket'}
-                                onClick={() => addBasketProduct(item.id)}><RiShoppingBasketFill />
+                            <button
+                                className={inBasket ? 'btn__basket selected' : 'btn__basket'}
+                                onClick={() => addBasketProduct(item.id)}>
+                                <RiShoppingBasketFill />
                             </button>
                         </div>
                     </div>
@@ -56,11 +58,34 @@ const ProductsItem = ({ item, inBasket, addBasketProduct, addColor, addImg }: an
                                 <p className="card-text">{item.price} &#8372;</p>
                             </div>
                             <div>
-                                <button onClick={() => addColor(item.id)} className='btn-add-color' type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"><CgFormatColor /></button>
-                                <button onClick={() => addImg(item.id)} className='btn-add-image' type="button" data-bs-toggle="modal" data-bs-target="#exampleModalImg" ><RiImageAddFill /></button>
-                                <button className='btn-delete-product'><AiTwotoneDelete /></button>
-                                <button className={inBasket ? 'btn__basket selected' : 'btn__basket'}
-                                    onClick={() => addBasketProduct(item.id)}><RiShoppingBasketFill />
+                                <button
+                                    type="button"
+                                    className='btn-add-color'
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal"
+                                    onClick={() => addColor(item.id)}>
+                                    <CgFormatColor />
+                                </button>
+                                <button
+                                    type="button"
+                                    className='btn-add-image'
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#exampleModalImg"
+                                    onClick={() => addImg(item.id)}>
+                                    <RiImageAddFill />
+                                </button>
+                                <button
+                                    type="button"
+                                    className='btn-delete-product'
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#exampleModalDelete"
+                                    onClick={() => setProductId(item.id)}>
+                                    <AiTwotoneDelete />
+                                </button>
+                                <button
+                                    className={inBasket ? 'btn__basket selected' : 'btn__basket'}
+                                    onClick={() => addBasketProduct(item.id)}>
+                                    <RiShoppingBasketFill />
                                 </button>
                             </div>
                         </div>

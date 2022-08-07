@@ -29,6 +29,9 @@ export const productReducer = (state = initialState, action: ProductAction) => {
         case ProductActionTypes.FETCH_ADD_PRODUCT: {
             return { ...state, products: { ...state.products, produtcs: action.payload } }
         }
+        case ProductActionTypes.FETCH_DELETE_PRODUCT: {
+            return { ...state, products: action.payload }
+        }
         case ProductActionTypes.FETCH_BRANDS: {
             return { ...state, brands: action.payload }
         }

@@ -101,8 +101,14 @@
         "btn": "Create"
     },
     "modalAddCarouselImg": {
-        "titel": "Carousel From",
+        "titel": "Carousel Form",
         "input": "Name",
         "btn": "Create"
+    },
+    "modalDelete": {
+        "title": "Massega",
+        "text": "You definitely want to delete",
+        "btn_yes": "Yes",
+        "btn_no": "No"
     }
 }

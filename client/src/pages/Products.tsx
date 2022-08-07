@@ -8,6 +8,7 @@ import ModalAddImage from '../components/UI/modalAddImage/ModalAddImage';
 import ModalAddColor from '../components/UI/modalAddColor/ModalAddColor';
 
 import '../styles/products.css';
+import ModalDelete from '../components/UI/modalDelete/ModalDelete';
 
 const Products = () => {
     const [productId, setProductId] = useState('')
@@ -18,7 +19,7 @@ const Products = () => {
     const [page, setPage]: number | any = useState()
 
     const { products, productColor }: any = useTypedSelector(state => state.products)
-    const { fetchProducts, fetchAddBasketProduct, fetchAddProductColor, fetchAddImagesProduct, fetchGetProductColor } = useAction()
+    const { fetchProducts, fetchAddBasketProduct, fetchAddProductColor, fetchAddImagesProduct, fetchGetProductColor, fetchDeleteProduct } = useAction()
 
     useEffect(() => {
         fetchProducts({ page: page });
@@ -61,12 +62,17 @@ const Products = () => {
         fetchAddImagesProduct(formData)
     }
 
+    const deleteSomething = () => {
+        fetchDeleteProduct(productId)
+    }
+
     return (
         <div className='container-lg shop-products'>
             <ProductsList
                 addBasketProduct={addBasketProduct}
                 addColor={addColor}
                 addImg={addImg}
+                setProductId={setProductId}
             />
             <ModalAddColor
                 color={color}
@@ -79,6 +85,9 @@ const Products = () => {
                 colorId={colorId}
                 setColorId={setColorId}
                 productColor={productColor}
+            />
+            <ModalDelete
+                deleteSomething={deleteSomething}
             />
             <Pagination pagesArray={pagesArray} changePage={changePage} page={page} />
         </div>

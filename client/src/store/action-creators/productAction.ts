@@ -15,6 +15,15 @@ export const fetchProducts = (data = {}) => async (dispatch: Dispatch<ProductAct
     }
 };
 
+export const fetchDeleteProduct = (id: any) => async (dispatch: Dispatch<ProductAction>) => {
+    try {
+        const response = await $authHost.delete(`/api/product/${id}`)
+        dispatch({ type: ProductActionTypes.FETCH_DELETE_PRODUCT, payload: response.data })
+    } catch (err: any) {
+        dispatch({ type: ProductActionTypes.FETCH_ERROR_PRODUCT, payload: err.response.data.message })
+    }
+};
+
 export const fetchBrands = () => async (dispatch: Dispatch<ProductAction>) => {
     try {
         const response = await $host.get('/api/brand/')

@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { AiTwotoneDelete } from 'react-icons/ai';
 import { RiImageAddFill } from 'react-icons/ri';
 import ModalAddCarouselImg from '../components/UI/modalAddCarouselImg/ModalAddCarouselImg';
+import ModalDelete from '../components/UI/modalDelete/ModalDelete';
 import { useAction } from '../hook/useAction';
 import { useTypedSelector } from '../hook/useTypedSelector';
 
@@ -11,6 +12,7 @@ const Home = () => {
 
     const [name, setName] = useState('')
     const [img, setImg] = useState('')
+    const [imgCarouselId, setImgCarouselId] = useState('')
 
     const { fetchPostCarousel, fetchGetCarousel, fetchDeleteCarousel } = useAction()
 
@@ -29,8 +31,8 @@ const Home = () => {
         fetchPostCarousel(formData)
     }
 
-    const deleteImage = (id: any) => {
-        fetchDeleteCarousel(id)
+    const deleteSomething = () => {
+        fetchDeleteCarousel(imgCarouselId)
     }
 
     if (is_admin === false) {
@@ -107,7 +109,9 @@ const Home = () => {
                                             <button
                                                 type="button"
                                                 className="btn btn-dark btn-sm"
-                                                onClick={() => deleteImage(item.id)}>
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#exampleModalDelete"
+                                                onClick={() => setImgCarouselId(item.id)}>
                                                 {t('home.btn_delete')}
                                             </button>
                                         </div>
@@ -130,6 +134,9 @@ const Home = () => {
                     setName={setName}
                     setImg={setImg}
                     addImageCarousel={addImageCarousel}
+                />
+                <ModalDelete
+                    deleteSomething={deleteSomething}
                 />
             </div>
         )
