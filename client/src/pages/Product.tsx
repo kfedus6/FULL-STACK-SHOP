@@ -21,10 +21,13 @@ const Product = () => {
 
     useEffect(() => {
         fetchProduct(id)
-        fetchGetComments(id)
         fetchGetProductColor(id)
         fetchGetImageProduct(id)
     }, [])
+
+    useEffect(() => {
+        fetchGetComments(id)
+    }, [comments])
 
     const addComment = () => {
         fetchAddComment(id, text)

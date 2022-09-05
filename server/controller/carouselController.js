@@ -21,8 +21,8 @@ class CarouselController {
 
     async deleteCarousel(req, res) {
         const { id } = req.params
-        const carouselDestroy = await CarouselImages.destroy({ where: { id } })
-        const carousel = await CarouselImages.findAll()
+        const carousel = await CarouselImages.findOne({ where: { id } })
+        await CarouselImages.destroy({ where: { id } })
         return res.json(carousel)
     }
 }

@@ -21,8 +21,8 @@ class CommentController {
     async deleteComment(req, res) {
         const { id } = req.params
 
-        const destroyComment = await Comment.destroy({ where: { id } })
-        const comment = await Comment.findAll()
+        const comment = await Comment.findOne({ where: { id } })
+        await Comment.destroy({ where: { id } })
 
         return res.json(comment)
     }

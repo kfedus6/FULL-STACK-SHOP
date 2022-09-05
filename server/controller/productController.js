@@ -68,9 +68,9 @@ class ProductController {
 
     async deleteProduct(req, res) {
         const { id } = req.params
-        const DeleteProduct = await Product.destroy({ where: { id } })
-        const products = await Product.findAll()
-        return res.json(products)
+        const product = Product.findOne({ where: { id } })
+        await Product.destroy({ where: { id } })
+        return res.json(product)
     }
 };
 

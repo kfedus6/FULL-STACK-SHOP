@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useTypedSelector } from '../hook/useTypedSelector';
 import ProductsItem from './ProductsItem';
@@ -7,7 +7,7 @@ interface propsProductsList {
     addBasketProduct: (productId: string) => void,
     addColor: (id: string) => void,
     addImg: (productId: string) => void,
-    setProductId: string | any
+    setProductId: string | any,
 }
 
 interface productsItem {

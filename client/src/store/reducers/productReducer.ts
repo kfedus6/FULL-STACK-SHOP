@@ -30,7 +30,11 @@ export const productReducer = (state = initialState, action: ProductAction) => {
             return { ...state, products: { ...state.products, produtcs: action.payload } }
         }
         case ProductActionTypes.FETCH_DELETE_PRODUCT: {
-            return { ...state, products: action.payload }
+            if (Array.isArray(state.products.rows)) {
+                return { ...state, products: { count: state.products.count, rows: state.products.rows.filter((p: any) => p.id !== action.payload) } }
+            } else {
+                return state
+            }
         }
         case ProductActionTypes.FETCH_BRANDS: {
             return { ...state, brands: action.payload }
@@ -102,7 +106,7 @@ export const productReducer = (state = initialState, action: ProductAction) => {
             return { ...state, comments: action.payload }
         }
         case ProductActionTypes.FETCH_DELETE_COMMENT: {
-            return { ...state, comments: action.payload }
+            return { ...state, comments: state.comments.filter((c: any) => c.id !== action.payload) }
         }
         case ProductActionTypes.FETCH_POST_CAROUSEL: {
             return { ...state, carouselmages: [...state.carouselImages, action.payload] }
@@ -111,7 +115,7 @@ export const productReducer = (state = initialState, action: ProductAction) => {
             return { ...state, carouselImages: action.payload }
         }
         case ProductActionTypes.FETCH_DELETE_CAROUSEL: {
-            return { ...state, carouselImages: action.payload }
+            return { ...state, carouselImages: state.carouselImages.filter((i: any) => i.id !== action.payload) }
         }
         default: {
             return state
