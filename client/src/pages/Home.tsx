@@ -38,7 +38,7 @@ const Home = () => {
     if (is_admin === false) {
         return (
             <div className='container-lg d-flex justify-content-center aling-items-center content-home' >
-                <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel">
+                <div id="carouselExampleFade" className="carousel slide carousel-fade container-lg" data-bs-ride="carousel">
                     <div className="carousel-inner">
                         {carouselImages.map((item: any) => {
                             return (
@@ -89,7 +89,7 @@ const Home = () => {
                         />
                     </div>
                     :
-                    <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel">
+                    <div id="carouselExampleFade" className="carousel slide carousel-fade container-lg" data-bs-ride="carousel">
                         <div className="carousel-inner">
                             {carouselImages.map((item: any) => {
                                 return (

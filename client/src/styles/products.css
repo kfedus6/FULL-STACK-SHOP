@@ -5,6 +5,8 @@
 
 .products-cards {
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
 }
 
@@ -126,6 +128,8 @@
 .page__wrapper{
     margin-top: 30px;
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .page__wrapper a {

@@ -14,4 +14,8 @@ footer div {
     height: 60px;
     background-color: black;
     color: #fff;
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
+

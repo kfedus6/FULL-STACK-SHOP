@@ -21,9 +21,9 @@ body{
 }
 
 .btn-group-carousel {
-    position: absolute;
-    left: 480px;
-    bottom: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .btn-create-carousel {
@@ -38,6 +38,8 @@ body{
 
 .carousel-size {
     width: 1140px;
-    height: 450px;
 }
 
+.carousel-item img {
+    width: 100%;
+}

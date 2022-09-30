@@ -61,18 +61,18 @@ const Header = () => {
                                 <NavLink className="nav-link" to="/newProduct">{t('header.news')}</NavLink>
                             </li>
                         </ul>
-                    </div>
-                    <div className='col-sm-2 col-md-1 col-lg-1'>
-                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li className='nav-item'>
-                                <NavLink className='nav-link fs-5' to="/authorization"><FaUser /></NavLink>
-                            </li>
-                            <select className='option-lang' onChange={(event) => changeLanguage(event)}>
-                                <option className='option' hidden>{language()}</option>
-                                <option className='option' value='EN'>EN</option>
-                                <option className='option' value='UA'>UA</option>
-                            </select>
-                        </ul>
+                        <div className='col-sm-2 col-md-1 col-lg-1'>
+                            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li className='nav-item'>
+                                    <NavLink className='nav-link fs-5' to="/authorization"><FaUser /></NavLink>
+                                </li>
+                                <select className='option-lang' onChange={(event) => changeLanguage(event)}>
+                                    <option className='option' hidden>{language()}</option>
+                                    <option className='option' value='EN'>EN</option>
+                                    <option className='option' value='UA'>UA</option>
+                                </select>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </nav>
@@ -103,18 +103,18 @@ const Header = () => {
                                 <a className='nav-link' href='#' onClick={exit}>{t('header.exit')}</a>
                             </li>
                         </ul>
-                    </div>
-                    <div className='col-sm-2 col-md-1 col-lg-1'>
-                        <ul className="navbar-nav me-auto mb-2 mb-lg-0 justify-content-around">
-                            <li className='nav-item'>
-                                <NavLink className='nav-link fs-4 link-dark' to="/basketProduct"><AiOutlineShopping /><i><span className='fs-6'>{basket.length}</span></i></NavLink>
-                            </li>
-                            <select className='option-lang' onChange={(event) => changeLanguage(event)}>
-                                <option className='option' hidden>{language()}</option>
-                                <option className='option' value='EN'>EN</option>
-                                <option className='option' value='UA'>UA</option>
-                            </select>
-                        </ul>
+                        <div className='col-sm-2 col-md-1 col-lg-1'>
+                            <ul className="navbar-nav me-auto mb-2 mb-lg-0 justify-content-around">
+                                <li className='nav-item'>
+                                    <NavLink className='nav-link fs-4 link-dark' to="/basketProduct"><AiOutlineShopping /><i><span className='fs-6'>{basket.length}</span></i></NavLink>
+                                </li>
+                                <select className='option-lang' onChange={(event) => changeLanguage(event)}>
+                                    <option className='option' hidden>{language()}</option>
+                                    <option className='option' value='EN'>EN</option>
+                                    <option className='option' value='UA'>UA</option>
+                                </select>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </nav>
@@ -155,18 +155,18 @@ const Header = () => {
                                 <a className='nav-link' href='#' onClick={exit}>{t('header.exit')}</a>
                             </li>
                         </ul>
-                    </div>
-                    <div className='col-sm-2 col-md-1 col-lg-1'>
-                        <ul className="navbar-nav me-auto mb-2 mb-lg-0 justify-content-between">
-                            <li className='nav-item'>
-                                <NavLink className='nav-link fs-4 link-dark' to="/basketProduct"><AiOutlineShopping /><i><span className='fs-6'>{basket.length}</span></i></NavLink>
-                            </li>
-                            <select className='option-lang' onChange={(event) => changeLanguage(event)}>
-                                <option className='option' hidden>{language()}</option>
-                                <option className='option' value='EN'>EN</option>
-                                <option className='option' value='UA'>UA</option>
-                            </select>
-                        </ul>
+                        <div className='col-sm-2 col-md-1 col-lg-1'>
+                            <ul className="navbar-nav me-auto mb-2 mb-lg-0 justify-content-between">
+                                <li className='nav-item'>
+                                    <NavLink className='nav-link cart' to="/basketProduct"><AiOutlineShopping /><i><span>{basket.length}</span></i></NavLink>
+                                </li>
+                                <select className='option-lang' onChange={(event) => changeLanguage(event)}>
+                                    <option className='option' hidden>{language()}</option>
+                                    <option className='option' value='EN'>EN</option>
+                                    <option className='option' value='UA'>UA</option>
+                                </select>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </nav>

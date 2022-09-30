@@ -11,7 +11,7 @@ const ProductsItem = ({ item, inBasket, addBasketProduct, addColor, addImg, setP
 
     if (is_login === false && is_admin === false) {
         return (
-            <div className="col-xl-3 col-md-4 col-sm-6 col-10 p-1">
+            <div className="col-xl-3 col-md-4 col-sm-6 col-10 p-1 pb-3">
                 <div className="card h-100">
                     <NavLink to={`product/${item.id}`}>
                         <img className="card-img-top" src={process.env.REACT_APP_API_URL + item.img} alt={item.name} />
@@ -25,7 +25,7 @@ const ProductsItem = ({ item, inBasket, addBasketProduct, addColor, addImg, setP
         )
     } else if (is_login === true && is_admin === false) {
         return (
-            <div className="col-xl-3 col-md-4 col-sm-6 col-10 p-1">
+            <div className="col-xl-3 col-md-4 col-sm-6 col-10 p-1 pb-3">
                 <div className="card h-100">
                     <NavLink to={`product/${item.id}`}>
                         <img className="card-img-top" src={process.env.REACT_APP_API_URL + item.img} alt={item.name} />
@@ -46,7 +46,7 @@ const ProductsItem = ({ item, inBasket, addBasketProduct, addColor, addImg, setP
         )
     } else {
         return (
-            <div className="col-xl-3 col-md-4 col-sm-5 col-9 p-1">
+            <div className="col-xl-3 col-md-4 col-sm-5 col-9 p-1 pb-3">
                 <div className="card h-100">
                     <NavLink to={`product/${item.id}`}>
                         <img className="card-img-top" src={process.env.REACT_APP_API_URL + item.img} alt={item.name} />
