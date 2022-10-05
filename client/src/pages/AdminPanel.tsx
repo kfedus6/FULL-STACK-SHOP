@@ -69,7 +69,7 @@ const AdminPanel = () => {
     }
 
     return (
-        <section className='section-admin'>
+        <section className='section-admin container-lg'>
             <div className='section-product'>
                 <div className='title__product'>
                     <span>{t('adminpanel.title_product')}</span>
@@ -124,7 +124,7 @@ const AdminPanel = () => {
                     </div>
                 </div>
             </div >
-            <section className='section-brand-type'>
+            <div className='section-brand-type'>
                 <div className='title-brand-type'>
                     <span>
                         {t('adminpanel.option_brands')}
@@ -136,8 +136,8 @@ const AdminPanel = () => {
                         <button onClick={addBrand}>{t('adminpanel.btn_create')}</button>
                     </div>
                 </div>
-            </section>
-            <section className='section-brand-type'>
+            </div>
+            <div className='section-brand-type'>
                 <div className='title-brand-type'>
                     <span>
                         {t('adminpanel.option_type')}
@@ -149,7 +149,7 @@ const AdminPanel = () => {
                         <button onClick={addType}>{t('adminpanel.btn_create')}</button>
                     </div>
                 </div>
-            </section>
+            </div>
             <ModalError error={error} fetchError={fetchError} t={t} />
         </section >
     );

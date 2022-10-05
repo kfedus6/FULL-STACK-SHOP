@@ -1,6 +1,7 @@
 .section-admin {
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    justify-content: space-between;
     margin-top: 100px;
 }
 
@@ -160,4 +161,15 @@
     display: flex;
     justify-content: center;
     font-size: 17px;
+}
+
+@media (max-width:860px) {
+    .section-admin {
+        display: flex;
+        justify-content: center;
+    }
+
+    .section-admin div {
+        margin-bottom: 20px;
+    }
 }

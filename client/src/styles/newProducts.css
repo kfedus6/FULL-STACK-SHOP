@@ -1,9 +1,4 @@
 .product-new-container {
-    display: grid;
-    justify-content: center;
-    max-width: 1150px;
-    margin: auto;
-    width: 100%;
     padding: 3rem 0 3rem;
     margin-top: 5rem;
 }
@@ -16,7 +11,7 @@
 
 .products-new-title-btn button {
     background: transparent;
-    border:none;
+    border: none;
     font-size: 17px;
     cursor: pointer;
 }
@@ -32,10 +27,11 @@
 
 .products-new-items {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .product-new-item {
-    width: 290px;
+    width: 279px;
 }
 
 .prodcut-new-body {

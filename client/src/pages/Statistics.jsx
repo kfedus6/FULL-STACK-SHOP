@@ -14,7 +14,7 @@ const Statistics = () => {
     }, [])
 
     return (
-        <div className='statistics-shop'>
+        <div className='statistics-shop conatainer-lg'>
             <div>
                 <h1>Shop</h1>
                 <AnyChart type='column' data={orderProduct} title="" />

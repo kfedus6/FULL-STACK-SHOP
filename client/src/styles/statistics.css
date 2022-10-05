@@ -2,10 +2,11 @@
     margin-top: 100px;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .statistics-shop div {
-    width: 90%;
+    width: 98%;
     height: auto;
 }
 

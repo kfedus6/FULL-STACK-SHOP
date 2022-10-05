@@ -161,3 +161,21 @@
     border: 2px solid black;
     border-radius: 5px;
 }
+
+@media (max-width:1200px) {
+    .product-items {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width:920px) {
+    .grid-product {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .grid-product section {
+        margin-bottom: 10px;
+    }
+}

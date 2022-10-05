@@ -5,14 +5,14 @@ import ModalOrders from './UI/modalOrders/ModalOrders'
 const OrdersList = ({ t, products, checked, setChecked, orders, setSearchOrders }: any) => {
 
     return (
-        <div className='orders'>
+        <div className='orders container-lg'>
             <div>
                 <h2 className='orders-title'>{t('orders.title')}</h2>
+            </div>
+            <div className='orders-client-container'>
                 <div className='orders-search'>
                     <input type="search" placeholder={t('orders.search') + '...'} onChange={(e) => setSearchOrders(e.target.value)} />
                 </div>
-            </div>
-            <div className='orders-client-container'>
                 <div className='orders-items'>
                     {products.orders.map((item: any) => {
                         let date = item.updatedAt.split('-')

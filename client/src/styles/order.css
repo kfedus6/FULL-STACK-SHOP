@@ -1,6 +1,16 @@
 .orders {
     padding: 2rem 2rem;
     margin-top: 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.orders-client-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .orders-title {
@@ -14,11 +24,11 @@
 }
 
 .orders-search {
-    margin-left: 215px;
+    margin-bottom: 10px;
 }
 
 .orders-search input {
-    width: 250px;
+    width: 40%;
     height: 35px;
     padding: 5px 10px;
     font-size: 16px;
@@ -214,4 +224,15 @@
 
 .order-product-item {
     margin-bottom: 1rem;
+}
+
+@media (max-width:720px) {
+    .order-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .order-products-box {
+        margin-top: 20px;
+    }
 }

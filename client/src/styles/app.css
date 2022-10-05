@@ -38,8 +38,12 @@ body{
 
 .carousel-size {
     width: 1140px;
+    height: 440px;
 }
 
-.carousel-item img {
-    width: 100%;
+@media (max-width:1200px) {
+    .carousel-item img {
+        width: 100%;
+        height: auto;
+    }
 }
