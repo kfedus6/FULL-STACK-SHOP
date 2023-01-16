@@ -5,7 +5,7 @@
   <img src="/README/logo.png" alt="Logo" width="200px"/>
    
   <h1 align="center">This is my first React project.</h1>
-  <h2><p><strong>"SHOP"</strong>.</p></h2>
+  <p style="font-size: 22px" ><strong>SHOP</strong></p>
 </div>
 
 ---
