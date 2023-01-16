@@ -4,11 +4,8 @@
    
   <img src="/README/logo.png" alt="Logo" width="200px"/>
    
-  <h1 align="center">This is my React project.</h1>
-  <p>If you have memory problems like me, you can write down your task on my website <strong>"DILA"</strong>.</p>
+  <h1 align="center">This is my React project SHOP.</h1>
 </div>
-
----
 
 <h2 align="start">Website information</h2>
 
