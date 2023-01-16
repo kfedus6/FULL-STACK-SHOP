@@ -4,8 +4,11 @@
    
   <img src="/README/logo.png" alt="Logo" width="200px"/>
    
-  <h1 align="center">This is my React project SHOP.</h1>
+  <h1 align="center">This is my React project.</h1>
+  <h2><p><strong>"SHOP"</strong>.</p></h2>
 </div>
+
+---
 
 <h2 align="start">Website information</h2>
 
