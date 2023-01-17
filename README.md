@@ -21,7 +21,7 @@
 <p style="font-size: 25px;"><strong>- Home</strong><span style="font-size: 20px;"> is the first page you see</span></p>
 
 <p align="center">
-  <img src="/README/home.png" alt="Logo" width="800px" height="400px"/>
+  <img src="/README/home.png" alt="Home" width="800px" height="400px"/>
 </p>
 
 ---
@@ -29,8 +29,8 @@
 <p style="font-size: 25px;"><strong>- Sign Up/Log In</strong> Pages</p>
 
 <div  style="display:flex;justify-content: space-around;align-items: center">
-  <img src="/README/login.png" alt="Logo" width="300px"/>
-  <img src="/README/sign.png" alt="Logo" width="300px"/>
+  <img src="/README/login.png" alt="Login" width="300px"/>
+  <img src="/README/sign.png" alt="Sign up" width="300px"/>
 </div>
 
 ---
