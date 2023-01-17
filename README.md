@@ -12,7 +12,7 @@
 
 <h2 align="start">Website information</h2>
 
-> **_About Project_** : When I created this website, it was my first experience with React, TypeScript, Node.js, OSPanel phpMyAdmin MySQL and more.I have used the latest version of React to get acquainted with React Hooks, Lifecycle, Component etc.
+> **_About Project_** : When I created this website, it was my first experience with React, Redux, TypeScript, Node.js, OSPanel phpMyAdmin MySQL and more.I have used the latest version of React to get acquainted with React Hooks, Lifecycle, Component etc.
 
 > **_What I used to create this project_** : What I used to create this project : React, TypeScript, JavaScript, CSS, Bootstrap, Node.js, Redux, Middleware, React Router DOM, i18next, axios, bcryptjs, CORS for React
 
@@ -29,8 +29,8 @@
 <p style="font-size: 25px;"><strong>- Sign Up/Log In</strong> Pages</p>
 
 <div  style="display:flex;justify-content: space-around;align-items: center">
-  <img src="/README/logo.png" alt="Logo" width="300px"/>
-  <img src="/README/logo.png" alt="Logo" width="300px"/>
+  <img src="/README/login.png" alt="Logo" width="300px"/>
+  <img src="/README/sign.png" alt="Logo" width="300px"/>
 </div>
 
 ---
