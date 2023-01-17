@@ -38,9 +38,9 @@
 <p style="font-size: 25px;"><strong>- After Authorization </strong></p>
 
 <ul> 
-  <li><h6><em>We see that the user can't go to some pages before authorization, but after authorization the user icon changes and the user can go to another page.</em></h6></li>
+  <li><h6><em>We can see that the user cannot write comments and add the product to the cart before authorization, but after authorization, the user icon changes to the cart, and the user can write comments and buy the product.</em></h6></li>
   <p align="center">
-    <img src="/README/logo.png" alt="Logo" width="700px" height="400px"/>
+    <img src="/README/after_OwpsnwR6.gif" alt="Logo" width="700px" height="400px"/>
   </p>
 </ul>
 

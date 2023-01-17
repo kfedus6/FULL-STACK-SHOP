@@ -106,7 +106,7 @@ const Header = () => {
                         <div className='col-sm-2 col-md-1 col-lg-1 block-basket-lang'>
                             <ul className="navbar-nav me-auto mb-2 mb-lg-0 justify-content-around">
                                 <li className='nav-item'>
-                                    <NavLink className='nav-link fs-4 link-dark' to="/basketProduct"><AiOutlineShopping /><i><span className='fs-6'>{basket.length}</span></i></NavLink>
+                                    <NavLink className='nav-link cart' to="/basketProduct"><AiOutlineShopping /><i><span>{basket.length}</span></i></NavLink>
                                 </li>
                                 <select className='option-lang' onChange={(event) => changeLanguage(event)}>
                                     <option className='option' hidden>{language()}</option>
