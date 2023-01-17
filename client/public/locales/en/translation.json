@@ -110,5 +110,8 @@
         "text": "You definitely want to delete",
         "btn_yes": "Yes",
         "btn_no": "No"
+    },
+    "footer": {
+        "title": "All rights reserved!"
     }
 }
