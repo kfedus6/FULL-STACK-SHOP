@@ -51,9 +51,9 @@
 > **_Attention_** : <span>- Sorry for some screen recording problems.</span>
 
 <ul> 
-  <li><h6><em>The website is multilingual and it is possible to translate into one of three languages.</em></h6></li>
+  <li><h6><em>The website is multilingual and it is possible to translate into one of two languages.</em></h6></li>
   <p align="center">
-    <img src="/README/logo.png" alt="Logo" width="700px" height="400px"/>
+    <img src="/README/langg.gif" alt="Logo" width="700px" height="400px"/>
   </p>
 </ul>
 
