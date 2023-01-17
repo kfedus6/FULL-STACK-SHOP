@@ -40,7 +40,7 @@
 <ul> 
   <li><h6><em>We can see that the user cannot write comments and add the product to the cart before authorization, but after authorization, the user icon changes to the cart, and the user can write comments and buy the product.</em></h6></li>
   <p align="center">
-    <img src="/README/after_OwpsnwR6.gif" alt="Logo" width="700px" height="400px"/>
+    <img src="/README/after_OwpsnwR6.gif" alt="after" width="700px" height="400px"/>
   </p>
 </ul>
 
@@ -53,25 +53,18 @@
 <ul> 
   <li><h6><em>The website is multilingual and it is possible to translate into one of two languages.</em></h6></li>
   <p align="center">
-    <img src="/README/langg.gif" alt="Logo" width="700px" height="400px"/>
+    <img src="/README/langg.gif" alt="lang" width="700px" height="400px"/>
   </p>
 </ul>
 
 ---
 
-<p style="font-size: 25px;"><strong>- Projects </strong>Page</p>
+<p style="font-size: 25px;"><strong>- Category </strong>Page</p>
 
-<ul> 
-<h5><em>You Can :</em></h5>
-  <li><h6><em>Create Project, Change Title, Change Content or Delete.</em></h6></li>
-    <p align="center">
-      <img src="/README/logo.png" alt="Logo" width="700px" height="400px"/>
-    </p>
-  <li><h6><em>Project Search.</em></h6></li>
-    <p align="center">
-      <img src="/README/logo.png" alt="Logo" width="700px" height="400px"/>
-    </p>
-</ul>
+<h6><em>Pagination and product sorting.</em></h6>
+<p align="center">
+    <img src="/README/paginationSort.gif" alt="pagination and sort" width="700px" height="400px"/>
+</p>
 
 ---
 
