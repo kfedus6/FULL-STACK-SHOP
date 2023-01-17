@@ -21,7 +21,7 @@
 <p style="font-size: 25px;"><strong>- Home</strong><span style="font-size: 20px;"> is the first page you see</span></p>
 
 <p align="center">
-  <img src="/README/home.png" alt="Home" width="800px" height="400px"/>
+  <img src="/README/Home.png" alt="Home" width="800px" height="400px"/>
 </p>
 
 ---
