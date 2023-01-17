@@ -12,16 +12,16 @@
 
 <h2 align="start">Website information</h2>
 
-> **_About Project_** : When I created this website, it was my first experience with React, TypeScript, Node.js, MongoDB and more.I have used the latest version of React to get acquainted with React Hooks, Lifecycle, Component etc.
+> **_About Project_** : When I created this website, it was my first experience with React, TypeScript, Node.js, OSPanel phpMyAdmin MySQL and more.I have used the latest version of React to get acquainted with React Hooks, Lifecycle, Component etc.
 
-> **_What I used to create this project_** : React, TypeScript, SCSS, MobX, Node.js, MongoDB, Mongoose, Eslint, AirBnb, React Router DOM, i18next, React-Toastify, axios, Beautiful DND, React Hook Form, bcryptjs, CORS, Tippy.js for React
+> **_What I used to create this project_** : What I used to create this project : React, TypeScript, JavaScript, CSS, Bootstrap, Node.js, Redux, Middleware, React Router DOM, i18next, axios, bcryptjs, CORS for React
 
 <span>You can ask me <strong>"What Can I do here",</strong> let me show you every page and you will understand, what you can do:</span>
 
 <p style="font-size: 25px;"><strong>- Home</strong><span style="font-size: 20px;"> is the first page you see</span></p>
 
 <p align="center">
-  <img src="/README/logo.png" alt="Logo" width="800px" height="400px"/>
+  <img src="/README/Home.png" alt="Logo" width="800px" height="400px"/>
 </p>
 
 ---
