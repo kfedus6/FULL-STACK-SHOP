@@ -68,14 +68,14 @@
 
 ---
 
-<p style="font-size: 25px;"><strong>- Manage Project </strong></p>
+<p style="font-size: 25px;"><strong>- What can an administrator do? </strong></p>
 
 <ul>
-<h5><em>You Can :</em></h5>
+<h5><em>The administrator can:</em></h5>
   <li><h6><em>Add a picture to the banner and delete it.</em></h6></li>
 
   <p align="center">
-    <img src="/README/Banerr.mp4" alt="Baner" width="700px" height="400px"/>
+    <img src="/README/Baner.gif" alt="Baner" width="700px" height="400px"/>
   </p>
 </ul>
 
