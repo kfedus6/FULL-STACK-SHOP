@@ -80,7 +80,23 @@
 </ul>
 
 <ul>
-  <li><h6><em>Add a picture to the banner and delete it.</em></h6></li>
+  <li><h6><em>Add product type, brand and product, you can also add product color and more pictures, remove product.</em></h6></li>
+
+  <p align="center">
+    <img src="/README/logo.png" alt="Logo" width="700px" height="400px"/>
+  </p>
+</ul>
+
+<ul>
+  <li><h6><em>Find the order, view it and change the status of the order: accept or cancel.</em></h6></li>
+
+  <p align="center">
+    <img src="/README/logo.png" alt="Logo" width="700px" height="400px"/>
+  </p>
+</ul>
+
+<ul>
+  <li><h6><em>View product statistics and find out which product is selling best and which is not.</em></h6></li>
 
   <p align="center">
     <img src="/README/logo.png" alt="Logo" width="700px" height="400px"/>
