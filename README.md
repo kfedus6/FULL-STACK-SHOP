@@ -99,7 +99,7 @@
   <li><h6><em>View product statistics and find out which product is selling best and which is not.</em></h6></li>
 
   <p align="center">
-    <img src="/README/logo.png" alt="Logo" width="700px" height="400px"/>
+    <img src="/README/statistic-page.png" alt="Logo" width="700px" height="400px"/>
   </p>
 </ul>
 
