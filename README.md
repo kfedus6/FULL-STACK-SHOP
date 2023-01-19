@@ -86,7 +86,7 @@
   <li><h6><em>Add a picture to the banner and delete it.</em></h6></li>
 
   <p align="center">
-    <img src="/README/logo.png" alt="Logo" width="700px" height="400px"/>
+    <img src="/README/baner.gif" alt="Baner" width="700px" height="400px"/>
   </p>
 </ul>
 
