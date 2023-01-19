@@ -83,7 +83,7 @@
   <li><h6><em>Add product type, brand and product, you can also add product color and more pictures, remove product.</em></h6></li>
 
   <p align="center">
-    <img src="/README/logo.png" alt="Logo" width="700px" height="400px"/>
+    <img src="/README/AddProduct.gif" alt="Product" width="700px" height="400px"/>
   </p>
 </ul>
 
