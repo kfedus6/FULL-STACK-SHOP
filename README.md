@@ -68,50 +68,22 @@
 
 ---
 
-<p style="font-size: 25px;"><strong>- Dashboards </strong>Page</p>
-
-> **_Attention_** : <span>- When you click "Go to Project", I take the project ID from the URL and download all the information from the server side. Also, when you search for a user to assign, the search is performed through the backend.</span>
+<p style="font-size: 25px;"><strong>- Manage Project </strong></p>
 
 <ul>
 <h5><em>You Can :</em></h5>
-  <li><h6><em>Create Column, Change Column Title, or Delete.</em></h6></li>
+  <li><h6><em>Add a picture to the banner and delete it.</em></h6></li>
 
   <p align="center">
-    <img src="/README/logo.png" alt="Logo" width="700px" height="400px"/>
-  </p>
-  <li><h6><em>Create Task, Change Task, Asignee Someone or Delete.</em></h6></li>
-
-  <p align="center">
-    <img src="/README/logo.png" alt="Logo" width="700px" height="400px"/>
-  </p>
-  <li><h6><em>Drag and Drop, Task Search.</em></h6></li>
-    <p align="center">
-      <img src="/README/logo.png" alt="Logo" width="700px" height="400px"/>
-    </p>
-</ul>
-
----
-
-<p style="font-size: 25px;"><strong>- Manage Project </strong>Page</p>
-
-<ul>
-<h5><em>You Can :</em></h5>
-  <li><h6><em>Find a user and add to the project as: Manager, Developer or QA. Also you can remove from project</em></h6></li>
-
-> **_Attention_** : <span>- If you've added a user as a Developer or QA, that person can't: add, modify, or delete anything, due to lack of rights.</span>
-
-  <p align="center">
-    <img src="/README/logo.png" alt="Logo" width="700px" height="400px"/>
+    <img src="/README/Baner.gif" alt="Baner" width="700px" height="400px"/>
   </p>
 </ul>
 
 ---
 
-<p style="font-size: 25px;"><strong>- People </strong>Page</p>
-
 <ul>
 <h5><em>You Can :</em></h5>
-  <li><h6><em>Look at all users and Copy someone's email.</em></h6></li>
+  <li><h6><em>Add a picture to the banner and delete it.</em></h6></li>
 
   <p align="center">
     <img src="/README/logo.png" alt="Logo" width="700px" height="400px"/>
