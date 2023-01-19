@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next';
 import ModalError from '../components/UI/modalError/ModalError';
 
 import '../styles/adminPanel.css';
+import { off } from 'process';
 
 const AdminPanel = () => {
     const { t } = useTranslation()
@@ -131,7 +132,7 @@ const AdminPanel = () => {
                     </span>
                 </div>
                 <div className='info-brand-type'>
-                    <input type="text" placeholder={t('adminpanel.placeholder_name')} value={brandName} onChange={(e) => setBrandName(e.target.value)} />
+                    <input type="text" autoComplete="off" placeholder={t('adminpanel.placeholder_name')} value={brandName} onChange={(e) => setBrandName(e.target.value)} />
                     <div className='btn-brand-type'>
                         <button onClick={addBrand}>{t('adminpanel.btn_create')}</button>
                     </div>
@@ -144,7 +145,7 @@ const AdminPanel = () => {
                     </span>
                 </div>
                 <div className='info-brand-type'>
-                    <input type="text" placeholder={t('adminpanel.placeholder_name')} value={typeName} onChange={(e) => setTypeName(e.target.value)} />
+                    <input type="text" autoComplete="off" placeholder={t('adminpanel.placeholder_name')} value={typeName} onChange={(e) => setTypeName(e.target.value)} />
                     <div className='btn-brand-type'>
                         <button onClick={addType}>{t('adminpanel.btn_create')}</button>
                     </div>

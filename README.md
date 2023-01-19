@@ -91,7 +91,7 @@
   <li><h6><em>Find the order, view it and change the status of the order: accept or cancel.</em></h6></li>
 
   <p align="center">
-    <img src="/README/logo.png" alt="Logo" width="700px" height="400px"/>
+    <img src="/README/Order.gif" alt="Order" width="700px" height="400px"/>
   </p>
 </ul>
 
@@ -99,7 +99,7 @@
   <li><h6><em>View product statistics and find out which product is selling best and which is not.</em></h6></li>
 
   <p align="center">
-    <img src="/README/statistic-page.png" alt="Logo" width="700px" height="400px"/>
+    <img src="/README/statistic-page.png" alt="Statistic" width="700px" height="400px"/>
   </p>
 </ul>
 
