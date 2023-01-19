@@ -75,7 +75,7 @@
   <li><h6><em>Add a picture to the banner and delete it.</em></h6></li>
 
   <p align="center">
-    <img src="/README/Baner.mp4" alt="Baner" width="700px" height="400px"/>
+    <img src="/README/Banerr.mp4" alt="Baner" width="700px" height="400px"/>
   </p>
 </ul>
 
