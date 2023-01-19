@@ -75,39 +75,16 @@
   <li><h6><em>Add a picture to the banner and delete it.</em></h6></li>
 
   <p align="center">
-    <img src="/README/Baner.gif" alt="Baner" width="700px" height="400px"/>
+    <img src="/README/baner.gif" alt="Baner" width="700px" height="400px"/>
   </p>
 </ul>
 
----
-
 <ul>
-<h5><em>You Can :</em></h5>
   <li><h6><em>Add a picture to the banner and delete it.</em></h6></li>
 
   <p align="center">
-    <img src="/README/Baner.gif" alt="Baner" width="700px" height="400px"/>
+    <img src="/README/logo.png" alt="Logo" width="700px" height="400px"/>
   </p>
-</ul>
-
----
-
-<p style="font-size: 25px;"><strong>- Notification</strong></p>
-
-<ul>
-  <li><h6><em>The task is assigned or removed.</em></h6></li>
-
-<div  style="display:flex;justify-content: space-around;align-items: center">
-  <img src="/README/logo.png" alt="Logo" width="300px"/>
-  <img src="/README/logo.png" alt="Logo" width="300px"/>
-</div>
-  <li><h6><em>Added to the project or removed.</em></h6></li>
-
-<div  style="display:flex;justify-content: space-around;align-items: center">
-  <img src="/README/logo.png" alt="Logo" width="300px"/>
-  <img src="/README/logo.png" alt="Logo" width="300px"/>
-</div>
-
 </ul>
 
 ---
