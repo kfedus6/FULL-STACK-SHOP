@@ -14,7 +14,7 @@
 
 > **_About Project_** : When I created this website, it was my first experience with React, Redux, TypeScript, Node.js, OSPanel phpMyAdmin MySQL and more.I have used the latest version of React to get acquainted with React Hooks, Lifecycle, Component etc.
 
-> **_What I used to create this project_** : What I used to create this project : React, TypeScript, JavaScript, CSS, Bootstrap, Node.js, Redux, Middleware, React Router DOM, i18next, axios, bcryptjs, CORS for React
+> **_What I used to create this project_** : React, TypeScript, JavaScript, CSS, Bootstrap, Node.js, Redux, Middleware, React Router DOM, i18next, axios, bcryptjs, CORS for React
 
 <span>You can ask me <strong>"What Can I do here",</strong> let me show you every page and you will understand, what you can do:</span>
 
